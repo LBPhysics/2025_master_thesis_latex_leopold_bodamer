@@ -7,26 +7,44 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, field
 from typing import Any, Optional
 import matplotlib.pyplot as plt
-from qutip.solver import Result
 from qutip import *
 import numpy as np
+import os
+
+# functions from test_baths.py
+from test_baths import (
+    spectral_density_func_paper,
+    Power_spectrum_func_paper,
+)
 
 
 ### Phase Cycling for Averaging
 phases = [k * np.pi / 2 for k in range(4)]
 
 # =============================
-# SYSTEM PARAMETERS     (**changeable**)
+# SYSTEM PARAMETERS
 # =============================
 
 
 @dataclass
 class SystemParameters:
     # =============================
-    # Fundamental constants and system size
+    # Fundamental constants / Quantum states(unchanged)
     # =============================
     hbar: float = 1.0
-    N_atoms: int = 1  # Set the number of atoms only works for 1
+    Boltzmann: float = 1.0
+
+    atom_g: Optional[Qobj] = field(default_factory=lambda: basis(2, 0))
+    atom_e: Optional[Qobj] = field(default_factory=lambda: basis(2, 1))
+
+    # Temperature / cutoff of the bath
+    Temp: float = 1.0
+    cutoff_: float = 1.0
+    # =============================
+    # system size
+    # =============================
+    N_atoms: int = 1
+    assert N_atoms == 1 or N_atoms == 2, "This code only works for 1 or 2 atoms"
 
     # =============================
     # Solver and model control
@@ -35,25 +53,13 @@ class SystemParameters:
         "Paper_BR"  # "Paper_eqs" (solve the EOMs from the paper) or "Paper_BR" do d/dt rho = -i/hbar * [H0 - Dip * E, rho] + R(rho)
     )
     RWA_laser: bool = (
-        True  #  CAN ONLY HANDLE TRUE For MY solver (paper)   only valid for omega_laser ~ omega_A
+        True  #  CAN ONLY HANDLE TRUE For Paper_eqs   #   only valid for omega_laser ~ omega_A
     )
-
-    # =============================
-    # Energy and transition parameters in cm-1
-    # =============================
-    # values from the paper: [cm-1] linear wavenumber, usually used in spectroscopy
-    Delta_cm: float = 200.0
-    omega_A_cm: float = 16000.0
-    mu_eg_cm: float = 1.0
-    omega_laser_cm: float = 16000.0
-
-    #   omega_B_cm: float = 16000.0
-    #   mu_B_cm: float = 1.0
 
     # =============================
     # Laser field parameters
     # =============================
-    E0: float = 0.1
+    E0: float = 0.05
 
     # =============================
     # Pulse and time grid parameters
@@ -61,60 +67,233 @@ class SystemParameters:
     pulse_duration: float = 15.0  # in fs
     t_max: float = 15.0  # in fs
     fine_spacing: float = 1.0  # in fs
+    omega_laser_cm: float = 16000.0
+    # in cm-1
+
+    # =============================
+    # Energy and transition parameters in cm-1
+    # Declare these as Optional fields. Their defaults will be set in __post_init__.
+    # =============================
+    Delta_cm: Optional[float] = None
+    omega_A_cm: Optional[float] = None
+    omega_B_cm: Optional[float] = None  # Specific to N_atoms = 2
+    mu_A: Optional[float] = None
+    mu_B: Optional[float] = None  # Specific to N_atoms = 2
+    J_cm: Optional[float] = None  # Specific to N_atoms = 2
 
     # =============================
     # Decoherence and relaxation rates
+    # Declare these as Optional fields. Their defaults will be set in __post_init__.
     # =============================
-    gamma_0: float = 1 / 300  # in fs-1
-    T2: float = 100.0  # in fs
+    gamma_0: Optional[float] = None
+    gamma_phi: Optional[float] = None
 
-    # =============================
-    # Quantum states (initialized as None, set by method)
-    # =============================
-    atom_g: Optional[Any] = None
-    atom_e: Optional[Any] = None
-    psi_ini: Optional[Any] = None
-
-    def __post_init__(self):
-        """
-        Initialize quantum states for the given number of atoms.
-        """
-        self.init_quantum_states()
-
-    def init_quantum_states(self):
-        """
-        Initialize the ground and excited states and the initial density matrix.
-        Supports N_atoms = 1 or 2.
-        """
-        if self.N_atoms == 1:
-            self.atom_g = basis(2, 0)
-            self.atom_e = basis(2, 1)
-            self.psi_ini = ket2dm(self.atom_g)
-        elif self.N_atoms == 2:
-            x = 1
-            # TODO: Add a proper case for 2-atom initialization
-        else:
-            raise ValueError("Only N_atoms=1 or 2 are supported.")
+    # Derived attribute, will be set in __post_init__
+    psi_ini: Optional[Qobj] = None
 
     # =============================
     # Properties for all derived quantities
     # =============================
+    def __post_init__(self):
+        """
+        Initialize derived parameters after the class is instantiated.
+        This method is called automatically after __init__.
+        """
+        # Assert N_atoms value for the instance
+        if self.N_atoms not in [1, 2]:
+            raise ValueError(
+                "N_atoms must be 1 or 2 for this SystemParameters instance."
+            )
+
+        # Initialize quantum states if they were left as None (though default_factory should handle this)
+        if self.atom_g is None:
+            self.atom_g = basis(2, 0)
+        if self.atom_e is None:
+            self.atom_e = basis(2, 1)
+
+        if self.gamma_0 is None:
+            self.gamma_0 = 1 / 300.0
+        if self.gamma_phi is None:
+            self.gamma_phi = (
+                1 / 100.0
+            )  # units different in N_atoms=1 and N_atoms=2 ?!?!?!? TODO
+
+        _H0_temp = None  # temoporary Hamiltonian
+
+        # Set N_atoms-dependent parameters if they were not provided by the user
+        if self.N_atoms == 1:
+            self.psi_ini = ket2dm(self.atom_g)
+
+            if self.Delta_cm is None:
+                self.Delta_cm = 200.0
+            if self.omega_A_cm is None:
+                # Use the instance's omega_laser_cm, which might have been overridden by the user
+                self.omega_A_cm = self.omega_laser_cm
+            if self.mu_A is None:
+                self.mu_A = 1.0
+
+            # For N_atoms=1, omega_B_cm, mu_B, J_cm are not typically used,
+            # but ensure they are None if not set, or handle as needed.
+            if (
+                self.omega_B_cm is not None
+                or self.mu_B is not None
+                or self.J_cm is not None
+            ):
+                # Or raise a warning/error if these are set for N_atoms=1
+                pass
+
+        elif self.N_atoms == 2:
+            self.psi_ini = ket2dm(tensor(self.atom_g, self.atom_g))
+
+            if self.omega_A_cm is None:
+                self.omega_A_cm = self.omega_laser_cm + 360.0
+            if self.omega_B_cm is None:
+                self.omega_B_cm = self.omega_laser_cm - 360.0
+            if self.mu_A is None:
+                self.mu_A = 1.0
+            if self.mu_B is None:  # Default mu_B to mu_A if not specified
+                self.mu_B = self.mu_A
+            if self.J_cm is None:
+                self.J_cm = 0.0  # Default coupling
+
+            # For N_atoms=2, Delta_cm is not typically used for the dimer model presented
+            if self.Delta_cm is not None:
+                # Or raise a warning/error if Delta_cm is set for N_atoms=2
+                pass
+
+        # Store frequency values in fs units
+        self._fs_values = {}  # TODO TEST THIS!! might be the wrong position
+
+        # Find all attributes ending with '_cm' and convert them
+        for attr_name in dir(self):
+            if attr_name.endswith("_cm") and not attr_name.startswith("__"):
+                try:
+                    cm_value = getattr(self, attr_name)
+                    if isinstance(cm_value, (int, float)) and not callable(cm_value):
+                        fs_name = attr_name[:-3]  # Remove '_cm' suffix
+                        self._fs_values[fs_name] = self.convert_cm_to_fs(cm_value)
+                except (AttributeError, TypeError):
+                    pass
+
+        if self.N_atoms == 1:
+            _H0_temp = self.Hamilton_tls()
+        elif self.N_atoms == 2:
+            _H0_temp = self.Hamilton_dimer_sys()
+
+        if _H0_temp is not None:
+            self.H0_undiagonalized = _H0_temp  # Store the original H0 if needed
+            # The H0_diagonalized property will use H0_undiagonalized
+            self.H0 = (
+                self.H0_diagonalized
+            )  # Access property, self.H0 should become a Qobj
+        else:
+            # Handle case where H0 could not be initialized
+            raise ValueError("Hamiltonian H0 could not be initialized.")
+
+    def convert_cm_to_fs(self, value):
+        """
+        Convert values from cm^-1 to fs^-1 (angular frequency)
+
+        Parameters:
+            value (float): Value in cm^-1
+
+        Returns:
+            float: Value in fs^-1
+        """
+        return value * 2.998 * 2 * np.pi * 10**-5
+
+    def Hamilton_tls(self) -> Qobj:
+        """
+        Returns:
+            Qobj: Hamiltonian operator of the two-level system.
+        """
+        # in canonical basis
+
+        H0 = self.hbar * self.omega_A * ket2dm(self.atom_e)
+        return H0
+
+    def Hamilton_dimer_sys(self) -> Qobj:
+        """
+        Hamiltonian of a dimer system (two coupled(J) tls').
+
+        Returns:
+            Qobj: Hamiltonian operator of the two-level system
+        """
+        # in canonical basis
+        H = self.hbar * (
+            self.omega_A * ket2dm(tensor(self.atom_e, self.atom_g))
+            + self.omega_B * ket2dm(tensor(self.atom_g, self.atom_e))
+            + self.J
+            * (
+                tensor(self.atom_e, self.atom_g)
+                * tensor(self.atom_g, self.atom_e).dag()
+                + tensor(self.atom_g, self.atom_e)
+                * tensor(self.atom_e, self.atom_g).dag()
+            )
+            + (self.omega_A + self.omega_B) * ket2dm(tensor(self.atom_e, self.atom_e))
+        )
+        return H
+
+    @property
+    def eigenstates(self):
+        """
+        Calculate the eigenvalues and eigenstates of the H0_undiagonalized Hamiltonian.
+
+        Returns:
+            tuple: (Es, kets)
+                Es (np.ndarray): NumPy array of eigenvalues.
+                kets (list of Qobj): List of Qobj eigenstates (kets).
+        """
+        # self.H0_undiagonalized.eigenstates() from QuTiP returns a tuple:
+        # (array_of_eigenvalues, list_of_qobj_eigenvectors)
+        Es, kets = self.H0_undiagonalized.eigenstates()
+        return Es, kets
+
+    @property
+    def H0_diagonalized(self):
+        """
+        Diagonalize the Hamiltonian and return the eigenvalues and eigenstates.
+
+        Returns:
+            tuple: Eigenvalues and eigenstates of the Hamiltonian.
+        """
+        Es, _ = self.eigenstates
+
+        if self.RWA_laser:
+            if self.N_atoms == 1:
+                Es[1] -= self.omega_laser
+
+            elif self.N_atoms == 2:
+                Es[1] -= self.omega_laser
+                Es[2] -= self.omega_laser
+                Es[3] -= 2 * self.omega_laser
+
+            H_diag = Qobj(np.diag(Es), dims=self.H0_undiagonalized.dims)
+        return H_diag
 
     @property
     def omega_A(self):  # in fs
-        return self.omega_A_cm * 2.998 * 2 * np.pi * 10**-5
+        return self.convert_cm_to_fs(self.omega_A_cm)
+
+    @property
+    def omega_B(self):  # in fs
+        return self.convert_cm_to_fs(self.omega_B_cm)
+
+    @property
+    def J(self):  # in fs
+        return self.convert_cm_to_fs(self.J_cm)
+
+    @property
+    def theta(self):
+        return np.arctan(2 * self.J / (self.omega_A * self.omega_B)) / 2
 
     @property
     def omega_laser(self):  # in fs
-        return self.omega_laser_cm * 2.998 * 2 * np.pi * 10**-5
+        return self.convert_cm_to_fs(self.omega_laser_cm)
 
     @property
     def Delta(self):  # in fs
-        return self.Delta_cm * 2.998 * 2 * np.pi * 10**-5
-
-    @property
-    def gamma_phi(self):
-        return 1 / self.T2
+        return self.convert_cm_to_fs(self.Delta_cm)
 
     @property
     def Gamma(self):
@@ -122,7 +301,7 @@ class SystemParameters:
 
     @property
     def rabi_0(self):
-        return self.mu_eg_cm * self.E0 / self.hbar
+        return self.mu_A * self.E0 / self.hbar
 
     @property
     def delta_rabi(self):
@@ -155,84 +334,236 @@ class SystemParameters:
     @property
     def SM_op(self):
         if self.N_atoms == 1:
-            return self.mu_eg_cm * (self.atom_g * self.atom_e.dag()).unit()
-        elif self.N_atoms == 2:
-            g1, e1 = basis(2, 0), basis(2, 1)
-            # TODO REALLY implement this
-            return self.mu_eg_cm * tensor(g1, e1)
+            SM_op = self.mu_A * (self.atom_g * self.atom_e.dag()).unit()
+        elif (
+            self.N_atoms == 2
+        ):  # TODO THIS IS ONLY FOR THE COUPLED / DIAGONALIZED HAMILTONIAN
+            C_A_1 = -np.sin(self.theta)
+            C_A_2 = np.cos(self.theta)
+            C_B_1 = C_A_2
+            C_B_2 = -C_A_1
+
+            mu_10 = self.mu_A * C_A_1 + self.mu_B * C_A_2
+            mu_20 = self.mu_A * C_B_1 + self.mu_B * C_B_2
+            mu_31 = self.mu_B * C_A_1 + self.mu_A * C_B_1
+            mu_32 = self.mu_B * C_B_1 + self.mu_A * C_B_2
+            _, eigenvecs = self.eigenstates
+
+            sm_list = [
+                mu_10 * (eigenvecs[0] * eigenvecs[1].dag()).unit(),
+                mu_20 * (eigenvecs[0] * eigenvecs[2].dag()).unit(),
+                mu_31 * (eigenvecs[1] * eigenvecs[3].dag()).unit(),
+                mu_32 * (eigenvecs[2] * eigenvecs[3].dag()).unit(),
+            ]
+            SM_op = sum(sm_list)
         else:
             raise ValueError("Only N_atoms=1 or 2 are supported.")
+        return SM_op
 
     @property
     def Dip_op(self):
         return self.SM_op + self.SM_op.dag()
 
     @property
+    def Deph_op(self):
+        if self.N_atoms == 1:
+            Deph_op = ket2dm(self.atom_e)
+        elif self.N_atoms == 2:
+            cplng_ops_to_env = [
+                ket2dm(tensor(self.atom_e, self.atom_g)),
+                ket2dm(tensor(self.atom_g, self.atom_e)),
+                ket2dm(tensor(self.atom_e, self.atom_e)),
+            ]
+            Deph_op = sum(cplng_ops_to_env)
+        else:
+            raise ValueError("Only N_atoms=1 or 2 are supported.")
+
+        return Deph_op
+
+    @property
     def e_ops_list(self):
         if self.N_atoms == 1:
-            return [
+            e_ops_list = [
                 ket2dm(self.atom_g),
                 self.atom_g * self.atom_e.dag(),
                 self.atom_e * self.atom_g.dag(),
                 ket2dm(self.atom_e),
             ]
         elif self.N_atoms == 2:
-            g1, e1 = basis(2, 0), basis(2, 1)
-            g2, e2 = basis(2, 0), basis(2, 1)
-            return [
-                ket2dm(tensor(g1, g2)),
-                tensor(g1, g2) * tensor(e1, e2).dag(),
-                tensor(e1, e2) * tensor(g1, g2).dag(),
-                ket2dm(tensor(e1, e2)),
+            """
+            e_ops_list1 = [
+                ket2dm(tensor(self.atom_g, self.atom_g)),
+                ket2dm(tensor(self.atom_e, self.atom_g)),
+                ket2dm(tensor(self.atom_g, self.atom_e)),
+                ket2dm(tensor(self.atom_e, self.atom_e)),
             ]
+            """
+            e_ops_list2 = [ket2dm(state) for state in self.eigenstates[1]]
+
+            e_ops_list = e_ops_list2
+
         else:
             raise ValueError("Only N_atoms=1 or 2 are supported.")
+
+        return e_ops_list
 
     @property
     def e_ops_labels(self):
         if self.N_atoms == 1:
-            return ["gg", "ge", "eg", "ee"]
+            e_ops_labels = ["gg", "ge", "eg", "ee"]
         elif self.N_atoms == 2:
-            # TODO REALLY implement this
-            return ["gg", "ge", "eg", "ee"]
+            # e_ops_labels1 = [f"{i}" for i in range(len(self.eigenstates[1]))]
+            e_ops_labels2 = ["0", "A", "B", "AB"]
+            e_ops_labels = e_ops_labels2
+
+        else:
+            raise ValueError("Only N_atoms=1 or 2 are supported.")
+
+        return e_ops_labels
 
     @property
     def c_ops_list(self):
         Gamma = self.Gamma
         gamma_phi = self.gamma_phi
+
         if self.N_atoms == 1:
-            SM_op = self.SM_op
-            return [
-                np.sqrt(Gamma) * SM_op if Gamma > 0 else 0 * SM_op,
-                (
-                    np.sqrt(gamma_phi) * ket2dm(self.atom_e)
-                    if gamma_phi > 0
-                    else 0 * ket2dm(self.atom_e)
-                ),
+            c_ops_list = [
+                np.sqrt(Gamma) * self.SM_op,
+                np.sqrt(gamma_phi) * self.Deph_op,
             ]
         elif self.N_atoms == 2:
-            g1, e1 = basis(2, 0), basis(2, 1)
-            # TODO REALLY implement this
-            SM_op = self.SM_op
-            return [
-                np.sqrt(Gamma) * SM_op if Gamma > 0 else 0 * SM_op,
-                (
-                    np.sqrt(gamma_phi) * ket2dm(tensor(e1, e1))
-                    if gamma_phi > 0
-                    else 0 * ket2dm(tensor(e1, e1))
-                ),
+            c_ops_list = [self.Deph_op]
+        else:
+            raise ValueError("Only N_atoms=1 or 2 are supported.")
+
+        return c_ops_list
+
+    @property
+    def cutoff(self):
+        return self.cutoff_ * self.omega_A
+
+    @property
+    def args_bath(self):
+        return {
+            "g": self.gamma_phi,
+            "cutoff": self.cutoff,
+            "Boltzmann": self.Boltzmann,
+            "hbar": self.hbar,
+            "Temp": self.Temp,
+        }
+
+    @property
+    def a_ops_list(self):
+        if self.N_atoms == 1:
+            a_ops_list = [self.Deph_op]
+        elif self.N_atoms == 2:
+            env = BosonicEnvironment.from_spectral_density(
+                lambda w: spectral_density_func_paper(w, self.args_bath),
+                wMax=10 * self.cutoff,
+                T=self.Temp,
+            )
+            cplng_ops_to_env = [
+                ket2dm(tensor(self.atom_e, self.atom_g)),  # atom A
+                ket2dm(tensor(self.atom_g, self.atom_e)),  # atom B
+                ket2dm(tensor(self.atom_e, self.atom_e)),  # double excited state
+            ]
+            a_ops_list = [
+                [
+                    cplng_ops_to_env[0],
+                    env.power_spectrum,
+                ],  # atom A with ohmic_spectrum
+                [
+                    cplng_ops_to_env[1],
+                    env.power_spectrum,
+                ],  # atom B with ohmic_spectrum
+                [
+                    cplng_ops_to_env[2],
+                    lambda w: env.power_spectrum(2 * w),
+                ],  # double excited state with 2 * ohmic_spectrum
             ]
         else:
             raise ValueError("Only N_atoms=1 or 2 are supported.")
 
-    def set_N_atoms(self, N_atoms: int):
+        return a_ops_list
+
+    @property
+    def omega_ij(self, i: int, j: int) -> float:
+        # TODO i think i can include this in the system class
         """
-        Update the number of atoms and re-initialize quantum states.
+        Calculate the energy difference between two states.
+
+        Parameters:
+            i (int): Index of the first state.
+            j (int): Index of the second state.
+
+        Returns:
+            float: Energy difference between the two states.
         """
-        if N_atoms not in [1, 2]:
-            raise ValueError("Only N_atoms=1 or 2 are supported.")
-        self.N_atoms = N_atoms
-        self.init_quantum_states()
+        return self.eigenstates[0][i] - self.eigenstates[0][j]  # energy difference
+
+    def gamma_small_ij(self, i: int, j: int) -> float:
+        """
+        Calculate the population relaxation rates.
+
+        Parameters:
+            i (int): Index of the first state.
+            j (int): Index of the second state.
+
+        Returns:
+            float: Population relaxation rate.
+        """
+
+        w_ij = self.omega_ij(i, j)
+        return np.sin(2 * self.theta) ** 2 * Power_spectrum_func_paper(
+            w_ij, self.args_bath
+        )
+
+    def Gamma_big_ij(self, i: int, j: int) -> float:
+        """
+        Calculate the pure dephasing rates.
+
+        Parameters:
+            i (int): Index of the first state.
+            j (int): Index of the second state.
+
+        Returns:
+            float: Pure dephasing rate.
+        """
+        # Pure dephasing rates helper
+        P_0 = Power_spectrum_func_paper(0, self.args_bath)
+        Gamma_t_ab = 2 * np.cos(2 * self.theta) ** 2 * P_0  # tilde
+        Gamma_t_a0 = (1 - 0.5 * np.sin(2 * self.theta) ** 2) * P_0
+        Gamma_11 = self.gamma_small_ij(2, 1)
+        Gamma_22 = self.gamma_small_ij(1, 2)
+        Gamma_abar_0 = 2 * P_0
+        Gamma_abar_a = Gamma_abar_0  # holds for dimer
+        if i == 1:
+            if j == 0:
+                return Gamma_t_a0 + 0.5 * self.gamma_small_ij(2, i)
+            elif j == 1:
+                return Gamma_11
+            elif j == 2:
+                return Gamma_t_ab + 0.5 * (
+                    self.gamma_small_ij(i, j) + self.gamma_small_ij(j, i)
+                )
+        if i == 2:
+            if j == 0:
+                return Gamma_t_a0 + 0.5 * self.gamma_small_ij(1, i)
+            elif j == 1:
+                return Gamma_t_ab + 0.5 * (
+                    self.gamma_small_ij(i, j) + self.gamma_small_ij(j, i)
+                )
+            elif j == 2:
+                return Gamma_22
+        elif i == 3:
+            if j == 0:
+                return Gamma_abar_0
+            elif j == 1:
+                return Gamma_abar_a + 0.5 * (self.gamma_small_ij(2, j))
+            elif j == 2:
+                return Gamma_abar_a + 0.5 * (self.gamma_small_ij(1, j))
+        else:
+            raise ValueError("Invalid indices for i and j.")
 
     def summary(self):
         """
@@ -260,18 +591,7 @@ class SystemParameters:
 
 
 # =============================
-# END OF CLASS
-# =============================
-
-# This class is robust, modular, and ready for extension.
-# - Only base parameters are stored as attributes.
-# - All derived quantities are generated on demand.
-# - N_atoms=1 and N_atoms=2 are both supported.
-# - All logic is grouped and commented for clarity.
-
-
-# =============================
-# Define Pulse and PulseSequence classes for structured pulse handling
+# Pulse and PulseSequence classes for structured pulse handling
 # =============================
 
 
@@ -577,9 +897,6 @@ def H_int(
     return H_int
 
 
-# ##########################
-# independent of system
-# ##########################
 def plot_positive_color_map(
     datas: tuple,
     T_wait: float = np.inf,
@@ -696,10 +1013,19 @@ def plot_positive_color_map(
     # =============================
     if section is not None:
         x_min, x_max, y_min, y_max = section
+
+        # Validate coordinates are within data range
+        x_min = max(x_min, np.min(x))
+        x_max = min(x_max, np.max(x))
+        y_min = max(y_min, np.min(y))
+        y_max = min(y_max, np.max(y))
+
         x_indices = np.where((x >= x_min) & (x <= x_max))[0]
         y_indices = np.where((y >= y_min) & (y <= y_max))[0]
+
         x_indices = x_indices[x_indices < data.shape[1]]
         y_indices = y_indices[y_indices < data.shape[0]]
+
         data = data[np.ix_(y_indices, x_indices)]
         x = x[x_indices]
         y = y[y_indices]
@@ -751,7 +1077,7 @@ def plot_positive_color_map(
             raise ValueError(f"Output directory {output_dir} does not exist.")
         filename_parts = [
             f"M={system.N_atoms}",
-            f"mua={system.mu_eg_cm:.0f}",
+            f"mua={system.mu_A:.0f}",
             f"E0={system.E0:.2e}",
             f"wa={system.omega_A:.2f}",
             f"wL={system.omega_laser / system.omega_A:.1f}wa",
@@ -1016,10 +1342,31 @@ def compute_2d_fft_wavenumber(ts, taus, data):
     return nu_ts, nu_taus, s2d
 
 
-# ##########################
-# dependent of system
-# ##########################
-def apply_RWA_phase_factors(rho, t, omega):
+def apply_RWA_phase_factors(
+    rho: Qobj, t: float, omega: float, system: SystemParameters
+) -> Qobj:
+    """
+    Apply time-dependent phase factors to the density matrix entries.
+    Dispatches to the appropriate implementation based on N_atoms.
+
+    Parameters:
+        rho (Qobj): Density matrix (Qobj) to modify.
+        t (float): Current time.
+        omega (float): Frequency of the phase factor.
+        system (SystemParameters): System parameters.
+
+    Returns:
+        Qobj: Modified density matrix with phase factors applied.
+    """
+    if system.N_atoms == 1:
+        return _apply_RWA_phase_factors_1atom(rho, t, omega)
+    elif system.N_atoms == 2:
+        return _apply_RWA_phase_factors_2atom(rho, t, omega)
+    else:
+        raise ValueError("Only N_atoms=1 or 2 are supported.")
+
+
+def _apply_RWA_phase_factors_1atom(rho: Qobj, t: float, omega: float) -> Qobj:
     """
     Apply time-dependent phase factors to the density matrix entries.
 
@@ -1049,31 +1396,68 @@ def apply_RWA_phase_factors(rho, t, omega):
     return rho_result
 
 
-def Hamilton_tls(system: SystemParameters) -> Qobj:
+def _apply_RWA_phase_factors_2atom(rho: Qobj, t: float, omega: float) -> Qobj:
     """
-    Hamiltonian of a two-level system.
+    Apply time-dependent phase factors to the density matrix entries.
 
     Parameters:
-        system (SystemParameters): System parameters containing hbar, omega_A, omega_laser, atom_e, and RWA_laser.
+        rho (Qobj): Density matrix (Qobj) to modify.
+        omega (float): Frequency of the phase factor.
+        t (float): Current time.
 
     Returns:
-        Qobj: Hamiltonian operator of the two-level system.
+        Qobj: Modified density matrix with phase factors applied.
     """
-    # =============================
-    # Build Hamiltonian in energy basis
-    # =============================
-    H0 = system.hbar * system.omega_A * ket2dm(system.atom_e)
-    if system.RWA_laser:
-        H0 -= (
-            system.hbar * system.omega_laser * ket2dm(system.atom_e)
-        )  # shift in rotating frame
-    return H0
+    # Extract the density matrix as a NumPy array
+    rho_array = rho.full()
+    # print(rho.isherm)
+
+    # Apply the phase factors to the specified elements
+    phase_1 = np.exp(-1j * omega * t)  # e^(-i * omega * t)
+    phase_2 = np.exp(-1j * 2 * omega * t)  # e^(-i * 2 * omega * t)
+
+    # Modify the elements
+    bar_alpha = 3
+    for alpha in range(1, 3):
+        rho_array[
+            alpha, 0
+        ] *= phase_1  # rho_alpha_0 = sigma_alpha_0 * e^(-i * omega * t)
+        rho_array[0, alpha] *= np.conj(phase_1)
+
+        rho_array[
+            bar_alpha, alpha
+        ] *= phase_1  # rho_bar_alpha_alpha = sigma_bar_alpha_alpha * e^(-i * omega * t)
+        rho_array[alpha, bar_alpha] *= np.conj(phase_1)
+
+    rho_array[
+        bar_alpha, 0
+    ] *= phase_2  # rho_bar_alpha_0 = sigma_bar_alpha_0 * e^(-i * 2 * omega * t)
+    rho_array[0, bar_alpha] *= np.conj(phase_2)
+
+    rho_result = Qobj(rho_array, dims=rho.dims)
+    # print(rho_array[0, 1], rho_array[1,0])
+
+    # assert rho_result.isherm, "The resulting density matrix is not Hermitian."
+
+    return rho_result
 
 
 # =============================
 # "Paper_eqs" OWN ODE SOLVER
 # =============================
 def matrix_ODE_paper(
+    t: float, pulse_seq: PulseSequence, system: SystemParameters
+) -> Qobj:
+    """Dispatches to the appropriate implementation based on N_atoms."""
+    if system.N_atoms == 1:
+        return _matrix_ODE_paper_1atom(t, pulse_seq, system)
+    elif system.N_atoms == 2:
+        return _matrix_ODE_paper_2atom(t, pulse_seq, system)
+    else:
+        raise ValueError("Only N_atoms=1 or 2 are supported.")
+
+
+def _matrix_ODE_paper_1atom(
     t: float, pulse_seq: PulseSequence, system: SystemParameters
 ) -> Qobj:
     """
@@ -1099,17 +1483,17 @@ def matrix_ODE_paper(
 
     # --- d/dt rho_ee ---
     L[3, 3] = -system.gamma_0
-    L[3, 1] = 1j * Et * system.mu_eg_cm
-    L[3, 2] = -1j * Et_conj * system.mu_eg_cm
+    L[3, 1] = 1j * Et * system.mu_A
+    L[3, 2] = -1j * Et_conj * system.mu_A
 
     # --- d/dt rho_gg ---
-    # L[0, 1] = -1j * Et * system.mu_eg_cm
-    # L[0, 2] = 1j * Et_conj * system.mu_eg_cm
+    # L[0, 1] = -1j * Et * system.mu_A
+    # L[0, 2] = 1j * Et_conj * system.mu_A
     L[0, :] += -1 * np.sum(L[[3], :], axis=0)  # Enforce trace conservation
 
     # --- d/dt rho_eg --- and  --- d/dt rho_ge ---
-    L[2, 0] = 1j * Et * system.mu_eg_cm
-    L[2, 3] = -1j * Et * system.mu_eg_cm
+    L[2, 0] = 1j * Et * system.mu_A
+    L[2, 3] = -1j * Et * system.mu_A
 
     L[1, :] = np.conj(L[2, :])
 
@@ -1119,7 +1503,160 @@ def matrix_ODE_paper(
     return Qobj(L, dims=[[[2], [2]], [[2], [2]]])
 
 
+def _matrix_ODE_paper_2atom(
+    t: float, pulse_seq: PulseSequence, system: SystemParameters
+) -> Qobj:
+    """including RWA.
+    Constructs the matrix L(t) for the equation drho_dt = L(t) * rho,
+    where rho is the flattened density matrix.
+    """
+    Et = E_pulse(t, pulse_seq)
+    Et_conj = np.conj(Et)
+
+    L = np.zeros((16, 16), dtype=complex)
+
+    # Indices for the flattened density matrix:
+    # 0: rho00, 1: rho01, 2: rho02, 3: rho03
+    # 4: rho10, 5: rho11, 6: rho12, 7: rho13
+    # 8: rho20, 9: rho21, 10: rho22, 11: rho23
+    # 12: rho30, 13: rho31, 14: rho32, 15: rho33
+
+    # --- d/dt rho_10 ---
+    term = -1j * (system.omega_ij(1, 0) - system.omega_laser) - system.Gamma_big_ij(1, 0
+    )
+    L[4, 4] = term  # ρ₁₀ ← ρ₁₀
+    L[4, 0] = 1j * Et * system.Dip_op[1, 0]  # ρ₁₀ ← ρ₀₀
+    L[4, 5] = -1j * Et * system.Dip_op[1, 0]  # ρ₁₀ ← ρ₁₁
+    L[4, 6] = -1j * Et * system.Dip_op[2, 0]  # ρ₁₀ ← ρ₁₂
+    L[4, 12] = 1j * Et_conj * system.Dip_op[3, 1]  # ρ₁₀ ← ρ₃₀
+
+    # --- d/dt rho_01 ---
+    L[1, 1] = np.conj(term)  # ρ₀₁ ← ρ₀₁
+    L[1, 0] = -1j * Et_conj * system.Dip_op[1, 0]  # ρ₀₁ ← ρ₀₀
+    L[1, 5] = 1j * Et_conj * system.Dip_op[1, 0]  # ρ₀₁ ← ρ₁₁
+    L[1, 9] = 1j * Et_conj * system.Dip_op[2, 0]  # ρ₀₁ ← ρ₂₁
+    L[1, 3] = -1j * Et * system.Dip_op[3, 1]  # ρ₀₁ ← ρ₀₃
+
+    # --- d/dt rho_20 ---
+    term = -1j * (system.omega_ij(2, 0) - system.omega_laser) - system.Gamma_big_ij(
+        2, 0
+    )
+    L[8, 8] = term  # ρ₂₀ ← ρ₂₀
+    L[8, 0] = 1j * Et * system.Dip_op[2, 0]  # ρ₂₀ ← ρ₀₀
+    L[8, 10] = -1j * Et * system.Dip_op[2, 0]  # ρ₂₀ ← ρ₂₂
+    L[8, 9] = -1j * Et * system.Dip_op[1, 0]  # ρ₂₀ ← ρ₂₁
+    L[8, 12] = 1j * Et_conj * system.Dip_op[3, 2]  # ρ₂₀ ← ρ₃₀
+
+    # --- d/dt rho_02 ---
+    L[2, 2] = np.conj(term)  # ρ₀₂ ← ρ₀₂
+    L[2, 0] = -1j * Et_conj * system.Dip_op[2, 0]  # ρ₀₂ ← ρ₀₀
+    L[2, 10] = 1j * Et_conj * system.Dip_op[2, 0]  # ρ₀₂ ← ρ₂₂
+    L[2, 6] = 1j * Et_conj * system.Dip_op[1, 0]  # ρ₀₂ ← ρ₁₂
+    L[2, 3] = -1j * Et * system.Dip_op[3, 2]  # ρ₀₂ ← ρ₀₃
+
+    # --- d/dt rho_30 ---
+    term = -1j * (system.omega_ij(3, 0) - 2 * system.omega_laser) - system.Gamma_big_ij(
+        3, 0
+    )
+    L[12, 12] = term  # ρ₃₀ ← ρ₃₀
+    L[12, 4] = 1j * Et * system.Dip_op[3, 1]  # ρ₃₀ ← ρ₁₀
+    L[12, 8] = 1j * Et * system.Dip_op[3, 2]  # ρ₃₀ ← ρ₂₀
+    L[12, 13] = -1j * Et * system.Dip_op[1, 0]  # ρ₃₀ ← ρ₃₁
+    L[12, 14] = -1j * Et * system.Dip_op[2, 0]  # ρ₃₀ ← ρ₃₂
+
+    # --- d/dt rho_03 ---
+    L[3, 3] = np.conj(term)  # ρ₀₃ ← ρ₀₃
+    L[3, 1] = -1j * Et_conj * system.Dip_op[3, 1]  # ρ₀₃ ← ρ₀₁
+    L[3, 2] = -1j * Et_conj * system.Dip_op[3, 2]  # ρ₀₃ ← ρ₀₂
+    L[3, 7] = 1j * Et_conj * system.Dip_op[1, 0]  # ρ₀₃ ← ρ₁₃
+    L[3, 11] = 1j * Et_conj * system.Dip_op[2, 0]  # ρ₀₃ ← ρ₂₃
+
+    # --- d/dt rho_12 ---
+    term = -1j * system.omega_ij(1, 2) - system.Gamma_big_ij(1, 2)
+    L[6, 6] = term  # ρ₁₂ ← ρ₁₂
+    L[6, 2] = 1j * Et * system.Dip_op[1, 0]  # ρ₁₂ ← ρ₀₂
+    L[6, 7] = -1j * Et * system.Dip_op[3, 2]  # ρ₁₂ ← ρ₁₃
+    L[6, 14] = 1j * Et_conj * system.Dip_op[3, 1]  # ρ₁₂ ← ρ₃₂
+    L[6, 4] = -1j * Et_conj * system.Dip_op[2, 0]  # ρ₁₂ ← ρ₁₀
+
+    # --- d/dt rho_21 ---
+    L[9, 9] = np.conj(term)  # ρ₂₁ ← ρ₂₁
+    L[9, 8] = -1j * Et_conj * system.Dip_op[1, 0]  # ρ₂₁ ← ρ₂₀
+    L[9, 13] = 1j * Et_conj * system.Dip_op[3, 2]  # ρ₂₁ ← ρ₃₁
+    L[9, 9] = -1j * Et * system.Dip_op[3, 1]  # ρ₂₁ ← ρ₂₃
+    L[9, 1] = 1j * Et * system.Dip_op[2, 0]  # ρ₂₁ ← ρ₀₁
+
+    # --- d/dt rho_31 ---
+    term = -1j * (system.omega_ij(3, 1) - system.omega_laser) - system.Gamma_big_ij(3, 1
+    )
+    L[13, 13] = term  # ρ₃₁ ← ρ₃₁
+    L[13, 5] = 1j * Et * system.Dip_op[3, 1]  # ρ₃₁ ← ρ₁₁
+    L[13, 9] = 1j * Et * system.Dip_op[3, 2]  # ρ₃₁ ← ρ₂₁
+    L[13, 12] = -1j * Et_conj * system.Dip_op[1, 0]  # ρ₃₁ ← ρ₃₀
+
+    # --- d/dt rho_13 ---
+    L[7, 7] = np.conj(term)  # ρ₁₃ ← ρ₁₃
+    L[7, 5] = -1j * Et_conj * system.Dip_op[3, 1]  # ρ₁₃ ← ρ₁₁
+    L[7, 6] = -1j * Et_conj * system.Dip_op[3, 2]  # ρ₁₃ ← ρ₁₂
+    L[7, 3] = 1j * Et * system.Dip_op[1, 0]  # ρ₁₃ ← ρ₀₃
+
+    # --- d/dt rho_32 ---
+    term = -1j * (system.omega_ij(3, 2) - system.omega_laser) - system.Gamma_big_ij(3, 2)
+    L[14, 14] = term  # ρ₃₂ ← ρ₃₂
+    L[14, 10] = 1j * Et * system.Dip_op[3, 2]  # ρ₃₂ ← ρ₂₂
+    L[14, 6] = 1j * Et * system.Dip_op[3, 1]  # ρ₃₂ ← ρ₁₂
+    L[14, 12] = -1j * Et_conj * system.Dip_op[2, 0]  # ρ₃₂ ← ρ₃₀
+
+    # --- d/dt rho_23 ---
+    L[11, 11] = np.conj(term)  # ρ₂₃ ← ρ₂₃
+    L[11, 10] = -1j * Et * system.Dip_op[3, 2]  # ρ₂₃ ← ρ₂₂
+    L[11, 9] = -1j * Et * system.Dip_op[3, 1]  # ρ₂₃ ← ρ₂₁
+    L[11, 3] = 1j * Et_conj * system.Dip_op[2, 0]  # ρ₂₃ ← ρ₀₃
+
+    ### Diagonals
+    # --- d/dt rho_00 ---
+    L[0, 1] = -1j * Et * system.Dip_op[1, 0]
+    L[0, 2] = -1j * Et * system.Dip_op[2, 0]
+    L[0, 4] = 1j * Et_conj * system.Dip_op[1, 0]
+    L[0, 8] = 1j * Et_conj * system.Dip_op[2, 0]
+
+    # --- d/dt rho_11 ---
+    L[5, 5] = -1 * system.Gamma_big_ij(1, 1)
+    L[5, 10] = system.gamma_small_ij(1, 2)
+    L[5, 1] = 1j * Et * system.Dip_op[1, 0]
+    L[5, 7] = -1j * Et * system.Dip_op[3, 1]
+    L[5, 13] = 1j * Et_conj * system.Dip_op[3, 1]
+    L[5, 4] = -1j * Et_conj * system.Dip_op[1, 0]
+
+    # --- d/dt rho_22 ---
+    L[10, 10] = -1 * system.Gamma_big_ij(2, 2)
+    L[10, 5] = system.gamma_small_ij(2, 1)
+    L[10, 2] = 1j * Et * system.Dip_op[2, 0]
+    L[10, 11] = -1j * Et * system.Dip_op[3, 2]
+    L[10, 14] = 1j * Et_conj * system.Dip_op[3, 2]
+    L[10, 8] = -1j * Et_conj * system.Dip_op[2, 0]
+
+    # --- d/dt rho_00 --- and  --- d/dt rho_33 (sum d/dt rho_ii = 0) (trace condition) ---
+    L[15, :] = -1 * np.sum(
+        L[[0, 5, 10], :], axis=0
+    )  # TODO not mentioned in paper, i will assume it to conserve the trace
+    # print("the trace d/dt (rho_00 + rho_11 + rho_22 + rho_33) = ", np.sum(L[[0, 5, 10, 15], :]), "should be 0")
+
+    return Qobj(L, dims=[[[2, 2], [2, 2]], [[2, 2], [2, 2]]])
+
+
+# only use the Redfield tensor as a matrix:
 def R_paper(system: SystemParameters) -> Qobj:
+    """Dispatches to the appropriate implementation based on N_atoms."""
+    if system.N_atoms == 1:
+        return _R_paper_1atom(system)
+    elif system.N_atoms == 2:
+        return _R_paper_2atom(system)
+    else:
+        raise ValueError("Only N_atoms=1 or 2 are supported.")
+
+
+def _R_paper_1atom(system: SystemParameters) -> Qobj:
     """
     Constructs the Redfield Tensor R for the equation drho_dt = -i(Hrho - rho H) + R * rho,
     where rho is the flattened density matrix. Uses gamma values from the provided system.
@@ -1145,12 +1682,95 @@ def R_paper(system: SystemParameters) -> Qobj:
     return Qobj(R, dims=[[[2], [2]], [[2], [2]]])
 
 
+def _R_paper_2atom(system: SystemParameters) -> Qobj:
+    """
+    including RWA
+    Constructs the Redfield Tensor R for the equation drho_dt = -i(Hrho - rho H) + R * rho,
+    where rho is the flattened density matrix.
+    """
+    R = np.zeros((16, 16), dtype=complex)
+
+    # Indices for the flattened density matrix:
+    # 0: rho00, 1: rho01, 2: rho02, 3: rho03
+    # 4: rho10, 5: rho11, 6: rho12, 7: rho13
+    # 8: rho20, 9: rho21, 10: rho22, 11: rho23
+    # 12: rho30, 13: rho31, 14: rho32, 15: rho33
+
+    # --- d/dt rho_10 ---
+    term = -1j * (system.omega_ij(1, 0) - system.omega_laser) - system.Gamma_big_ij(
+        1, 0
+    )
+    R[4, 4] = term
+
+    # --- d/dt rho_01 ---
+    R[1, 1] = np.conj(term)
+
+    # --- d/dt rho_20 --- = ANSATZ = (d/dt s_20 - i omega_laser s_20) e^(-i omega_laser t)
+    term = -1j * (system.omega_ij(2, 0) - system.omega_laser) - system.Gamma_big_ij(
+        2, 0
+    )
+    R[8, 8] = term
+
+    # --- d/dt rho_02 ---
+    R[2, 2] = np.conj(term)
+
+    # --- d/dt rho_30 ---
+    term = -1j * (system.omega_ij(3, 0) - 2 * system.omega_laser) - system.Gamma_big_ij(
+        3, 0
+    )
+    R[12, 12] = term
+
+    # --- d/dt rho_03 ---
+    R[3, 3] = np.conj(term)
+
+    # --- d/dt rho_12 ---
+    term = -1j * system.omega_ij(1, 2) - system.Gamma_big_ij(1, 2)
+    R[6, 6] = term
+
+    # --- d/dt rho_21 ---
+    R[9, 9] = np.conj(term)
+
+    # --- d/dt rho_31 ---
+    term = -1j * (system.omega_ij(3, 1) - system.omega_laser) - system.Gamma_big_ij(
+        3, 1
+    )
+    R[13, 13] = term
+
+    # --- d/dt rho_13 ---
+    R[7, 7] = np.conj(term)
+
+    # --- d/dt rho_32 ---
+    term = -1j * (system.omega_ij(3, 2) - system.omega_laser) - system.Gamma_big_ij(
+        3, 2
+    )
+    R[14, 14] = term
+
+    # --- d/dt rho_23 ---
+    R[11, 11] = np.conj(term)
+
+    ### Diagonals
+    # --- d/dt rho_11 ---
+    R[5, 5] = -system.Gamma_big_ij(1, 1)
+    R[5, 10] = system.gamma_small_ij(1, 2)
+
+    # --- d/dt rho_22 ---
+    R[10, 10] = -system.Gamma_big_ij(2, 2)
+    R[10, 5] = system.gamma_small_ij(2, 1)
+
+    # NOW THERE IS NO POPULATION CHANGE in 3 || 1 goes to 2 and vice versa
+    # --- d/dt rho_00 --- and  --- d/dt rho_33 (sum d/dt rho_ii = 0) (trace condition) ---
+    # R[15, :] = -1 * np.sum(R[[0, 5, 10], :], axis=0)
+    # R[0, :] = -1 * np.sum(R[[5, 10, 15], :], axis=0) # i think the ground state should get repopulated
+
+    return Qobj(R, dims=[[[2, 2], [2, 2]], [[2, 2], [2, 2]]])
+
+
 def compute_pulse_evolution(
     psi_ini: Qobj,
     times: np.ndarray,
     pulse_seq: PulseSequence,
     system: SystemParameters = None,
-) -> Result:
+) -> qutip.Result:
     """
     Compute the evolution of the system for a given pulse sequence.
 
@@ -1180,10 +1800,13 @@ def compute_pulse_evolution(
     # =============================
     # Choose solver and compute the evolution
     # =============================
-    if system.ODE_Solver not in ["Paper_eqs", "ME", "Paper_BR"]:
+    if system.ODE_Solver not in ["ME", "BR", "Paper_eqs", "Paper_BR"]:
         raise ValueError(f"Unknown ODE solver: {system.ODE_Solver}")
 
     if system.ODE_Solver == "Paper_eqs":
+        assert (
+            system.RWA_laser == True
+        ), "The equations of the paper only make sense with RWA"
         # You need to adapt Liouville to accept pulse_seq and system if needed
         Liouville = QobjEvo(lambda t, args=None: matrix_ODE_paper(t, pulse_seq, system))
         result = mesolve(
@@ -1194,21 +1817,39 @@ def compute_pulse_evolution(
         )
     else:
         # Build Hamiltonian
-        H_free = Hamilton_tls(system)
+        H_free = system.H0_diagonalized  # already includes the RWA, if present!
         H_int_evo = H_free + QobjEvo(lambda t, args=None: H_int(t, pulse_seq, system))
         c_ops = []
         if system.ODE_Solver == "Paper_BR":
             c_ops = [R_paper(system)]
+
+            result = mesolve(
+                H_int_evo,
+                psi_ini,
+                times,
+                c_ops=c_ops,
+                options=options,
+            )
+
         elif system.ODE_Solver == "ME":
             c_ops = system.c_ops_list
 
-        result = mesolve(
-            H_int_evo,
-            psi_ini,
-            times,
-            c_ops=c_ops,
-            options=options,
-        )
+            result = mesolve(
+                H_int_evo,
+                psi_ini,
+                times,
+                c_ops=c_ops,
+                options=options,
+            )
+
+        elif system.ODE_Solver == "BR":
+            result = brmesolve(
+                H_int_evo,
+                psi_ini,
+                times,
+                a_ops=system.a_ops_list,
+                options=options,
+            )
 
         """
         # =============================
@@ -1259,7 +1900,8 @@ def compute_pulse_evolution(
             result.times = all_times
             # Copy other attributes if needed
         else:
-            result = result1"""
+            result = result1
+        """
 
     return result
 
@@ -1285,7 +1927,7 @@ def get_expect_vals_with_RWA(
     if system.RWA_laser:
         # Apply RWA phase factors to each state
         states = [
-            apply_RWA_phase_factors(state, time, omega)
+            apply_RWA_phase_factors(state, time, omega, system)
             for state, time in zip(states, times)
         ]
     updated_expects = [np.real(expect(states, e_op)) for e_op in e_ops]
@@ -1295,7 +1937,9 @@ def get_expect_vals_with_RWA(
 # ##########################
 # independent of system
 # ##########################
-def check_the_solver(times: np.ndarray, system: SystemParameters) -> qutip.Result:
+def check_the_solver(
+    times: np.ndarray, system: SystemParameters
+) -> tuple[qutip.Result, float]:
     """
     Checks the solver within the compute_pulse_evolution function
     with the provided psi_ini, times, and system.
@@ -1336,16 +1980,16 @@ def check_the_solver(times: np.ndarray, system: SystemParameters) -> qutip.Resul
     phi_0 = np.pi / 2
     phi_1 = np.pi / 4
     phi_2 = 0
-    t_start_0 = times[0]
-    t_start_1 = times[-1] / 2
+    t_start_pulse0 = times[0]
+    t_start_pulse1 = times[-1] / 2
     t_start_2 = times[-1] / 1.1
 
     # Use the from_args static method to construct the sequence
     pulse_seq = PulseSequence.from_args(
         system=system,
         curr=(t_start_2, phi_2),
-        prev=(t_start_1, phi_1),
-        preprev=(t_start_0, phi_0),
+        prev=(t_start_pulse1, phi_1),
+        preprev=(t_start_pulse0, phi_0),
     )
     result = compute_pulse_evolution(system.psi_ini, times, pulse_seq, system=system)
     # =============================
@@ -1363,13 +2007,12 @@ def check_the_solver(times: np.ndarray, system: SystemParameters) -> qutip.Resul
     # =============================
     strg = ""
     global time_cut
-    time_cut = np.inf
+    omega = system.omega_laser
+    time_cut = np.inf  # time after which the checks failed
     for index, state in enumerate(result.states):
         # Apply RWA phase factors if needed
         if getattr(system, "RWA_laser", False):
-            state = apply_RWA_phase_factors(
-                state, times[index], omega=system.omega_laser
-            )
+            state = apply_RWA_phase_factors(state, times[index], omega, system)
         time = times[index]
         if not state.isherm:
             strg += f"Density matrix is not Hermitian after t = {time}.\n"
@@ -1427,16 +2070,18 @@ def compute_two_dimensional_polarization(
     # initialize the time domain Spectroscopy data tr(Dip_op * rho_final(tau_coh, t_det))
     data = np.zeros((len(tau_coh_vals), len(t_det_vals)), dtype=np.complex64)
 
-    idx_start_0 = 0
-    t_start_0 = times[idx_start_0]
-    idx_end_0 = np.abs(times - (system.Delta_ts[0])).argmin()
-    idx_start_1_max = np.abs(times - (tau_coh_vals[-1] - system.Delta_ts[1])).argmin()
-    times_0 = times[: idx_start_1_max + 1]
+    idx_end_pulse0 = 0
+    t_start_pulse0 = times[idx_end_pulse0]
+    idx_end_pulse0 = np.abs(times - (system.Delta_ts[0])).argmin()
+    idx_start_pulse1_max = np.abs(
+        times - (tau_coh_vals[-1] - system.Delta_ts[1])
+    ).argmin()
+    times_0 = times[: idx_start_pulse1_max + 1]
     if times_0.size == 0:
-        times_0 = times[idx_start_0 : idx_end_0 + 1]
+        times_0 = times[idx_end_pulse0 : idx_end_pulse0 + 1]
 
     # First pulse
-    pulse_0 = (t_start_0, phi_0)
+    pulse_0 = (t_start_pulse0, phi_0)
     # Instead of directly constructing PulseSequence, use from_args:
     pulse_seq_0 = PulseSequence.from_args(
         system=system,
@@ -1447,20 +2092,22 @@ def compute_two_dimensional_polarization(
     )
 
     for tau_idx, tau_coh in enumerate(tau_coh_vals):
-        idx_start_1 = np.abs(times - (tau_coh - system.Delta_ts[1])).argmin()
-        t_start_1 = times[idx_start_1]
-        idx_end_1 = np.abs(times - (tau_coh + system.Delta_ts[1])).argmin()
-        rho_1 = data_0.states[idx_start_1]
+        idx_start_pulse1 = np.abs(times - (tau_coh - system.Delta_ts[1])).argmin()
+        t_start_pulse1 = times[idx_start_pulse1]
+        idx_end_pulse1 = np.abs(times - (tau_coh + system.Delta_ts[1])).argmin()
+        rho_1 = data_0.states[idx_start_pulse1]
 
         idx_start_2 = np.abs(times - (tau_coh + T_wait - system.Delta_ts[2])).argmin()
-        idx_end_2 = np.abs(times - (tau_coh + T_wait + system.Delta_ts[2])).argmin()
+        idx_end_pulse2 = np.abs(
+            times - (tau_coh + T_wait + system.Delta_ts[2])
+        ).argmin()
         t_start_2 = times[idx_start_2]
 
-        times_1 = times[idx_start_1 : idx_start_2 + 1]
+        times_1 = times[idx_start_pulse1 : idx_start_2 + 1]
         if times_1.size == 0:
-            times_1 = times[idx_start_1 : idx_end_1 + 1]
+            times_1 = times[idx_start_pulse1 : idx_end_pulse1 + 1]
 
-        pulse_1 = (t_start_1, phi_1)
+        pulse_1 = (t_start_pulse1, phi_1)
         pulse_seq_1 = PulseSequence.from_args(
             system=system,
             curr=pulse_1,
@@ -1473,7 +2120,7 @@ def compute_two_dimensional_polarization(
 
         times_2 = times[idx_start_2:]
         if times_2.size == 0:
-            times_2 = times[idx_start_2 : idx_end_2 + 1]
+            times_2 = times[idx_start_2 : idx_end_pulse2 + 1]
 
         phi_2 = 0
         pulse_f = (t_start_2, phi_2)
@@ -1494,7 +2141,10 @@ def compute_two_dimensional_polarization(
                 rho_f = data_f.states[t_idx_in_times_2]
                 if system.RWA_laser:
                     rho_f = apply_RWA_phase_factors(
-                        rho_f, times_2[t_idx_in_times_2], omega=system.omega_laser
+                        rho_f,
+                        times_2[t_idx_in_times_2],
+                        omega=system.omega_laser,
+                        system=system,
                     )
                 value = expect(system.Dip_op, rho_f)
                 data[tau_idx, t_idx] = np.real(value)
@@ -1502,8 +2152,8 @@ def compute_two_dimensional_polarization(
                 if t_idx == 0 and tau_idx == len(tau_coh_vals) // 3 and plot_example:
                     print(system.RWA_laser)
                     data_1_expects = get_expect_vals_with_RWA(
-                        data_0.states[: idx_start_1 + 1],
-                        data_0.times[: idx_start_1 + 1],
+                        data_0.states[: idx_start_pulse1 + 1],
+                        data_0.times[: idx_start_pulse1 + 1],
                         system,
                     )
                     data_2_expects = get_expect_vals_with_RWA(
@@ -1526,7 +2176,7 @@ def compute_two_dimensional_polarization(
                     ]
 
                     Plot_example_evo(
-                        times_0[: idx_start_1 + 1],
+                        times_0[: idx_start_pulse1 + 1],
                         times_1,
                         times_2,
                         data_expectations,
@@ -1866,6 +2516,9 @@ def parallel_process_all_omega_ats(
     averaged_results = []
     for t_idx in range(len(times_T)):
         data_for_t = [all_results[o_idx][t_idx] for o_idx in range(len(omega_ats))]
+        if not data_for_t:  # If all simulations failed for this T_wait
+            averaged_results.append(None)
+            continue
         averaged_data = np.mean(np.stack(data_for_t), axis=0)
         averaged_results.append(averaged_data)
 
@@ -1943,6 +2596,10 @@ def extend_and_plot_results(
     -------
     None
     """
+    if not averaged_results:
+        print("No results to plot")
+        return
+
     global_ts, global_taus = get_tau_cohs_and_t_dets_for_T_wait(times, times_T[0])
     global_data_time = np.zeros((len(global_taus), len(global_ts)), dtype=np.complex64)
 
@@ -2022,11 +2679,13 @@ def extend_and_plot_results(
     global_data_freq /= len(averaged_results)
 
     # Plot the global results
+    """
     plot_positive_color_map(
         (global_ts, global_taus, global_data_time),
         type="imag",
         use_custom_colormap=True,
     )
+    """
     plot_positive_color_map(
         (global_nu_ts, global_nu_taus, global_data_freq), **plot_args_freq
     )

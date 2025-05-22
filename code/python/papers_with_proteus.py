@@ -1,5 +1,5 @@
 # Import the outsourced settings / functions
-from functions_for_both_cases import *
+from functions2DES import *
 
 import numpy as np
 import psutil  # -> estimate RAM usage
@@ -31,16 +31,6 @@ def main():
         N_atoms=1,
         ODE_Solver="Paper_eqs",
         RWA_laser=True,
-        Delta_cm=200.0,
-        omega_A_cm=16000.0,
-        mu_eg_cm=1.0,
-        omega_laser_cm=16000.0,
-        E0=0.1,
-        pulse_duration=15.0,
-        t_max=100.0,  # -> determines Δω ∝ 1/t_max
-        fine_spacing=0.5,  # -> determines ω_max ∝ 1/Δt
-        gamma_0=1 / 300,
-        T2=100.0,
     )
 
     system.summary()
