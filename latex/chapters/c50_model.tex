@@ -97,6 +97,13 @@ Let $N_{\theta}$ be the number of sites per ring and $N_{z}$ the number of rings
 \end{align}
 implementing periodic boundary conditions in the azimuthal direction.
 
+For spectroscopy, the system dipole operator is given by
+\begin{equation}
+	\hat{\vec{\mu}}_{\mathrm{S}}^{\,(N)} = \sum_{m,n} \mu_{(m,n)} \sigma_x^{(m,n)} \hat{e},
+	\label{eq:Nqubit_dipole}
+\end{equation}
+where $\mu_{(m,n)}$ is the transition dipole moment for site $(m,n)$ and $\hat{e}$ is the unit vector along the polarization direction.
+
 The bath part may be modeled as independent local environments,
 \begin{equation}
 	H_{\mathrm{B}}^{\,(N)} = \sum_{m,n} \sum_{k} \omega_{k,(m,n)} a_{k,(m,n)}^{\dagger} a_{k,(m,n)},

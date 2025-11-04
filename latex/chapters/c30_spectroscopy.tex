@@ -63,7 +63,7 @@ It provides insights into the composition, structure, and dynamics of physical s
 \noindent The foundation of spectroscopy rests on the quantization of energy in atomic and molecular systems. According to quantum mechanics, atoms and molecules can exist only in discrete energy states \cite{albashetal2012quantumadiabaticmarkovian}. The energy difference between two such states, $\Delta E$, determines the frequency $\nu$ or wavelength $\lambda$ of light that can be absorbed or emitted during a transition between these states, following Planck's relation:
 
 \begin{equation}
-	\Delta E = h\nu = \frac{hc}{\lambda}
+	\Delta E = h\nu = \frac{hc}{\lambda},
 	\label{eq:planck_relation}
 \end{equation}
 
@@ -75,7 +75,7 @@ To characterize the most common spectroscopic techniques, it is vital to underst
 The fundamental kinematic relations for the electromagnetic propagation in vacuum are
 
 \begin{equation}
-	\omega = 2\pi\nu, \qquad |\vec{k}| = \frac{2\pi}{\lambda}, \qquad \lambda = \frac{c}{\nu} = \frac{2\pi c}{\omega}
+	\omega = 2\pi\nu, \qquad |\vec{k}| = \frac{2\pi}{\lambda}, \qquad \lambda = \frac{c}{\nu} = \frac{2\pi c}{\omega},
 	\label{eq:wavelength_frequency_relation}
 \end{equation}
 
@@ -146,7 +146,7 @@ The collective behavior of these molecular dipoles determines the induced macros
 where $V$ is the sample volume, $\vec{r}_i$ is the position of the $i$-th molecule, and the sum extends over all molecules in the interaction region. This polarization acts as a source term in Maxwell's equations, generating the electromagnetic fields that constitute the spectroscopic signal \cite{abramaviciusetal2009coherentmultidimensionaloptical}
 
 \begin{equation}
-	\nabla \times \nabla \times \vec{E}(\vec{r}, t) + \frac{1}{c^2} \frac{\partial^2}{\partial t^2} \vec{E}(\vec{r}, t) = - \frac{4 \pi}{c^2} \frac{\partial^2}{\partial t^2} \vec{P}(\vec{r}, t).
+	\nabla \times \nabla \times \vec{\varepsilon}(\vec{r}, t) + \frac{1}{c^2} \frac{\partial^2}{\partial t^2} \vec{\varepsilon}(\vec{r}, t) = - \frac{4 \pi}{c^2} \frac{\partial^2}{\partial t^2} \vec{P}(\vec{r}, t).
 \end{equation}
 
 \noindent
@@ -160,11 +160,11 @@ A formal solution of the wave equation shows that the emitted polarization at po
 where $\vec{k}_S$ and $\omega_S$ are the wavevector and frequency of the emitted signal, respectively. The connection to incident fields is essential for photon-echo and other nonlinear spectroscopies discussed later. 
 
 \noindent 
-In the slowly varying amplitude approximation, the emitted signal field $\vec{E}_S$ is directly proportional to the macroscopic polarization \cite{mukamel1995principlesnonlinearoptical}. This approximation holds when the magnitude of the polarization varies slowly compared to the optical cycle of the incident field. A short derivation can be found in \cite{boyd2008chapter6nonlinear}.
+In the slowly varying amplitude approximation, the emitted signal field $\vec{\varepsilon}_S$ is directly proportional to the macroscopic polarization \cite{mukamel1995principlesnonlinearoptical}. This approximation holds when the magnitude of the polarization varies slowly compared to the optical cycle of the incident field. A short derivation can be found in \cite{boyd2008chapter6nonlinear}.
 \todoidea{a bit more explanation (mathematical), page 295 complex polarization is mentioned!}
 
 \begin{equation} \label{eq:signal_field_propto_P}
-	\vec{E}_S(\vec{r}, t) \approx i \vec{P}_S(\vec{r}, t)
+	\vec{\varepsilon}_S(\vec{r}, t) \approx i \vec{P}_S(\vec{r}, t)
 \end{equation}
 
 \noindent 
@@ -193,34 +193,33 @@ The standard way to calculate the nonlinear response is to use response function
 The startpoint will be the semiclassical Hamiltonian of a quantum mechanically modeled matter-system interacting with classical radiation field described with vector and scalar potentials
 
 \begin{equation}
-	H = \frac{1}{2m} [\mathbf{p} + q \mathbf{A}(\mathbf{r}, t)]^2 + V(\mathbf{r}) - q \phi(\mathbf{r}, t)
+	H = \frac{1}{2m} [\vec{p} + q \vec{A}(\vec{r}, t)]^2 + V(\vec{r}) - q \phi(\vec{r}, t)
 	\label{eq:hamiltonian}
 \end{equation}
 
 \noindent
-where $\mathbf{p}$ is the momentum operator, $q$ the electric charge of the system, $V(\mathbf{r})$ the potential energy of the matter system, $\mathbf{A}(\mathbf{r}, t)$ the vector potential, and $\phi(\mathbf{r}, t)$ the scalar potential of the electromagnetic field \cite{cohen-tannoudjietal2008atomphotoninteractionsbasic}. Standard procedure is to go into the dipole approximation, meaning the spatial variation of the field over the extent of the molecule is negligible, and the Coulomb gauge, where $\nabla \cdot \mathbf{A} = 0$ and $\phi = 0$, to simplify the Hamiltonian to the commonly used form \todoref{find ref}
+where $\vec{p}$ is the momentum operator, $q$ the electric charge of the system, $V(\vec{r})$ the potential energy of the matter system, $\vec{A}(\vec{r}, t)$ the vector potential, and $\phi(\vec{r}, t)$ the scalar potential of the electromagnetic field \cite{cohen-tannoudjietal2008atomphotoninteractionsbasic}. Standard procedure is to go into the dipole approximation, meaning the spatial variation of the field over the extent of the molecule is negligible, and the Coulomb gauge, where $\nabla \cdot \vec{A} = 0$ and $\phi = 0$, to simplify the Hamiltonian to the commonly used form \todoref{find ref}
 In this case, the Hamiltonian takes the form
 
 \begin{equation}
-	H = H_0 + V(t).
+	H = H_0 + V(t),
 \end{equation}
 
 \noindent 
 where $H_0$ is the unperturbed Hamiltonian of the matter system and the interaction term is given by
 
 \begin{equation} \label{eq:dipole_approx_term}
-	V(t) = - \mathbf{\hat{\mu}} \cdot \mathbf{E}(t).
+	V(t) = - \hat{\vec{\mu}} \cdot \vec{\varepsilon}(t).
 \end{equation}
 
 \noindent
-where $\mathbf{E}(t)$ is the electric field and $\mathbf{\hat{\mu}}$ is the dipole operator of the matter system. 
+where $\vec{\varepsilon}(t)$ is the electric field and $\hat{\vec{\mu}}$ is the dipole operator of the matter system. 
 This allows us to calculate the macroscopic polarization as the expectation value of the microscopic dipole operator (see Eq. \eqref{eq:ho_expectation_value})
 
 \begin{equation}
-	\vec{P}(t) = \langle \mathbf{\hat{\mu}}(t) \rangle = \mathrm{Tr}[\mathbf{\hat{\mu}} \rho(t)]
+	\vec{P}(t) = \langle \hat{\vec{\mu}}(t) \rangle = \mathrm{Tr}[\hat{\vec{\mu}} \rho(t)].
 	\label{eq:polarization_expectation_value}
 \end{equation}
-
 
 \noindent
 Now that we have introduced the most important quantity in spectroscopy Eq. \ref{eq:macroscopic_polarization}, and found out how to calculate it in the previous section, we can discuss how it depends on the incident electric field. This leads to nonlinear optics.
@@ -238,7 +237,7 @@ In general, the polarization can be expanded as a power series in the incident e
 \todoimp{clarify the tensor component of this quantity}
 
 \begin{equation}
-	\vec{P} = \varepsilon_0 (\chi^{(1)} \vec{E} + \chi^{(2)} \vec{E} \cdot \vec{E} + \chi^{(3)} \vec{E} \cdot \vec{E} \cdot \vec{E} + \ldots)
+	\vec{P} = \varepsilon_0 (\chi^{(1)} \vec{\varepsilon} + \chi^{(2)} \vec{\varepsilon} \cdot \vec{\varepsilon} + \chi^{(3)} \vec{\varepsilon} \cdot \vec{\varepsilon} \cdot \vec{\varepsilon} + \ldots),
 	\label{eq:nonlinear_polarization}
 \end{equation}
 
@@ -246,14 +245,14 @@ In general, the polarization can be expanded as a power series in the incident e
 where $\varepsilon_0$ is the vacuum permittivity and $\chi^{(i)}$ is the $i$-th-order nonlinear susceptibility tensors.  This is going to be usefull for interpreting numerically exact (but with not clearly separated pathways) results later on.
 
 \noindent 
-In the linear regime, the induced polarization $\vec{P}$ can be cut after the first contribution, which is directly proportional to the applied electric field $\vec{E}$.
+In the linear regime, the induced polarization $\vec{P}$ can be cut after the first contribution, which is directly proportional to the applied electric field $\vec{\varepsilon}$.
 This relationship describes phenomena such as refraction and absorption.
 The higher-order terms give rise to a variety of nonlinear optical phenomena \cite{boyd2008contents}.
 
 \noindent 
 \todoidea{leave it out completely?}
 Second-order nonlinear processes are not important for this thesis, but mentioned for completeness.
-They are governed by the $\chi^{(2)}$ term and occur only in noncentrosymmetric materials, which lack inversion symmetry \cite{rao2018overviewsecondthird,boyd2008chapter1nonlinear}.  Second-order nonlinear processes include Second Harmonic Generation (SHG), where two photons of frequency $\omega$ combine to generate a photon of frequency $2\omega$; Sum Frequency Generation (SFG), where two photons of frequencies $\omega_1$ and $\omega_2$ combine to produce a photon of frequency $\omega_1 + \omega_2$; Difference Frequency Generation (DFG), where two photons interact to create a photon of frequency $\omega_1 - \omega_2$.
+They are governed by the $\chi^{(2)}$ term and occur only in noncentrosymmetric materials, which lack inversion symmetry \cite{rao2018overviewsecondthird,boyd2008chapter1nonlinear}.  This even holds for any even order of the polarizataion. Second-order nonlinear processes include Second Harmonic Generation (SHG), where two photons of frequency $\omega$ combine to generate a photon of frequency $2\omega$; Sum Frequency Generation (SFG), where two photons of frequencies $\omega_1$ and $\omega_2$ combine to produce a photon of frequency $\omega_1 + \omega_2$; Difference Frequency Generation (DFG), where two photons interact to create a photon of frequency $\omega_1 - \omega_2$.
 
 \noindent
 Already in the second-order nonlinear processes, the new rich phenomena appear compared to linear optics.
@@ -268,18 +267,39 @@ Now we can move on to the third-order nonlinear processes, which powers two dime
 \noindent
 We write the electric field that couples to the system via Eq. \eqref{eq:dipole_approx_term} as 
 
-\begin{equation} \label{eq:electric_field_three_pulses}
-E(t)=\sum_{a=1}^3 E_a e^{i \vec{k}_a \cdot \vec{r} - i\omega_a t} + \text{c.c.}
+\begin{equation} \label{eq:electric_field_three_pulses_implemented}\vec{\varepsilon}(t)=\sum_{j=1}^3 \vec{E_0}^j \cdot g_j(t - t_j) \cdot e^{-i (\vec{k}_j \cdot \vec{r} - \omega_j t)} + \text{c.c.},
 \end{equation}
 
+\noindent where the normalized Gaussian envelope is defined as
+
+\begin{equation} \label{eq:gaussian_envelope}
+g_j(u) = \frac{1}{\sqrt{2\pi} \sigma_j} \exp\left( -\frac{u^2}{2\sigma_j^2} \right),
+\end{equation}
+
+\noindent with $\sigma_j$ corresponding to the full width at half maximum (FWHM$_j$), and the factored form factoring out a common carrier $e^{-i \omega_L t}$ is
+
+\begin{align} \label{eq:electric_field_factored}
+\vec{\varepsilon}(t) &= e^{-i \omega_L t} \sum_{j=1}^3 \vec{E}_j(t) + \text{c.c.} ,
+\end{align}
+
 \noindent
-and use the analytic–conjugate split $E^{(+)}(t)$, $E^{(-)}(t)=[E^{(+)}(t)]^*$. Then the third order component of the polarization Eq. \eqref{eq:nonlinear_polarization} is given by
+where we have defined the slowly varying envelopes
+
+\begin{equation} \label{eq:slow_envelope_with_time_delay}
+\vec{E}_j(t) = \vec{E_0}^j \cdot g_j(t - t_j) \cdot e^{-i \omega_L t_j}.
+\end{equation}
+
+\noindent 
+Note that here the spatial, time-constant phase, was written as $\vec{k}_j \cdot \vec{r} = \omega_j t_j$ or, in the latter case, $\omega_L t_j$ \cite{greenetal2024vibrationalcoherenceshalfbroadband}.
+
+\noindent
+This is sometimes called the analytic–conjugate split $\vec{\varepsilon}^{(+)}(t)$, $\vec{\varepsilon}^{(-)}(t)=[\vec{\varepsilon}^{(+)}(t)]^*$. Then the third order component of the polarization Eq. \eqref{eq:nonlinear_polarization} is given by
 
 \begin{equation}
-P_i^{(3)}(t)
+\vec{P}^{(3)}(t)
 =\varepsilon_0 \sum_{jkl}\sum_{\sigma_1,\sigma_2,\sigma_3=\pm 1}
 \chi^{(3)}_{ijkl}(-\omega_S;\sigma_1\omega_1,\sigma_2\omega_2,\sigma_3\omega_3)\,
-E_j^{(\sigma_1)}E_k^{(\sigma_2)}E_l^{(\sigma_3)}\,e^{-i\omega_S t},
+\vec{E}_j^{(\sigma_1)}\vec{E}_k^{(\sigma_2)}\vec{E}_l^{(\sigma_3)}\,e^{-i\omega_S t},
 \end{equation}
 
 \noindent
@@ -307,10 +327,12 @@ This will lead us to the framework of response functions in the following Sec. \
 
 \section{Response Functions}
 \label{sec:response_functions}
+\todoidea{Note that the response function theory can be analytically done only for pure-dephasing baths!!}
+
 In general, one can write Eq. \eqref{eq:polarization_expectation_value} in a perturbative series expansion
 
 \begin{equation}
-	\vec{P}(t) = \sum_n \vec{P}^{(n)}(t) = \sum_n \langle \mathbf{\hat{\mu}}(t) \rangle = \mathrm{Tr}[\mathbf{\hat{\mu}} \rho^{(n)}(t)],
+	\vec{P}(t) = \sum_n \vec{P}^{(n)}(t) = \mathrm{Tr}[\hat{\vec{\mu}} \rho^{(n)}(t)],
 	\label{eq:polarization_expectation_value_perturbative}
 \end{equation}
 
@@ -318,70 +340,72 @@ In general, one can write Eq. \eqref{eq:polarization_expectation_value} in a per
 where only the quantity $\vec{P}^{(n)}(t)$ for a specific order of interest has to be calculated. Note that we are specifically interested in the third-order polarization $\vec{P}^{(3)}(t)$ for FWM processes, but the framework is kept general for now.
 
 \noindent
-The following equations are taken for the optical case of taking the dipole operator as the observable $A = \hat{\mu}$, with the dipole approximation Hamiltonian (Eq. \eqref{eq:dipole_approx_term}), but generally they hold for other observable as well, just producing different expectation values. \todoref{<- find examples?}
-The $i$-th order polarization can be written as the convolution of $i$ electric fields \cite{hamm2005principlesnonlinearoptical}
-
+The following equations are taken for the optical case of taking the dipole operator as the observable $A = \hat{\vec{\mu}}$, with the dipole approximation Hamiltonian (Eq. \eqref{eq:dipole_approx_term}), but generally they hold for other observable as well, just producing different expectation values. \todoref{<- find examples?}
+The $n$-th order polarization can be written as the convolution of $n$ electric fields \cite{hamm2005principlesnonlinearoptical}
 \begin{align}
-	P^{(i)}(t) &= \int_{0}^{\infty}\! dt_{i} \int_{0}^{\infty}\! dt_{i-1} \cdots \int_{0}^{\infty}\! dt_{1} \notag \\
-	&\quad E\bigl(t-t_{i}\bigr)\, E\bigl(t-t_{i}-t_{i-1}\bigr)\,\cdots\, E\bigl(t-t_{i}-\cdots - t_{1}\bigr) \notag \\
-	&\quad R(t_{i},t_{i-1},\ldots,t_{1}),
+	\vec{P}^{(n)}(t) &= \int_{0}^{\infty}\! dt_{n} \int_{0}^{\infty}\! dt_{n-1} \cdots \int_{0}^{\infty}\! dt_{1} \notag \\
+	&\quad \vec{\varepsilon}\bigl(t-t_{n}\bigr)\, \vec{\varepsilon}\bigl(t-t_{n}-t_{n-1}\bigr)\,\cdots\, \vec{\varepsilon}\bigl(t-t_{n}-\cdots - t_{1}\bigr) \notag \\
+	&\quad \vec{R}^{(n)}(t_{n},t_{n-1},\ldots,t_{1}),
 	\label{eq:response_convolution}
 \end{align}
-
+\begin{equation}
+	\vec{P}^{(n)}(t) = \int_0^\infty dt_1 \cdots dt_n \, \prod_{k=1}^n \vec{\varepsilon}\left(t - \sum_{j=k}^n t_j\right) \, \vec{R}^{(n)}(t_n, \ldots, t_1)
+\end{equation}
 \noindent
-where the $i$-th response function is defined as
+where the $n$-th response function is defined as
 
 \begin{equation}
-	R^{(i)}(t_{i},\ldots,t_{1})
+	\vec{R}^{(n)}(t_{n},\ldots,t_{1})
 	\;=\;
-	\left(-\frac{i}{\hbar}\right)^{i}
+	\left(-\frac{i}{\hbar}\right)^{n}
 	\Big\langle
-	\hat{\mu}(t_{i}+\cdots + t_{1})\;[\hat{\mu}(t_{i-1}+\cdots + t_{1}),\ldots [\hat{\mu}(0),\rho(-\infty)]\ldots]
-	\Big\rangle
+	\hat{\vec{\mu}}(t_{n}+\cdots + t_{1})\;[\hat{\vec{\mu}}(t_{n-1}+\cdots + t_{1}),\ldots [\hat{\vec{\mu}}(0),\rho(-\infty)]\ldots]
+	\Big\rangle,
 	\label{eq:response_function_R}
 \end{equation}
 
 \noindent
-and describes the system's response to $i$ interactions with the electric field.
-Here $\hat{\mu}(t)$ is the dipole operator in the interaction picture.
-Note, that the interactions at the different times $t - t_{i} - \ldots$ can occur in any order.
+and describes the system's response to $n$ interactions with the electric field.
+Here $\hat{\vec{\mu}}(t)$ is the dipole operator in the interaction picture.
+Note, that the interactions at the different times $t - t_{n} - \ldots$ can occur in any order.
 Also note, that the response function only depends on the material under investigation \cite{hamm2005principlesnonlinearoptical}.
 It is assumed that the interaction takes place at local times $t_i$ (short pulse limit), and the system is in an equilibrium state (the ground state) before the interaction, at time $t = - \infty$.
-It is crucial that the first $i-1$ dipole operators are inside nested commutators, that represent how these field-interactions drive the system out of equilibrium. The last operator then represents the emitted field and is measured by being traced over the environmental degrees of freedom.
-Explicitly, the commutators in Eq-\eqref{eq:response_function_R} contains $2^i$ terms with multiple actions of $\hat{\mu}$ on the left / right on the density matrix.
-Thought one can ignore the complex conjugate contributions, reducing to $2^{i-1}$ terms.
+It is crucial that the first $n-1$ dipole operators are inside nested commutators, that represent how these field-interactions drive the system out of equilibrium. The last operator then represents the emitted field and is measured by being traced over the environmental degrees of freedom.
+Explicitly, the commutators in Eq-\eqref{eq:response_function_R} contains $2^n$ terms with multiple actions of $\hat{\vec{\mu}}$ on the left / right on the density matrix.
+Thought one can ignore the complex conjugate contributions, reducing to $2^{n-1}$ terms.
 Each such term corresponds to a specific sequence of field interactions and can be represented with double-sided Feynman diagrams \cite{mukamel1995principlesnonlinearoptical}. In it the left and right sides of the diagram represent the evolution of the ket and bra states of the density matrix, respectively. Each interaction with the electric field is depicted as an arrow, with arrows pointing towards the density matrix indicating absorption (interaction from the left) and arrows pointing away indicating emission (interaction from the right). The time intervals between interactions are represented by horizontal lines, during which the system evolves freely according to its Hamiltonian.
 \todoidea{add a example figure for the simplest linear polarizataion and then later the pathways for the third order response function.}
 
 
 \noindent
-Eq. \eqref{eq:response_convolution} is the central equation in two dimensional spectroscopy \cite{segarra-martietal2018accuratesimulationtwodimensional}. Each experimentally observed signal direction (phase matched condition Eq. \eqref{eq:phase_matching}) isolates a subset of the possible Liouville-space pathways of the system.
+Eq. \eqref{eq:response_convolution} is the central equation in two dimensional spectroscopy \cite{segarra-martietal2018accuratesimulationtwodimensional}. Each experimentally observed signal direction (phase matched condition Eq. %\eqref{eq:phase_matching}) 
+isolates a subset of the possible Liouville-space pathways of the system.
 Accordingly, the total response in that direction can be written as a sum over all contributing pathways,
 \begin{equation}
-	R^{(i)}(t) = \sum_{\text{path}} R_{\text{path}}(t),
+	R^{(n)}(t) = \sum_{\text{path}} R_{\text{path}}(t),
 	\label{eq:Liouville_pathways}
 \end{equation}
 where $R_{\text{path}}(t)$ represents the contribution of a single Liouville pathway corresponding to a specific sequence of field interactions and density-matrix evolutions.
 
 
 \noindent
-As mentioned in Sec \ref{subsec:third_order}, FWM is the method discussed in detail. It is a third-order process, so $i=3$ in Eq. \eqref{eq:response_convolution} and \eqref{eq:response_function_R}. The response function can be separated into different contributions, depending on the time ordering of the three field interactions. This leads to four main contributions, which can be represented with double-sided Feynman diagrams \cite{mukamel1995principlesnonlinearoptical}.
+As mentioned in Sec \ref{subsec:third_order}, FWM is the method discussed in detail. It is a third-order process, so $n=3$ in Eq. \eqref{eq:response_convolution} and \eqref{eq:response_function_R}. The response function can be separated into different contributions, depending on the time ordering of the three field interactions. This leads to four main contributions, which can be represented with double-sided Feynman diagrams \cite{mukamel1995principlesnonlinearoptical}.
 
 
-The setup can be seen in Fig. \ref{fig:fwm_box_car_setup}. Here three pulses with wavevectors $\mathbf{k}_1, \mathbf{k}_2, \mathbf{k}_3$ interact with the sample and generate a signal in the direction $\mathbf{k}_S$. 
+The setup can be seen in Fig. \ref{fig:fwm_box_car_setup}. Here three pulses with wavevectors $\vec{k}_1, \vec{k}_2, \vec{k}_3$ interact with the sample and generate a signal in the direction $\vec{k}_S$. 
 
 \noindent
 This thesis will instead use a more microscopic non-perturbative (NP) approach.
-Here first the total signal will be calculated, where all pulses are active, and then the desired order will be extracted by filtering out the linear contributions, where only the $i$-th pulse is active.
+Here first the total signal will be calculated, where all pulses are active, and then the desired order will be extracted by filtering out the linear contributions, where only the $n$-th pulse is active.
 This way the third order signal can be calculated by 
 
 \begin{equation}
-	P^{(3)}(t) = P_{\text{total}}(t) - P_{(2)}(t) - P_{(1)}(t) - P_{(0)}(t)
+	\vec{P}^{(3)}(t) = \vec{P}_{\text{total}}(t) - \vec{P}_{(2)}(t) - \vec{P}_{(1)}(t) - \vec{P}_{(0)}(t),
 	\label{eq:third_order_signal_numerical}
 \end{equation}
 
 \noindent
-where the Polarization from Eq. \eqref{eq:polarization_expectation_value} is used. \todofix{actually not true as only the analytical component is extracted, to include phase information.}
+where the polarization from Eq. \eqref{eq:polarization_expectation_value} is used. \todofix{actually not true as only the analytical component is extracted, to include phase information.}
 
 
 
@@ -410,7 +434,7 @@ $f(t)$ = envelope (e.g. Gaussian $f(t) = \exp\left[-\frac{2\ln 2}{\tau_{\mathrm{
 
 $\phi_{\mathrm{CE}}$ = carrier--envelope phase (relevant for few-cycle pulses),
 
-$E_0$ sets peak field (related to pulse energy via the mode area and duration).
+$\vec{E_0}$ sets peak field (related to pulse energy via the mode area and duration).
 
 Bandwidth for a transform-limited Gaussian:
 
@@ -428,22 +452,22 @@ $\Delta\omega_{\mathrm{FWHM}} \approx \frac{2\ln 2}{\tau_{\mathrm{FWHM}}}$}
 A monochromatic electromagnetic plane-wave in free space (vacuum) can be written as
 
 \begin{equation}
-	E(\vec{r},t) = E_0 \cos(\vec{k} \cdot \vec{r} - \omega t + \phi)
+	\vec{\varepsilon}(\vec{r},t) = \vec{E_0} \cos(\vec{k} \cdot \vec{r} - \omega t + \phi),
 	\label{eq:plane_wave}
 \end{equation}
 
 \noindent 
-where $E_0$ is the (real) amplitude, $\phi$ a phase-kick, $\vec{k}$ the wavevector (spatial angular frequency), and $\omega$ the angular frequency of the wave. The real field can be decomposed into complex positive and negative frequency parts as
+where $\vec{E_0}$ is the (real) amplitude, $\phi$ a phase-kick, $\vec{k}$ the wavevector (spatial angular frequency), and $\omega$ the angular frequency of the wave. The real field can be decomposed into complex positive and negative frequency parts as
 
 \iffalse
 \begin{equation}
-	E^{(+)} = E_0 e^{i(\vec{k} \cdot \vec{r} - \omega t + \phi)}
+	\vec{\varepsilon}^{(+)} = \vec{E_0} e^{i(\vec{k} \cdot \vec{r} - \omega t + \phi)}
 	\label{eq:positive_frequency_e_field}
 \end{equation}
 
 \noindent 
-with $E^{(-)} = E^{(+)}^{*}$ and thus $E = 1/2 \{E^{(+)} + E^{(-)}\}$.
-$E^{(+)}$ is called the positive-frequency part because in Fourier space it contains only components with frequencies $\omega > 0$ \todoref{fact check}. This will come in handy applying a rotating wave approximation as the positive field part rotates in the same direction as the rotating frame and the negative rotates in the opposite direction \cite{hamm2005principlesnonlinearoptical}.
+with $\vec{\varepsilon}^{(-)} = \vec{\varepsilon}^{(+)}^{*}$ and thus $\vec{\varepsilon} = 1/2 \{\vec{\varepsilon}^{(+)} + \vec{\varepsilon}^{(-)}\}$.
+\E^{(+)}$ is called the positive-frequency part because in Fourier space it contains only components with frequencies $\omega > 0$ \todoref{fact check}. This will come in handy applying a rotating wave approximation as the positive field part rotates in the same direction as the rotating frame and the negative rotates in the opposite direction \cite{hamm2005principlesnonlinearoptical}.
 \fi
 
 
@@ -514,12 +538,26 @@ By varying the input phases through a complete cycle (in steps of $\pi/2$) and a
 \noindent 
 The nonlinear polarization induced by three incident pulses can be expressed as a Fourier series in the pulse phases $\phi_1, \phi_2, \phi_3$, and individual phase-matched components are isolated via an inverse Fourier transform:
 
+
+\begin{equation}
+	\vec{P}^{\text{NL}}(t) = \sum_{l,m,n} 
+	e^{i(l \vec{k}_1 + m \vec{k}_2 + n \vec{k}_3)}
+	\vec{P}_{l,m,n}(t) + c.c.,
+	\label{eq:total_polarization_sum}
+\end{equation}
+
+\begin{equation}
+	\vec{P}^{(3)}_{l,m,n}(t_{\text{coh}},T,t_{\text{det}}) \approx \sum_{l,m,n} 
+	e^{-i(l \phi_1 + m \phi_2 + n \phi_3)}
+	\vec{P}^{(3)}(\phi_1,\phi_2,\phi_3;t_{\text{coh}},T,t_{\text{det}}),
+	\label{eq:discrete_phase_cycling}
+\end{equation}
+
 \begin{align}
-	P^{(3)}_{n_1,n_2,n_3}(t_{\text{coh}},T,t_{\text{det}}) =
-	\frac{1}{(2\pi)^3} \int_{0}^{2\pi}	\int_{0}^{2\pi} \int_{0}^{2\pi}  
+	\vec{P}^{(3)}_{l, m, n}(t_{\text{coh}},T,t_{\text{det}}) \approx \int_{0}^{2\pi}	\int_{0}^{2\pi} \int_{0}^{2\pi}  
 	& d\phi_1 d\phi_2 d\phi_3
-	e^{-i(n_1\phi_1+n_2\phi_2+n_3\phi_3)} \\
-	& P^{(3)}(\phi_1,\phi_2,\phi_3;t_{\text{coh}},T,t_{\text{det}}).
+	e^{-i(l \phi_1 + m \phi_2 + n \phi_3)} \\
+	& \vec{P}^{(3)}(\phi_1,\phi_2,\phi_3;t_{\text{coh}},T,t_{\text{det}}).
 	\label{eq:continuous_phase_cycling}
 \end{align}
 
@@ -528,9 +566,9 @@ The physically relevant phase-matching directions correspond to:
 
 \begin{align}
 	\vec{k}_{\mathrm{R}}  & = -\vec{k}_1 + \vec{k}_2 + \vec{k}_3,
-	                      & (n_1,n_2,n_3)                         & = (-1,+1,+1), \label{eq:rephasing_selection}    \\
+	                      & (l, m, n)                         & = (-1,+1,+1), \label{eq:rephasing_selection}    \\
 	\vec{k}_{\mathrm{NR}} & = +\vec{k}_1 - \vec{k}_2 + \vec{k}_3,
-	                      & (n_1,n_2,n_3)                         & = (+1,-1,+1), \label{eq:nonrephasing_selection}
+	                      & (l, m, n)                         & = (+1,-1,+1), \label{eq:nonrephasing_selection}
 \end{align}
 
 \noindent 
@@ -543,7 +581,7 @@ The (wavevector) phase-matched rephasing signal direction corresponds to selecti
 The emitted field in a given phase-matching direction is proportional to the corresponding polarization\cite{jonas2003twodimensionalfemtosecondspectroscopy}:
 
 \begin{equation}
-	E_{k_s}(t_{\text{coh}},T,t_{\text{det}}) \propto i P_{\vec{k}_S}(t_{\text{coh}},T,t_{\text{det}}).
+	\vec{\varepsilon}_{k_S}(t_{\text{coh}},T,t_{\text{det}}) \propto i \vec{P}_{\vec{k}_S}(t_{\text{coh}},T,t_{\text{det}}).
 	\label{eq:field_polarization_relation}
 \end{equation}
 
@@ -554,20 +592,20 @@ This holds in the slowly varying amplitude approximation \cite{mukamel1995princi
 
 \noindent 
 So again i want to emphasize that first, dime domain signals of the third order polarization are calculated using Eq. \eqref{eq:polarization_expectation_value}, Eq. \eqref{eq:third_order_signal_numerical} and then the desired phase-matched contributions are extracted using Eq. \eqref{eq:continuous_phase_cycling}. 
-After phase selection, the third order complex time-domain field $E_{k_S}(t_{\text{coh}}, T, t_{\text{det}})$ is Fourier transformed over the detection time $t_{\text{det}}$ and the coherence time $t_{\text{coh}}$ to construct the two-dimensional spectra \todoref{where is the eq?}%(cf. Eq.~\eqref{eq:2des_signal}):
+After phase selection, the third order complex time-domain field $\vec{\varepsilon}_{k_S}(t_{\text{coh}}, T, t_{\text{det}})$ is Fourier transformed over the detection time $t_{\text{det}}$ and the coherence time $t_{\text{coh}}$ to construct the two-dimensional spectra \todoref{where is the eq?}%(cf. Eq.~\eqref{eq:2des_signal}):
 
 \begin{align}
 	S_{R}(\omega_{\text{coh}}, T, \omega_{\text{det}})
 	 & =
 	\int dt_{\text{coh}} \int dt_{\text{det}} \;
 	e^{+ i \omega_{\text{coh}} t_{\text{coh}}} e^{- i \omega_{\text{det}} t_{\text{det}}}
-	E_{R}(t_{\text{coh}}, T, t_{\text{det}}),
+	\vec{\varepsilon}_{R}(t_{\text{coh}}, T, t_{\text{det}}),
 	\label{eq:rephasing_transform} \\
 	S_{NR}(\omega_{\text{coh}}, T, \omega_{\text{det}})
 	 & =
 	\int dt_{\text{coh}} \int dt_{\text{det}} \;
 	e^{- i \omega_{\text{coh}} t_{\text{coh}}} e^{- i \omega_{\text{det}} t_{\text{det}}}
-	E_{NR}(t_{\text{coh}}, T, t_{\text{det}}).
+	\vec{\varepsilon}_{NR}(t_{\text{coh}}, T, t_{\text{det}}).
 	\label{eq:nonrephasing_transform}
 \end{align}
 
@@ -610,16 +648,16 @@ Generally the signal that arrives at the detector is proportional to the intensi
 	\label{eq:signal_intensity}
 \end{equation}
 
-\noindent On the one hand in homodyne detection, the intensity of the emitted signal field is measured directly, so $ I_{\text{HOD}} \propto |E_{\text{S}}|^2 \propto |P^{(3)}|^2 $. While experimentally simpler, homodyne detection loses phase information and it is more susceptible to noise at low signal levels \todoref{find ref or delete}%\cite{abramaviciusetal2009coherentmultidimensionaloptical}.
+\noindent On the one hand in homodyne detection, the intensity of the emitted signal field is measured directly, so $ I_{\text{HOD}} \propto |\vec{\varepsilon}_{\text{S}}|^2 \propto |\vec{P}^{(3)}|^2 $. While experimentally simpler, homodyne detection loses phase information and it is more susceptible to noise at low signal levels \todoref{find ref or delete}%\cite{abramaviciusetal2009coherentmultidimensionaloptical}.
 
 \noindent On the other hand, heterodyne detection involves the interference of the signal field with a reference field, the so called local oscillator (LO) of known amplitude and phase:
 
 \begin{equation}
-	I_{\text{HET}} \propto |E_{\text{S}} + E_{\text{LO}}|^2 \approx 2\Re{(E_{\text{LO}}^*E_{\text{S}})} + |E_{\text{LO}}|^2 + |E_{\text{S}}|^2
+	I_{\text{HET}} \propto |\vec{\varepsilon}_{\text{S}} + \vec{\varepsilon}_{\text{LO}}|^2 \approx 2\Re{(\vec{\varepsilon}_{\text{LO}}^*\vec{\varepsilon}_{\text{S}})} + |\vec{\varepsilon}_{\text{LO}}|^2 + |\vec{\varepsilon}_{\text{S}}|^2,
 	\label{eq:heterodyne}
 \end{equation}
 
-\noindent Since $|E_{\text{LO}}| \gg |E_{\text{S}}|$, the cross-term dominates, and the signal can be extracted by phase-cycling. In contrast to homodyne detection, the heterodyned signal is not background-free but sits on an offset $\int E_{\text{LO}}(t)^2 \, dt$ which can be subtracted. Ideally, shaped pulses are used for the three input pulses and the local oscillator, yielding the response function directly: $\int E_{\text{LO}}(t) P^{(3)}(t) \, dt = S^{(3)}(t_3, t_2, t_1)$, without convolution complications, where $t_1$, $t_2$, $t_3$ are the directly controlled delays. This is exactly the analytically defined third-order response function in Eq. \eqref{eq:response_function_R}, making experimental data and simulations directly interpretable. This is the main strength of heterodyne detection \cite{mukamel1995principlesnonlinearoptical}. Also, it provides both amplitude and phase information of the signal. The signal scales linearly with the third-order response \todoref{find ref} \todoidea{why is this good?}
+\noindent Since $|\varepsilon_{\text{LO}}| \gg |\varepsilon_{\text{S}}|$, the cross-term dominates, and the signal can be extracted by phase-cycling. In contrast to homodyne detection, the heterodyned signal is not background-free but sits on an offset $\int \varepsilon_{\text{LO}}(t)^2 \, dt$ which can be subtracted. Ideally, shaped pulses are used for the three input pulses and the local oscillator, yielding the response function directly: $\int \vec{\varepsilon}_{\text{LO}}(t) \vec{P}^{(3)}(t) \, dt = S^{(3)}(t_3, t_2, t_1)$, without convolution complications, where $t_1$, $t_2$, $t_3$ are the directly controlled delays. This is exactly the analytically defined third-order response function in Eq. \eqref{eq:response_function_R}, making experimental data and simulations directly interpretable. This is the main strength of heterodyne detection \cite{mukamel1995principlesnonlinearoptical}. Also, it provides both amplitude and phase information of the signal. The signal scales linearly with the third-order response \todoref{find ref} \todoidea{why is this good?}
 
 \noindent In modern multidimensional spectroscopy, spectral interferometry—a form of heterodyne detection—is widely employed \cite{hybletal1998twodimensionalelectronicspectroscopy}. The signal field and a time-delayed reference pulse are spatially overlapped and spectrally resolved.
 
@@ -707,7 +745,7 @@ R^{(3)}(t_3,t_2,t_1)
 \end{equation}
 
 \noindent
-Each correlation function $R_{\alpha}$ encodes one double-sided Feynman diagram. The functions $R_1$ and $R_4$ describe nonrephasing pathways in which forward-evolving optical coherences persist during both coherence periods, whereas $R_2$ and $R_3$ capture rephasing pathways where the phase accumulated during $t_1$ is reversed during $t_3$. When the incident fields are written as $E_j(t) = E_j^{(+)}(t) + E_j^{(-)}(t)$, the emitted field in direction $\vec{k}_S$ follows from $E^{(3)}_{\vec{k}_S} \propto \sum_{\alpha} R_{\alpha} E_1^{\sigma_1} E_2^{\sigma_2} E_3^{\sigma_3}$ with the signs $\sigma_j = \pm$ determined by the bra/ket interaction history, reproducing the phase-matching rules in Eq.~\eqref{eq:four_wave_mixing}.
+Each correlation function $R_{\alpha}$ encodes one double-sided Feynman diagram. The functions $R_1$ and $R_4$ describe nonrephasing pathways in which forward-evolving optical coherences persist during both coherence periods, whereas $R_2$ and $R_3$ capture rephasing pathways where the phase accumulated during $t_1$ is reversed during $t_3$. When the incident fields are written as $\vec{E}_j(t) = \vec{E}_j^{(+)}(t) + \vec{E}_j^{(-)}(t)$, the emitted field in direction $\vec{k}_S$ follows from $\vec{\varepsilon}^{(3)}_{\vec{k}_S} \propto \sum_{\alpha} R_{\alpha} \vec{E}_1^{\sigma_1} \vec{E}_2^{\sigma_2} \vec{E}_3^{\sigma_3}$ with the signs $\sigma_j = \pm$ determined by the bra/ket interaction history, reproducing the phase-matching rules in Eq.~\eqref{eq:four_wave_mixing}.
 
 \noindent
 For the simple ladder system (ground state $\lvert a \rangle$, excited state $\lvert b \rangle$) the complex phases accumulated during the coherence periods determine whether a photon echo forms. The rephasing pair $(R_2,R_3)$ generates signals in the $-\vec{k}_1 + \vec{k}_2 + \vec{k}_3$ direction with emission frequency $\omega_{\text{sig}} = -\omega_1 + \omega_2 + \omega_3$, while the nonrephasing pair $(R_1,R_4)$ scatters into $+\vec{k}_1 - \vec{k}_2 + \vec{k}_3$ with $\omega_{\text{sig}} = +\omega_1 - \omega_2 + \omega_3$. The different population periods during $t_2$ (ground or excited) explain the complementary contrast observed in 2D spectra.
