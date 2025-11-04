@@ -1,0 +1,79 @@
+% !TEX root = ../main.tex
+\chapter{Results and Discussion}
+\label{ch:results_discussion}
+
+%-------------------------------------------------------------------------------
+%	SECTION 1: RESULTS
+%-------------------------------------------------------------------------------
+
+\section{Results}
+
+In this section, we present the key results from our 2D spectroscopy simulations for the monomer system.
+
+\subsection{Monomer 2D Spectra}
+
+% Include plots of 2D spectra here
+% For example:
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{figures/monomer_2d_spectrum_homogeneous.png}
+%     \caption{2D spectrum for homogeneous monomer system.}
+%     \label{fig:monomer_homogeneous}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{figures/monomer_2d_spectrum_inhomogeneous.png}
+%     \caption{2D spectrum for inhomogeneous monomer system.}
+%     \label{fig:monomer_inhomogeneous}
+% \end{figure}
+
+% Add more figures as needed for different time points, phases, etc.
+
+%-------------------------------------------------------------------------------
+%	SECTION 2: DISCUSSION
+%-------------------------------------------------------------------------------
+
+\section{Discussion}
+
+\subsection{Main Line-Shape Insights}
+
+\subsubsection{Homogeneous vs Inhomogeneous Broadening}
+
+In a homogeneous system, all molecules behave identically, leading to symmetric "star-shaped" 2D Lorentzian peaks. The real part is fully positive, while the imaginary part exhibits a symmetric sign change.
+
+In contrast, an inhomogeneous system features peaks elongated along the diagonal ($\omega_1 \approx \omega_3$), as each molecule's resonance frequency differs. The antidiagonal width reflects homogeneous lifetime broadening.
+
+Homogeneous broadening means every molecule behaves the same. All peaks are round and symmetric because only lifetime and dephasing limit the linewidth.
+
+Inhomogeneous broadening occurs when each molecule has a slightly different transition frequency due to disorder. When averaged, the peaks stretch along the diagonal of the 2D plot (excitation $\approx$ emission). This diagonal elongation serves as the "fingerprint" of static disorder.
+
+\subsubsection{Phase and Sign of Peaks}
+
+The 2D signal is complex in nature. The real part represents absorptive processes (positive/negative lobes), while the imaginary part is dispersive, featuring a zero crossing along a nodal line.
+
+The real part shows absorption and emission: positive lobes indicate stimulated emission or bleaching, negative lobes indicate absorption. The imaginary part resembles a dispersion curve, with a zero line (nodal line) through the middle. The pattern of signs reveals whether light is absorbed or emitted and aids in separating different physical processes.
+
+\subsubsection{Pulse-Overlap Region}
+
+At early population times $T \approx 0$, when pulses overlap, "phase-twist" distortions and alternating signs appear. At $T \gg$ pulse width, the spectra stabilize.
+
+When the three laser pulses overlap in time, they interfere, causing distorted shapes and sign inversions. Once separated in time (beyond the pulse width), the interference ceases, and the peaks adopt their true stationary, purely absorptive shape.
+
+\subsection{Dimer Line-Shape Insights}
+
+\subsubsection{Overview and Peak Types}
+
+The nonlinear polarization method applied to excitonically coupled dimers reveals coherent and dissipative dynamics. Diagonal peaks arise from excitation/emission on the same exciton state, while cross-peaks indicate inter-state coupling ($J$) or coherence.
+
+\subsubsection{Coherent Dynamics and Population Transfer}
+
+Quantum beats modulate peak intensities with period $T_{EC} = 2\pi/\Delta E_{12}$, reflecting coherent superposition. The modulation phase determines cross-peak brightness. At longer times, oscillations damp (dephasing $T_2$), and intensity shifts from upper diagonal (22) to lower cross-peak (21), signaling incoherent relaxation ($T_1$).
+
+\subsubsection{Peak Shapes and Disorder Correlation}
+
+During coherence, diagonal peaks alternate between elongated and symmetric; cross-peaks are diagonally elongated. Shape tracks wave-packet phase. Cross-peak orientation encodes site-energy correlations: diagonal elongation (positive), symmetric (uncorrelated), antidiagonal (anticorrelated).
+
+\subsubsection{Signs and Time Evolution}
+
+Real part: positive for emission/bleach, negative for absorption. Imaginary part shows dispersive changes. Time evolution: 0--50 fs (beats), 100--300 fs (damping/transfer), 300 fs (equilibrium).
