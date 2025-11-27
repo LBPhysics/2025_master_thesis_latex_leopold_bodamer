@@ -52,7 +52,7 @@ What this chapter provides: the physical and mathematical tools needed for later
 
 
 \noindent 
-Spectroscopy, in its broadest definition, is the study of the interaction between matter and electromagnetic radiation as a function of wavelength or frequency \cite{berman2011principleslaserspectroscopy, mukamel1995principlesnonlinearoptical}.
+... deleted ...
 It provides insights into the composition, structure, and dynamics of physical systems by examining how they absorb, emit, or scatter light. The fundamental principle underlying all spectroscopic methods is that each atom, molecule, or complex system has a unique set of energy levels, and transitions between these levels involve the absorption or emission of photons with specific energies \todoref{find better source}\cite{boyd2008chapter1nonlinear}. Thats why spectroscopy is a powerful probe of quantum dynamics.
 
 
@@ -69,6 +69,9 @@ It provides insights into the composition, structure, and dynamics of physical s
 
 \noindent
 where $h$ is Planck's constant and $c$ is the speed of light. The energy structure of matter can thus be probed by observing the spectrum of absorbed or emitted radiation.
+
+\noindent
+Historically, spectroscopic measurements provided the first experimental evidence for the quantization of atomic energy levels, as evidenced by the discrete spectral lines observed in atomic spectra \todoref{bohr1913quantentheorie}.
 
 \noindent
 To characterize the most common spectroscopic techniques, it is vital to understand the energy scales of the system of interest and the probing electromagnetic radiation, because they have to match in order to effectively pump transitions.
@@ -105,7 +108,43 @@ Spectroscopy can be categorized by (i) the nature of the transition (rotational,
 (i):
 
 \noindent
-Different types of transitions are probed at distinct regions of the electromagnetic spectrum, reflecting the corresponding energy and time scales and providing fundamentally different information about the system of interest. 
+Different types of transitions are probed at distinct regions of the electromagnetic spectrum, reflecting the corresponding energy and time scales and providing fundamentally different information about the system of interest.
+
+
+
+
+
+%% NEW TODO implement into other file
+Electromagnetic radiation manifests itself as heat, $\gamma$-rays, X-rays, UV, visible, infrared, microwave, and radio waves. Their photon energies range from $\sim 10^{-6}\,\mathrm{eV}$ (radio waves) to $\sim 10^{6}\,\mathrm{eV}$ ($\gamma$-rays) \cite{griffiths2013introductionelectrodynamics}.
+Most properties of such radiation can be described in a classical picture. Plane wave solutions of Maxwell equations contain characteristic quantities like the wavelength $\lambda$, frequency $\nu$, wavevector $\vec{k}$, electric field amplitude $\vec{\varepsilon}$ and the velocity of the wave $\vec{v}$ \cite{griffiths2013introductionelectrodynamics}. 
+However this description fails to account for absorption and emission processes of radiant energy by matter. Here the quantum nature of light as photons with discrete energies $E = h \nu$ has to be taken into account \cite{cohen-tannoudjietal2008atomphotoninteractionsbasic}.
+In light matter interaction, only the electrical component of the transversal electromagnetic wave couples significantly to the charged particles in atoms and molecules. The magnetic component is typically relevant in the interaction with radio-frequencie waves in NMR experiments \cite{skoogetal2017principlesinstrumentalanalysis}.
+
+
+The phase angle will be important later on, so here it is defined as the offset of the oscillation of a wave with respect to a reference point in time and space. For a wave described as $\vec{\varepsilon}(t) = \vec{\varepsilon}_0 \cos(\vec{k} \cdot \vec{r} - \omega t + \phi)$, the phase $\phi$ determines the initial position of the wave at the origin $t=0$ and $\vec{r}=0$.
+
+If two or more waves overlap in space and time, their relative phases determine the resulting interference pattern. If e.g. two waves have different frequencies $\nu_2 \neq \nu_1$ the superposition of them has a new periodicity of $p = 1 / \Delta \nu$ with $ \Delta \nu = \nu_2 - \nu_1$. This behavior is termed a beat.
+\todoidea{include a picture}
+A very important observation was done by Jean Baptiste Joseph Fourier (1768 -- 1830). He showed that every periodic function $f(x)$ can be described by a sum of $\sin$ and $\cos$ waves with frequencies $\omega_n$
+\begin{equation}
+  f(x) = a_0 + \sum_{n=1}^{\infty} \bigl[a_n \cos(\omega_n x) + b_n \sin(\omega_n x)\bigr].
+\end{equation}
+
+
+\noindent
+This technique allows one to extract the strength of the individual frequency components that make up a complex time-domain signal. In frequency space, the intensity associated with each frequency directly reveals how strongly that component contributes to the overall signal.
+
+\noindent
+Different scattering regimes can be distinguished. Imagine a laser beam incident on a medium containing particles of radius $r$. When the particles are much smaller than the wavelength of the light, $r \ll \lambda$, only a small fraction of the light is scattered out of the beam, and the angular distribution of the scattered light is described by Rayleigh scattering. As the particle size becomes comparable to or larger than the wavelength ($r \sim \lambda$ or $r \gg \lambda$), the scattering pattern becomes more complicated (Mie and geometric scattering), and a larger fraction of the incident intensity is redistributed into different directions.
+
+
+\noindent
+An atomic source of light (for example, a vapour cell) generates unpolarised light because the observed beam is an average over many independent emission events. Each atom emits a photon with a well-defined polarisation relative to its local quantisation axis, but in an ensemble with random orientations the polarisations are averaged out, resulting in an effectively unpolarised beam.
+
+\todo{rewrite:}
+The advent of femtosecond laser pulses has made it possible to apply similar concepts in the optical regime. Despite the analogy, the resulting information is different and complementary. In 2D NMR, radio-frequency pulses act on nuclear spins, the relevant timescales are milliseconds or longer, and spin--spin correlation functions are probed. In contrast, 2D electronic spectroscopy uses sequences of ultrashort optical pulses to interrogate electronic transitions on femtosecond to picosecond timescales, providing access to electronic and vibronic coherence dynamics. Similarly, 2D electron spin resonance applies microwave pulses to electronic spins~\cite{zhangetal1999multidimensionalfemtosecondcorrelation}.
+
+%%%%%%%%%%%%%%%%%%%%5
 
 \noindent
 Ultrafast laser development has enabled femtosecond and even attosecond spectroscopy, allowing real-time tracking of electron motion and energy flow in complex systems.
