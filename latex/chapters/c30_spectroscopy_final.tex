@@ -1,14 +1,22 @@
 % !TEX root = ../main.tex
 \chapter{Introduction to Spectroscopy}
-\label{chapter_spectroscopy}
+\label{final:chapter_spectroscopy}
 
 \section{Spectroscopy and Historical Motivation}
-\label{sec:history}
+\label{final:sec:history}
 
 \noindent
 Spectroscopy, in its broadest definition, is the study of the interaction between matter and energy, most often in form of electromagnetic radiation as a function of wavelength or frequency \cite{berman2011principleslaserspectroscopy, mukamel1995principlesnonlinearoptical}. Modern spectroscopic techniques also include the interaction with particles like electrons or ions or acoustic waves \cite{skoogetal2017principlesinstrumentalanalysis}.
 The resulting \emph{spectrum} describes the intensity of absorbed, emitted, or scattered light across different frequencies. Because each allowed optical transition corresponds to a specific energy-level difference, spectral features provide direct access to the structure and dynamical properties of a system. An example in medical physics is a finger-clip sensor used in pulse oximetry: by transmitting light through the fingertip at two wavelengths and analysing the absorption difference between oxygenated and deoxygenated haemoglobin, the absorption spectrum of arterial blood reveals the oxygen-saturation level in a non-invasive way~\cite{nitzanetal2014pulseoximetryfundamentals}.
 In chemical analysis, absorption spectroscopy works on the simple principle that each dissolved substance absorbs light more strongly at certain wavelengths than others; by shining light through a solution and measuring how much intensity is lost at these characteristic wavelengths, the concentration of specific components---such as alcohols, sugars, or trace metals---can be determined using the Lambert--Beer law~\cite {skoogetal2017principlesinstrumentalanalysis}.
+
+\paragraph{Discrete energy states and the Planck relation.}
+Atoms, ions, and molecules occupy discrete, well-separated energy eigenstates. This quantization, introduced historically by Planck in the context of thermal radiation, implies that optical transitions occur only between specific levels and must absorb or emit quanta that match the level spacing \cite{skoogetal2017principlesinstrumentalanalysis}. The associated radiation frequency satisfies
+\begin{equation}
+    \Delta E = E_1 - E_0 = h\nu = \frac{hc}{\lambda},
+    \label{final:eq:planck_relation}
+\end{equation}
+with Planck's constant $h$, frequency $\nu$, and wavelength $\lambda$. Electronic states dominate for atoms and ions; molecules additionally exhibit vibrational and rotational ladders, leading to richer spectra comprised of lines and bands. At ambient conditions most populations reside in the ground state; spectroscopy perturbs this equilibrium and infers structure and dynamics from absorption, scattering, or emission during relaxation \cite{skoogetal2017principlesinstrumentalanalysis}.
 
 
 The origins of spectroscopy lie in the observation of such discrete spectral lines in atomic emission and absorption. Bohr’s model (1913) provided the first quantitative explanation by linking these lines to transitions between quantized energy levels, $\Delta E = h\nu$, thereby capturing the characteristic patterns of the Balmer and Rydberg series~\cite{bohr1913constitutionatomsmolecules, rydberg1890rybergsseriesrydberg1890xxxivstructurelinespectra, balmer1885notizuberspectrallinien}. Although formally limited to hydrogen-like systems, this framework introduced the fundamental idea that atomic structure can be inferred directly from the spectrum. Each element exhibits a unique spectral fingerprint%todo ref and use a picture as a explenation~\cite{moore1949atomicenergylevels}.
@@ -35,84 +43,103 @@ The derivation and physical interpretation of these equations are presented in t
 
 
 \section{Concept of Spectroscopy and Light--Matter Interaction}
-\label{sec:concept_light_matter}
+\label{final:sec:concept_light_matter}
 \noindent
 Throughout this thesis, spectroscopy means inferring structure and dynamics from the system’s optical polarization induced by external fields. We use a semiclassical model: a quantum system driven by a classical electric field. In Coulomb gauge and dipole approximation the Hamiltonian is
 \begin{equation}
-H(t)=H_0 - \hat{\boldsymbol{\mu}}\cdot \boldsymbol{\varepsilon}(t),
-\label{eq:H_dipole}
+    H(t)=H_0 - \hat{\boldsymbol{\mu}}\cdot \boldsymbol{\varepsilon}(t),
+    \label{final:eq:H_dipole}
 \end{equation}
 where $H_0$ is the field-free Hamiltonian, $\hat{\boldsymbol{\mu}}$ the dipole operator, and $\boldsymbol{\varepsilon}(t)$ the electric field. The macroscopic polarization is the expectation value of the dipole,
 \begin{equation}
-\boldsymbol{P}(t)=\mathrm{Tr}\!\left[\hat{\boldsymbol{\mu}}\rho(t)\right],
-\label{eq:P_def}
+    \boldsymbol{P}(t)=\mathrm{Tr}\!\left[\hat{\boldsymbol{\mu}}\rho(t)\right],
+    \label{final:eq:P_def}
 \end{equation}
 and, under the slowly varying envelope approximation, the detected signal field in a given phase-matched direction is proportional to the corresponding component of $\boldsymbol{P}(t)$ up to known prefactors \cite{mukamel1995principlesnonlinearoptical, boyd2008chapter6nonlinear}. We write the complex analytic field as $\boldsymbol{\varepsilon}(t)=\boldsymbol{\varepsilon}^{(+)}(t)+\boldsymbol{\varepsilon}^{(-)}(t)$ with $\boldsymbol{\varepsilon}^{(-)}=[\boldsymbol{\varepsilon}^{(+)}]^*$.
 
+\paragraph{Linear vs. nonlinear response.}
+Propagation of an electromagnetic wave through a dielectric induces a polarization of the valence electrons. At modest intensities this polarization is linearly proportional to the field, $P\propto E$, defining the domain of linear spectroscopy. At the high peak fields of lasers, the linear relation breaks down and one expands $P$ as a power series in $E$, consistent with the response expansion used below:
+\begin{equation}
+    P = \sum_{i\ge 1} c_i E^{i}, \qquad c_i > c_{i+1},
+    \label{final:eq:P_power_series}
+\end{equation}
+where higher-order terms become observable as intensity increases and enable nonlinear spectroscopy.
+
+\paragraph{State manifolds and initial conditions.}
+Electronic eigenstates of $H_0$ form the primary ladder in atoms and ions. In molecules, vibrational and rotational structure overlays electronic manifolds, yielding dense level spacings and selection-rule-governed transitions \cite{skoogetal2017principlesinstrumentalanalysis}. Under room-temperature conditions, populations are typically concentrated in the ground state; spectroscopy transiently excites a fraction of the ensemble via heat, electric discharge, optical pulses, particle impact, or chemical reaction. Subsequent absorption, scattering, or emission encodes the return dynamics and level architecture \cite{skoogetal2017principlesinstrumentalanalysis}.
+
 \section{Linear Spectroscopy: Response Functions and Lineshapes}
-\label{sec:linear}
+\label{final:sec:linear}
 \noindent
 Expanding $\boldsymbol{P}$ in powers of the field gives
 \begin{equation}
-\boldsymbol{P}(t)=\sum_{n\ge 1}\boldsymbol{P}^{(n)}(t),\qquad
-\boldsymbol{P}^{(n)}(t)=\varepsilon_0\int_0^\infty\!\!\cdots\!\int_0^\infty\!\!\mathrm{d}t_1\cdots\mathrm{d}t_n\;
-\boldsymbol{\chi}^{(n)}(t_1,\ldots,t_n)\,\prod_{k=1}^n \boldsymbol{\varepsilon}(t-\tau_k),
+    \boldsymbol{P}(t)=\sum_{n\ge 1}\boldsymbol{P}^{(n)}(t),\qquad
+    \boldsymbol{P}^{(n)}(t)=\varepsilon_0\int_0^\infty\!\!\cdots\!\int_0^\infty\!\!\mathrm{d}t_1\cdots\mathrm{d}t_n\;
+    \boldsymbol{\chi}^{(n)}(t_1,\ldots,t_n)\,\prod_{k=1}^n \boldsymbol{\varepsilon}(t-\tau_k),
 \end{equation}
 with $\tau_k=\sum_{j=k}^n t_j$ and causal response tensors $\boldsymbol{\chi}^{(n)}$. For linear spectroscopy ($n=1$),
 \begin{equation}
-P_i^{(1)}(t)=\varepsilon_0\int_0^\infty \mathrm{d}t_1\, \chi^{(1)}_{ij}(t_1)\,\varepsilon_j(t-t_1),
-\qquad
-\chi^{(1)}_{ij}(t)=\frac{i}{\hbar}\,\Theta(t)\,\langle[\hat{\mu}_i(t),\hat{\mu}_j(0)]\rangle,
-\label{eq:chi1_comm}
+    P_i^{(1)}(t)=\varepsilon_0\int_0^\infty \mathrm{d}t_1\, \chi^{(1)}_{ij}(t_1)\,\varepsilon_j(t-t_1),
+    \qquad
+    \chi^{(1)}_{ij}(t)=\frac{i}{\hbar}\,\Theta(t)\,\langle[\hat{\mu}_i(t),\hat{\mu}_j(0)]\rangle,
+    \label{final:eq:chi1_comm}
 \end{equation}
 where $\langle\cdot\rangle$ denotes an equilibrium average with respect to $H_0$ and operators are in the interaction picture of $H_0$ \cite{mukamel1995principlesnonlinearoptical}. Fourier transforming gives
 \begin{equation}
-\boldsymbol{P}^{(1)}(\omega)=\varepsilon_0\,\boldsymbol{\chi}^{(1)}(\omega)\,\boldsymbol{\varepsilon}(\omega),\quad
-\alpha(\omega)\propto \omega\,\Im\!\left[\mathrm{Tr}\,\boldsymbol{\chi}^{(1)}(\omega)\right],
+    \boldsymbol{P}^{(1)}(\omega)=\varepsilon_0\,\boldsymbol{\chi}^{(1)}(\omega)\,\boldsymbol{\varepsilon}(\omega),\quad
+    \alpha(\omega)\propto \omega\,\Im\!\left[\mathrm{Tr}\,\boldsymbol{\chi}^{(1)}(\omega)\right],
 \end{equation}
 so the absorption spectrum is proportional to the imaginary part of the linear susceptibility.
+
+\paragraph{Continuum, lines, and bands.}
+Experimental spectra often exhibit a smooth continuum background and superimposed sharp \emph{lines} or broader \emph{bands}. Isolated particles acting independently (e.g., low-pressure atomic or ionic gases) yield discrete, narrow lines reflecting well-separated electronic transitions. In molecules, the superposition of vibrational and rotational progressions on electronic transitions produces closely spaced features that merge into band structures, whose envelopes and fine structure are governed by selection rules, temperature, and homogeneous/inhomogeneous broadening \cite{skoogetal2017principlesinstrumentalanalysis}.
 
 \paragraph{Lineshape theory.}
 For systems with diagonal system--bath coupling that is Gaussian and stationary, the linear absorption of a single transition with transition dipole $\mu$ can be written as
 \begin{equation}
-I(\omega)\propto \Re\int_0^\infty \mathrm{d}t\; e^{i(\omega-\omega_0)t-g(t)-\Gamma t},
-\label{eq:linear_lineshape}
+    I(\omega)\propto \Re\int_0^\infty \mathrm{d}t\; e^{i(\omega-\omega_0)t-g(t)-\Gamma t},
+    \label{final:eq:linear_lineshape}
 \end{equation}
 where $g(t)$ is the second-order cumulant (lineshape) function determined by the frequency--frequency correlation function, and $\Gamma$ accounts for lifetime broadening \cite{mukamel1995principlesnonlinearoptical, hamm2005principlesnonlinearoptical}. Equation~\eqref{eq:linear_lineshape} is exact for Gaussian fluctuations with linear coupling and is widely accurate when pure dephasing dominates. Inhomogeneous broadening enters by averaging over static detunings. The decomposition into diagonal (inhomogeneous) and antidiagonal (homogeneous) widths in 2D spectra follows from these same ingredients and is used below for interpretation.
 
+\paragraph{Line broadening.}
+Even atomic transitions do not produce infinitely sharp lines: finite state lifetimes imply finite energy uncertainty. In time--frequency form one writes a lower bound $\Delta \nu\,\Delta t \gtrsim 1$, giving a \emph{natural linewidth} related to the lifetime of the upper state. Additional mechanisms broaden spectral features, notably Doppler broadening from thermal motion, and collisional (pressure) broadening in dense media, which contribute to inhomogeneous and homogeneous widths depending on the mechanism and timescale.
+
 \section{Extension to Nonlinear Spectroscopy: Third-Order Response and 2D Signals}
-\label{sec:third_order}
+\label{final:sec:third_order}
 \noindent
+Nonlinear spectroscopy leverages coherent, ultrashort laser pulses (treated classically) interacting with matter (treated quantum mechanically) to resolve dynamics on ultrafast timescales (down to tens of femtoseconds) in ensembles. In pump--probe measurements, a pump pulse excites the system and a time-delayed probe monitors its evolution, following simultaneously the system dynamics and the probe field evolution. More generally, the $n$th-order signals correspond to distinct perturbative orders and map directly to physical pathways in the response formalism.
+
 Third-order spectroscopy probes $\boldsymbol{P}^{(3)}$, which is linear in the third-order response $\boldsymbol{R}^{(3)}$ and cubic in the fields. Using the standard response-function formalism,
 \begin{align}
-P_i^{(3)}(t) &= \int_0^\infty\!\!\mathrm{d}t_3 \int_0^\infty\!\!\mathrm{d}t_2 \int_0^\infty\!\!\mathrm{d}t_1\;
-R^{(3)}_{i j k \ell}(t_3,t_2,t_1)\;
-\varepsilon_j(t-t_3)\,\varepsilon_k(t-t_3-t_2)\,\varepsilon_\ell(t-t_3-t_2-t_1), \label{eq:P3_conv}\\
-R^{(3)}_{i j k \ell}(t_3,t_2,t_1) &=
-\left(-\frac{i}{\hbar}\right)^3
-\big\langle
-\big[\!\big[\!\big[\hat{\mu}_i(t_1{+}t_2{+}t_3),\hat{\mu}_j(t_2{+}t_3)\big],\hat{\mu}_k(t_3)\big],\hat{\mu}_\ell(0)\big]
-\big\rangle. \label{eq:R3_def}
+    P_i^{(3)}(t)                      & = \int_0^\infty\!\!\mathrm{d}t_3 \int_0^\infty\!\!\mathrm{d}t_2 \int_0^\infty\!\!\mathrm{d}t_1\;
+    R^{(3)}_{i j k \ell}(t_3,t_2,t_1)\;
+    \varepsilon_j(t-t_3)\,\varepsilon_k(t-t_3-t_2)\,\varepsilon_\ell(t-t_3-t_2-t_1), \label{final:eq:P3_conv}                            \\
+    R^{(3)}_{i j k \ell}(t_3,t_2,t_1) & =
+    \left(-\frac{i}{\hbar}\right)^3
+    \big\langle
+    \big[\!\big[\!\big[\hat{\mu}_i(t_1{+}t_2{+}t_3),\hat{\mu}_j(t_2{+}t_3)\big],\hat{\mu}_k(t_3)\big],\hat{\mu}_\ell(0)\big]
+    \big\rangle. \label{final:eq:R3_def}
 \end{align}
 For impulsive, well-separated pulses one identifies four Liouville-space pathways for two-level optical transitions, commonly labeled $R_{1}\ldots R_{4}$ \cite{mukamel1995principlesnonlinearoptical, cho2009twodimensionalopticalspectroscopy}. In rotating-wave approximation the rephasing and nonrephasing combinations are selected by distinct phase-matching conditions:
 \begin{align}
-\text{Rephasing:}\quad \boldsymbol{k}_S &= -\boldsymbol{k}_1+\boldsymbol{k}_2+\boldsymbol{k}_3 \quad (R_2,R_3), \\
-\text{Nonrephasing:}\quad \boldsymbol{k}_S &= +\boldsymbol{k}_1-\boldsymbol{k}_2+\boldsymbol{k}_3 \quad (R_1,R_4).
+    \text{Rephasing:}\quad \boldsymbol{k}_S    & = -\boldsymbol{k}_1+\boldsymbol{k}_2+\boldsymbol{k}_3 \quad (R_2,R_3), \\
+    \text{Nonrephasing:}\quad \boldsymbol{k}_S & = +\boldsymbol{k}_1-\boldsymbol{k}_2+\boldsymbol{k}_3 \quad (R_1,R_4).
 \end{align}
 Writing the three inter-pulse delays as $(t_1,t_2,t_3)\equiv(t_{\mathrm{coh}},T,t_{\mathrm{det}})$, the detected complex signal fields in each direction are proportional to the corresponding $\boldsymbol{P}^{(3)}$ component. Fourier transforms over $t_{\mathrm{coh}}$ and $t_{\mathrm{det}}$ yield the 2D spectra,
 \begin{align}
-S_{R}(\omega_{\mathrm{coh}},T,\omega_{\mathrm{det}})
-&=\int \mathrm{d}t_{\mathrm{coh}}\,\mathrm{d}t_{\mathrm{det}}\;
-e^{+i\omega_{\mathrm{coh}} t_{\mathrm{coh}}}\,e^{-i\omega_{\mathrm{det}} t_{\mathrm{det}}}\;\varepsilon_{R}(t_{\mathrm{coh}},T,t_{\mathrm{det}}), \label{eq:SR}\\
-S_{NR}(\omega_{\mathrm{coh}},T,\omega_{\mathrm{det}})
-&=\int \mathrm{d}t_{\mathrm{coh}}\,\mathrm{d}t_{\mathrm{det}}\;
-e^{-i\omega_{\mathrm{coh}} t_{\mathrm{coh}}}\,e^{-i\omega_{\mathrm{det}} t_{\mathrm{det}}}\;\varepsilon_{NR}(t_{\mathrm{coh}},T,t_{\mathrm{det}}), \label{eq:SNR}
+    S_{R}(\omega_{\mathrm{coh}},T,\omega_{\mathrm{det}})
+     & =\int \mathrm{d}t_{\mathrm{coh}}\,\mathrm{d}t_{\mathrm{det}}\;
+    e^{+i\omega_{\mathrm{coh}} t_{\mathrm{coh}}}\,e^{-i\omega_{\mathrm{det}} t_{\mathrm{det}}}\;\varepsilon_{R}(t_{\mathrm{coh}},T,t_{\mathrm{det}}), \label{final:eq:SR} \\
+    S_{NR}(\omega_{\mathrm{coh}},T,\omega_{\mathrm{det}})
+     & =\int \mathrm{d}t_{\mathrm{coh}}\,\mathrm{d}t_{\mathrm{det}}\;
+    e^{-i\omega_{\mathrm{coh}} t_{\mathrm{coh}}}\,e^{-i\omega_{\mathrm{det}} t_{\mathrm{det}}}\;\varepsilon_{NR}(t_{\mathrm{coh}},T,t_{\mathrm{det}}), \label{final:eq:SNR}
 \end{align}
 with opposite sign convention in the $t_{\mathrm{coh}}$ transform between $R$ and $NR$ branches \cite{cho2009twodimensionalopticalspectroscopy}. The absorptive spectrum combines both contributions,
 \begin{equation}
-S_{\mathrm{abs}}(\omega_{\mathrm{coh}},T,\omega_{\mathrm{det}})=
-\Re\!\left\{S_R(\omega_{\mathrm{coh}},T,\omega_{\mathrm{det}})+S_{NR}(\omega_{\mathrm{coh}},T,\omega_{\mathrm{det}})\right\},
-\label{eq:S_abs}
+    S_{\mathrm{abs}}(\omega_{\mathrm{coh}},T,\omega_{\mathrm{det}})=
+    \Re\!\left\{S_R(\omega_{\mathrm{coh}},T,\omega_{\mathrm{det}})+S_{NR}(\omega_{\mathrm{coh}},T,\omega_{\mathrm{det}})\right\},
+    \label{final:eq:S_abs}
 \end{equation}
 which removes dispersive distortions and yields the quantity most directly compared to experiment \cite{jonas2003twodimensionalelectronicspectroscopy}.
 
@@ -120,17 +147,17 @@ which removes dispersive distortions and yields the quantity most directly compa
 In this thesis the optical \emph{field} is treated nonperturbatively by numerically propagating the master equation under the full time-dependent drive and then extracting $n$th-order signals by field-phase selection (phase cycling) and subtraction of lower orders. This gives access to the exact third-order signal in the chosen geometry without assuming impulsive $\delta$-pulses, while the \emph{system--bath} treatment is specified in the open-system chapter (Redfield and variants).
 
 \section{Experimental Pulse Sequences and Phase Matching}
-\label{sec:phase_matching}
+\label{final:sec:phase_matching}
 \noindent
 Three pulses with carrier wavevectors $(\boldsymbol{k}_1,\boldsymbol{k}_2,\boldsymbol{k}_3)$ and controllable phases $(\phi_1,\phi_2,\phi_3)$ impinge on the sample. In a noncollinear ``boxcar’’ geometry, spatial selection enforces momentum conservation,
 \begin{equation}
-\boldsymbol{k}_S=\pm \boldsymbol{k}_1 \pm \boldsymbol{k}_2 \pm \boldsymbol{k}_3,
-\label{eq:PM_general}
+    \boldsymbol{k}_S=\pm \boldsymbol{k}_1 \pm \boldsymbol{k}_2 \pm \boldsymbol{k}_3,
+    \label{final:eq:PM_general}
 \end{equation}
 with the signs determined by whether a field acts on the ket or bra branch (RWA). In a collinear geometry, phase cycling replaces spatial selection: by repeating measurements with programmed phase sets and applying a discrete Fourier filter one isolates $(l,m,n)=(-1,+1,+1)$ for rephasing and $(+1,-1,+1)$ for nonrephasing pathways, respectively \cite{hamm2005principlesnonlinearoptical, cho2009twodimensionalopticalspectroscopy}. Heterodyne detection with a local oscillator of known phase yields complex-valued $S_R$ and $S_{NR}$, enabling the absorptive combination in Eq.~\eqref{eq:S_abs}.
 
 \section{Interpretation of 2D Features: Coherences, Populations, Cross-Peaks}
-\label{sec:interpretation}
+\label{final:sec:interpretation}
 \noindent
 2DES correlates the excitation frequency $\omega_{\mathrm{coh}}$ with the detection frequency $\omega_{\mathrm{det}}$ at fixed waiting time $T$.
 
@@ -153,5 +180,5 @@ Under Gaussian fluctuations with linear coupling, the 2D lineshape can be expres
 Decoherence and relaxation during $(t_1,T,t_3)$ depend on bath spectral densities and temperature. In Redfield-type theories the decay rates and frequency shifts are determined by system--bath couplings and bath correlation functions. At high temperature or for structured baths (e.g.\ Drude--Lorentz vs.\ Ohmic) the rates and spectral diffusion differ, altering antidiagonal widths, echo strength, and cross-peak kinetics. The open-system chapter specifies the generators and assumptions (Born--Markov, secular or not) used in the simulations; the present chapter provides the mapping from dynamics to observables.
 
 \bigskip
-\noindent\textbf{Scope and forward pointer.} 
+\noindent\textbf{Scope and forward pointer.}
 This chapter defines the optical observables and the pathway structure underlying 2DES. The following chapters specify (i) the electronic models used (two-level, four-level, and $N$-level one- and two-exciton manifolds), (ii) the open-system treatments (Redfield variants) with Drude--Lorentz and Ohmic baths, and (iii) the nonperturbative-in-field simulation protocol and numerical phase selection used to construct $S_R$, $S_{NR}$, and $S_{\mathrm{abs}}$ consistent with Eqs.~\eqref{eq:SR}--\eqref{eq:S_abs}.
