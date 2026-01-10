@@ -108,7 +108,7 @@ Useful identities for the transformation:
 
 The master equation in the rotating frame is:
 \begin{equation}
-	\dot{\rho} = -i[\tilde{H}, \rho] + \mathcal{D}(\rho)
+	\\frac{d}{dt}\\rho = -i[\tilde{H}, \rho] + \mathcal{D}(\rho)
 	\label{eq:MasterEquationRotatingFrame}
 \end{equation}
 
@@ -141,10 +141,10 @@ Let \(\Omega_c = \Omega e^{i\phi}\). The equations of motion are:
 \begin{equation}
 	\boxed{
 		\begin{aligned}
-			\dot{\rho}_{ee} & = i \Omega_c \rho_{ge} - i \Omega_c^* \rho_{eg} - \gamma_0 \rho_{ee}            \\[6pt]
-			\dot{\rho}_{gg} & = -i \Omega_c \rho_{ge} + i \Omega_c^* \rho_{eg} + \gamma_0 \rho_{ee}           \\[6pt]
-			\dot{\rho}_{eg} & = i \Delta \rho_{eg} + i \Omega_c (\rho_{gg} - \rho_{ee}) - \Gamma \rho_{eg}    \\[6pt]
-			\dot{\rho}_{ge} & = -i \Delta \rho_{ge} - i \Omega_c^* (\rho_{gg} - \rho_{ee}) - \Gamma \rho_{ge}
+			\\frac{d}{dt}\\rho_{ee} & = i \Omega_c \rho_{ge} - i \Omega_c^* \rho_{eg} - \gamma_0 \rho_{ee}            \\[6pt]
+			\\frac{d}{dt}\\rho_{gg} & = -i \Omega_c \rho_{ge} + i \Omega_c^* \rho_{eg} + \gamma_0 \rho_{ee}           \\[6pt]
+			\\frac{d}{dt}\\rho_{eg} & = i \Delta \rho_{eg} + i \Omega_c (\rho_{gg} - \rho_{ee}) - \Gamma \rho_{eg}    \\[6pt]
+			\\frac{d}{dt}\\rho_{ge} & = -i \Delta \rho_{ge} - i \Omega_c^* (\rho_{gg} - \rho_{ee}) - \Gamma \rho_{ge}
 		\end{aligned}
 	}
 	\label{eq:BlochEquations}
@@ -159,7 +159,7 @@ Flatten the density matrix into a column vector:
 	use the column stacking version like qutip uses!
 }
 \begin{equation}
-	\vec{\rho} =
+	\boldsymbol{\rho} =
 	\begin{pmatrix}
 		\rho_{gg} \\
 		\rho_{ge} \\
@@ -171,7 +171,7 @@ Flatten the density matrix into a column vector:
 
 Then the master equation becomes:
 \begin{equation}
-	\dot{\vec{\rho}} = L(t) \vec{\rho}
+	\dot{\boldsymbol{\rho}} = L(t) \boldsymbol{\rho}
 	\label{eq:LiouvillianMatrixForm}
 \end{equation}
 
@@ -205,7 +205,7 @@ In matrix form, in the basis \(\{ \ket{e}, \ket{g} \}\), the RWA Hamiltonian is:
 
 \subsection{Recovery of Laboratory Frame Density Matrix}
 
-To recover the entries of the original density matrix \(\rho(t)\) from the evolved density matrix in the rotating frame \(\tilde{\rho}(t)\), we use the inverse transformation:
+To recover the entries of the original density matrix \(\rho(t)\) from the evolved density matrix in the rotating frame \(\tilde{\rho}(t)\), the inverse transformation is used:
 \begin{equation}
 	\rho(t) = U^\dagger(t) \tilde{\rho}(t) U(t)
 	\label{eq:RecoverOriginalDensityMatrix}

@@ -1,121 +1,48 @@
 % !TEX root = ../main.tex
-\chapter{Introduction} % Main chapter title
-\label{Chapter_Introduction} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+\chapter{Introduction}
+\label{Chapter_Introduction}
 
-%-------------------------------------------------------------------------------
-%	SECTION 1: Coherence and Excitation Transport
-%-------------------------------------------------------------------------------
-\todoidea{My master's thesis focuses on two-dimensional electronic spectroscopy (2DES) with open quantum systems formalism, ultimately aiming to model and reproduce experimental findings on a highly real-world biological systems like microtubules.}
-
-\todoidea{In the study of photosynthetic processes, which yield near unity fidelity.
-Experimental characterization of the physical mechanisms underlying the fast processes in photosynthesis requires the development of
-time-resolved spectroscopic methods with the highest time resolution
-possible. \cite{gelzinisetal2019twodimensionalspectroscopynonspecialists}
-}
-\todoidea{The higher the time resolution wanted,
-the shorter must be the light pulses used in the experiments. Due to the
-Heisenberg uncertainty principle, the shorter the light pulse, the less
-defined is its energy. Therefore, when femtosecond time domain was
-reached, one was often forced to make trade-offs between spectral and
-temporal resolution.
-"This technique has now been widely employed on
-light-harvesting complexes and reaction centers [14-26] and led to a
-number of breakthroughs in the field."
-\todoref{cite the engeletal2007evidencewavelikeenergy for FMO motivation}
-}
-\section{Coherence and Excitation Transport}
-
-In this chapter, we aim to explain the phenomena of long coherences (lifetimes) and the excitation transport of light on a microtubule. The proposed model takes the following approach:
-
-\begin{itemize}
-	\item The microtubule is modeled as a cylindrical structure consisting of nodes. Each node represents an atom, which is modeled as a two-level system. The number of atoms, \( N_{\text{atoms}} \), is determined by the number of chains (\( n_{\text{chains}} \)) and the number of rings (\( n_{\text{rings}} \)), assuming fixed positions for these nodes.
-	\item The system is restricted to a single excitation.
-	\item A time-dependent coupling to an electric field is proposed, which may be either classical or quantum in nature. This coupling is intended to facilitate spectroscopy.
-	\item Two types of Lindblad operators are introduced to model dissipation processes. Specifically:
-	      \begin{enumerate}
-		      \item Spontaneous decay
-		      \item Dephasing
-	      \end{enumerate}
-\end{itemize}
-The Lindblad operators introduced to model the spontaneous decay and dephasing processes for each individual atom are defined as follows:
-
-\begin{align}
-	C_{\text{decay}}^{(i)}   & = \sqrt{\gamma_0} \, \sigma_-^{(i)},    \\
-	C_{\text{dephase}}^{(i)} & = \sqrt{\gamma_\phi} \, \sigma_z^{(i)},
-\end{align}
-
-where:
-\begin{itemize}
-	\item \( C_{\text{decay}}^{(i)} \) describes the spontaneous decay of the \(i\)-th atom, with a rate given by \(\gamma_0\).
-	\item \( C_{\text{dephase}}^{(i)} \) describes the dephasing of the \(i\)-th atom, with a rate given by \(\gamma_\phi\).
-	\item \( \sigma_-^{(i)} \) is the lowering operator for the \(i\)-th atom, and \( \sigma_z^{(i)} \) is the Pauli \( z \)-operator for the \(i\)-th atom.
-\end{itemize}
-
-
-\todoidea{Give a whole introduction to quantum biology, why it is interesting, quantum consciousness, ... , microtubules, coherence, excitation transport, 2D spectroscopy, with open quantum systems}
-\newpage
-
-
-
-
-
-
-
-
-
-
-
-\section{Motivation}
 \noindent
+Ultrafast optical spectroscopy provides a direct experimental window into quantum dynamics on femtosecond timescales. In many molecular and condensed-matter systems, the relevant degrees of freedom are not isolated: they are embedded in complex environments that induce relaxation and dephasing, and can strongly reshape transport and coherence signatures. This interplay is particularly important in ``hot'' settings (room temperature, soft-matter, biological complexes), where one expects fast decoherence but still observes structured spectral features that encode microscopic couplings and dynamical pathways.
 
-%----------------------------------------------------------------------------------------
-%	SECTION 1
-%----------------------------------------------------------------------------------------
-%\section{Objective}
-%\vspace{0.5cm}
-%\noindent
-%The goal of this thesis is
-%to perform robust directional photon routing on atomic systems in free-space using subradiant states.
-%Focusing on a Y-shaped atomic tree, different topologies are explored to enable long-lived information transport as a proof of concept.
-%
-%\section{Outline}
-%This thesis is structured as follows.
-%Chapter \ref{Chapter2} introduces the theoretical background.
-%It covers the concepts of open quantum systems,
-%subradiance and superradiance, the Green tensor, and the reciprocal space.
-%These tools are essential foundations for describing atom-atom interactions in free space,
-%including dipole-dipole interactions and coupling to a photonic bath.
-%%After this chapter, the reader already knows...
-%The quantum router of \cite{startingpoint} is presented and summarized in Chapter \ref{Chapter3}.
-%It introduces the concepts of graph theory and explains how quantum evolution on a graph topology can be utilized to achieve directional routing of information.
-%Chapter \ref{Chapter4} will be the core of this thesis, adapting this model to an atomic system.
-%This chapter delves into the challenges of implementing directional routing in a fully connected atomic system and investigates various solutions to control the phase of interactions.
-%It further extends the analysis to systems with a larger number of atoms, focusing on coupling control and routing capabilities in different configurations, such as equilateral and isosceles triangles.
-%Chapter \ref{Chapter5} concludes the thesis by summarizing the results and discussing potential future directions in the field of quantum routing in atomic systems.
+\medskip
+\noindent
+Two-dimensional electronic spectroscopy (2DES) was developed precisely to disentangle such effects. By correlating excitation and detection frequencies while controlling the delays between ultrashort pulses, 2DES separates homogeneous from inhomogeneous broadening and reveals couplings and energy-transfer pathways via diagonal and cross peaks \cite{jonas2003twodimensionalfemtosecondspectroscopy, cho2009twodimensionalopticalspectroscopy, gelzinisetal2019twodimensionalspectroscopynonspecialists}. On the theory side, the same observables can be expressed in terms of multi-time response functions of the dipole operator, which naturally connect spectroscopy to open-quantum-system propagators \cite{mukamel1995principlesnonlinearoptical}.
 
+\section{Scope and approach}
+\label{sec:intro_scope}
 
-It is widely assumed that one of the crucial tasks currently facing quantum theorists
-is to understand and characterize the behaviour of realistic quantum systems. In
-any experiment, a quantum system is subject to noise and decoherence due to the
-unavoidable interaction with its surroundings. The theory of open quantum systems
-aims at developing a general framework to analyze the dynamical behaviour of systems
-that, as a result of their coupling with environmental degrees of freedom, will no
-longer evolve unitarily. \cite{rivasetal2010markovianmasterequations}
-\\
-2DES> \todoref{rind ref}%\cite{krumlandetal2023twodimensionalelectronicspectroscopy}, 
-\cite{segarra-martietal2018accuratesimulationtwodimensional}, \cite{sunetal2024twodimensionalspectroscopyopen}
-\\
-NONlinear Optics> \cite{hamm2005principlesnonlinearoptical}, \cite{mukamel1995principlesnonlinearoptical}
-\\
-Spectroscopy investigates the interaction between matter and electromagnetic radiation, offering a means to analyze composition and structure.
-Central to this analysis is the understanding of how molecules respond to specific frequencies of light, revealing information about their energy levels and bonding.
-Key concepts include wavelength ($\lambda$), wavenumber ($\bar{\nu}$), and frequency ($\nu$).
-Wavelength, the distance between successive wave crests, is typically measured in nanometers or micrometers.
-Wavenumber, expressed in inverse centimeters (cm$^{-1}$), represents the number of waves per unit distance and is directly proportional to energy, defined as $\bar{\nu} = 1/\lambda$ (where $\lambda$ is in cm).
-Frequency, the number of wave cycles per second, is measured in Hertz (Hz), and the angular frequency ($\omega$) is related to frequency by $\omega = 2\pi\nu$.
-The relationship between angular frequency and wavenumber is given by $\omega = 2\pi c \bar{\nu}$, where $c$ is the speed of light.\\
-Next, I converted all units into femtoseconds ($fs^{-1}$), which is commonly used in time-domain spectroscopy.\\
-Spectrometers are instruments designed to measure the intensity of light as a function of wavelength or frequency.\\
-Different types of spectrometers are employed for various regions of the electromagnetic spectrum.
-Notably, UV-Vis spectrometers analyze absorption and transmission of ultraviolet and visible light, while infrared (IR) spectrometers measure the absorption of infrared light, providing insights into molecular vibrations.
-Nuclear Magnetic Resonance (NMR) spectrometers probe the magnetic properties of atomic nuclei, revealing molecular structure.
+\noindent
+The goal of this thesis is to build a consistent modelling workflow for 2DES signals of open quantum systems in regimes relevant to warm, structured environments. The emphasis is on a pragmatic weak-coupling description that connects microscopic bath models (via correlation functions / spectral densities) to relaxation and dephasing rates, while remaining computationally feasible for parameter scans and multi-site systems.
+
+\medskip
+\noindent
+We therefore use the Redfield master equation as the default open-system generator \cite{breuerpetruccione2009theoryopenquantum, weiss2012quantumdissipativesystems, rivasetal2010markovianmasterequations}. Redfield theory provides a transparent bridge from a system--bath Hamiltonian to dissipative dynamics, but it is not guaranteed to be completely positive; throughout, its use is restricted to regimes where the weak-coupling and Markov assumptions are well-motivated and results are interpreted with appropriate care. For comparison and for controlled limiting cases, Lindblad-form models are used where appropriate.
+
+\medskip
+\noindent
+On the spectroscopy side, we follow the standard third-order response-function framework of nonlinear optics \cite{mukamel1995principlesnonlinearoptical, cho2009twodimensionalopticalspectroscopy}. In addition, the numerical implementation used in this thesis adopts a non-perturbative (time-domain) strategy in which the driven open-system equation of motion is solved with the pulses explicitly included, and lower-order background contributions are removed by auxiliary runs. This provides direct access to complex-valued signals via phase cycling and enables a faithful treatment of finite pulse durations and pulse overlap effects \cite{segarra-martietal2018accuratesimulationtwodimensional, sunetal2024twodimensionalspectroscopyopen}.
+
+\section{Model systems and physical questions}
+\label{sec:intro_models_questions}
+
+\noindent
+To connect the formalism to interpretable signatures in 2D spectra, the analysis proceeds from minimal reference models to structured ensembles:
+\begin{itemize}
+    \item \textbf{Two-level system (TLS):} a baseline to validate the numerical workflow and to separate homogeneous dephasing, population relaxation and static disorder through their distinct 2D line-shape fingerprints.
+    \item \textbf{Dimer:} the minimal model that produces cross peaks and allows one to contrast coherent coupling (excitonic mixing) with incoherent population transfer during the waiting time.
+    \item \textbf{$N$-site ensembles with geometry:} larger systems in which 2D spectra can visualize geometry-dependent coupling networks and transport. Motivated by protofilament arrangements in microtubules, a discretized cylindrical architecture is used as a concrete, structured test case \cite{kalraetal2023electronicenergymigration}.
+\end{itemize}
+The central question throughout is how environment-induced relaxation and dephasing compete with coherent couplings to shape experimentally accessible observables: peak positions, line shapes, and waiting-time dynamics.
+
+\section{Thesis outline}
+\label{sec:intro_outline}
+
+\noindent
+Chapter~\ref{chapter_open_quantum_systems} introduces the open-quantum-system framework used throughout, with emphasis on the Redfield master equation, bath correlation functions, and commonly used spectral densities \cite{breuerpetruccione2009theoryopenquantum, weiss2012quantumdissipativesystems}.
+Chapter~\ref{chapter_spectroscopy} develops the nonlinear spectroscopy formalism leading to 2DES observables, separating the field-side and matter-side ingredients and establishing the response-function viewpoint \cite{mukamel1995principlesnonlinearoptical, jonas2003twodimensionalfemtosecondspectroscopy, cho2009twodimensionalopticalspectroscopy}.
+Chapter~\ref{chapter_model_systems} specifies the concrete Hamiltonians and dipole operators for the TLS, dimer and $N$-site ensembles used in the simulations.
+
+\medskip
+\noindent
+The appendices provide derivations and implementation details that support the main text: Appendix~\ref{app:numerical_implementation} summarizes the numerical workflow and software architecture; Appendix~\ref{app:2dfts_maxwell} derives the Maxwell-to-signal link for coherent 2D Fourier-transform spectroscopy; Appendix~\ref{app:response_functions} collects the Dyson-series / response-function derivation of the $n$-th order polarization; and Appendix~\ref{app:detection_schemes} discusses detection schemes and complex-signal reconstruction.

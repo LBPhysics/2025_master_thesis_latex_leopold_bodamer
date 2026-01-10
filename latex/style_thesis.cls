@@ -270,7 +270,7 @@
     bindingoffset=0.5cm,
     top=1.5cm,
     bottom=1.5cm,
-    headheight=4ex,
+	headheight=28pt,
     includehead,
     includefoot
 }

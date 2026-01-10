@@ -1,3 +1,4 @@
+% !TEX program = lualatex
 \documentclass[
 11pt, english, 
 %draft, % no pictures, links, overfull hboxes indicated
@@ -16,6 +17,7 @@ toctotoc, 		      % add table of contents to the table of contents
 % actually import stzle with style=customstyle???? -> not needed
 \usepackage[
     backend=biber,
+    sorting=none,
     style=phys,         % The biblatex-phys style for physics journals
     articletitle=true,
     biblabel=brackets,  % Puts numbers in brackets, e.g., [1]
@@ -76,7 +78,7 @@ toctotoc, 		      % add table of contents to the table of contents
 %-------------------------------------------------------------------------------
 \begin{abstract}
 	\addchaptertocentry{\abstractname}
-	\todoidea{This thesis investigates the application of two-dimensional photon-echo spectroscopy to model quantum systems, with a focus on open quantum system dynamics. We develop a comprehensive theoretical framework that combines the response-function formalism !NON-perturbatively! of nonlinear spectroscopy with master-equation approaches for open quantum systems (Qutip). Starting from minimal reference models, including a single qubit and a four-level system formed by two coupled qubits, we validate our methods and apply the model to a system of $N$ qubits arranged on a cylindrical geometry, inspired by the structural motifs of microtubules. Our results demonstrate the capability of two-dimensional spectroscopy to probe coherence and energy transfer dynamics in these systems, providing insights into their quantum behavior and interactions with the environment. This work lays the groundwork for future experimental and theoretical studies in the field of quantum biology and quantum information science.}
+    This thesis investigates the application of two-dimensional photon-echo spectroscopy to model quantum systems, with a focus on open quantum system dynamics. A comprehensive theoretical framework is developed that combines the response-function formalism of nonlinear spectroscopy in a non-perturbative setting with master-equation approaches for open quantum systems (QuTiP). Starting from minimal reference models, including a single qubit and a four-level system formed by two coupled qubits, the methods are validated and the approach is applied to a system of $N$ qubits arranged on a cylindrical geometry inspired by the structural motifs of microtubules. The results demonstrate the capability of two-dimensional spectroscopy to probe coherence and energy-transfer dynamics in these systems, providing insights into their quantum behavior and interactions with the environment. This work lays the groundwork for future experimental and theoretical studies in the field of quantum biology and quantum information science.
 \end{abstract}
 
 %-------------------------------------------------------------------------------
@@ -87,14 +89,12 @@ toctotoc, 		      % add table of contents to the table of contents
 \pagestyle{thesis}
 
 %\include{chapters/_template_chapter}
-%\include{chapters/c10_introduction}
+\include{chapters/c10_introduction}
 \include{chapters/c20_open_quantum_systems}
-\include{chapters/c30_spectroscopy_final}
 \include{chapters/c30_spectroscopy}
-\include{chapters/c30_spectroscopy_copy}
-\include{chapters/c22_Rabi_osci}
+%\include{chapters/c22_Rabi_osci}
 \include{chapters/c50_model}
-\include{chapters/c60_results_discussion}
+%\include{chapters/c60_results_discussion}
 %\include{chapters/todo_example}
 
 \iffalse
@@ -107,7 +107,10 @@ toctotoc, 		      % add table of contents to the table of contents
 \appendix
 
 %\include{appendices/_template_appendix} % corrected appendix path
-\include{appendices/c40_numerical_implementation}
+%\include{appendices/a01_numerical_implementation}
+%\include{appendices/a02_2dfts_maxwell_derivation}
+%\include{appendices/a03_response_function_derivation}
+%\include{appendices/a04_detection_schemes}
 
 %-------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
@@ -116,7 +119,5 @@ toctotoc, 		      % add table of contents to the table of contents
 \printbibliography
 
 \end{document}
-% IDEA ABOUT HOW TO STRUCTURE THE THESIS
-%https://chatgpt.com/share/686e2740-d700-8009-8b73-fc47a1730560
 % LOOK AT
 %https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Electro-Optics/Ultrafast_Optics_(Kaertner)/11%3A_Ultrafast_Measurement_Techniques/11.04%3A_Four-Wave_Mixing
