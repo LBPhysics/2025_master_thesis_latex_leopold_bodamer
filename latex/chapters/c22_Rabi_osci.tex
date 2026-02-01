@@ -2,7 +2,7 @@
 
 \chapter{Example Two-Level Atom System} % Main chapter title
 
-\label{chapter_rabi_oscillations} % For referencing this chapter elsewhere, use \ref{chapter_rabi_oscillations}
+\label{chapter_rabi_oscillations} % For referencing this chapter elsewhere, use \autoref{chapter_rabi_oscillations}
 
 %----------------------------------------------------------------------------------------
 %	SECTION: Two-Level Atom Master Equation in the Rotating Frame with RWA
@@ -15,10 +15,10 @@ This phenomenon is fundamental in quantum mechanics and quantum optics.
 
 
 \subsection{Hamiltonian in the Laboratory Frame}
-Consider a two-level system with states \(|g\rangle\) (ground state) and \(|e\rangle\) (excited state).
+Consider a two-level system with states \(\ket{g}\) (ground state) and \(\ket{e}\) (excited state).
 The energy separation between the two states is given by:
 \begin{equation}
-	\omega_0 = \frac{E_e - E_g}{\hbar},
+	\omega_0 = E_e - E_g,
 	\label{eq:EnergySeparation}
 \end{equation}
 where \(E_e\) and \(E_g\) are the energies of the excited and ground states, respectively.
@@ -26,12 +26,12 @@ where \(E_e\) and \(E_g\) are the energies of the excited and ground states, res
 \subsubsection{Atomic Hamiltonian}
 The free atomic Hamiltonian is expressed as:
 \begin{equation}
-	H_0 = \frac{\hbar\omega_0}{2} \sigma_z, \qquad \sigma_z = \ket{e}\bra{e} - \ket{g}\bra{g}
+	H_0 = \frac{\omega_0}{2} \sigma_z, \qquad \sigma_z = \ket{e}\bra{e} - \ket{g}\bra{g}
 	\label{eq:AtomicHamiltonian}
 \end{equation}
 
 \subsubsection{Electric Field}
-The electric field is given analogously to Eq. \eqref{eq:electric_field_three_pulses} by:
+The electric field is given analogously to \autoref{eq:electric_field_three_pulses} by:
 \begin{equation}
 	\mathcal{E}(t) = E_0 e^{i\phi} e^{-i\omega_L t}, \qquad
 	E_{\text{phys}}(t) = \mathcal{E}(t) + \mathcal{E}^*(t)
@@ -60,7 +60,7 @@ The total Hamiltonian of the system is:
 	\label{eq:TotalHamiltonian}
 \end{equation}
 
-The time evolution of the system is governed by the time-dependent Schrödinger equation \eqref{eq:SchrödingerEquation}
+The time evolution of the system is governed by the time-dependent Schrödinger equation \autoref{eq:SchrödingerEquation}
 
 \subsection{Transform to the Rotating Frame}
 
@@ -84,7 +84,7 @@ Useful identities for the transformation:
 \begin{itemize}
 	\item \textbf{Free Hamiltonian:}
 	      \begin{equation}
-		      \tilde{H}_0 = \frac{\hbar(\omega_0 - \omega_L)}{2} \sigma_z = \frac{\hbar\Delta}{2} \sigma_z
+		      \tilde{H}_0 = \frac{(\omega_0 - \omega_L)}{2} \sigma_z = \frac{\Delta}{2} \sigma_z
 		      \label{eq:TransformedFreeHamiltonian}
 	      \end{equation}
 	      where \(\Delta = \omega_0 - \omega_L\) is the detuning.
@@ -95,10 +95,10 @@ Useful identities for the transformation:
 		      \label{eq:TransformedInteractionHamiltonian}
 	      \end{equation}
 
-	\item Defining the Rabi frequency \(\Omega = \mu E_0 / \hbar\), the total rotating-frame Hamiltonian becomes:
+	\item Defining the Rabi frequency \(\Omega = \mu E_0\), the total rotating-frame Hamiltonian becomes:
 	      \begin{equation}
 		      \boxed{
-			      \tilde{H} = \frac{\hbar\Delta}{2} \sigma_z - \hbar \Omega \left( e^{i\phi} \sigma_+ + e^{-i\phi} \sigma_- \right)
+			      ilde{H} = \frac{\Delta}{2} \sigma_z - \Omega \left( e^{i\phi} \sigma_+ + e^{-i\phi} \sigma_- \right)
 		      }
 		      \label{eq:RotatingFrameHamiltonian}
 	      \end{equation}
@@ -177,7 +177,7 @@ Then the master equation becomes:
 
 Where \(L(t)\) is the time-dependent Liouvillian matrix, using:
 \begin{equation}
-	\Omega_c(t) = \frac{\mu}{\hbar} E(t), \quad \text{with } E(t) = E_0 e^{i\phi}
+	\Omega_c(t) = \mu E(t), \quad \text{with } E(t) = E_0 e^{i\phi}
 	\label{eq:TimeDepRabiFreq}
 \end{equation}
 
@@ -195,7 +195,7 @@ The phase \(\phi\) does not change the \textbf{Rabi frequency}, but it \textbf{r
 
 In matrix form, in the basis \(\{ \ket{e}, \ket{g} \}\), the RWA Hamiltonian is:
 \begin{equation}
-	\tilde{H}_{\text{RWA}} = \frac{\hbar}{2}
+	\tilde{H}_{\text{RWA}} = \frac{1}{2}
 	\begin{pmatrix}
 		\Delta             & -\Omega e^{i\phi} \\
 		-\Omega e^{-i\phi} & -\Delta

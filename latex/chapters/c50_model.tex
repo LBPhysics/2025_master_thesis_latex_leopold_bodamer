@@ -2,13 +2,13 @@
 \chapter{Model Systems}
 \label{chapter_model_systems}
 
-Having established the spectroscopy workflow in Chapter~\ref{chapter_spectroscopy} and the open-system dynamics tools in Chapter~\ref{chapter_open_quantum_systems}, the concrete model Hamiltonians and dipole operators used in the numerical simulations are now specified. The discussion proceeds from minimal reference systems to more structured ensembles:
+Having established the spectroscopy workflow in \autoref{chapter_spectroscopy} and the open-system dynamics tools in \autoref{chapter_open_quantum_systems}, the concrete model Hamiltonians and dipole operators used in the numerical simulations are now specified. The discussion proceeds from minimal reference systems to more structured ensembles:
 \begin{itemize}
 	\item a \textbf{qubit} as the simplest benchmark for rephasing/nonrephasing signals;
 	\item a \textbf{dimer} (two coupled sites) with an optional coherent coupling constant $J$;
-	\item an \textbf{$N$-site ensemble} with a prescribed geometry, simulated in the \emph{ground}, \emph{single-excitation}, and (optionally) \emph{double-excitation} manifolds \,$\ket{g},\{\ket{n}\},\{\ket{f}\}$ as introduced in Chapter~\ref{chapter_spectroscopy}.
+	\item an \textbf{$N$-site ensemble} with a prescribed geometry, simulated in the \emph{ground}, \emph{single-excitation}, and (optionally) \emph{double-excitation} manifolds \,$\ket{g},\{\ket{n}\},\{\ket{f}\}$ as introduced in \autoref{chapter_spectroscopy}.
 \end{itemize}
-Throughout, standard third-order spectroscopy concepts \cite{mukamel1995principlesnonlinearoptical,jonas2003twodimensionalfemtosecondspectroscopy,cho2009twodimensionalopticalspectroscopy} and the master-equation propagation methods from Chapter~\ref{chapter_open_quantum_systems} are used.
+Throughout, standard third-order spectroscopy concepts \cite{mukamel1995principlesnonlinearoptical,jonas2003twodimensionalfemtosecondspectroscopy,cho2009twodimensionalopticalspectroscopy} and the master-equation propagation methods from \autoref{chapter_open_quantum_systems} are used.
 
 \section{Thermal population at optical transition energies}
 \label{sec:model_thermal_population_optical}
@@ -16,19 +16,19 @@ Throughout, standard third-order spectroscopy concepts \cite{mukamel1995principl
 \noindent
 In spectroscopy scenarios considered here, the relevant transition energies are optical (or near-optical), such that thermal excitation at room temperature is negligible and the system can be assumed to start essentially entirely in the ground state. As a representative scale, consider a transition wavenumber
 \begin{equation}
-		\tilde{\nu}_0 = 16000\,\mathrm{cm}^{-1}.
+	\tilde{\nu}_0 = 16000\,\mathrm{cm}^{-1}.
 \end{equation}
-Using $E=\hbar\omega_0 = hc\tilde{\nu}_0$, the corresponding temperature scale is
+Using $E=\omega_0 = 2 \pi c\tilde{\nu}_0$, the corresponding temperature scale is
 \begin{equation}
-	\frac{\hbar\omega_0}{k_B} \approx 2.3\times 10^{4}\,\mathrm{K}.
+	\frac{\omega_0}{k_B} \approx 2.3\times 10^{4}\,\mathrm{K}.
 \end{equation}
 At room temperature, $T\approx 300\,\mathrm{K}$, this implies
 \begin{equation}
-	\frac{\hbar\omega_0}{k_B T} \approx \frac{2.3\times 10^{4}}{300} \approx 77.
+	\frac{\omega_0}{k_B T} \approx \frac{2.3\times 10^{4}}{300} \approx 77.
 \end{equation}
 Hence the excited-to-ground population ratio is approximately
 \begin{equation}
-	\frac{p_1}{p_0} = e^{-\hbar\omega_0/(k_B T)} \approx e^{-77} \approx 10^{-34},
+	\frac{p_1}{p_0} = e^{-\omega_0/(k_B T)} \approx e^{-77} \approx 10^{-34},
 \end{equation}
 which is effectively zero. Even if many excited states contribute, the total excited population remains negligible:
 \begin{equation}
@@ -51,7 +51,7 @@ The simplest nontrivial benchmark is a qubit, i.e. a two-level quantum system wi
 \noindent
 The field-free system Hamiltonian is taken as
 \begin{equation}
-	\hat{H}_{\mathrm S}^{(\mathrm{TLS})} = \hbar\omega_{eg}\,\ket{e}\!\bra{e},
+	\hat{H}_{\mathrm S}^{(\mathrm{TLS})} = \omega_{eg}\,\ket{e}\!\bra{e},
 	\label{eq:tls_hamiltonian}
 \end{equation}
 with transition frequency $\omega_{eg}$. The optical dipole operator (projected onto the chosen polarization direction) is written as
@@ -65,18 +65,18 @@ with transition frequency $\omega_{eg}$. The optical dipole operator (projected 
 \subsection{System--bath coupling types}
 
 \noindent
-For a two-level system it is instructive to distinguish two types of system--bath coupling: \textit{longitudinal} (or \textit{pure-dephasing}) couplings are proportional to $\sigma_z$ and commute with the bare qubit Hamiltonian in Eq.~\eqref{eq:tls_hamiltonian}, so they do not induce transitions between energy eigenstates but instead cause the energy splitting to fluctuate in time, leading to decay of coherences without population relaxation ($T_\phi$). In contrast, \textit{transverse} couplings (e.g., $\sigma_x,\sigma_y$) can induce transitions and drive population relaxation ($T_1$).
+For a two-level system it is instructive to distinguish two types of system--bath coupling: \textit{longitudinal} (or \textit{pure-dephasing}) couplings are proportional to $\sigma_z$ and commute with the bare qubit Hamiltonian in \autoref{eq:tls_hamiltonian}, so they do not induce transitions between energy eigenstates but instead cause the energy splitting to fluctuate in time, leading to decay of coherences without population relaxation ($T_\phi$). In contrast, \textit{transverse} couplings (e.g., $\sigma_x,\sigma_y$) can induce transitions and drive population relaxation ($T_1$).
 
 \subsection{Open-system dynamics and broadening scenarios}
 
 \noindent
-The reduced dynamics are generated by the open-system Liouvillian introduced in Chapter~\ref{chapter_open_quantum_systems}. In practice, either a Redfield-type generator or (when appropriate) a Lindblad form is used.
+The reduced dynamics are generated by the open-system Liouvillian introduced in \autoref{chapter_open_quantum_systems}. In practice, either a Redfield-type generator or (when appropriate) a Lindblad form is used.
 
 \noindent
 The qubit is examined under two broadening scenarios:
 \begin{itemize}
 	\item \textbf{Homogeneous broadening}: a single transition frequency $\omega_{eg}$ with dephasing/relaxation entirely due to the bath.
-	\item \textbf{Inhomogeneous broadening}: an ensemble of realizations with slightly different $\omega_{eg}$ values (static disorder), and spectra obtained by averaging the resulting signals as discussed in Chapter~\ref{chapter_spectroscopy}.
+	\item \textbf{Inhomogeneous broadening}: an ensemble of realizations with slightly different $\omega_{eg}$ values (static disorder), and spectra obtained by averaging the resulting signals as discussed in \autoref{chapter_spectroscopy}.
 \end{itemize}
 
 \subsection{Figures: rephasing signal and qubit 2D spectra}
@@ -90,8 +90,8 @@ To illustrate the meaning of rephasing and the difference between homogeneous an
 		\includegraphics[width=0.85\linewidth]{figures/tls_rephasing_time_trace.pdf}%
 	}{%
 		\fbox{\parbox{0.85\linewidth}{\centering\vspace{2mm}
-		Placeholder: 1D rephasing time trace for a qubit.\\
-		Put the file at \texttt{latex/figures/tls\_rephasing\_time\_trace.pdf}.\vspace{2mm}}}%
+				Placeholder: 1D rephasing time trace for a qubit.\\
+				Put the file at \texttt{latex/figures/tls\_rephasing\_time\_trace.pdf}.\vspace{2mm}}}%
 	}
 	\caption{Illustration of a time-domain three-pulse photon-echo (rephasing) signal of a two-level system as a function of the detection time, for fixed dephasing/relaxation parameters and pulse duration. (This placeholder should be replaced by the corresponding figure.)}
 	\label{fig:tls_rephasing_time_trace}
@@ -103,8 +103,8 @@ To illustrate the meaning of rephasing and the difference between homogeneous an
 		\includegraphics[width=0.95\linewidth]{figures/tls_2d_spectra_homogeneous.pdf}%
 	}{%
 		\fbox{\parbox{0.95\linewidth}{\centering\vspace{2mm}
-		Placeholder: qubit 2D spectra vs waiting time $T$ (homogeneous broadening).\\
-		Put the file at \texttt{latex/figures/tls\_2d\_spectra\_homogeneous.pdf}.\vspace{2mm}}}%
+				Placeholder: qubit 2D spectra vs waiting time $T$ (homogeneous broadening).\\
+				Put the file at \texttt{latex/figures/tls\_2d\_spectra\_homogeneous.pdf}.\vspace{2mm}}}%
 	}
 	\caption{Sequence of rephasing/nonrephasing (or absorptive) 2D spectra of a homogeneously broadened qubit for increasing waiting time $T$. Solid/dashed contours indicate positive/negative contributions as in standard 2D-FTS conventions. (This placeholder should be replaced by the corresponding figure set.)}
 	\label{fig:tls_2d_spectra_homogeneous}
@@ -116,10 +116,10 @@ To illustrate the meaning of rephasing and the difference between homogeneous an
 		\includegraphics[width=0.95\linewidth]{figures/tls_2d_spectra_inhomogeneous.pdf}%
 	}{%
 		\fbox{\parbox{0.95\linewidth}{\centering\vspace{2mm}
-		Placeholder: qubit 2D spectra vs waiting time $T$ (inhomogeneous broadening).\\
-		Put the file at \texttt{latex/figures/tls\_2d\_spectra\_inhomogeneous.pdf}.\vspace{2mm}}}%
+				Placeholder: qubit 2D spectra vs waiting time $T$ (inhomogeneous broadening).\\
+				Put the file at \texttt{latex/figures/tls\_2d\_spectra\_inhomogeneous.pdf}.\vspace{2mm}}}%
 	}
-	\caption{Sequence of 2D spectra of an inhomogeneously broadened qubit ensemble for increasing waiting time $T$. Compared to Fig.~\ref{fig:tls_2d_spectra_homogeneous}, static disorder produces an elongated diagonal feature, while homogeneous dynamics govern the antidiagonal width. (This placeholder should be replaced by the corresponding figure set.)}
+	\caption{Sequence of 2D spectra of an inhomogeneously broadened qubit ensemble for increasing waiting time $T$. Compared to \autoref{fig:tls_2d_spectra_homogeneous}, static disorder produces an elongated diagonal feature, while homogeneous dynamics govern the antidiagonal width. (This placeholder should be replaced by the corresponding figure set.)}
 	\label{fig:tls_2d_spectra_inhomogeneous}
 \end{figure}
 
@@ -138,7 +138,7 @@ As the next step, a dimer is considered: two optically active sites with a possi
 
 \noindent
 The standard excitation-manifold basis is used. The ground state is $\ket{g}$. The singly excited manifold is spanned by two localized excitations $\ket{1}$ and $\ket{2}$ (``site basis''), and the doubly excited state is $\ket{f}\equiv\ket{12}$.
-This matches the \,$\ket{g},\ket{n},\ket{f}$ scheme discussed in Chapter~\ref{chapter_spectroscopy} with $n\in\{1,2\}$.
+This matches the \, $\ket{g},\ket{n},\ket{f}$ scheme discussed in \autoref{chapter_spectroscopy} with $n\in\{1,2\}$.
 
 \subsection{Hamiltonian with optional coupling $J$}
 
@@ -146,9 +146,9 @@ This matches the \,$\ket{g},\ket{n},\ket{f}$ scheme discussed in Chapter~\ref{ch
 In the single-excitation manifold, the Hamiltonian is taken as
 \begin{equation}
 	\hat{H}_{\mathrm S}^{(\mathrm{dimer})}
-	= \hbar\varepsilon_1\,\ket{1}\!\bra{1} + \hbar\varepsilon_2\,\ket{2}\!\bra{2}
-	+ \hbar J\,\big(\ket{1}\!\bra{2}+\ket{2}\!\bra{1}\big)
-	\; +\; \hbar(\varepsilon_1+\varepsilon_2)\,\ket{f}\!\bra{f}.
+	= \varepsilon_1\,\ket{1}\!\bra{1} + \varepsilon_2\,\ket{2}\!\bra{2}
+	+ J\,\big(\ket{1}\!\bra{2}+\ket{2}\!\bra{1}\big)
+	\; +\; (\varepsilon_1+\varepsilon_2)\,\ket{f}\!\bra{f}.
 	\label{eq:dimer_hamiltonian}
 \end{equation}
 Setting $J=0$ recovers two uncoupled transitions; finite $J$ produces excitonic eigenstates and characteristic peak splittings/cross peaks in 2D spectra.
@@ -202,7 +202,7 @@ To model unidirectional or bidirectional excitation transfer within the single-e
 	\hat{L}_{1\leftarrow 2} = \sqrt{k_{1\leftarrow 2}}\,\ket{1}\!\bra{2},
 	\label{eq:dimer_transfer_jumps}
 \end{equation}
-in addition to site-local relaxation/dephasing operators (Chapter~\ref{chapter_open_quantum_systems}). In the numerical workflow this affects the evolution superoperator acting between the second and third interactions and therefore controls the waiting-time dependence of diagonal and cross-peak amplitudes.
+in addition to site-local relaxation/dephasing operators (\autoref{chapter_open_quantum_systems}). In the numerical workflow this affects the evolution superoperator acting between the second and third interactions and therefore controls the waiting-time dependence of diagonal and cross-peak amplitudes.
 
 \subsection{Coherences during $T$ (oscillatory peak dynamics)}
 \label{sec:model_dimer_coherences}
@@ -218,7 +218,7 @@ If the system supports excited-state coherences during the waiting time (e.g. be
 \label{sec:model_ensemble}
 
 \noindent
-Finally, an ensemble of $N$ optically active sites (``atoms'' or chromophores) placed in a prescribed geometry is considered. Motivated by protofilament arrangements in microtubules, the geometry of interest in this thesis is a discretized cylindrical surface \cite{kalraetal2023electronicenergymigration}. The model is formulated in the excitation-manifold basis \,$\ket{g},\{\ket{n}\},\{\ket{f}\}$ already used in Chapter~\ref{chapter_spectroscopy}.
+Finally, an ensemble of $N$ optically active sites (``atoms'' or chromophores) placed in a prescribed geometry is considered. Motivated by protofilament arrangements in microtubules, the geometry of interest in this thesis is a discretized cylindrical surface \cite{kalraetal2023electronicenergymigration}. The model is formulated in the excitation-manifold basis \,$\ket{g},\{\ket{n}\},\{\ket{f}\}$ already used in \autoref{chapter_spectroscopy}.
 
 \subsection{States and truncation}
 
@@ -244,12 +244,12 @@ These qualitative diagnostics motivate the use of 2D-FTS observables as a readou
 \noindent
 In this basis, a generic Frenkel-exciton-type Hamiltonian reads
 \begin{equation}
-    \hat{H}_{\mathrm S}^{(N)}
-    = \sum_{n=1}^{N} \hbar\varepsilon_n\,\ket{n}\!\bra{n}
-    + \sum_{m<n}^{N} \hbar J_{mn}\,\big(\ket{m}\!\bra{n}+\ket{n}\!\bra{m}\big)
-    + \sum_{m<n}^{N} \hbar(\varepsilon_m+\varepsilon_n)\,\ket{mn}\!\bra{mn}
-    + \cdots,
-    \label{eq:ensemble_hamiltonian}
+	\hat{H}_{\mathrm S}^{(N)}
+	= \sum_{n=1}^{N} \varepsilon_n\,\ket{n}\!\bra{n}
+	+ \sum_{m<n}^{N} J_{mn}\,\big(\ket{m}\!\bra{n}+\ket{n}\!\bra{m}\big)
+	+ \sum_{m<n}^{N} (\varepsilon_m+\varepsilon_n)\,\ket{mn}\!\bra{mn}
+	+ \cdots,
+	\label{eq:ensemble_hamiltonian}
 \end{equation}
 where $\varepsilon_n$ are site transition frequencies and $J_{mn}$ are coherent couplings.
 The ellipsis indicates additional terms in the double-excitation manifold if one wishes to include interactions beyond an additive two-exciton energy (e.g. exciton--exciton shifts).
@@ -259,12 +259,12 @@ The ellipsis indicates additional terms in the double-excitation manifold if one
 \noindent
 The couplings $J_{mn}$ may be parameterized phenomenologically (e.g. nearest-neighbour) or computed from transition-dipole interactions. In the latter case one uses
 \begin{equation}
-    J_{mn} \propto \frac{1}{ \lVert \boldsymbol{r}_{mn} \rVert^{3} }
-    \left[
-        \boldsymbol{\mu}_m \cdot \boldsymbol{\mu}_n
-        - 3\,(\boldsymbol{\mu}_m \cdot \hat{\boldsymbol{r}}_{mn})(\boldsymbol{\mu}_n \cdot \hat{\boldsymbol{r}}_{mn})
-    \right],
-    \label{eq:dipole_dipole}
+	J_{mn} \propto \frac{1}{ \lVert \boldsymbol{r}_{mn} \rVert^{3} }
+	\left[
+		\boldsymbol{\mu}_m \cdot \boldsymbol{\mu}_n
+		- 3\,(\boldsymbol{\mu}_m \cdot \hat{\boldsymbol{r}}_{mn})(\boldsymbol{\mu}_n \cdot \hat{\boldsymbol{r}}_{mn})
+		\right],
+	\label{eq:dipole_dipole}
 \end{equation}
 with site positions $\boldsymbol{r}_n$ and displacement $\boldsymbol{r}_{mn}=\boldsymbol{r}_m-\boldsymbol{r}_n$ \cite{griffiths2013introductionelectrodynamics,lehmberg1970radiationatomsystem,masters2014pathsforstersresonance}.
 
@@ -276,10 +276,10 @@ For a cylindrical arrangement, let $N_{\theta}$ be the number of sites per ring 
 \noindent
 The dipole operator is the sum over allowed one-quantum transitions between adjacent excitation manifolds,
 \begin{equation}
-    \hat{\mu}_{\mathrm S}^{(N)}
-    = \sum_{n=1}^{N} \Big(\mu_{gn}\,\ket{g}\!\bra{n} + \mu_{ng}\,\ket{n}\!\bra{g}\Big)
-    + \sum_{m<n}^{N} \sum_{\ell\in\{m,n\}} \Big(\mu_{\ell,mn}\,\ket{\ell}\!\bra{mn} + \mu_{mn,\ell}\,\ket{mn}\!\bra{\ell}\Big),
-    \label{eq:ensemble_dipole}
+	\hat{\mu}_{\mathrm S}^{(N)}
+	= \sum_{n=1}^{N} \Big(\mu_{gn}\,\ket{g}\!\bra{n} + \mu_{ng}\,\ket{n}\!\bra{g}\Big)
+	+ \sum_{m<n}^{N} \sum_{\ell\in\{m,n\}} \Big(\mu_{\ell,mn}\,\ket{\ell}\!\bra{mn} + \mu_{mn,\ell}\,\ket{mn}\!\bra{\ell}\Big),
+	\label{eq:ensemble_dipole}
 \end{equation}
 where the second sum is only needed if the double-excitation manifold is included.
 

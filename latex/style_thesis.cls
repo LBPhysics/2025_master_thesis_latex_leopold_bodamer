@@ -183,6 +183,10 @@
 
 \RequirePackage{setspace} % Required for changing line spacing
 
+% NOTE: Reference naming (\autoref/\cref) is configured in main.tex
+% to ensure cleveref is loaded after hyperref. This keeps sentence-start
+% capitalization consistent across the thesis.
+
 \RequirePackage{longtable} % Required for tables that span multiple pages (used in the symbols, abbreviations and physical constants pages)
 
 \RequirePackage{siunitx} % Required for \SI commands

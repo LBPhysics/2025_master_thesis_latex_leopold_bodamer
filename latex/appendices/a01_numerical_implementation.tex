@@ -28,7 +28,7 @@ The workflow consists of three main execution phases: simulation (\texttt{calc\_
 \label{sec:third_order_polarization}
 
 \noindent
-In the numerical implementation, the electric field for multiple pulses is modeled following the formalism established in Chapter~\ref{chapter_spectroscopy}. The total electric field is expressed as
+In the numerical implementation, the electric field for multiple pulses is modeled following the formalism established in \autoref{chapter_spectroscopy}. The total electric field is expressed as
 
 \begin{equation}
 	\boldsymbol{E}(\boldsymbol{r},t) = \sum_{m=1}^{3} \boldsymbol{E}_m(\boldsymbol{r},t) + \mathrm{c.c.},
@@ -47,11 +47,11 @@ with frequency $\omega_m = 2\pi \nu_m$, wavevector $\boldsymbol{k}_m$, and elect
 \end{equation}
 
 \noindent
-The core spectroscopic calculation implements phase-cycled third-order polarization measurement following the established four-wave mixing protocols detailed in Chapter~\ref{chapter_spectroscopy}, Sec.~\ref{sec:phase_cycling}.
+The core spectroscopic calculation implements phase-cycled third-order polarization measurement following the established four-wave mixing protocols detailed in \autoref{chapter_spectroscopy}, \autoref{sec:phase_cycling}.
 
 \medskip
 \noindent
-This thesis instead uses a more microscopic, non-perturbative (NP) approach: the full (time-dependent) equation of motion is solved with the pulses included and the induced polarization is computed via Eq.~\eqref{eq:P_def_spectroscopy}. To isolate the nonlinear signal in the time domain, auxiliary runs are performed in which only a subset of pulses is active, and the lower-order (linear) contributions are subtracted from the full signal. In the weak-field regime and for centrosymmetric media (where $\chi^{(2)}$ vanishes), this yields a background-free polarization that is dominated by the desired third-order response,
+This thesis instead uses a more microscopic, non-perturbative (NP) approach: the full (time-dependent) equation of motion is solved with the pulses included and the induced polarization is computed via \autoref{eq:P_def_spectroscopy}. To isolate the nonlinear signal in the time domain, auxiliary runs are performed in which only a subset of pulses is active, and the lower-order (linear) contributions are subtracted from the full signal. In the weak-field regime and for centrosymmetric media (where $\chi^{(2)}$ vanishes), this yields a background-free polarization that is dominated by the desired third-order response,
 \begin{equation}
 	\boldsymbol{P}^{(3)}(t)
 	\approx
@@ -66,10 +66,10 @@ where $\boldsymbol{P}_{\text{total}}(t)$ is obtained with all three pulses prese
 \label{sec:oqs_evolution}
 
 \noindent
-The quantum system evolution is handled by the \texttt{SimulationModuleOQS} class, which provides a unified interface for different solver backends implementing the open quantum system dynamics developed in Chapter~\ref{chapter_open_quantum_systems}. The implementation supports both Lindblad master equation evolution (via QuTiP's \texttt{mesolve}) and Bloch-Redfield dynamics (\texttt{brmesolve}) with automatic handling of pulse overlap and time-dependent Hamiltonians.
+The quantum system evolution is handled by the \texttt{SimulationModuleOQS} class, which provides a unified interface for different solver backends implementing the open quantum system dynamics developed in \autoref{chapter_open_quantum_systems}. The implementation supports both Lindblad master equation evolution (via QuTiP's \texttt{mesolve}) and Bloch-Redfield dynamics (\texttt{brmesolve}) with automatic handling of pulse overlap and time-dependent Hamiltonians.
 
 \noindent
-For time-dependent pulse sequences, the total Hamiltonian takes the form established in the spectroscopy theory (Chapter~\ref{chapter_spectroscopy}):
+For time-dependent pulse sequences, the total Hamiltonian takes the form established in the spectroscopy theory (\autoref{chapter_spectroscopy}):
 
 \begin{equation}
 	\label{eq:time_dependent_hamiltonian}
@@ -77,20 +77,20 @@ For time-dependent pulse sequences, the total Hamiltonian takes the form establi
 \end{equation}
 
 \noindent
-where $H_0$ is the bare system Hamiltonian and $H_{\text{int},i}(t)$ represents the interaction with pulse $i$, following the light-matter interaction formalism detailed in Chapter~\ref{chapter_spectroscopy}. The solver automatically detects pulse overlap regions and constructs appropriate piecewise evolution operators, ensuring accurate treatment of multi-pulse sequences regardless of timing complexity.
+where $H_0$ is the bare system Hamiltonian and $H_{\text{int},i}(t)$ represents the interaction with pulse $i$, following the light-matter interaction formalism detailed in \autoref{chapter_spectroscopy}. The solver automatically detects pulse overlap regions and constructs appropriate piecewise evolution operators, ensuring accurate treatment of multi-pulse sequences regardless of timing complexity.
 
 \section{Inhomogeneous Broadening and Statistical Averaging}
 \label{sec:inhomogeneous_broadening}
 
 \noindent
-Real molecular systems exhibit inhomogeneous broadening due to environmental variations, as discussed in the spectroscopy fundamentals (Chapter~\ref{chapter_spectroscopy}). The implementation models this through Gaussian-distributed transition frequencies following the theoretical treatment:
+Real molecular systems exhibit inhomogeneous broadening due to environmental variations, as discussed in the spectroscopy fundamentals (\autoref{chapter_spectroscopy}). The implementation models this through Gaussian-distributed transition frequencies following the theoretical treatment:
 \begin{equation}
 	\label{eq:gaussian_broadening}
 	p(\omega) = \frac{1}{\sigma\sqrt{2\pi}} \exp\left(-\frac{(\omega-\omega_0)^2}{2\sigma^2}\right)
 \end{equation}
 
 \noindent
-where $\sigma = \Delta_{\text{FWHM}}/(2\sqrt{2\ln 2})$ relates the standard deviation to the experimentally relevant full width at half maximum, consistent with the broadening models established in Chapter~\ref{chapter_spectroscopy}. The sampling employs a rejection algorithm optimized for computational efficiency while maintaining statistical accuracy.
+where $\sigma = \Delta_{\text{FWHM}}/(2\sqrt{2\ln 2})$ relates the standard deviation to the experimentally relevant full width at half maximum, consistent with the broadening models established in \autoref{chapter_spectroscopy}. The sampling employs a rejection algorithm optimized for computational efficiency while maintaining statistical accuracy.
 
 \section{Parallel Processing and Scalable Execution}
 \label{sec:parallel_processing}
@@ -99,7 +99,7 @@ where $\sigma = \Delta_{\text{FWHM}}/(2\sqrt{2\ln 2})$ relates the standard devi
 The framework supports both local execution for testing and HPC cluster deployment for large parameter studies. The local workflow (\texttt{calc\_datas.py}) generates all combinations of coherence times and inhomogeneous samples, while the HPC workflow (\texttt{hpc\_batch\_dispatch.py}) distributes individual parameter combinations across compute nodes.
 
 \noindent
-For each combination of parameters, the averaged response is calculated following the inhomogeneous averaging procedure established in the spectroscopy theory (Chapter~\ref{chapter_spectroscopy}):
+For each combination of parameters, the averaged response is calculated following the inhomogeneous averaging procedure established in the spectroscopy theory (\autoref{chapter_spectroscopy}):
 
 \begin{equation}
 	\label{eq:averaged_response}
@@ -107,7 +107,7 @@ For each combination of parameters, the averaged response is calculated followin
 \end{equation}
 
 \noindent
-where $N_{\text{inhom}}$ represents the number of inhomogeneous samples as defined in the broadening treatment (Chapter~\ref{chapter_spectroscopy}). The implementation utilizes Python's \texttt{ProcessPoolExecutor} for local parallel execution and integrates with SLURM-based job scheduling systems for HPC deployment, enabling efficient scaling from desktop testing to production-scale parameter sweeps.
+where $N_{\text{inhom}}$ represents the number of inhomogeneous samples as defined in the broadening treatment (\autoref{chapter_spectroscopy}). The implementation utilizes Python's \texttt{ProcessPoolExecutor} for local parallel execution and integrates with SLURM-based job scheduling systems for HPC deployment, enabling efficient scaling from desktop testing to production-scale parameter sweeps.
 
 \section{Post-Processing and Spectral Analysis}
 \label{sec:post_processing}

@@ -30,8 +30,60 @@ toctotoc, 		      % add table of contents to the table of contents
 \graphicspath{/figures}
 \usepackage{amsmath, amssymb, amsfonts} % Math packages
 \usepackage{dsfont} % gives \mathds{1}
-\usepackage{braket} % For quantum mechanics notation
+\usepackage{physics} % For quantum mechanics notation
 \usepackage{fontspec} % For loading fonts in LuaLaTeX/XeLaTeX
+% Load cleveref after hyperref and configure reference naming
+\AtEndPreamble{%
+    \RequirePackage[capitalise,nameinlink]{cleveref}
+    % Unify naming and spell out references at sentence start
+    \crefname{equation}{Eq.}{Eqs.}
+    \Crefname{equation}{Equation}{Equations}
+    \crefname{figure}{Fig.}{Figs.}
+    \Crefname{figure}{Figure}{Figures}
+    \crefname{table}{Tab.}{Tabs.}
+    \Crefname{table}{Table}{Tables}
+    \crefname{section}{Sec.}{Secs.}
+    \Crefname{section}{Section}{Sections}
+    \crefname{subsection}{Sec.}{Secs.}
+    \Crefname{subsection}{Section}{Sections}
+    \crefname{subsubsection}{Sec.}{Secs.}
+    \Crefname{subsubsection}{Section}{Sections}
+    \crefname{chapter}{Chapter}{Chapters}
+    \Crefname{chapter}{Chapter}{Chapters}
+    \crefname{appendix}{Appendix}{Appendices}
+    \Crefname{appendix}{Appendix}{Appendices}
+    % Sentence-start aware \autoref using cleveref
+    \makeatletter
+    \renewcommand{\autoref}[1]{%
+        \ifvmode
+            \Cref{#1}%
+        \else
+            \ifnum\spacefactor>1000
+                \Cref{#1}%
+            \else
+                \cref{#1}%
+            \fi
+        \fi
+    }%
+    \makeatother
+}
+% -----------------------------------------------------------------------------
+% Reference usage guide (keep consistent throughout the thesis)
+% -----------------------------------------------------------------------------
+% Use \autoref{<label>} in running text. It automatically chooses the correct
+% name and capitalization at the start of a sentence.
+%   - Example (mid-sentence): "... as shown in \autoref{fig:my_figure}."
+%   - Example (sentence start): "\autoref{eq:my_equation} shows ..."
+%
+% Use \cref{<label>} when you explicitly want the short form (Eq./Sec./Fig.)
+% or when referencing multiple labels in one place:
+%   - Multiple: "... see \cref{eq:a,eq:b,eq:c}."
+%   - Range: "... see \crefrange{eq:a}{eq:c}."
+%
+% Avoid \ref/\eqref for numbered elements. The scheme above keeps naming and
+% sentence-start capitalization consistent across the whole thesis.
+
+
 %\usepackage{mathpazo} % TODO Use the Palatino font by default, % ONLY WORKS WITH OLD PDFLATEX VERSION? 
 \newcommand{\todoimp}[1]{\todo[inline,color=red!70]{\textbf{IMPORTANT:} #1}}
 \newcommand{\todoidea}[1]{\todo[inline,color=green!60]{\textbf{IDEA:} #1}}
@@ -73,12 +125,13 @@ toctotoc, 		      % add table of contents to the table of contents
 \input{chapters/c00_titlepage}
 \input{chapters/c01_declaration}
 \input{chapters/c02_acknow_lists_abbrs_consts_symbls_dedication}
+
 %-------------------------------------------------------------------------------
 %	ABSTRACT PAGE
 %-------------------------------------------------------------------------------
 \begin{abstract}
 	\addchaptertocentry{\abstractname}
-    This thesis investigates the application of two-dimensional photon-echo spectroscopy to model quantum systems, with a focus on open quantum system dynamics. A comprehensive theoretical framework is developed that combines the response-function formalism of nonlinear spectroscopy in a non-perturbative setting with master-equation approaches for open quantum systems (QuTiP). Starting from minimal reference models, including a single qubit and a four-level system formed by two coupled qubits, the methods are validated and the approach is applied to a system of $N$ qubits arranged on a cylindrical geometry inspired by the structural motifs of microtubules. The results demonstrate the capability of two-dimensional spectroscopy to probe coherence and energy-transfer dynamics in these systems, providing insights into their quantum behavior and interactions with the environment. This work lays the groundwork for future experimental and theoretical studies in the field of quantum biology and quantum information science.
+	This thesis investigates the application of two-dimensional photon-echo spectroscopy to model quantum systems, with a focus on open quantum system dynamics. A comprehensive theoretical framework is developed that combines the response-function formalism of nonlinear spectroscopy in a non-perturbative setting with master-equation approaches for open quantum systems (QuTiP). Starting from minimal reference models, including a single qubit and a four-level system formed by two coupled qubits, the methods are validated and the approach is applied to a system of $N$ qubits arranged on a cylindrical geometry inspired by the structural motifs of microtubules. The results demonstrate the capability of two-dimensional spectroscopy to probe coherence and energy-transfer dynamics in these systems, providing insights into their quantum behavior and interactions with the environment. This work lays the groundwork for future experimental and theoretical studies in the field of quantum biology and quantum information science.
 \end{abstract}
 
 %-------------------------------------------------------------------------------
@@ -98,7 +151,7 @@ toctotoc, 		      % add table of contents to the table of contents
 %\include{chapters/todo_example}
 
 \iffalse
-    # comment out everything below this line
+	# comment out everything below this line
 \fi
 %-------------------------------------------------------------------------------
 %	APPENDICES
@@ -107,10 +160,10 @@ toctotoc, 		      % add table of contents to the table of contents
 \appendix
 
 %\include{appendices/_template_appendix} % corrected appendix path
-%\include{appendices/a01_numerical_implementation}
-%\include{appendices/a02_2dfts_maxwell_derivation}
-%\include{appendices/a03_response_function_derivation}
-%\include{appendices/a04_detection_schemes}
+\include{appendices/a01_numerical_implementation}
+\include{appendices/a02_2dfts_maxwell_derivation}
+\include{appendices/a03_response_function_derivation}
+\include{appendices/a04_detection_schemes}
 
 %-------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
@@ -119,5 +172,3 @@ toctotoc, 		      % add table of contents to the table of contents
 \printbibliography
 
 \end{document}
-% LOOK AT
-%https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Electro-Optics/Ultrafast_Optics_(Kaertner)/11%3A_Ultrafast_Measurement_Techniques/11.04%3A_Four-Wave_Mixing
