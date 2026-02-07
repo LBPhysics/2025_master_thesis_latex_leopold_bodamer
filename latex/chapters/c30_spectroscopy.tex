@@ -9,39 +9,39 @@
 \section{Motivation and Historical Development}
 \label{sec:spectroscopy_motivation}
 
-\noindent
+
 Spectroscopy, in the broadest sense, studies how matter interacts with energy---most commonly through absorption, emission, or scattering of radiation \cite{skoogetal2017principlesinstrumentalanalysis}. Historically, early optical spectroscopy in the 19th century focused on stationary line spectra of atoms and molecules and provided the first ``fingerprints'' of discrete quantum energy levels \cite{balmer1885notizuberspectrallinien, rydberg1890xxxivstructurelinespectra, bohr1913constitutionatomsmolecules}. With the advent of quantum mechanics, spectroscopic lines could be related to transitions between eigenstates of the microscopic Hamiltonian, and selection rules derived from angular-momentum algebra and symmetry arguments \cite{berman2011principleslaserspectroscopy, dirac1927quantumtheoryemission}.
 
-\noindent
+
 With advancing experimental resolution, subtle effects such as fine and hyperfine structure and, later, the Lamb shift became accessible, providing precise benchmarks that confirmed the predictions of quantum electrodynamics~\cite{lambretherford1947finestructurehydrogen, bethe1947electromagneticshiftenergy, hansch2006nobellecturepassion} and strengthened the link between atomic spectra and fundamental theory.
 
 \medskip
-\noindent
+
 For decades, spectroscopy was essentially \emph{linear}: a weak, monochromatic field probes the system and one measures intensity as a function of frequency. Linear absorption and emission already reveal excitation energies, oscillator strengths, and broadening mechanisms. However, they compress all dynamical information (coherence loss, population transfer, spectral diffusion) into static lineshapes and linewidths, and different microscopic mechanisms can lead to similar one-dimensional spectra.
 
 \medskip
-\noindent
+
 The development of lasers in the 1960s made it possible to generate intense, coherent light fields. This opened the door to \emph{nonlinear} optics: the induced polarization $\boldsymbol{P}(t)$ contains not only components linear in the applied field $\boldsymbol{E}(t)$,
 \begin{equation}
 	\boldsymbol{P}^{(1)}(t) = \varepsilon_0 \int_{0}^{\infty}\!\mathrm{d}\tau\;
 	\chi^{(1)}(\tau)\!\cdot\!\boldsymbol{E}(t-\tau),
 \end{equation}
-where $\chi^{(1)}$ is, in general, a (second-rank) susceptibility tensor.
-but also quadratic, cubic and higher-order contributions,
+where $\chi^{(1)}$ is, in general, a (second-rank) susceptibility tensor,
+but also quadratic, cubic, and higher-order contributions,
 \begin{equation}
 	\boldsymbol{P}^{(n)}(t) \propto \boldsymbol{E}(t)^n,\qquad n\ge 2.
 \end{equation}
-These additional terms are responsible for phenomena such as second-harmonic generation, four-wave mixing and stimulated Raman scattering. Conceptually, they probe \emph{multi-time} correlation functions of the system and therefore encode dynamical information that is inaccessible in linear response regime.
+These additional terms are responsible for phenomena such as second-harmonic generation, four-wave mixing, and stimulated Raman scattering. Conceptually, they probe \emph{multi-time} correlation functions of the system and therefore encode dynamical information that is inaccessible in the linear-response regime.
 
 \medskip
-\noindent
+
 An important milestone was the discovery of the \emph{photon echo} in inhomogeneously broadened ensembles. In a two-pulse echo experiment, static frequency disorder leads to rapid dephasing of the macroscopic coherence after the first pulse, but the second pulse can partially refocus this dephasing and generate an echo at a later time. This established the idea that nonlinear time-domain signals can refocus (and thereby largely remove) inhomogeneous broadening while remaining sensitive to homogeneous dephasing and population relaxation, providing ultrafast access to coherence and transport dynamics \cite{mukamel1995principlesnonlinearoptical, cho2009twodimensionalopticalspectroscopy, jonas2003twodimensionalfemtosecondspectroscopy}.
 \medskip
-\noindent
-Two-dimensional Fourier-transform spectroscopy extends this idea one step further. By using a sequence of three phase-stable ultrashort pulses and recording the signal field as a function of the coherence time $t_{\text{coh}}$ and the detection time $t_{\text{det}}$ for fixed waiting time $T$, one obtains a spectrum $S(\omega_{\text{coh}},T,\omega_{\text{det}})$ that correlates excitation frequency $\omega_{\text{coh}}$ and detection frequency $\omega_{\text{det}}$. In analogy to two-dimensional NMR, such spectra separate homogeneous and inhomogeneous contributions, resolve couplings between transitions via cross peaks, and directly visualize energy-transfer pathways.
+
+Two-dimensional Fourier-transform spectroscopy extends this idea one step further. By using a sequence of three phase-stable ultrashort pulses and recording the signal field as a function of the coherence time $t_{\text{coh}}$ and the detection time $t_{\text{det}}$ for fixed waiting time $T$, one obtains a spectrum $S(\omega_{\text{coh}},T,\omega_{\text{det}})$ that correlates excitation frequency $\omega_{\text{coh}}$ and detection frequency $\omega_{\text{det}}$. In analogy to two-dimensional NMR, such spectra separate homogeneous and inhomogeneous contributions, resolve couplings between transitions via cross peaks, and directly visualize energy-transfer pathways~\cite{freschetal2twodimensionalelectronic}.
 
 \medskip
-\noindent
+
 In the context of this thesis, two-dimensional electronic spectroscopy (2DES) plays two roles:
 \begin{itemize}
 	\item It provides a \emph{conceptual} framework: the measured 2D signal can be expressed in terms of multi-time response functions built from the dipole operator and the equilibrium density matrix. This links spectroscopy directly to the open-system dynamics derived in \autoref{chapter_open_quantum_systems}.
@@ -49,17 +49,18 @@ In the context of this thesis, two-dimensional electronic spectroscopy (2DES) pl
 \end{itemize}
 
 \medskip
-\noindent
+
 This motivates the response-function formalism used throughout this chapter. Its purpose is to provide a systematic and experimentally grounded map
 \emph{(pulse sequence)} $\rightarrow$ \emph{(induced polarization)} $\rightarrow$ \emph{(measured signal)}.
+
 On the matter side, the response functions are multi-time correlation functions (or, equivalently, nested commutators) of the dipole operator with respect to an equilibrium state; on the field side, they enter as causal convolutions with the applied electric fields.
 This separation is crucial because it (i) makes the perturbative order explicit ($\boldsymbol{P}^{(n)}\propto \boldsymbol{E}^n$), (ii) naturally incorporates time ordering and phase factors that select phase-matched signals, and (iii) interfaces cleanly with open-quantum-system modelling through propagators or master-equation dynamics for $\hat{\rho}(t)$.
 
 \medskip
-\noindent
+
 To keep the chapter self-contained while avoiding long technical detours, the derivations are separated into a \emph{field side} and a \emph{matter side}: \autoref{app:2dfts_maxwell} derives the Maxwell-to-signal link (propagation, phase matching, and the heterodyne cross term that makes the detected signal linear in the emitted field), while \autoref{app:response_functions} derives the Dyson-series/response-function expressions for $\boldsymbol{P}^{(n)}$.
 
-\noindent
+
 The remainder of this chapter therefore proceeds as follows. \autoref{sec:spectroscopy_fundamentals} reviews fundamental spectroscopic concepts. \autoref{sec:light_matter} introduces the semiclassical light--matter Hamiltonian in the dipole approximation and defines the macroscopic polarization. \autoref{sec:linear_response} reviews linear response theory and the Kubo formula, providing the connection to conventional absorption spectra. \crefrange{sec:nonlinear_general}{sec:2D_construction_formal} develop the structure of third-order response, pulse sequences, phase matching and phase cycling, and the construction of rephasing and nonrephasing 2D spectra. Finally, \autoref{sec:2D_interpretation_OQS} summarizes how the open-system Liouvillian from \autoref{chapter_open_quantum_systems} enters the simulation of 2DES and how dynamical parameters (dephasing, relaxation, spectral densities) are reflected in measured spectra.
 
 
@@ -73,14 +74,14 @@ The remainder of this chapter therefore proceeds as follows. \autoref{sec:spectr
 \subsection{Basic Principles and Energy Scales}
 \label{subsec:basic_principles}
 
-\noindent The foundation of spectroscopy rests on the quantization of energy in atomic and molecular systems. According to quantum mechanics, atoms and molecules can exist only in discrete energy states. The energy difference between two such states, $\Delta E$, determines the frequency $\nu$ or wavelength $\lambda$ of light that can be absorbed or emitted during a transition between these states, following Planck's relation
+The foundation of spectroscopy rests on the quantization of energy in atomic and molecular systems. According to quantum mechanics, atoms and molecules can exist only in discrete energy states. The energy difference between two such states, $\Delta E$, determines the frequency $\nu$ or wavelength $\lambda$ of light that can be absorbed or emitted during a transition between these states, following Planck's relation
 \begin{equation}
 	\Delta E = h\nu = \frac{hc}{\lambda},
 	\label{og:eq:planck_relation}
 \end{equation}
-where $h$ is Planck's constant and $c$ is the speed of light. 
+where $h$ is Planck's constant and $c$ is the speed of light.
 
-\noindent
+
 To characterize spectroscopic techniques, it is vital to understand the energy scales of the system and the probing radiation. The fundamental kinematic relations for electromagnetic propagation in vacuum are
 \begin{equation}
 	\omega = 2\pi\nu, \qquad |\boldsymbol{k}| = \frac{2\pi}{\lambda}, \qquad \lambda = \frac{c}{\nu} = \frac{2\pi c}{\omega}.
@@ -93,24 +94,19 @@ In spectroscopy, it is common to use the \emph{wavenumber} $\tilde{\nu}$, define
 \end{equation}
 This quantity is directly proportional to energy and avoids the large powers of ten associated with frequency in Hertz.
 
-\noindent
+
 Spectroscopy can be categorized by the nature of the transition (rotational, vibrational, electronic) and the region of the electromagnetic spectrum probed:
 \begin{itemize}
-    \item \textbf{Rotational transitions} lie in the microwave region and reveal molecular geometry.
-    \item \textbf{Vibrational spectroscopy} probes bonding patterns in the infrared ($\lambda\!\sim\!2.5$--$25\,\mu\mathrm{m}$, $\tilde{\nu}\!\sim\!400$--$4000\,\mathrm{cm^{-1}}$).
-    \item \textbf{Electronic transitions}, which are the focus of this thesis, occur in the visible and UV range ($\lambda\!\sim\!400$--$750\,\mathrm{nm}$, $\tilde{\nu}\!\sim\!13{,}000$--$25{,}000\,\mathrm{cm^{-1}}$), enabling studies of excited-state structure and dynamics.
+	\item \textbf{Rotational transitions} lie in the microwave region and reveal molecular geometry.
+	\item \textbf{Vibrational spectroscopy} probes bonding patterns in the infrared ($\lambda\!\sim\!2.5$--$25\,\mu\mathrm{m}$, $\tilde{\nu}\!\sim\!400$--$4000\,\mathrm{cm^{-1}}$).
+	\item \textbf{Electronic transitions}, which are the focus of this thesis, occur in the visible and UV range ($\lambda\!\sim\!400$--$750\,\mathrm{nm}$, $\tilde{\nu}\!\sim\!13{,}000$--$25{,}000\,\mathrm{cm^{-1}}$), enabling studies of excited-state structure and dynamics.
 \end{itemize}
 This energetic hierarchy also reflects timescales: higher photon energies probe faster motions. While chemical reactions may occur on micro- to millisecond scales, vibrational relaxation happens at picoseconds, and electronic transitions and coherences occur on femtosecond timescales.
 
 \subsection{Energy Dissipation}
 
-\noindent
-After the absorption of a photon, an excited molecule relaxes through two principal pathways:
-\begin{itemize}
-    \item \textbf{Non-radiative relaxation:} Internal conversion and vibrational energy transfer to the environment convert excitation energy into heat.
-    \item \textbf{Radiative relaxation:} The molecule returns to the ground state by emitting a photon (fluorescence or phosphorescence).
-\end{itemize}
-Absorption spectra record the net loss of intensity from the incident mode, while emission spectra provide complementary information on excited-state structure and relaxation dynamics. Both processes are central to the interpretation of the heterodyne-detected signals discussed later.
+
+Following optical excitation, the system evolves through (i) coherence dephasing and (ii) population relaxation among electronic/vibrational states. Population decay can proceed via radiative and non-radiative channels, which set excited-state lifetimes and (for fluorescence) the quantum yield. In linear absorption, the spectrum reflects transition energies and broadening mechanisms (homogeneous dephasing and static disorder). These same processes govern the amplitudes, linewidths, and waiting-time dynamics of coherently emitted signals discussed later.
 
 %------------------------------------------------------------------------------
 % 2. Light--Matter Interaction and Semiclassical Hamiltonian
@@ -119,7 +115,7 @@ Absorption spectra record the net loss of intensity from the incident mode, whil
 \section{Light--Matter Interaction in the Dipole Approximation}
 \label{sec:light_matter}
 
-\noindent
+
 A semiclassical description of light is adopted throughout this chapter: the electromagnetic field is treated as a classical, time-dependent driving field, while the matter is treated quantum mechanically. The response of the quantum system to this driving field is then of interest. The microscopic dynamics are governed by the Liouville--von Neumann equation
 \begin{equation}
 	\frac{d}{dt}\hat{\rho}(t) = -i\,[\hat{H}(t),\hat{\rho}(t)],
@@ -136,14 +132,14 @@ where $\hat{H}_0$ is the field-free system Hamiltonian, and $\hat{V}(t)$ is the 
 
 Starting from the minimal-coupling Hamiltonian for a single charge $q$ and mass $m$ in the Coulomb gauge,
 \begin{equation}
-	\hat{H} = \frac{1}{2m}\Bigl[\hat{\boldsymbol{p}} + q\,\boldsymbol{A}(\hat{\boldsymbol{r}},t)\Bigr]^2 
+	\hat{H} = \frac{1}{2m}\Bigl[\hat{\boldsymbol{p}} + q\,\boldsymbol{A}(\hat{\boldsymbol{r}},t)\Bigr]^2
 	+ V(\hat{\boldsymbol{r}}) - q\,\phi(\hat{\boldsymbol{r}},t),
 \end{equation}
-where $\hat{\boldsymbol{p}}$ and $\hat{\boldsymbol{r}}$ are the momentum and position operators of the particle, 
-$q$ is the electric charge, $V(\hat{\boldsymbol{r}})$ is the potential energy, and 
+where $\hat{\boldsymbol{p}}$ and $\hat{\boldsymbol{r}}$ are the momentum and position operators of the particle,
+$q$ is the electric charge, $V(\hat{\boldsymbol{r}})$ is the potential energy, and
 $\boldsymbol{A}(\hat{\boldsymbol{r}},t)$ and $\phi(\hat{\boldsymbol{r}},t)$ are the classical vector and scalar potentials of the electromagnetic field \cite{cohen-tannoudjietal2008atomphotoninteractionsbasic}.
 
-\noindent
+
 Throughout, the electromagnetic field is treated classically, while the matter degrees of freedom are described quantum mechanically.
 In the long-wavelength (electric-dipole) approximation for a neutral optical transition, the light--matter interaction can be written in the familiar length-gauge form~\cite{berman2011principleslaserspectroscopy, boyd2008chapter3quantummechanical}
 \begin{equation}
@@ -152,8 +148,8 @@ In the long-wavelength (electric-dipole) approximation for a neutral optical tra
 \end{equation}
 The electric field $\boldsymbol{E}(t)$ is assumed to vary negligibly over the molecular size, and $\hat{\boldsymbol{\mu}}$ is the electric dipole operator of the matter.
 
-\noindent
-For notational simplicity, a fixed linear polarisation direction $\boldsymbol{e}$ is often assumed and the projected scalar envelopes $E(t)=\boldsymbol{e}\cdot\boldsymbol{E}(t)$ and $\hat{\mu}=\hat{\boldsymbol{\mu}}\cdot\boldsymbol{e}$ are used, so that the interaction reduces to $\hat{V}(t)=-\hat{\mu}\,E(t)$. This corresponds to choosing the field polarisation parallel to the relevant dipole component.
+
+For notational simplicity, a fixed linear polarization direction $\boldsymbol{e}$ is often assumed and the projected scalar envelopes $E(t)=\boldsymbol{e}\cdot\boldsymbol{E}(t)$ and $\hat{\mu}=\hat{\boldsymbol{\mu}}\cdot\boldsymbol{e}$ are used, so that the interaction reduces to $\hat{V}(t)=-\hat{\mu}\,E(t)$. This corresponds to choosing the field polarization parallel to the relevant dipole component.
 
 
 It is convenient (and later essential for the rotating-wave approximation and phase matching) to decompose the real-valued field into positive- and negative-frequency parts
@@ -173,42 +169,42 @@ This positive/negative-frequency bookkeeping will be used explicitly when three-
 
 \subsection{Polarization and macroscopic response}
 
-\noindent
+
 At the macroscopic level, Maxwell’s equations show that the emitted (and ultimately detected) signal field is sourced by the polarization $\mathbf{P}(\mathbf{r},t)$ of the medium. This is derived in detail in \autoref{app:2dfts_maxwell}. The crucial step towards a microscopic theory is therefore to express $\mathbf{P}(\mathbf{r},t)$ in terms of quantum–mechanical expectation values.
 
 A sample containing many equivalent molecules is considered. Around each molecule there is a local environment (bath). On length scales small compared to the optical wavelength but large compared to the molecular dimensions, a coarse–grained macroscopic polarization can be defined
 \begin{equation}
-  \mathbf{P}(\mathbf{r},t) = \frac{1}{\Delta V}
-  \sum_{i\in\Delta V} \langle \hat{\boldsymbol{\mu}}_i(t) \rangle,
-\label{eq:macroscopic_polarization}\end{equation}
+	\mathbf{P}(\mathbf{r},t) = \frac{1}{\Delta V}
+	\sum_{i\in\Delta V} \langle \hat{\boldsymbol{\mu}}_i(t) \rangle,
+	\label{eq:macroscopic_polarization}\end{equation}
 where the sum runs over all molecules within a small volume $\Delta V$ around position $\mathbf{r}$, and $\hat{\boldsymbol{\mu}}_i$ is the transition dipole operator of molecule $i$. For simplicity, all molecules are assumed to be identical, with the same dipole operator $\hat{\boldsymbol{\mu}}$.
 
 The expectation value $\langle \hat{\boldsymbol{\mu}}_i(t) \rangle$ is taken with respect to the full quantum state of molecule $i$ plus its environment. This state vector is denoted by $\ket{\Psi(t)}$, which, in the present description, contains both the relevant (electronic, vibrational) degrees of freedom of the molecule and the bath degrees of freedom (solvent, protein environment, etc.). The total system is treated as closed and obeys the Schrödinger equation.
 
 To connect with the microscopic description, the expectation value is written explicitly. Inserting resolutions of identity in the Hilbert space of the system ($\{\ket{n}\}$) and of the bath ($\{\ket{\alpha}\}$) yields
 \begin{align}
-  \langle \hat{\boldsymbol{\mu}}(t) \rangle
-	&= \bra{\Psi(t)}\hat{\boldsymbol{\mu}}\ket{\Psi(t)} \\
-  &= \sum_{n,m}\sum_{\alpha,\beta}
-		 \braket{\Psi(t)}{n,\alpha}
-		 \bra{n,\alpha}\hat{\boldsymbol{\mu}}\ket{m,\beta}
-		 \braket{m,\beta}{\Psi(t)}.
- \label{eq:expectation_value_expansion}\end{align}
+	\langle \hat{\boldsymbol{\mu}}(t) \rangle
+	 & = \bra{\Psi(t)}\hat{\boldsymbol{\mu}}\ket{\Psi(t)} \\
+	 & = \sum_{n,m}\sum_{\alpha,\beta}
+	\braket{\Psi(t)}{n,\alpha}
+	\bra{n,\alpha}\hat{\boldsymbol{\mu}}\ket{m,\beta}
+	\braket{m,\beta}{\Psi(t)}.
+	\label{eq:expectation_value_expansion}\end{align}
 To describe the system dynamics in the presence of its environment, the formalism of open quantum systems as in \autoref{chapter_open_quantum_systems} is adopted.
 
 The expression \autoref{eq:expectation_value_expansion} can be rewritten in terms of the \emph{total statistical operator} (density operator)
 \begin{equation}
 	\hat{\rho}_T(t) = \ket{\Psi(t)}\bra{\Psi(t)},
-\label{eq:statistical_operator}\end{equation}
+	\label{eq:statistical_operator}\end{equation}
 as
 \begin{equation}
-  \langle \hat{\boldsymbol{\mu}}(t) \rangle
+	\langle \hat{\boldsymbol{\mu}}(t) \rangle
 	= \mathrm{Tr}\big\{ \hat{\boldsymbol{\mu}}\,\hat{\rho}_T(t) \big\},
-\label{eq:expectation_value_trace}\end{equation}
+	\label{eq:expectation_value_trace}\end{equation}
 where the trace is taken over both system and bath degrees of freedom.
 
 \medskip
-\noindent
+
 The advantage of introducing $\hat{\rho}_T(t)$ is that the combined system (molecule) plus bath can be treated as a closed quantum system whose evolution is unitary. Accordingly, the total density operator satisfies the Liouville--von Neumann equation
 \begin{equation}
 	\frac{\mathrm{d}}{\mathrm{d}t}\hat{\rho}_T(t)
@@ -229,19 +225,19 @@ As introduced previously in \autoref{chapter_open_quantum_systems} (see \cref{eq
 Since the bath is not directly observed in optical measurements, this reduced description is the natural framework for relating the microscopic dynamics to the macroscopic polarization. For notational clarity, the reduced density \emph{operator} is denoted by $\hat{\rho}(t)$.
 If the transition dipole operator depends only on the system degrees of freedom (i.e.\ is independent of the bath coordinates), $\hat{\boldsymbol{\mu}}$ can be pulled out of the bath trace, yielding
 \begin{equation}
-  \langle \hat{\boldsymbol{\mu}}(t) \rangle
-  = \mathrm{Tr}_\text{S}\!\left\{
-			\hat{\boldsymbol{\mu}}\,\hat{\rho}(t)
-    \right\}.
-\label{eq:expectation_reduced}\end{equation}
+	\langle \hat{\boldsymbol{\mu}}(t) \rangle
+	= \mathrm{Tr}_\text{S}\!\left\{
+	\hat{\boldsymbol{\mu}}\,\hat{\rho}(t)
+	\right\}.
+	\label{eq:expectation_reduced}\end{equation}
 \autoref{eq:expectation_reduced} is the key link between quantum mechanics and macroscopic electrodynamics: optical measurements access expectation values of matter operators, and in open quantum systems these expectation values are determined by the reduced density operator $\hat{\rho}(t)$.
 
 \medskip
-\noindent
+
 For a representative molecule, the (microscopic) polarization (dipole expectation value) is therefore defined as
 \begin{equation}
 	\boldsymbol{P}(t) \equiv \mathrm{Tr}_\text{S}\bigl[\hat{\boldsymbol{\mu}}\,\hat{\rho}(t)\bigr].
-		\label{eq:P_def_spectroscopy}
+	\label{eq:P_def_spectroscopy}
 \end{equation}
 In a chosen basis $\{\ket{n}\}$ of the system Hilbert space this becomes
 \begin{equation}
@@ -256,7 +252,7 @@ This explicitly shows how optical coherences (off-diagonal elements of $\hat{\rh
 \subsection{Key spectroscopic timescales: carrier vs envelope}
 \label{subsec:spectroscopy_timescales}
 
-\noindent
+
 For linear optical spectroscopy it is often useful to separate the fast carrier oscillation at the optical transition frequency from the slower decay of coherence. For a dominant transition with frequency $\omega_0$, one may write schematically
 \begin{equation}
 	P(t)=\mathrm{Tr}[\mu\,\rho(t)]\sim e^{-t/T_2}\cos(\omega_0 t),
@@ -264,14 +260,14 @@ For linear optical spectroscopy it is often useful to separate the fast carrier 
 \end{equation}
 so that the oscillatory phase evolves on the timescale $1/\omega_0$, while the coherence envelope decays on the timescale $T_2$~\cite{mukamel1995principlesnonlinearoptical, cho2009twodimensionalopticalspectroscopy}.
 
-\noindent
+
 In optical spectroscopy one typically has
 \begin{equation}
 	T_2 \gg \frac{1}{\omega_0},
 \end{equation}
 meaning the relevant dynamical timescale controlling linewidths and coherence loss is $T_2$, not the rapid optical period $2\pi/\omega_0$.
 
-\noindent
+
 For a two-level system, the coherence time $T_2$ is related to the population lifetime $T_1$ and the pure-dephasing time $T_{\phi}$ by
 \begin{equation}
 	\frac{1}{T_2}=\frac{1}{2T_1}+\frac{1}{T_{\phi}}.
@@ -280,7 +276,7 @@ For a two-level system, the coherence time $T_2$ is related to the population li
 Thus $T_2\le 2T_1$ and, in many condensed-phase situations, coherence loss (finite $T_2$) occurs before population relaxation has completed.
 
 \medskip
-\noindent
+
 To connect the single-molecule expectation value to macroscopic electrodynamics, one coarse-grains over many molecules within a small volume element. For an ensemble of identical, noninteracting molecules with number density $N(\mathbf{r})$ one can write
 \begin{equation}
 	\mathbf{P}(\mathbf{r},t)
@@ -296,7 +292,7 @@ In the slowly varying amplitude approximation, the emitted signal field $\boldsy
 \begin{equation}
 	\boldsymbol{E}_S(\boldsymbol{r}, t) \propto i \boldsymbol{P}_S(\boldsymbol{r}, t).
 \end{equation}
-\noindent
+
 This is the key simplification that makes the response-function formalism directly useful: once the propagation and phase-matching selection are taken care of, spectroscopy reduces to computing the phase-matched component of the polarization. In the perturbative regime,
 $\boldsymbol{P}_S=\boldsymbol{P}_S^{(1)}+\boldsymbol{P}_S^{(3)}+\cdots$, and for 2D spectroscopy the detected four-wave-mixing signal is dominated by the third-order contribution,
 \begin{equation}
@@ -307,11 +303,11 @@ The response-function machinery then provides $\boldsymbol{P}_S^{(3)}(t)$ as a c
 The full derivation of the phase-matching conditions and propagation details connecting this source to the detected field is provided in \autoref{app:2dfts_maxwell}.
 
 \medskip
-\noindent
+
 For many applications one ultimately specializes these general expressions to the third-order case ($n=3$) relevant for four-wave mixing and 2D spectroscopy, and then expands the commutator structure into explicit Liouville-space pathways (double-sided Feynman diagrams). Since this third-order structure is central to the thesis, it is discussed in detail in \autoref{sec:nonlinear_general}.
 
 \medskip
-\noindent
+
 Combining the matter-side response-function expression for $\boldsymbol{P}^{(n)}$ (\autoref{app:response_functions}, \autoref{eq:app_Pn_convolution}) with the phase-matching selection and envelope-propagation results of \autoref{app:2dfts_maxwell} completes the Maxwell-to-signal link used throughout this thesis.
 
 %------------------------------------------------------------------------------
@@ -321,9 +317,9 @@ Combining the matter-side response-function expression for $\boldsymbol{P}^{(n)}
 \section{Linear Response: Kubo Formula and Absorption}
 \label{sec:linear_response}
 
-\noindent
+
 Linear response is considered first for two reasons. First, it introduces the interaction-picture/Dyson-expansion machinery in the simplest setting, which then generalizes directly to higher orders. Second, the first-order response already illustrates the Liouville-space ``left/right action'' structure that later becomes the language of double-sided Feynman diagrams and pathway selection in 2D spectroscopy.
-\noindent
+
 The linear response function is derived using time-dependent perturbation theory in the interaction picture. Let $\hat{\rho}_{\mathrm{eq}}$ denote the equilibrium state of $\hat{H}_0$ (often the thermal Gibbs state), assumed to be stationary
 \begin{equation}
 	[\hat{H}_0,\hat{\rho}_{\mathrm{eq}}]=0.
@@ -331,7 +327,7 @@ The linear response function is derived using time-dependent perturbation theory
 
 \subsection{Interaction picture and Dyson expansion}
 
-\noindent
+
 In the interaction picture with respect to $\hat{H}_0$,
 \begin{equation}
 	\hat{\rho}_I(t) = e^{+i\hat{H}_0 t}\,\hat{\rho}(t)\,e^{-i\hat{H}_0 t},\qquad
@@ -348,23 +344,23 @@ For the dipole interaction $\hat{V}(t)=-\hat{\boldsymbol{\mu}}\cdot\boldsymbol{E
 \end{equation}
 It is then convenient to introduce the (interaction-picture) dipole superoperator
 \begin{equation}
-\begin{aligned}
-	\boldsymbol{\mathcal{V}}_{I}(t)\big[\hat{A}\big] &\equiv \big[\hat{\boldsymbol{\mu}}_{I}(t),\hat{A}\big],\\
-	\mathcal{V}_{j,I}(t)\big[\hat{A}\big] &\equiv \big[\hat{\mu}_{j,I}(t),\hat{A}\big],\\
-	\frac{d}{dt}\hat{\rho}_I(t)
-	&= i\,\boldsymbol{E}(t)\!\cdot\!\boldsymbol{\mathcal{V}}_{I}(t)\big[\hat{\rho}_I(t)\big]
-	= i\,E_j(t)\,\mathcal{V}_{j,I}(t)\big[\hat{\rho}_I(t)\big].
-\end{aligned}
+	\begin{aligned}
+		\boldsymbol{\mathcal{V}}_{I}(t)\big[\hat{A}\big] & \equiv \big[\hat{\boldsymbol{\mu}}_{I}(t),\hat{A}\big],                                 \\
+		\mathcal{V}_{j,I}(t)\big[\hat{A}\big]            & \equiv \big[\hat{\mu}_{j,I}(t),\hat{A}\big],                                            \\
+		\frac{d}{dt}\hat{\rho}_I(t)
+		                                                 & = i\,\boldsymbol{E}(t)\!\cdot\!\boldsymbol{\mathcal{V}}_{I}(t)\big[\hat{\rho}_I(t)\big]
+		= i\,E_j(t)\,\mathcal{V}_{j,I}(t)\big[\hat{\rho}_I(t)\big].
+	\end{aligned}
 	\label{eq:dipole_superoperator_thesis}
 \end{equation}
 Here the dot denotes contraction of the field with the vector-valued superoperator.
 Formally integrating \autoref{eq:rhoI_eom} yields the Dyson series (time-ordered exponential) and thus a systematic perturbation expansion in the field. Since the full derivation and the general $n$-th order expressions are collected in \autoref{app:response_functions} (see \autoref{app:sec:dyson_series} and \cref{eq:app_dyson}), only the first-order result needed for linear response is quoted below.
 
-\noindent
+
 Nevertheless, the first-order derivation is kept explicit because it is the cleanest entry point into the response-function and pathway viewpoint that will be reused repeatedly in the nonlinear sections.
 \subsection{First-order polarization and Kubo formula}
 
-\noindent
+
 The polarization in the interaction picture is
 \begin{equation}
 	\boldsymbol{P}(t) = \mathrm{Tr}\bigl[\hat{\boldsymbol{\mu}}_I(t)\,\hat{\rho}_I(t)\bigr].
@@ -372,11 +368,11 @@ The polarization in the interaction picture is
 Keeping only the term linear in $\hat{V}$ (first-order perturbation theory), one obtains
 \begin{align}
 	\boldsymbol{P}^{(1)}(t)
-	&= -i\int_{-\infty}^{t}\!\mathrm{d}t_1\,
-	\mathrm{Tr}\Bigl\{\hat{\boldsymbol{\mu}}_I(t)\,[\hat{V}_I(t_1),\hat{\rho}_{\mathrm{eq}}]\Bigr\} \notag\\
-	&= i\int_{-\infty}^{t}\!\mathrm{d}t_1\,
-	\mathrm{Tr}\Bigl\{\hat{\boldsymbol{\mu}}_I(t)\,[\hat{\boldsymbol{\mu}}_I(t_1)\!\cdot\!\boldsymbol{E}(t_1),\hat{\rho}_{\mathrm{eq}}]\Bigr\} \notag\\
-	&= i\int_{-\infty}^{t}\!\mathrm{d}t_1\,
+	 & = -i\int_{-\infty}^{t}\!\mathrm{d}t_1\,
+	\mathrm{Tr}\Bigl\{\hat{\boldsymbol{\mu}}_I(t)\,[\hat{V}_I(t_1),\hat{\rho}_{\mathrm{eq}}]\Bigr\} \notag                                            \\
+	 & = i\int_{-\infty}^{t}\!\mathrm{d}t_1\,
+	\mathrm{Tr}\Bigl\{\hat{\boldsymbol{\mu}}_I(t)\,[\hat{\boldsymbol{\mu}}_I(t_1)\!\cdot\!\boldsymbol{E}(t_1),\hat{\rho}_{\mathrm{eq}}]\Bigr\} \notag \\
+	 & = i\int_{-\infty}^{t}\!\mathrm{d}t_1\,
 	\big\langle[\hat{\boldsymbol{\mu}}_I(t),\hat{\boldsymbol{\mu}}_I(t_1)]\big\rangle_{\mathrm{eq}}\!\cdot\!\boldsymbol{E}(t_1),
 	\label{eq:P1_comm}
 \end{align}
@@ -404,7 +400,7 @@ and $\chi^{(1)}\!\cdot\!\boldsymbol{E}$ denotes the standard tensor--vector cont
 \subsection{Diagrammatic interpretation: first-order (linear) response}
 \label{sec:linear_dsfd}
 
-\noindent
+
 Even at first order, \autoref{eq:Kubo_chi1} can be written as a difference of two Liouville-space ``level pathways''. For $\tau>0$ the following definitions are introduced
 \begin{equation}
 	J_{1,ij}(\tau) \equiv \mathrm{Tr}\big\{\hat{\mu}_{i,I}(\tau)\,\hat{\mu}_{j,I}(0)\,\rho_{\mathrm{eq}}\big\},
@@ -422,7 +418,7 @@ so that
 The two contributions correspond to whether the interaction acts on the ket (left) or bra (right) branch of the density operator.
 
 \medskip
-\noindent
+
 \textbf{Two-level system and the $\hat{m}$ operator.}
 For a simple two-level system with ground state $\ket{g}$ and excited state $\ket{e}$, it is convenient to introduce the shorthand
 \begin{equation}
@@ -447,7 +443,7 @@ where the simplified notation
 \end{equation}
 
 \medskip
-\noindent
+
 \textbf{Evolution of coherences and the propagator $\mathcal{U}_0(t)$.}
 In a Markovian/secular picture, the coherence created by the first interaction evolves under the free propagator with
 \begin{equation}
@@ -458,11 +454,11 @@ In a Markovian/secular picture, the coherence created by the first interaction e
 where $\omega_{eg}=E_e-E_g$ and $\Gamma_{eg}$ is the optical dephasing rate.
 
 \medskip
-\noindent
+
 \textbf{Arrow direction and $\boldsymbol{E}^{(\pm)}$.}
 In a diagrammatic (RWA) description, each light--matter interaction can couple either to the positive-frequency part of the field, $\boldsymbol{E}^{(+)}(t)\propto \mathrm{e}^{-i\omega t}$, or to the negative-frequency part, $\boldsymbol{E}^{(-)}(t)=\big[\boldsymbol{E}^{(+)}(t)\big]^*\propto \mathrm{e}^{+i\omega t}$. These two possibilities are indicated by the direction of the interaction arrow in double-sided Feynman diagrams and determine whether the interaction creates $\rho_{eg}$ or $\rho_{ge}$ (absorption-like vs.\,emission-like action), and hence the optical phase factors carried during the coherence period~\cite{hamm2005principlesnonlinearoptical}.
 
-\noindent
+
 This can be seen explicitly already at first order. Write a resonant, slowly varying pulse as
 \begin{equation}
 	E(t)=2E_0(t)\cos(\omega t)=E_0(t)\,\mathrm{e}^{-i\omega t}+E_0^*(t)\,\mathrm{e}^{+i\omega t}.
@@ -470,48 +466,16 @@ This can be seen explicitly already at first order. Write a resonant, slowly var
 \end{equation}
 Using the causal convolution $P^{(1)}(t)=\int_0^{\infty}\!\mathrm{d}t_1\,S^{(1)}(t_1)\,E(t-t_1)$ with $S^{(1)}(t_1)\sim \mathrm{e}^{-(\Gamma_{eg}+i\omega_{eg})t_1}$ yields two terms: one with a slowly varying integrand and one with an extra rapidly oscillating factor $\mathrm{e}^{-i2\omega t_1}$. Near resonance ($\omega\approx\omega_{eg}$) and for slowly varying envelopes $E_0(t)$, the rapidly oscillating term averages to (essentially) zero. This is the rotating-wave approximation~\cite{hamm2005principlesnonlinearoptical}. Diagrammatically, only the arrow choice consistent with absorption-like excitation of the ground-state density matrix survives; the opposite choice would correspond to a ``de-excitation'' of $\rho_{gg}$ and is of course physically not possible.
 
-\iffalse
-\begin{figure}[t]
-	\centering
-	\setlength{\unitlength}{1mm}
-	\begin{picture}(140,42)
-		% (a) left-action pathway
-		\put(30,40){\makebox(0,0){(a) $J_{1}$ (left action)}}
-		\put(20,5){\line(0,1){32}}
-		\put(50,5){\line(0,1){32}}
-		\put(35,5){\vector(0,1){30}}
-		\put(35,36){\makebox(0,0){$t$}}
-		\put(20,2){\makebox(0,0){ket}}
-		\put(50,2){\makebox(0,0){bra}}
-		\put(0,18){\vector(1,0){19}}
-		\put(0,18){\makebox(0,0)[r]{field}}
-		\put(20,38){\makebox(0,0)[l]{\, $\hat{\mu}$}}
-
-		% (b) right-action pathway
-		\put(110,40){\makebox(0,0){(b) $J_{1}^*$ (right action)}}
-		\put(100,5){\line(0,1){32}}
-		\put(130,5){\line(0,1){32}}
-		\put(115,5){\vector(0,1){30}}
-		\put(115,36){\makebox(0,0){$t$}}
-		\put(100,2){\makebox(0,0){ket}}
-		\put(130,2){\makebox(0,0){bra}}
-		\put(140,18){\vector(-1,0){9}}
-		\put(140,18){\makebox(0,0)[l]{field}}
-		\put(100,38){\makebox(0,0)[l]{\, $\hat{\mu}$}}
-	\end{picture}
-	\caption{Two first-order double-sided Feynman diagrams (Liouville-space pathways) contributing to linear response. (a) The interaction acts on the ket (left action), corresponding to $J_{1,ij}(\tau)=\mathrm{Tr}\{\hat{\mu}_{i,I}(\tau)\hat{\mu}_{j,I}(0)\rho_{\mathrm{eq}}\}$. (b) The interaction acts on the bra (right action), corresponding to $J_{1,ij}^*(\tau)=\mathrm{Tr}\{\hat{\mu}_{i,I}(\tau)\rho_{\mathrm{eq}}\hat{\mu}_{j,I}(0)\}$. The commutator in \autoref{eq:Kubo_chi1} is their difference.}
-	\label{fig:dsfd_linear}
-\end{figure}
-\fi
 \begin{figure}
-\includegraphics[width=\textwidth]{figures/figure_linear_response_feynman_diagrams.png}
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/figure_linear_response_feynman_diagrams.pdf}
 	\caption{Two first-order double-sided Feynman diagrams (Liouville-space pathways) contributing to linear response. (a) The interaction acts on the ket (left action), corresponding to $J_{1}(\tau)=\mathrm{Tr}\{\hat{\boldsymbol{\mu}}_{I}(\tau)\otimes\hat{\boldsymbol{\mu}}_{I}(0)\rho_{\mathrm{eq}}\}$. (b) The interaction acts on the bra (right action), corresponding to $J_{1}^*(\tau)=\mathrm{Tr}\{\hat{\boldsymbol{\mu}}_{I}(\tau)\rho_{\mathrm{eq}}\,\otimes\hat{\boldsymbol{\mu}}_{I}(0)\}$. The commutator in \autoref{eq:Kubo_chi1} is their difference. Arrow directions encode whether the interaction couples to $\boldsymbol{E}^{(+)}$ or $\boldsymbol{E}^{(-)}$ in the rotating-wave approximation~\cite{hamm2005principlesnonlinearoptical}.}
-\label{fig:linear_response_diagrams}
+	\label{fig:linear_response_diagrams}
 \end{figure}
 
 \subsection{Frequency-domain susceptibility and absorption}
 
-\noindent
+
 The linear susceptibility is the Fourier transform of the causal response function,
 \begin{equation}
 	\chi^{(1)}(\omega)
@@ -578,7 +542,7 @@ The maximum value of $\ell_{eg}(\omega)$ is $1/\Gamma_{eg}$ and its half-width a
 The real part of $\chi^{(1)}(\omega)$, proportional to $(\omega-\omega_{eg})$ in the numerator, describes the corresponding dispersive (refractive) contribution.
 
 \medskip
-\noindent
+
 The complex refractive index $n(\omega)$ and absorption coefficient $\alpha(\omega)$ are related to $\chi^{(1)}(\omega)$ via
 \begin{equation}
 	n^2(\omega) = 1 + \chi^{(1)}(\omega), \qquad
@@ -590,7 +554,7 @@ Thus $\Im\chi^{(1)}(\omega)$ encodes the linear absorption spectrum.
 \subsection{Frequency-domain line-shape functions}
 \label{subsec:line_shape_functions}
 
-\noindent
+
 For later use it is convenient to introduce a frequency-domain line-shape function $g_{eg}(\omega)$ defined as the (half) Fourier transform of the same coherence propagator $G_{eg}(\tau)$,
 \begin{equation}
 	g_{eg}(\omega)
@@ -617,7 +581,7 @@ It is sometimes useful to note the relation
 which follows directly from $G_{ge}(\tau)=G_{eg}^*(\tau)$ and the definition of the Fourier transform. This identity is used below when specific Liouville pathways are discussed.
 
 \medskip
-\noindent
+
 \textbf{Cumulant expansion and bath-induced lineshapes.}
 For a single transition between states $\ket{g}$ and $\ket{e}$, the conventional lineshape theory expresses the absorption intensity as
 \begin{equation}
@@ -635,7 +599,7 @@ where $\omega_{eg}=E_e-E_g$, $g(t)$ is the lineshape function determined by the 
 \section{Nonlinear Response: General Structure and Third Order}
 \label{sec:nonlinear_general}
 
-\noindent
+
 At high field intensities, the response of the medium becomes nonlinear. In general, the macroscopic polarization can be expanded as a power series in the incident electric field. Schematically (suppressing explicit Cartesian indices),
 \begin{equation}
 	\boldsymbol{P}
@@ -646,81 +610,85 @@ At high field intensities, the response of the medium becomes nonlinear. In gene
 where $\varepsilon_0$ is the vacuum permittivity and $\chi^{(n)}$ denotes the $n$-th-order susceptibility tensor; $:$ and $\vdots$ indicate the implied tensor contractions.
 In the linear regime, the induced polarization is directly proportional to the applied field ($\chi^{(1)}$), describing refraction and absorption. Higher-order terms give rise to a variety of nonlinear optical phenomena~\cite{boyd2008contents}.
 
-\noindent
+
 \textbf{Second-order processes} ($\chi^{(2)}$) occur only in noncentrosymmetric materials (lacking inversion symmetry) and include Second Harmonic Generation (SHG), Sum Frequency Generation (SFG), and Difference Frequency Generation (DFG). These are not the focus of this thesis but are mentioned for completeness. In fact all even-order processes vanish in centrosymmetric media due to symmetry constraints on the susceptibility tensor~\cite{hamm2005principlesnonlinearoptical}.
 
-\noindent
+
 \textbf{Third-order processes} ($\chi^{(3)}$) can occur in all materials, regardless of symmetry~\cite{hamm2005principlesnonlinearoptical}. Thus they are the lowest-order nonlinear processes of interest and the main focus of this thesis. Key processes include Third Harmonic Generation (THG), Two-Photon Absorption (TPA), and the optical Kerr effect.
 The most important third-order process for this thesis is \textbf{Four-Wave Mixing (FWM)}~\cite{boyd2008chapter6nonlinear}. Here, three incident and one generated photon interact in a way that satisfies energy conservation. This process generates multiple possible pathways, including photon-echo signals and allowing for 2D spectroscopy.
 
 \medskip
-\noindent
+
 \textbf{Frequency-domain viewpoint and mixing products.}
 It is sometimes useful to view the third-order response in the frequency domain, where each incident field is decomposed into positive- and negative-frequency parts. In this picture one may write schematically\footnote{This expression is a bookkeeping device for frequency mixing and should be understood together with the rotating-wave approximation and the positive/negative-frequency split introduced in \autoref{eq:E_plusminus}.}
 \begin{equation}
-\boldsymbol{P}^{(3)}(t)
-=
-\varepsilon_0
-\sum_{s_1,s_2,s_3=\pm 1}
-\chi^{(3)}\big(-\omega_S;s_1\omega_a,s_2\omega_b,s_3\omega_c\big)
-\,\vdots\,\boldsymbol{E}_a^{(s_1)}\boldsymbol{E}_b^{(s_2)}\boldsymbol{E}_c^{(s_3)}\,e^{-i\omega_S t},
-\label{eq:P3_freq_domain_bookkeeping}
+	\boldsymbol{P}^{(3)}(t)
+	=
+	\varepsilon_0
+	\sum_{s_1,s_2,s_3=\pm 1}
+	\chi^{(3)}\big(-\omega_S;s_1\omega_a,s_2\omega_b,s_3\omega_c\big)
+	\,\vdots\,\boldsymbol{E}_a^{(s_1)}\boldsymbol{E}_b^{(s_2)}\boldsymbol{E}_c^{(s_3)}\,e^{-i\omega_S t},
+	\label{eq:P3_freq_domain_bookkeeping}
 \end{equation}
 with mixed frequencies $\omega_S=s_1\omega_a+s_2\omega_b+s_3\omega_c$ and where $s=+1$ denotes the analytic (positive-frequency) component and $s=-1$ the complex-conjugate component (see \autoref{eq:E_plusminus}). The sign sum produces $2^3=8$ frequency-mixing combinations before additional physical selections (phase matching, RWA) restrict which terms contribute to a measured signal.
 For a fixed choice of three input frequency components $(\omega_a,\omega_b,\omega_c)$, these are precisely the eight signed sums $\omega_S=\pm\omega_a\pm\omega_b\pm\omega_c$.
 More generally, if the driving field contains several frequency components $\{\omega_i\}$ (e.g. multiple carrier frequencies or a broadband spectrum), then one may choose any three components (allowing repeats) and form the corresponding signed sums. Grouping the resulting contributions by distinct \,positive\, output frequencies yields the families of third-order mixing products,
 \begin{equation}
-\{\omega_i\},\ \{3\omega_i\},\ \{2\omega_i\pm\omega_j\}_{i\neq j},\
-\{\omega_a+\omega_b+\omega_c\},\ \{\omega_i+\omega_j-\omega_k\}_{i\neq j\neq k},
-\label{eq:third_order_mixing_products}
+	\{\omega_i\},\ \{3\omega_i\},\ \{2\omega_i\pm\omega_j\}_{i\neq j},\
+	\{\omega_a+\omega_b+\omega_c\},\ \{\omega_i+\omega_j-\omega_k\}_{i\neq j\neq k},
+	\label{eq:third_order_mixing_products}
 \end{equation}
 which provides a compact overview of how third-order nonlinearities generate new frequencies (e.g.\ third-harmonic and four-wave-mixing components)~\cite{boyd2008contents}.
 
+In the same frequency-domain spirit, the response function and susceptibility are related by Fourier transform: schematically $\chi^{(3)}(\omega_3,\omega_2,\omega_1)$ is the triple Fourier transform of $S^{(3)}(t_3,t_2,t_1)$, and $\boldsymbol{P}^{(3)}(\omega)$ is obtained by contracting $\chi^{(3)}$ with the field spectra. This identifies the units and makes contact with standard nonlinear-optics conventions; the time-domain response functions used throughout this thesis are fully equivalent to this susceptibility description~\cite{mukamel1995principlesnonlinearoptical}.
+
 \medskip
-\noindent
+
 Before turning to experiments and simulations, it is often helpful to conceptually \emph{isolate} a single nonlinear process: rather than interpreting a measured signal as a superposition of many mixing products and pathways, one aims to identify which subset of Liouville-space histories contributes to a chosen observable (e.g.\ rephasing photon-echo vs.\ nonrephasing free-induction decay). This motivates the response-function framework: it separates the intrinsic matter response (nested commutators/pathways) from the externally imposed field ordering, and it provides a direct bridge from microscopic dynamics to experimentally selected signals via phase matching or phase cycling.
 
 
-\noindent
+
 To describe these processes microscopically, the response-function formalism is used. Since the central nonlinear observable in this thesis is a four-wave-mixing (FWM) signal, the discussion focuses on the third-order polarization and therefore specializes to $n=3$. The detailed matter-side derivation (Dyson expansion and the resulting causal convolution form for general $\boldsymbol{P}^{(n)}$) is given in \autoref{app:response_functions} (\autoref{app:sec:dyson_response}). Here only the notation and the third-order expressions needed later are collected.
 
 In the remainder of this section the scalar component selected by the experimental polarization configuration (one fixed input/output polarization) is used, and explicit Cartesian indices are therefore suppressed; the full tensor form is summarized in \autoref{app:response_functions}, \autoref{app:sec:tensorial_structure}.
+
+For isotropic samples, orientational averaging and polarization-selective response factors can be included explicitly (e.g.\,magic-angle and polarization-control schemes). These details are not needed for the flow of this thesis and are therefore omitted; see Ref.~\todoref{find better source} for a concise treatment.
 
 The dipole superoperator $\mathcal{V}_I(t)$ introduced in the linear-response discussion (\autoref{eq:dipole_superoperator_thesis}) is used throughout. Its commutator (``left minus right'') structure is the basis for the pathway interpretation and the associated double-sided Feynman diagrams: each interaction can be viewed as acting on the ket (left multiplication by $\hat{\mu}_I$) or on the bra (right multiplication), which is the origin of distinct Liouville-space pathways.
 
 \subsection{Third-order response function \texorpdfstring{$S^{(3)}$}{S(3)}}
 
-\noindent
+
 The third-order polarization is of central interest for four-wave-mixing and 2D spectroscopy. For completeness, the standard causal convolution form and the corresponding third-order response function are quoted here (the derivation is given in \autoref{app:response_functions}, \autoref{app:sec:dyson_response}).
 
 \begin{equation}
-\label{eq:P3_convolution_thesis}
-\boldsymbol{P}^{(3)}(t)
-= \int_{0}^{\infty}\!\mathrm{d}\tau_3\int_{0}^{\infty}\!\mathrm{d}\tau_2\int_{0}^{\infty}\!\mathrm{d}\tau_1\,\boldsymbol{S}^{(3)}(\tau_3,\tau_2,\tau_1)
-\,E(t-\tau_3)\,E(t-\tau_3-\tau_2)\,E(t-\tau_3-\tau_2-\tau_1),
+	\label{eq:P3_convolution_thesis}
+	\boldsymbol{P}^{(3)}(t)
+	= \int_{0}^{\infty}\!\mathrm{d}\tau_3\int_{0}^{\infty}\!\mathrm{d}\tau_2\int_{0}^{\infty}\!\mathrm{d}\tau_1\,\boldsymbol{S}^{(3)}(\tau_3,\tau_2,\tau_1)
+	\,E(t-\tau_3)\,E(t-\tau_3-\tau_2)\,E(t-\tau_3-\tau_2-\tau_1),
 \end{equation}
 with
 \begin{equation}
-\label{eq:S3_def_thesis}
-\boldsymbol{S}^{(3)}(\tau_3,\tau_2,\tau_1)
-= (\mathrm{i})^3\,\mathrm{Tr}\Bigl\{\hat{\boldsymbol{\mu}}\,\mathcal{U}_0(\tau_3)\,\mathcal{V}\,\mathcal{U}_0(\tau_2)\,\mathcal{V}\,\mathcal{U}_0(\tau_1)\,\mathcal{V}[\hat{\rho}_{\mathrm{eq}}]\Bigr\}.
+	\label{eq:S3_def_thesis}
+	\boldsymbol{S}^{(3)}(\tau_3,\tau_2,\tau_1)
+	= (\mathrm{i})^3\,\mathrm{Tr}\Bigl\{\hat{\boldsymbol{\mu}}\,\mathcal{U}_0(\tau_3)\,\mathcal{V}\,\mathcal{U}_0(\tau_2)\,\mathcal{V}\,\mathcal{U}_0(\tau_1)\,\mathcal{V}[\hat{\rho}_{\mathrm{eq}}]\Bigr\}.
 \end{equation}
 
 For interpretation and pathway decompositions it is useful to express the same third-order response equivalently as a nested commutator,
 \begin{align}
 	S^{(3)}(\tau_3,\tau_2,\tau_1)
-	&=
+	 & =
 	(-i)
 	\big\langle
 	\big[
-	\big[
-	\big[
-	\hat{\mu}_{I}(\tau_1+\tau_2+\tau_3),\hat{\mu}_{I}(\tau_1+\tau_2)
-	\big],
-	\hat{\mu}_{I}(\tau_1)
-	\big],
-	\hat{\mu}_{I}(0)
-	\big]
+		\big[
+			\big[
+				\hat{\mu}_{I}(\tau_1+\tau_2+\tau_3),\hat{\mu}_{I}(\tau_1+\tau_2)
+				\big],
+			\hat{\mu}_{I}(\tau_1)
+			\big],
+		\hat{\mu}_{I}(0)
+		\big]
 	\big\rangle_{\mathrm{eq}}.
 	\label{eq:R3_commutator}
 \end{align}
@@ -729,53 +697,55 @@ which makes the causal time ordering explicit. Expanding the commutators (equiva
 
 \subsubsection{Time-domain picture and impulsive limit}
 
-\noindent
+
 The convolution form \autoref{eq:P3_convolution_thesis} makes the \emph{causal} time ordering explicit. For fixed delays $(\tau_1,\tau_2,\tau_3)$, the three interactions with the field occur at the times
 \begin{equation}
- t-\tau_3,\qquad t-\tau_3-\tau_2,\qquad t-\tau_3-\tau_2-\tau_1,
+	t-\tau_3,\qquad t-\tau_3-\tau_2,\qquad t-\tau_3-\tau_2-\tau_1,
 \end{equation}
 and the system evolves freely for durations $\tau_1$, $\tau_2$, and $\tau_3$ between these events. Reading the operator product in \autoref{eq:S3_def_thesis} from right to left corresponds precisely to this physical sequence: start from $\rho_{\mathrm{eq}}$, apply a dipole interaction, evolve freely, apply another interaction, and so on, followed by the dipole readout at time $t$.
 
 \medskip
-\noindent
+
 The physical interpretation of this causal ordering, and the impulsive-limit simplification for ultrashort pulses, was already discussed when relating the detected signal field to $\boldsymbol{P}^{(3)}$ in \autoref{sec:light_matter}. This section is therefore kept brief and the above expressions are used mainly as the starting point for pathway decompositions below.
+
+In experiments with finite pulse durations or partial pulse overlap, strict time ordering is blurred and the signal becomes a weighted convolution with the pulse envelopes; this can redistribute pathway amplitudes. In the nonperturbative simulations used here, these effects are naturally included.
 
 \subsubsection{Example: two-level system and the emergence of pathways}
 \label{sec:two_level_pathways}
 
-\noindent
+
 To see concretely how the compact operator expression expands into distinct contributions, consider a two-level system with ground state $\lvert g\rangle$ and excited state $\lvert e\rangle$, and assume an initial equilibrium state $\rho_{\mathrm{eq}}=\lvert g\rangle\!\langle g\rvert$. Let the dipole (projected onto the field polarization) be
 \begin{equation}
- \hat{\mu} = d\,\hat{m},\qquad
- \hat{m} \equiv \lvert e\rangle\!\langle g\rvert + \lvert g\rangle\!\langle e\rvert,
+	\hat{\mu} = d\,\hat{m},\qquad
+	\hat{m} \equiv \lvert e\rangle\!\langle g\rvert + \lvert g\rangle\!\langle e\rvert,
 \end{equation}
 and define the commutator superoperator $\mathcal{M}[\hat{A}]\equiv[\hat{m},\hat{A}]$. Then $\mathcal{V}=d\,\mathcal{M}$ and (up to an overall prefactor) the third-order response can be written in the same structural form as \autoref{eq:S3_def_thesis}
 \begin{equation}
- S^{(3)}(\tau_3,\tau_2,\tau_1)
- \propto \mathrm{Tr}\Bigl\{\hat{m}\,\mathcal{U}_0(\tau_3)\,\mathcal{M}\,\mathcal{U}_0(\tau_2)\,\mathcal{M}\,\mathcal{U}_0(\tau_1)\,\mathcal{M}[\lvert g\rangle\!\langle g\rvert]\Bigr\}.
+	S^{(3)}(\tau_3,\tau_2,\tau_1)
+	\propto \mathrm{Tr}\Bigl\{\hat{m}\,\mathcal{U}_0(\tau_3)\,\mathcal{M}\,\mathcal{U}_0(\tau_2)\,\mathcal{M}\,\mathcal{U}_0(\tau_1)\,\mathcal{M}[\lvert g\rangle\!\langle g\rvert]\Bigr\}.
 \end{equation}
 
 \paragraph{First interaction (creation of coherences).}
 Using $\mathcal{M}[\hat{A}]=\hat{m}\hat{A}-\hat{A}\hat{m}$,
 \begin{equation}
- \mathcal{M}[\lvert g\rangle\!\langle g\rvert]
- = \lvert e\rangle\!\langle g\rvert - \lvert g\rangle\!\langle e\rvert.
+	\mathcal{M}[\lvert g\rangle\!\langle g\rvert]
+	= \lvert e\rangle\!\langle g\rvert - \lvert g\rangle\!\langle e\rvert.
 \end{equation}
 Thus the first interaction creates a superposition of optical coherences. The two terms already illustrate the pathway logic: each commutator produces a \emph{left} and a \emph{right} action (ket vs. bra), with a relative minus sign.
 
 \paragraph{Free evolution during $\tau_1$.}
 In the secular approximation (coherences do not mix), the coherences evolve independently. Introducing the coherence Green function
 \begin{equation}
- G_{eg}(\tau) \equiv \exp\bigl[-(i\omega_{eg}+\Gamma_{eg})\,\tau\bigr],
+	G_{eg}(\tau) \equiv \exp\bigl[-(i\omega_{eg}+\Gamma_{eg})\,\tau\bigr],
 \end{equation}
 one has $\mathcal{U}_0(\tau_1)[\lvert e\rangle\!\langle g\rvert]\approx G_{eg}(\tau_1)\,\lvert e\rangle\!\langle g\rvert$ and $\mathcal{U}_0(\tau_1)[\lvert g\rangle\!\langle e\rvert]\approx G_{eg}^*(\tau_1)\,\lvert g\rangle\!\langle e\rvert$.
 
 \paragraph{Second interaction (conversion to populations).}
 Applying $\mathcal{M}$ again converts these coherences into population operators,
 \begin{equation}
- \mathcal{M}[\lvert e\rangle\!\langle g\rvert] = \lvert g\rangle\!\langle g\rvert - \lvert e\rangle\!\langle e\rvert,
- \qquad
- \mathcal{M}[\lvert g\rangle\!\langle e\rvert] = \lvert e\rangle\!\langle e\rvert - \lvert g\rangle\!\langle g\rvert,
+	\mathcal{M}[\lvert e\rangle\!\langle g\rvert] = \lvert g\rangle\!\langle g\rvert - \lvert e\rangle\!\langle e\rvert,
+	\qquad
+	\mathcal{M}[\lvert g\rangle\!\langle e\rvert] = \lvert e\rangle\!\langle e\rvert - \lvert g\rangle\!\langle g\rvert,
 \end{equation}
 with optical phase factors carried by $G_{eg}(\tau_1)$ and $G_{eg}^*(\tau_1)$.
 
@@ -785,133 +755,133 @@ During $\tau_2$ the density operator is (in this simple model) a linear combinat
 \paragraph{Why there are $2^3$ terms (pathways).}
 Each of the three commutators produces two contributions (left and right action). Starting from a single operator $\lvert g\rangle\!\langle g\rvert$, this generates $2^3=8$ distinct terms in the third-order response. Writing the nested commutator explicitly in the time-ordered form (with $\tau_{12}\equiv\tau_1{+}\tau_2$ and $\tau_{123}\equiv\tau_1{+}\tau_2{+}\tau_3$),
 \begin{equation}
-\label{eq:R3_nested_commutator_time_ordered}
-S^{(3)}(\tau_3,\tau_2,\tau_1)
-=(-i)
-\mathrm{Tr}\Big\{\hat{\mu}_I(\tau_{123})\,[\hat{\mu}_I(\tau_{12}),[\hat{\mu}_I(\tau_1),[\hat{\mu}_I(0),\hat{\rho}_{\mathrm{eq}}]]]\Big\},
+	\label{eq:R3_nested_commutator_time_ordered}
+	S^{(3)}(\tau_3,\tau_2,\tau_1)
+	=(-i)
+	\mathrm{Tr}\Big\{\hat{\mu}_I(\tau_{123})\,[\hat{\mu}_I(\tau_{12}),[\hat{\mu}_I(\tau_1),[\hat{\mu}_I(0),\hat{\rho}_{\mathrm{eq}}]]]\Big\},
 \end{equation}
 one obtains the eight operator products
 \begin{align}
-\label{eq:R3_commutator_expansion_R1R4}
-S^{(3)}(\tau_3,\tau_2,\tau_1) &=\ \mathrm{Tr}\big\{\hat{\mu}_I(\tau_{123})\,\hat{\mu}_I(\tau_{12})\,\hat{\mu}_I(\tau_1)\,\hat{\mu}_I(0)\,\hat{\rho}_{\mathrm{eq}}\big\}
-\quad\Rightarrow\quad S_4
-\\
-&\ \ -\,\mathrm{Tr}\big\{\hat{\mu}_I(\tau_{123})\,\hat{\mu}_I(\tau_{12})\,\hat{\mu}_I(\tau_1)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_I(0)\big\}
-\quad\Rightarrow\quad S_1^{*}
-\\
-&\ \ -\,\mathrm{Tr}\big\{\hat{\mu}_I(\tau_{123})\,\hat{\mu}_I(\tau_{12})\,\hat{\mu}_I(0)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_I(\tau_1)\big\}
-\quad\Rightarrow\quad S_2^{*}
-\\
-&\ \ +\,\mathrm{Tr}\big\{\hat{\mu}_I(\tau_{123})\,\hat{\mu}_I(\tau_{12})\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_I(0)\,\hat{\mu}_I(\tau_1)\big\}
-\quad\Rightarrow\quad S_3
-\\
-&\ \ -\,\mathrm{Tr}\big\{\hat{\mu}_I(\tau_{123})\,\hat{\mu}_I(\tau_1)\,\hat{\mu}_I(0)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_I(\tau_{12})\big\}
-\quad\Rightarrow\quad S_3^{*}
-\\
-&\ \ +\,\mathrm{Tr}\big\{\hat{\mu}_I(\tau_{123})\,\hat{\mu}_I(\tau_1)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_I(0)\,\hat{\mu}_I(\tau_{12})\big\}
-\quad\Rightarrow\quad S_2
-\\
-&\ \ +\,\mathrm{Tr}\big\{\hat{\mu}_I(\tau_{123})\,\hat{\mu}_I(0)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_I(\tau_1)\,\hat{\mu}_I(\tau_{12})\big\}
-\quad\Rightarrow\quad S_1
-\\
-&\ \ -\,\mathrm{Tr}\big\{\hat{\mu}_I(\tau_{123})\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_I(0)\,\hat{\mu}_I(\tau_1)\,\hat{\mu}_I(\tau_{12})\big\}
-\quad\Rightarrow\quad S_4^{*}.
+	\label{eq:R3_commutator_expansion_R1R4}
+	S^{(3)}(\tau_3,\tau_2,\tau_1) & =\ \mathrm{Tr}\big\{\hat{\mu}_I(\tau_{123})\,\hat{\mu}_I(\tau_{12})\,\hat{\mu}_I(\tau_1)\,\hat{\mu}_I(0)\,\hat{\rho}_{\mathrm{eq}}\big\}
+	\quad\Rightarrow\quad S_4
+	\\
+	                              & \ \ -\,\mathrm{Tr}\big\{\hat{\mu}_I(\tau_{123})\,\hat{\mu}_I(\tau_{12})\,\hat{\mu}_I(\tau_1)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_I(0)\big\}
+	\quad\Rightarrow\quad S_1^{*}
+	\\
+	                              & \ \ -\,\mathrm{Tr}\big\{\hat{\mu}_I(\tau_{123})\,\hat{\mu}_I(\tau_{12})\,\hat{\mu}_I(0)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_I(\tau_1)\big\}
+	\quad\Rightarrow\quad S_2^{*}
+	\\
+	                              & \ \ +\,\mathrm{Tr}\big\{\hat{\mu}_I(\tau_{123})\,\hat{\mu}_I(\tau_{12})\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_I(0)\,\hat{\mu}_I(\tau_1)\big\}
+	\quad\Rightarrow\quad S_3
+	\\
+	                              & \ \ -\,\mathrm{Tr}\big\{\hat{\mu}_I(\tau_{123})\,\hat{\mu}_I(\tau_1)\,\hat{\mu}_I(0)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_I(\tau_{12})\big\}
+	\quad\Rightarrow\quad S_3^{*}
+	\\
+	                              & \ \ +\,\mathrm{Tr}\big\{\hat{\mu}_I(\tau_{123})\,\hat{\mu}_I(\tau_1)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_I(0)\,\hat{\mu}_I(\tau_{12})\big\}
+	\quad\Rightarrow\quad S_2
+	\\
+	                              & \ \ +\,\mathrm{Tr}\big\{\hat{\mu}_I(\tau_{123})\,\hat{\mu}_I(0)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_I(\tau_1)\,\hat{\mu}_I(\tau_{12})\big\}
+	\quad\Rightarrow\quad S_1
+	\\
+	                              & \ \ -\,\mathrm{Tr}\big\{\hat{\mu}_I(\tau_{123})\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_I(0)\,\hat{\mu}_I(\tau_1)\,\hat{\mu}_I(\tau_{12})\big\}
+	\quad\Rightarrow\quad S_4^{*}.
 \end{align}
 Along the same lines as in linear response, the terms labeled $S_\alpha^{*}$ are the complex conjugates of $S_\alpha$ for Hermitian $\hat{\mu}$ and a real equilibrium state. In typical 2DES calculations (RWA) one therefore groups the response as
 \begin{equation}
-\label{eq:third_order_correlation_function}
-S^{(3)}(\tau_3,\tau_2,\tau_1)
-= (-i) \sum_{\alpha=1}^{4}\Big[ S_{\alpha}(\tau_3,\tau_2,\tau_1) - S_{\alpha}^{*}(\tau_3,\tau_2,\tau_1) \Big].
+	\label{eq:third_order_correlation_function}
+	S^{(3)}(\tau_3,\tau_2,\tau_1)
+	= (-i) \sum_{\alpha=1}^{4}\Big[ S_{\alpha}(\tau_3,\tau_2,\tau_1) - S_{\alpha}^{*}(\tau_3,\tau_2,\tau_1) \Big].
 \end{equation}
 These four pathway classes are conveniently represented as double-sided Feynman diagrams, shown in \autoref{fig:dsfd_R1_R4}.
 
 \begin{figure}[t]
-\centering
-\setlength{\unitlength}{1mm}
-\begin{minipage}{0.24\textwidth}
-\centering
-$S_1$
-\vspace{1mm}
-\begin{picture}(32,42)
-\put(6,5){\line(0,1){34}}
-\put(26,5){\line(0,1){34}}
-\put(1,5){\vector(0,1){34}}
-\put(1,41){\makebox(0,0){$t$}}
-\put(1,13){\line(1,0){29}}
-\put(1,25){\line(1,0){29}}
-\put(1,37){\line(1,0){29}}
-% interactions: L at 0, R at t1, R at t1+t2
-\put(6,6){\vector(1,1){6}}
-\put(26,14){\vector(-1,1){6}}
-\put(26,26){\vector(-1,1){6}}
-\end{picture}
-\end{minipage}
-\begin{minipage}{0.24\textwidth}
-\centering
-$S_2$
-\vspace{1mm}
-\begin{picture}(32,42)
-\put(6,5){\line(0,1){34}}
-\put(26,5){\line(0,1){34}}
-\put(1,5){\vector(0,1){34}}
-\put(1,41){\makebox(0,0){$t$}}
-\put(1,13){\line(1,0){29}}
-\put(1,25){\line(1,0){29}}
-\put(1,37){\line(1,0){29}}
-% interactions: R at 0, L at t1, R at t1+t2
-\put(26,6){\vector(-1,1){6}}
-\put(6,14){\vector(1,1){6}}
-\put(26,26){\vector(-1,1){6}}
-\end{picture}
-\end{minipage}
-\begin{minipage}{0.24\textwidth}
-\centering
-$S_3$
-\vspace{1mm}
-\begin{picture}(32,42)
-\put(6,5){\line(0,1){34}}
-\put(26,5){\line(0,1){34}}
-\put(1,5){\vector(0,1){34}}
-\put(1,41){\makebox(0,0){$t$}}
-\put(1,13){\line(1,0){29}}
-\put(1,25){\line(1,0){29}}
-\put(1,37){\line(1,0){29}}
-% interactions: R at 0, R at t1, L at t1+t2
-\put(26,6){\vector(-1,1){6}}
-\put(26,14){\vector(-1,1){6}}
-\put(6,26){\vector(1,1){6}}
-\end{picture}
-\end{minipage}
-\begin{minipage}{0.24\textwidth}
-\centering
-$S_4$
-\vspace{1mm}
-\begin{picture}(32,42)
-\put(6,5){\line(0,1){34}}
-\put(26,5){\line(0,1){34}}
-\put(1,5){\vector(0,1){34}}
-\put(1,41){\makebox(0,0){$t$}}
-\put(1,13){\line(1,0){29}}
-\put(1,25){\line(1,0){29}}
-\put(1,37){\line(1,0){29}}
-% interactions: L at 0, L at t1, L at t1+t2
-\put(6,6){\vector(1,1){6}}
-\put(6,14){\vector(1,1){6}}
-\put(6,26){\vector(1,1){6}}
-\end{picture}
-\end{minipage}
-\caption{Double-sided Feynman diagrams for the four third-order pathway classes $S_1$--$S_4$ in \autoref{eq:R3_commutator_expansion_R1R4}. Each diagonal arrow indicates a field interaction acting on the ket (left branch) or bra (right branch) of the density matrix. The complex-conjugate pathways $S_\alpha^{*}$ correspond to exchanging ket and bra actions.}
-\label{fig:dsfd_R1_R4}
+	\centering
+	\setlength{\unitlength}{1mm}
+	\begin{minipage}{0.24\textwidth}
+		\centering
+		$S_1$
+		\vspace{1mm}
+		\begin{picture}(32,42)
+			\put(6,5){\line(0,1){34}}
+			\put(26,5){\line(0,1){34}}
+			\put(1,5){\vector(0,1){34}}
+			\put(1,41){\makebox(0,0){$t$}}
+			\put(1,13){\line(1,0){29}}
+			\put(1,25){\line(1,0){29}}
+			\put(1,37){\line(1,0){29}}
+			% interactions: L at 0, R at t1, R at t1+t2
+			\put(6,6){\vector(1,1){6}}
+			\put(26,14){\vector(-1,1){6}}
+			\put(26,26){\vector(-1,1){6}}
+		\end{picture}
+	\end{minipage}
+	\begin{minipage}{0.24\textwidth}
+		\centering
+		$S_2$
+		\vspace{1mm}
+		\begin{picture}(32,42)
+			\put(6,5){\line(0,1){34}}
+			\put(26,5){\line(0,1){34}}
+			\put(1,5){\vector(0,1){34}}
+			\put(1,41){\makebox(0,0){$t$}}
+			\put(1,13){\line(1,0){29}}
+			\put(1,25){\line(1,0){29}}
+			\put(1,37){\line(1,0){29}}
+			% interactions: R at 0, L at t1, R at t1+t2
+			\put(26,6){\vector(-1,1){6}}
+			\put(6,14){\vector(1,1){6}}
+			\put(26,26){\vector(-1,1){6}}
+		\end{picture}
+	\end{minipage}
+	\begin{minipage}{0.24\textwidth}
+		\centering
+		$S_3$
+		\vspace{1mm}
+		\begin{picture}(32,42)
+			\put(6,5){\line(0,1){34}}
+			\put(26,5){\line(0,1){34}}
+			\put(1,5){\vector(0,1){34}}
+			\put(1,41){\makebox(0,0){$t$}}
+			\put(1,13){\line(1,0){29}}
+			\put(1,25){\line(1,0){29}}
+			\put(1,37){\line(1,0){29}}
+			% interactions: R at 0, R at t1, L at t1+t2
+			\put(26,6){\vector(-1,1){6}}
+			\put(26,14){\vector(-1,1){6}}
+			\put(6,26){\vector(1,1){6}}
+		\end{picture}
+	\end{minipage}
+	\begin{minipage}{0.24\textwidth}
+		\centering
+		$S_4$
+		\vspace{1mm}
+		\begin{picture}(32,42)
+			\put(6,5){\line(0,1){34}}
+			\put(26,5){\line(0,1){34}}
+			\put(1,5){\vector(0,1){34}}
+			\put(1,41){\makebox(0,0){$t$}}
+			\put(1,13){\line(1,0){29}}
+			\put(1,25){\line(1,0){29}}
+			\put(1,37){\line(1,0){29}}
+			% interactions: L at 0, L at t1, L at t1+t2
+			\put(6,6){\vector(1,1){6}}
+			\put(6,14){\vector(1,1){6}}
+			\put(6,26){\vector(1,1){6}}
+		\end{picture}
+	\end{minipage}
+	\caption{Double-sided Feynman diagrams for the four third-order pathway classes $S_1$--$S_4$ in \autoref{eq:R3_commutator_expansion_R1R4}. Each diagonal arrow indicates a field interaction acting on the ket (left branch) or bra (right branch) of the density matrix. The complex-conjugate pathways $S_\alpha^{*}$ correspond to exchanging ket and bra actions.}
+	\label{fig:dsfd_R1_R4}
 \end{figure}
 
 \subsection{Liouville-space pathways and double-sided Feynman diagrams}
 \label{sec:dsfd}
 
-\noindent
+
 The superoperator representation makes the origin of \emph{pathways} transparent. Because $\mathcal{V}=(\mathcal{V}_L-\mathcal{V}_R)$, the product $\mathcal{V}_{j_3}\mathcal{V}_{j_2}\mathcal{V}_{j_1}$ expands into a sum of terms with different choices of left/right actions at the three interaction times.
 Each such term corresponds to a distinct time-ordered evolution of the density matrix elements (populations and coherences) and is conveniently visualized by a \emph{double-sided Feynman diagram} (also called a Liouville-space pathway diagram).
 
-\noindent
+
 The basic rules are:
 \begin{itemize}
 	\item Two vertical lines represent the ket (left) and bra (right) branches of $\hat{\rho}$.
@@ -919,6 +889,8 @@ The basic rules are:
 	\item An interaction acting on the ket corresponds to $\mathcal{V}_L$; on the bra to $\mathcal{V}_R$.
 	\item Under the rotating-wave approximation one further assigns whether the interaction involves $\boldsymbol{E}^{(+)}$ or $\boldsymbol{E}^{(-)}$ (absorption vs.\ emission). This fixes which optical coherence is created and thus determines the overall phase factor and the phase-matching direction.
 \end{itemize}
+
+For interpretation it is often helpful to regroup the third-order pathways into three physical classes: ground-state bleach (GSB), stimulated emission (SE), and excited-state absorption (ESA). In the rephasing and nonrephasing signals, each class corresponds to a well-defined subset of the diagrams in \autoref{fig:dsfd_R1_R4}. This classification is standard in 2DES and will be used implicitly when discussing peak assignments later, but the explicit diagram-by-diagram bookkeeping is not required for the flow here~\cite{mukamel1995principlesnonlinearoptical, cho2009twodimensionalopticalspectroscopy}. % TODO I have to actually use it now or delete this sentence
 
 \begin{figure}[t]
 	\centering
@@ -969,15 +941,15 @@ The basic rules are:
 \subsection{Relaxation channel in a two-level system (population transfer ee->gg)}
 \label{sec:two_level_relaxation_channel}
 
-\noindent
+
 In many third-order experiments (pump--probe and 2DES alike), the middle interval corresponds to a \emph{population} period: the system is left in a diagonal density-matrix element and evolves for a waiting time $T$ before the next interaction. In realistic systems this population does not remain constant but relaxes, for example from an excited state back to the ground state. In this section this \emph{decay channel} is included explicitly for the simplest case of a two-level system~\cite{mancal2022nonlinearopticalspectroscopy}.
 
 \medskip
-\noindent
+
 Consider a two-level system with ground state $\ket{g}$ and excited state $\ket{e}$. Population relaxation $e\to g$ during the waiting time is modeled by a single rate constant $k_{ge}$.
 
 \medskip
-\noindent
+
 \textbf{Master-equation (jump-operator) description.}
 In an open-quantum-system description, spontaneous decay $e\to g$ is represented by a single Lindblad jump operator
 \begin{equation}
@@ -995,11 +967,11 @@ so that the reduced dynamics (including the unitary part generated by $\hat{H}_0
 \end{equation}
 Evaluating matrix elements in the basis $\{\ket{g},\ket{e}\}$ yields
 \begin{align}
-	\dot{\rho}_{ee}(t) &= -k_{ge}\,\rho_{ee}(t),
-	&\dot{\rho}_{gg}(t) &= +k_{ge}\,\rho_{ee}(t),
+	\dot{\rho}_{ee}(t) & = -k_{ge}\,\rho_{ee}(t),
+	                   & \dot{\rho}_{gg}(t)                                      & = +k_{ge}\,\rho_{ee}(t),
 	\\
-	\dot{\rho}_{eg}(t) &= -\Big(i\omega_{eg}+\frac{k_{ge}}{2}\Big)\rho_{eg}(t),
-	&\dot{\rho}_{ge}(t) &= +\Big(i\omega_{eg}-\frac{k_{ge}}{2}\Big)\rho_{ge}(t),
+	\dot{\rho}_{eg}(t) & = -\Big(i\omega_{eg}+\frac{k_{ge}}{2}\Big)\rho_{eg}(t),
+	                   & \dot{\rho}_{ge}(t)                                      & = +\Big(i\omega_{eg}-\frac{k_{ge}}{2}\Big)\rho_{ge}(t),
 	\label{eq:two_level_decay_matrix_elements_thesis}
 \end{align}
 where $\omega_{eg}=E_e-E_g$. Thus population decay contributes half its rate to the optical coherence decay. If additional pure dephasing with rate $\gamma_{\varphi}$ is present, one replaces $k_{ge}/2\to k_{ge}/2+\gamma_{\varphi}$, consistent with the phenomenological coherence propagator $G_{eg}(t)=\exp[-(i\omega_{eg}+\Gamma_{eg})t]$ used elsewhere. In this notation,
@@ -1011,7 +983,7 @@ where $\omega_{eg}=E_e-E_g$. Thus population decay contributes half its rate to 
 \end{equation}
 
 \medskip
-\noindent
+
 \textbf{Rate-equation / propagator viewpoint.}
 At the level of populations $p_e(t)\equiv\rho_{ee}(t)$ and $p_g(t)\equiv\rho_{gg}(t)$ \autoref{eq:two_level_decay_matrix_elements_thesis} reduces to the kinetic equations
 \begin{equation}
@@ -1043,7 +1015,7 @@ It is often useful to derive \autoref{eq:transfer_probability_two_level_thesis} 
 In words: at each infinitesimal interval $[\tau,\tau+\mathrm{d}\tau]$ there is a probability $k_{ge}\,\mathrm{d}\tau$ to jump from $e$ to $g$, weighted by the probability $U_{ee,ee}(\tau)$ that the system is still in $e$ at time $\tau$.
 
 \medskip
-\noindent
+
 \textbf{How this enters Liouville-space pathways.}
 In the pathway language, the waiting-time evolution is described by the Liouville-space propagator acting on populations. In this simple rate model one may write, for the excited-state population operator,
 \begin{equation}
@@ -1059,13 +1031,13 @@ Thus, every third-order pathway that passes through $\rho_{ee}$ during the waiti
 The first part yields the usual stimulated-emission / excited-state-absorption contributions that decay with the excited-state lifetime, while the second part corresponds to relaxation-induced pathways in which the subsequent interaction acts on the refilled ground state.
 
 \medskip
-\noindent
+
 In the numerical framework used later in this thesis, this relaxation is not inserted ``by hand'' but is generated automatically by the open-system propagator (Liouvillian) during $T$; nevertheless, \crefrange{eq:population_kinetics_two_level_thesis}{eq:U_on_excited_population_thesis} provide a useful limiting picture and a clear interpretation of the time dependence of population-sensitive signals.
 
 \subsection{Multilevel generalization (towards realistic excited-state manifolds)}
 \label{sec:multilevel_generalization_thesis}
 
-\noindent
+
 Realistic systems typically have many optically accessible excited states, and a central goal of this thesis is to extend the simulation framework from a minimal two-level model to multilevel Hamiltonians. A convenient (and widely used) idealisation that already captures the essential physics of ground-state bleach (GSB), stimulated emission (SE), and excited-state absorption (ESA) is a three-manifold ``band'' picture:
 \begin{itemize}
 	\item a single ground state $\ket{g}$;
@@ -1075,7 +1047,7 @@ Realistic systems typically have many optically accessible excited states, and a
 Optically allowed transitions connect $\ket{g}\leftrightarrow\ket{n}$ and $\ket{n}\leftrightarrow\ket{f}$. In third-order spectroscopy the Liouville pathways do not contain populations of the $f$ manifold (they end in coherences such as $\rho_{fn}$), so relaxation out of $f$ typically enters effectively through additional dephasing/broadening of the $n\leftrightarrow f$ coherences.
 
 \medskip
-\noindent
+
 \textbf{Propagators in the secular approximation.}
 In the secular approximation, the waiting-time evolution is expressed in terms of Liouville-space propagator elements of the generic form
 \begin{equation}
@@ -1085,7 +1057,7 @@ In the secular approximation, the waiting-time evolution is expressed in terms o
 describing population transfer within the excited manifold ($nn\to mm$), coherence dephasing within the excited manifold ($nm\to nm$), and refilling of the ground state from excited populations ($nn\to gg$). ESA pathways additionally involve propagators for $f$-manifold coherences (e.g. $U_{fn,fm}(T)$).
 
 \medskip
-\noindent
+
 \textbf{Recipe for constructing multilevel signals.}
 Given these propagators, multilevel spectra are obtained by the same ``stitching'' procedure as in the two-level case:
 \begin{enumerate}
@@ -1095,11 +1067,11 @@ Given these propagators, multilevel spectra are obtained by the same ``stitching
 	\item sum over all intermediate state indices $n,m,f,\dots$.
 \end{enumerate}
 
-\noindent
+
 This multilevel bookkeeping is exactly what becomes necessary once the system Hamiltonian contains multiple excited eigenstates (or excitonic bands) and the open-system Liouvillian generates non-trivial transfer and dephasing within these manifolds. The explicit multilevel formulation will therefore serve as the bridge from the pedagogical two-level picture to the full numerical simulations targeted in the later thesis chapters.
 
 \medskip
-\noindent
+
 \textbf{General dissipative channels (preview).}
 For later use it is helpful to note that a multilevel relaxation model can be written compactly in Lindblad form by introducing one jump operator per allowed transition $\ket{n}\to\ket{m}$,
 \begin{equation}
@@ -1111,7 +1083,7 @@ and, if needed, pure-dephasing operators for each level,
 \end{equation}
 These ingredients define the Liouvillian whose propagator elements $U_{ab,cd}(t)$ enter directly in the pathway products described above.
 
-\noindent
+
 In practice, one evaluates $S^{(3)}$ by summing the relevant pathways (often grouped into ground-state bleach, stimulated emission, and excited-state absorption). The experimentally separated rephasing and nonrephasing signals (\autoref{sec:three_pulse_geometry}) correspond to different subsets of these pathways, selected either by phase matching or by phase cycling.
 
 
@@ -1126,20 +1098,20 @@ In practice, one evaluates $S^{(3)}$ by summing the relevant pathways (often gro
 \subsection{Wavevector phase-matching condition}
 \label{subsec:phase_matching_condition}
 
-\noindent
+
 In nonlinear optical processes, multiple light waves interact within a material to generate new frequency components. In a plane-wave picture, momentum conservation of the incident and generated fields implies that the signal wavevector $\boldsymbol{k}_S$ is given by a signed sum of the input wavevectors,
 \begin{equation}
-\boldsymbol{k}_S = \pm\boldsymbol{k}_1 \pm \boldsymbol{k}_2 \pm \boldsymbol{k}_3.
-\label{eq:four_wave_mixing}
+	\boldsymbol{k}_S = \pm\boldsymbol{k}_1 \pm \boldsymbol{k}_2 \pm \boldsymbol{k}_3.
+	\label{eq:four_wave_mixing}
 \end{equation}
 This is the (wavevector) \emph{phase-matching condition}. The signs track whether the corresponding interaction involves the analytic (positive-frequency) part of the field or its complex conjugate (negative-frequency part) as introduced in \autoref{eq:E_plusminus}. Equivalently, in Liouville space they reflect whether the field interaction acts on the ket (left action) or bra (right action) branch of the density matrix: absorption-like interactions contribute $+\boldsymbol{k}_i$, while emission-like/complex-conjugate interactions contribute $-\boldsymbol{k}_i$.
 
-\noindent
-Different sign combinations correspond to different phase-matched signal directions and therefore to different subsets of nonlinear pathways. In noncollinear geometries these directions can be spatially separated, while in collinear geometries the same contributions can be isolated via their phase dependence (phase cycling, \autoref{sec:phase_cycling}). The two most important third-order phase-matching conditions for this thesis (rephasing and nonrephasing) are discussed below.
+
+Different sign combinations correspond to different phase-matched signal directions and therefore to different subsets of nonlinear pathways. In noncollinear geometries these directions can be spatially separated, while in collinear geometries the same contributions can be isolated via their phase dependence (phase cycling, \autoref{sec:phase_cycling}). The two most important third-order phase-matching conditions for this thesis (rephasing and nonrephasing) are discussed below~\cite{freschetal2twodimensionalelectronic}.
 
 \subsection{Representation of three ultrashort pulses}
 
-\noindent
+
 The experimentally relevant case of three ultrashort pulses with carrier wavevectors $\boldsymbol{k}_1,\boldsymbol{k}_2,\boldsymbol{k}_3$ and carrier frequency $\omega_L$ is now considered. In the slowly varying envelope approximation,
 \begin{equation}
 	\boldsymbol{E}(\boldsymbol{r},t)
@@ -1161,7 +1133,7 @@ where $t_j$ is the arrival time of pulse $j$, $\phi_j$ is its carrier phase-kick
 \end{equation}
 
 \medskip
-\noindent
+
 The setup can be visualized in a noncollinear boxcar geometry as shown in \autoref{fig:fwm_box_car_setup}. Here three pulses with wavevectors $\boldsymbol{k}_1$, $\boldsymbol{k}_2$, and $\boldsymbol{k}_3$ interact with the sample and generate a signal emitted into the phase-matched direction $\boldsymbol{k}_S$.
 
 \begin{figure}[ht]
@@ -1174,52 +1146,51 @@ The setup can be visualized in a noncollinear boxcar geometry as shown in \autor
 \subsection{Intuition: carrier phase-kicks and pulse area (delta-pulse picture)}
 \label{subsec:phase_kick_pulse_area_intuition}
 
-\noindent
+
 The phase parameters $\phi_j$ in \autoref{eq:E_three_pulses_space} are often introduced as bookkeeping devices for phase cycling, but they also have a simple physical meaning: for a resonantly driven transition they set the \emph{optical phase} of the induced coherence and, equivalently, the \emph{rotation axis} of the pulse on the Bloch sphere.
 This is most transparent for an effective two-level system $\{\lvert g\rangle,\lvert e\rangle\}$ in the rotating-wave approximation.
 Writing the complex Rabi frequency of pulse $j$ as
 \begin{equation}
-\Omega_j(t) \equiv \boldsymbol{\mu}_{eg}\cdot\boldsymbol{E}_j(t),
+	\Omega_j(t) \equiv \boldsymbol{\mu}_{eg}\cdot\boldsymbol{E}_j(t),
 \end{equation}
 the interaction Hamiltonian in the laser-rotating frame can be expressed (up to standard conventions) as
 \begin{equation}
-\hat{H}_{\mathrm{int},j}(t)
-\;\propto\;
-\Omega_j(t-t_j)
-\Big( e^{-i\phi_j}\,\lvert e\rangle\!\langle g\rvert + e^{+i\phi_j}\,\lvert g\rangle\!\langle e\rvert \Big).
-\label{eq:Hint_phasekick}
+	\hat{H}_{\mathrm{int},j}(t)
+	\;\propto\;
+	\Omega_j(t-t_j)
+	\Big( e^{-i\phi_j}\,\lvert e\rangle\!\langle g\rvert + e^{+i\phi_j}\,\lvert g\rangle\!\langle e\rvert \Big).
+	\label{eq:Hint_phasekick}
 \end{equation}
 Thus, changing $\phi_j$ does not change the pulse \emph{intensity envelope} but rotates the complex drive between its in-phase and quadrature components. On the Bloch sphere this corresponds to a rotation around an axis in the equatorial ($x$--$y$) plane with azimuth angle $\phi_j$ (see, e.g., the tutorial discussion in Ref.~\cite{grolletal2025fundamentalsheterodynewave}).
 
 \medskip
-\noindent
+
 The \emph{pulse area}
 \begin{equation}
-		\theta_j \;\equiv\; \int_{-\infty}^{\infty}\!\mathrm{d}t\,\Omega_j(t-t_j)
-\label{eq:pulse_area_def}
+	\theta_j \;\equiv\; \int_{-\infty}^{\infty}\!\mathrm{d}t\,\Omega_j(t-t_j)
+	\label{eq:pulse_area_def}
 \end{equation}
 sets the corresponding rotation angle. In the idealized delta-pulse limit, one replaces $\Omega_j(t-t_j)\to \theta_j\,\delta(t-t_j)$, and the pulse acts as an instantaneous unitary
 \begin{equation}
-\hat{U}_j
-\;=\;
-\exp\!\left[-\frac{i\,\theta_j}{2}\,\big(\cos\phi_j\,\hat{\tau}_x+\sin\phi_j\,\hat{\tau}_y\big)\right],
-\label{eq:delta_pulse_unitary}
+	\hat{U}_j
+	\;=\;
+	\exp\!\left[-\frac{i\,\theta_j}{2}\,\big(\cos\phi_j\,\hat{\tau}_x+\sin\phi_j\,\hat{\tau}_y\big)\right],
+	\label{eq:delta_pulse_unitary}
 \end{equation}
-where $\hat{\tau}_{x,y,z}$ denote the Pauli matrices.
-which rotates the Bloch vector by angle $\theta_j$ about the equatorial axis at azimuth $\phi_j$.
+where $\hat{\tau}_{x,y,z}$ denote the Pauli matrices, which rotates the Bloch vector by angle $\theta_j$ about the equatorial axis at azimuth $\phi_j$.
 For example, a $\pi/2$ pulse ($\theta_j=\pi/2$) prepares a maximal coherence whose phase is set by $\phi_j$, while a $\pi$ pulse ($\theta_j=\pi$) inverts population.
 In multi-pulse spectroscopy, the phases imprinted on successive coherences interfere; this is exactly why the macroscopic third-order polarization decomposes into phase-tagged components $\propto e^{i(l\phi_1+m\phi_2+n\phi_3)}$ in \autoref{eq:P3_lmn}, enabling pathway selection by phase matching or phase cycling.
 
 \subsection{Third-order polarization in space and time}
 
-\noindent
+
 Inserting \autoref{eq:E_three_pulses_space} into the third-order convolution \autoref{eq:P3_convolution_thesis}, and keeping only terms resonant in RWA, one finds that the third-order polarization contains contributions oscillating with phase factors
 \begin{equation}
 	\exp\!\Big[
-	i(\pm\boldsymbol{k}_1 \pm \boldsymbol{k}_2 \pm \boldsymbol{k}_3)\cdot\boldsymbol{r}
-	- i \omega_L t
-	+ i(\pm \phi_1 \pm \phi_2 \pm \phi_3)
-	\Big],
+		i(\pm\boldsymbol{k}_1 \pm \boldsymbol{k}_2 \pm \boldsymbol{k}_3)\cdot\boldsymbol{r}
+		- i \omega_L t
+		+ i(\pm \phi_1 \pm \phi_2 \pm \phi_3)
+		\Big],
 \end{equation}
 where each sign corresponds to an interaction with $\boldsymbol{E}^{(+)}$ (ket) or $\boldsymbol{E}^{(-)}$ (bra). Thus the third-order polarization can be written as
 \begin{equation}
@@ -1240,26 +1211,28 @@ Only those combinations that satisfy energy and momentum (phase-matching) constr
 \subsection{Rephasing and nonrephasing phase-matching conditions}
 \label{subsec:rephasing_nonrephasing}
 
-\noindent
+
 The phase-matched directions of interest for two-dimensional electronic spectroscopy are
 \begin{align}
-	\boldsymbol{k}_R &= -\boldsymbol{k}_1 + \boldsymbol{k}_2 + \boldsymbol{k}_3, \label{eq:kR_def}\\
-	\boldsymbol{k}_{NR} &= +\boldsymbol{k}_1 - \boldsymbol{k}_2 + \boldsymbol{k}_3,
+	\boldsymbol{k}_R    & = -\boldsymbol{k}_1 + \boldsymbol{k}_2 + \boldsymbol{k}_3, \label{eq:kR_def} \\
+	\boldsymbol{k}_{NR} & = +\boldsymbol{k}_1 - \boldsymbol{k}_2 + \boldsymbol{k}_3,
 	\label{eq:kNR_def}
 \end{align}
-usually identified as \emph{rephasing} (R) and \emph{nonrephasing} (NR) directions, respectively~\cite{mukamel1995principlesnonlinearoptical, cho2009twodimensionalopticalspectroscopy}. In a noncollinear ``box'' geometry, beams are arranged such that different $\boldsymbol{k}_S$ point along distinct directions in space; a detector placed in the appropriate direction records the corresponding signal field.
+usually identified as \emph{rephasing} (R) and \emph{nonrephasing} (NR) directions, respectively~\cite{mukamel1995principlesnonlinearoptical, cho2009twodimensionalopticalspectroscopy, freschetal2twodimensionalelectronic}. In a noncollinear ``box'' geometry, beams are arranged such that different $\boldsymbol{k}_S$ point along distinct directions in space; a detector placed in the appropriate direction records the corresponding signal field.
 
 \medskip
-\noindent
+
 Besides the rotating-wave approximation, a further simplification is obtained in the \emph{impulsive limit} of well separated, ultrashort pulses: the interaction times are then strictly ordered and pulse overlap can be neglected~\cite{cho2009twodimensionalopticalspectroscopy, hamm2005principlesnonlinearoptical}. In this case the sign pattern in \crefrange{eq:kR_def}{eq:kNR_def} can be read directly as the side (ket/bra) on which each interaction acts (cf.~the $\boldsymbol{E}^{(+)}$/$\boldsymbol{E}^{(-)}$ bookkeeping above and \autoref{fig:fwm_phase_cycling_setup}).
 
-\noindent
-For the \textbf{rephasing} signal, $\boldsymbol{k}_R=-\boldsymbol{k}_1+\boldsymbol{k}_2+\boldsymbol{k}_3$, the first interaction is conjugated (bra-side, $-\boldsymbol{k}_1$), creating an optical coherence; the second pulse converts this coherence into a population; and the third pulse generates a new coherence that radiates the signal. Because the phase evolution during the first coherence period is effectively reversed relative to the detection period, an inhomogeneously broadened ensemble can exhibit a photon-echo-like refocusing in the time domain around $t_{\mathrm{det}}\approx t_{\mathrm{coh}}$~\cite{jonas2003twodimensionalfemtosecondspectroscopy, cho2009twodimensionalopticalspectroscopy}.
 
-\noindent
+For the \textbf{rephasing} signal, $\boldsymbol{k}_R=-\boldsymbol{k}_1+\boldsymbol{k}_2+\boldsymbol{k}_3$, the first interaction is conjugated (bra-side, $-\boldsymbol{k}_1$), creating an optical coherence; the second pulse converts this coherence into a population; and the third pulse generates a new coherence that radiates the signal. Because the phase evolution during the first coherence period is effectively reversed relative to the detection period, an inhomogeneously broadened ensemble can exhibit a photon-echo-like refocusing in the time domain around $t_{\mathrm{det}}\approx t_{\mathrm{coh}}$~\cite{jonas2003twodimensionalfemtosecondspectroscopy, cho2009twodimensionalopticalspectroscopy, freschetal2twodimensionalelectronic}.
+
+
 By contrast, for the \textbf{nonrephasing} signal, $\boldsymbol{k}_{NR}=+\boldsymbol{k}_1-\boldsymbol{k}_2+\boldsymbol{k}_3$, the ordering corresponds to a ket-side first interaction ($+\boldsymbol{k}_1$), followed by a bra-side second interaction ($-\boldsymbol{k}_2$), and a ket-side third interaction ($+\boldsymbol{k}_3$). The coherence evolution does not reverse in the same way, so static disorder is not refocused and no echo is formed.
 
 The rephasing signal is sensitive to inhomogeneous broadening and exhibits echo-like refocusing, whereas the nonrephasing signal does not rephase static disorder and emphasizes homogeneous dynamics. Their sum, properly phased, yields an absorptive 2D spectrum with well-defined peak shapes.
+
+Other third-order directions can be accessed by alternative phase-matching or phase-cycling selections (e.g.\ double-quantum coherence signals, often written as $\boldsymbol{k}_S=+\boldsymbol{k}_1+\boldsymbol{k}_2-\boldsymbol{k}_3$ in the usual convention), but they are not required for the aims of this thesis; see Ref.~\cite{caietal2024extractingdoublequantumcoherence} for a broader overview.
 
 
 %------------------------------------------------------------------------------
@@ -1269,10 +1242,10 @@ The rephasing signal is sensitive to inhomogeneous broadening and exhibits echo-
 \section{Phase Cycling and Selection of Pathways}
 \label{sec:phase_cycling}
 
-\noindent
+
 Instead of spatially resolving different $\boldsymbol{k}_S$-components, one can use a collinear arrangement and separate contributions by varying the carrier phases $\phi_j$ and performing a discrete Fourier analysis with respect to $(\phi_1,\phi_2,\phi_3)$~\cite{hamm2005principlesnonlinearoptical, greenetal2024vibrationalcoherenceshalfbroadband}. This is particularly useful for numerical simulations and for experiments where spatial selection is not practical.
 
-\noindent
+
 Operationally, phase cycling replaces spatial separation by a set of repeated measurements (or simulation runs) in which the excitation phases are stepped through a discrete cycle. Because different Liouville-space pathways carry different phase factors, suitable linear combinations --- equivalently, a discrete Fourier transform with respect to the phases --- isolate the desired contribution. A common choice is to step phases in increments of $\pi/2$ (or, more generally, $2\pi/N_\phi$), which is sufficient to separate the third-order components relevant for rephasing and nonrephasing 2D spectra.
 
 \begin{figure}[ht]
@@ -1285,19 +1258,19 @@ Operationally, phase cycling replaces spatial separation by a set of repeated me
 \subsection{Phase-Cycling Fourier Selection and Construction of 2D Spectra}
 \label{subsec:phase_cycling_fourier_selection}
 
-\noindent
+
 In general, the nonlinear polarization generated by three input fields can be decomposed into wavevector-tagged components,
 \begin{equation}
-\boldsymbol{P}^{\mathrm{NL}}(\boldsymbol{r},t)
-=
-\sum_{l,m,n}
-e^{i\,(l\boldsymbol{k}_1+m\boldsymbol{k}_2+n\boldsymbol{k}_3)\cdot \boldsymbol{r}}\,\boldsymbol{P}_{l,m,n}(t)
-+\mathrm{c.c.},
-\label{eq:total_polarization_sum}
+	\boldsymbol{P}^{\mathrm{NL}}(\boldsymbol{r},t)
+	=
+	\sum_{l,m,n}
+	e^{i\,(l\boldsymbol{k}_1+m\boldsymbol{k}_2+n\boldsymbol{k}_3)\cdot \boldsymbol{r}}\,\boldsymbol{P}_{l,m,n}(t)
+	+\mathrm{c.c.},
+	\label{eq:total_polarization_sum}
 \end{equation}
 where the physically relevant third-order directions include the rephasing and nonrephasing combinations in \cref{eq:kR_def,eq:kNR_def}. In a collinear geometry these components cannot be spatially separated, but they can be isolated through their dependence on the carrier phases $\phi_1,\phi_2,\phi_3$ (phase cycling).
 
-\noindent
+
 At fixed observation direction (e.g.\ collinear), the total complex third-order polarization can be written as a Fourier series in the phases,
 \begin{equation}
 	P^{(3)}(t;\phi_1,\phi_2,\phi_3)
@@ -1307,16 +1280,16 @@ At fixed observation direction (e.g.\ collinear), the total complex third-order 
 \end{equation}
 Here $P^{(3)}_{l,m,n}(t)$ collects the third-order contributions with a fixed combination of pulse phases. In particular, the rephasing and nonrephasing components correspond to
 \begin{align}
-	\text{rephasing:}\quad (l,m,n) &= (-1,+1,+1),
-	\label{eq:phase_rephasing}\\
-	\text{nonrephasing:}\quad (l,m,n) &= (+1,-1,+1).
+	\text{rephasing:}\quad (l,m,n)    & = (-1,+1,+1),
+	\label{eq:phase_rephasing}                        \\
+	\text{nonrephasing:}\quad (l,m,n) & = (+1,-1,+1).
 	\label{eq:phase_nonrephasing}
 \end{align}
 These index triples are the phase analogues of the wavevector combinations \cref{eq:kR_def,eq:kNR_def}~\cite{mukamel1995principlesnonlinearoptical, cho2009twodimensionalopticalspectroscopy, greenetal2024vibrationalcoherenceshalfbroadband}.
 
 \subsection{Discrete phase cycling}
 
-\noindent
+
 In practice, a finite set of phase values is used, typically $\phi_j\in \{0,2\pi/N_\phi,\dots,2\pi (N_\phi-1)/N_\phi\}$ for each $j$. The desired component is then obtained by discrete Fourier projection
 \begin{equation}
 	P^{(3)}_{l,m,n}(t)
@@ -1330,7 +1303,7 @@ In practice, a finite set of phase values is used, typically $\phi_j\in \{0,2\pi
 In the continuous limit, the corresponding inverse Fourier transform reads
 \begin{align}
 	P^{(3)}_{l,m,n}(t)
-	&=
+	 & =
 	\frac{1}{(2\pi)^3}
 	\int_{0}^{2\pi}\!\!\int_{0}^{2\pi}\!\!\int_{0}^{2\pi}
 	d\phi_1\,d\phi_2\,d\phi_3\;
@@ -1342,7 +1315,7 @@ In the continuous limit, the corresponding inverse Fourier transform reads
 In simulations (and in this thesis), $P^{(3)}(t)$ is obtained by solving the full master equation including the time-dependent light--matter interaction at each phase setting $(\phi_1,\phi_2,\phi_3)$ and then extracting the phase-selected third-order component via \autoref{eq:discrete_phase_cycling} with $(l,m,n)$ chosen according to \cref{eq:phase_rephasing,eq:phase_nonrephasing}.
 
 \medskip
-\noindent
+
 \textbf{Remark (order selection in simulations).}
 Besides phase cycling, another common numerical strategy is to isolate a desired nonlinear order by combining runs with different subsets of pulses turned on (and subtracting lower-order contributions). In this thesis phase cycling is used, because it selects the desired rephasing/nonrephasing pathways directly through their phase dependence.
 
@@ -1361,7 +1334,7 @@ where proportionality constants depend on sample geometry and propagation but do
 \section{Construction of Two-Dimensional Spectra}
 \label{sec:2D_construction_formal}
 
-\noindent
+
 In this thesis the phase-cycled complex signal field $E_{S,R/NR}(t_{\text{coh}},T,t_{\text{det}})$ is treated as the object from which 2D spectra are constructed. Experimentally, this quantity is accessed by heterodyne detection: the detected intensity contains an interference term that is linear in the signal field,
 \begin{equation}
 	I_{\mathrm{det}}(\omega_{\text{det}})
@@ -1375,7 +1348,7 @@ for $|E_S|\ll|E_{\mathrm{LO}}|$ after subtraction of the LO background. The deta
 
 \subsection{Time variables for 2D spectroscopy}
 
-\noindent
+
 In a three-pulse experiment, it is customary to express the signal in terms of the three time delays
 \begin{equation}
 	t_{\text{coh}} = t^{(2)} - t^{(1)},\qquad
@@ -1384,7 +1357,7 @@ In a three-pulse experiment, it is customary to express the signal in terms of t
 \end{equation}
 where $t^{(1)},t^{(2)},t^{(3)}$ are the pulse arrival times and $t_{\mathrm{obs}}$ is the observation (readout) time. The quantities $t_{\text{coh}}$, $T$, and $t_{\text{det}}$ are referred to as the coherence time, waiting time, and detection time, respectively.
 Scanning the waiting time $T$ probes population dynamics and spectral diffusion during the population interval between the second and third interactions~\cite{cho2009twodimensionalopticalspectroscopy, mukamel1995principlesnonlinearoptical}.
-\noindent
+
 \textbf{Remark (positive vs.\ negative coherence time).}
 In some presentations one also considers negative $t_{\text{coh}}$ values, which correspond to reversing the order of pulses 1 and 2. In that case the rephasing photon-echo picture does not apply; instead one obtains a nonrephasing free-induction--decay-like contribution that is complementary to the $t_{\text{coh}}>0$ rephasing branch~\cite{ginsbergetal2009twodimensionalelectronicspectroscopy}.
 For each fixed waiting time $T$, the signal is a function of the two coherence times $t_{\text{coh}}$ and $t_{\text{det}}$
@@ -1394,7 +1367,7 @@ For each fixed waiting time $T$, the signal is a function of the two coherence t
 
 \subsection{Double Fourier transform and 2D spectra}
 
-\noindent
+
 After computing the time-domain polarization (\autoref{eq:P_def_spectroscopy}; cf.~also \autoref{eq:third_order_signal_numerical} for the non-perturbative numerical extraction in \autoref{app:numerical_implementation}) and selecting the desired phase-tagged component via phase cycling (\autoref{eq:continuous_phase_cycling}), one obtains the corresponding complex signal field $E_{S,R/NR}(t_{\text{coh}},T,t_{\text{det}})$ (\autoref{eq:field_polarization_relation}). The two-dimensional spectrum is then defined as the double Fourier transform of the time-domain signal with respect to $(t_{\text{coh}},t_{\text{det}})$ at fixed $T$. The opposite sign in the $t_{\text{coh}}$-exponent distinguishes rephasing (photon-echo) and nonrephasing branches~\cite{cho2009twodimensionalopticalspectroscopy, greenetal2024vibrationalcoherenceshalfbroadband}.
 
 In the numerical implementation, slowly varying complex envelopes are used (the optical carrier $e^{-i\omega_L t}$ is removed), so $\omega_{\text{coh}}$ and $\omega_{\text{det}}$ represent Fourier variables of these envelopes.
@@ -1438,30 +1411,30 @@ This combination removes dispersive distortions that appear when considering $|S
 \section{Interpretation of 2D Spectra and Link to Open-System Dynamics}
 \label{sec:2D_interpretation_OQS}
 
-\noindent
+
 Two-dimensional spectra correlate excitation frequency $\omega_{\text{coh}}$ and detection frequency $\omega_{\text{det}}$ and thereby reveal couplings, energy-transfer pathways, and decoherence processes not accessible in 1D spectra.
 
 \subsection{Diagonal and cross peaks}
 
-\noindent
+
 Diagonal peaks ($\omega_{\text{coh}}\simeq\omega_{\text{det}}$) correspond to transitions visible in the linear absorption spectrum. Their diagonal width is dominated by inhomogeneous broadening (static disorder), while their antidiagonal width reflects homogeneous broadening (dephasing and lifetime effects). Off-diagonal (cross) peaks arise from electronic coupling between excitations or population transfer between states.
 
 \subsection{Rephasing vs.\ nonrephasing contributions}
 
-\noindent
+
 Rephasing spectra ($S_R$) contain contributions in which static frequency disorder is partially refocused during $t_{\text{det}}$, producing echo-like narrowing along the antidiagonal. Nonrephasing spectra ($S_{NR}$) contain pathways that do not rephase static disorder and thus emphasize homogeneous dynamics. The absorptive combination \autoref{eq:Sab_def} combines both for optimal resolution.
 In simulations, static inhomogeneity is commonly incorporated by averaging the calculated time-domain signals (or spectra) over an ensemble of Hamiltonian realizations that sample the inhomogeneous distribution~\cite{cho2009twodimensionalopticalspectroscopy, mukamel1995principlesnonlinearoptical}.
 
 \subsection{Connection to open-system modelling}
 
-\noindent
+
 The temporal evolution of coherences and populations during $(t_{\text{coh}},T,t_{\text{det}})$ is governed by the open-system dynamics discussed in \autoref{chapter_open_quantum_systems}. In the presence of the driving field, the master equation for the reduced density matrix takes the general form
 \begin{equation}
 	\frac{d}{dt}\hat{\rho}_S(t)
 	=
 	\mathcal{L}_0[\hat{\rho}_S(t)]
 	-
-	 i\,[\hat{V}(t),\hat{\rho}_S(t)],
+	i\,[\hat{V}(t),\hat{\rho}_S(t)],
 	\label{eq:ME_with_field}
 \end{equation}
 where $\mathcal{L}_0$ is the Liouvillian of the field-free open system (e.g.\ Bloch--Redfield generator), and $\hat{V}(t)$ is the dipole coupling to the field.
@@ -1472,7 +1445,7 @@ In a perturbative picture, the $n$-th order part $\hat{\rho}_S^{(n)}(t)$ satisfi
 	=
 	\mathcal{L}_0[\hat{\rho}_S^{(n)}(t)]
 	-
-	 i\,[\hat{V}(t),\hat{\rho}_S^{(n-1)}(t)],
+	i\,[\hat{V}(t),\hat{\rho}_S^{(n-1)}(t)],
 \end{equation}
 with $\hat{\rho}_S^{(0)}(t)$ solving the homogeneous equation $\frac{d}{dt}\hat{\rho}_S^{(0)}=\mathcal{L}_0[\hat{\rho}_S^{(0)}]$. The structure of $\mathcal{L}_0$ (e.g.\ its Redfield tensor, secular vs.\ nonsecular form, spectral densities) determines the decay rates and frequency shifts of coherences and populations that enter the correlation functions $S^{(n)}$ and thus the observed 2D spectra.
 

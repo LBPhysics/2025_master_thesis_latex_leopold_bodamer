@@ -6,17 +6,15 @@ This appendix collects the experimental detection-side remarks that motivate why
 
 \section{Homodyne and heterodyne detection}
 
-\noindent
+
 Experimentally there are two common detection schemes that differ in sensitivity and in whether phase information is retained: homodyne and heterodyne detection~\cite{abramaviciusetal2009coherentmultidimensionaloptical}.
 
-\noindent
+
 Detectors measure intensities. In 2DES, the outgoing field is typically sent through a spectrometer and recorded as a function of detection frequency $\omega_{\text{det}}$ (spectrally dispersed detection). Formally, the recorded signal is proportional to the detected intensity integrated over the detector response time,
 \begin{equation}
 	S_{\mathrm{det}}(\omega_{\text{det}}) \propto \int I_{\mathrm{det}}(\omega_{\text{det}},t)\,\mathrm{d}t.
 	\label{eq:signal_intensity}
 \end{equation}
-
-\noindent
 \textbf{Homodyne (self-heterodyne) detection.}
 In \emph{homodyne} detection, one records the intensity of the signal field itself,
 \begin{equation}
@@ -25,7 +23,7 @@ In \emph{homodyne} detection, one records the intensity of the signal field itse
 This scales quadratically with the signal field (and thus with the underlying polarization), mixes different nonlinear orders, and does not directly retain the signal phase. Many linear experiments can nonetheless be viewed as a special ``self-heterodyne'' limit where the weak generated field interferes with a strong transmitted reference field that is automatically present.
 
 \medskip
-\noindent
+
 \textbf{Heterodyne detection (explicit LO).}
 In background-free four-wave-mixing geometries the signal is emitted into a distinct phase-matched direction, so no strong reference beam automatically co-propagates with it. One therefore introduces an explicit \emph{local oscillator} (LO) field $E_{\mathrm{LO}}$ that overlaps with the signal on the detector.
 Writing the spectrally resolved total field as
@@ -55,7 +53,7 @@ For $|E_S|\ll|E_{\mathrm{LO}}|$ the $|E_S|^2$ term can be neglected, and the LO 
 which makes explicit that heterodyne detection renders the measurement linear in the signal field.
 
 \medskip
-\noindent
+
 \textbf{Phase sensitivity and phasing.}
 Writing the LO as $E_{\mathrm{LO}}(\omega_{\text{det}})=A(\omega_{\text{det}})e^{i\phi_{\mathrm{LO}}(\omega_{\text{det}})}$ shows that the recorded cross term depends on the (in general unknown) LO spectral phase,
 \begin{equation}
@@ -66,12 +64,12 @@ Writing the LO as $E_{\mathrm{LO}}(\omega_{\text{det}})=A(\omega_{\text{det}})e^
 If $\phi_{\mathrm{LO}}(\omega_{\text{det}})$ is not properly controlled or calibrated, absorptive and dispersive contributions are mixed in the measured spectrum. In practice one addresses this by spectral interferometry with a known LO, or by an equivalent analytic-signal reconstruction plus an overall \emph{phasing} procedure~\cite{hybletal1998twodimensionalelectronicspectroscopy}.
 
 \medskip
-\noindent
+
 \textbf{Remark (pulse shaping and direct access to $S^{(3)}$).}
 In the impulsive limit (short, well-separated pulses), the heterodyne-detected signal can become directly proportional to the response function evaluated at the experimental delays, $S^{(3)}(t_{\text{det}},T,t_{\text{coh}})$, rather than a broad convolution with long pulse envelopes~\cite{mukamel1995principlesnonlinearoptical}.
 
 \medskip
-\noindent
+
 \textbf{Remark (what is actually measured, and how to recover a complex signal).}
 Even with heterodyne detection, the detector output at fixed waiting time $T$ and detection frequency is a \emph{real} function of the coherence time. In an idealized description one may write the measured (rephasing) trace as
 \begin{equation}

@@ -30,6 +30,7 @@ The free atomic Hamiltonian is expressed as:
 	\label{eq:AtomicHamiltonian}
 \end{equation}
 
+
 \subsubsection{Electric Field}
 The electric field is given analogously to \autoref{eq:electric_field_three_pulses} by:
 \begin{equation}
@@ -59,7 +60,6 @@ The total Hamiltonian of the system is:
 	H(t) = H_0 + H_{\text{int}}(t)
 	\label{eq:TotalHamiltonian}
 \end{equation}
-
 The time evolution of the system is governed by the time-dependent Schrödinger equation \autoref{eq:SchrödingerEquation}
 
 \subsection{Transform to the Rotating Frame}
@@ -69,7 +69,6 @@ Define the unitary transformation:
 	U(t) = \exp\left(i \omega_L t \frac{\sigma_z}{2}\right)
 	\label{eq:UnitaryRotatingFrame}
 \end{equation}
-
 Transform operators as \(\tilde{X} = U X U^\dagger\), and the density matrix as \(\tilde{\rho} = U \rho U^\dagger\).
 
 Useful identities for the transformation:
@@ -111,7 +110,6 @@ The master equation in the rotating frame is:
 	\\frac{d}{dt}\\rho = -i[\tilde{H}, \rho] + \mathcal{D}(\rho)
 	\label{eq:MasterEquationRotatingFrame}
 \end{equation}
-
 The dissipator includes spontaneous emission and pure dephasing:
 \begin{equation}
 	\mathcal{D}(\rho) =
@@ -119,7 +117,6 @@ The dissipator includes spontaneous emission and pure dephasing:
 	+ \frac{\gamma_\varphi}{2} \left( \sigma_z \rho \sigma_z - \rho \right)
 	\label{eq:DissipatorOperator}
 \end{equation}
-
 Define the total decoherence rate:
 \begin{equation}
 	\Gamma = \frac{\gamma_0}{2} + \gamma_\varphi
@@ -136,7 +133,6 @@ Write the density matrix as:
 	\end{pmatrix}, \qquad \rho_{ge} = \rho_{eg}^*
 	\label{eq:DensityMatrixElements}
 \end{equation}
-
 Let \(\Omega_c = \Omega e^{i\phi}\). The equations of motion are:
 \begin{equation}
 	\boxed{
@@ -149,7 +145,6 @@ Let \(\Omega_c = \Omega e^{i\phi}\). The equations of motion are:
 	}
 	\label{eq:BlochEquations}
 \end{equation}
-
 On resonance (\(\Delta = 0\)), these reduce to the form implemented in the Liouvillian matrix in numerical calculations.
 
 \subsection{Liouvillian Matrix Form}
@@ -168,29 +163,25 @@ Flatten the density matrix into a column vector:
 	\end{pmatrix}
 	\label{eq:DensityMatrixVector}
 \end{equation}
-
 Then the master equation becomes:
 \begin{equation}
 	\dot{\boldsymbol{\rho}} = L(t) \boldsymbol{\rho}
 	\label{eq:LiouvillianMatrixForm}
 \end{equation}
-
 Where \(L(t)\) is the time-dependent Liouvillian matrix, using:
 \begin{equation}
 	\Omega_c(t) = \mu E(t), \quad \text{with } E(t) = E_0 e^{i\phi}
 	\label{eq:TimeDepRabiFreq}
 \end{equation}
-
 This matrix form is equivalent to the operator master equation above, and is suitable for numerical integration.
 
-\subsection{Rabi Frequency and Dynamics}
 
+\subsection{Rabi Frequency and Dynamics}
 The Rabi frequency \(\Omega_R\) determines the oscillation rate between the two levels:
 \begin{equation}
 	\Omega_R = \sqrt{\Delta^2 + \Omega^2}
 	\label{eq:RabiFrequency}
 \end{equation}
-
 The phase \(\phi\) does not change the \textbf{Rabi frequency}, but it \textbf{rotates the axis of Rabi oscillations} in the Bloch sphere — i.e., it changes the \textbf{initial direction} of the drive.
 
 In matrix form, in the basis \(\{ \ket{e}, \ket{g} \}\), the RWA Hamiltonian is:
@@ -203,6 +194,7 @@ In matrix form, in the basis \(\{ \ket{e}, \ket{g} \}\), the RWA Hamiltonian is:
 	\label{eq:RWAHamiltonianMatrix}
 \end{equation}
 
+
 \subsection{Recovery of Laboratory Frame Density Matrix}
 
 To recover the entries of the original density matrix \(\rho(t)\) from the evolved density matrix in the rotating frame \(\tilde{\rho}(t)\), the inverse transformation is used:
@@ -210,7 +202,6 @@ To recover the entries of the original density matrix \(\rho(t)\) from the evolv
 	\rho(t) = U^\dagger(t) \tilde{\rho}(t) U(t)
 	\label{eq:RecoverOriginalDensityMatrix}
 \end{equation}
-
 The entries of the original density matrix \(\rho(t)\) are related to the entries of the density matrix in the rotating frame \(\tilde{\rho}(t)\) by:
 \begin{align}
 	\rho_{gg}(t) & = \tilde{\rho}_{gg}(t) \label{eq:RecoveryGG}                  \\
@@ -231,5 +222,4 @@ Rabi oscillations and the associated theoretical tools, such as the RWA and dens
 	\item \textbf{Spectroscopy:} The Rabi frequency provides information about the interaction strength between light and matter.
 	\item \textbf{Atomic Physics:} Understanding Rabi oscillations is essential for manipulating atomic states in experiments.
 \end{itemize}
-
 These concepts form the foundation for advanced topics in quantum mechanics and quantum technologies.
