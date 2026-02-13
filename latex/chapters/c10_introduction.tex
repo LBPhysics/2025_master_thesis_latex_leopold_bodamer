@@ -1,49 +1,37 @@
 % !TEX root = ../main.tex
 \chapter{Introduction}
 \label{Chapter_Introduction}
+\todoref{sounds good but are refs good?}
+Quantum dynamics in molecular and condensed-matter systems unfold on femtosecond timescales and are shaped by the interplay of coherent inter-site couplings and environmental fluctuations. In many systems of current interest---light-harvesting complexes, molecular aggregates, conjugated polymers---the relevant electronic degrees of freedom are embedded in warm, structurally complex surroundings that drive rapid decoherence and dissipation \cite{breuerpetruccione2009theoryopenquantum, weiss2012quantumdissipativesystems}. Understanding how these environment-induced processes compete with coherent energy transfer, and identifying their signatures in experimentally accessible observables, is a central challenge in the physics of open quantum systems.
 
+Conventional linear spectroscopy---absorption and emission---reveals excitation energies and oscillator strengths but compresses all dynamical information into one-dimensional lineshapes, where homogeneous dephasing, population relaxation, and static disorder produce overlapping contributions that are difficult to disentangle \cite{mukamel1995principlesnonlinearoptical}. Nonlinear spectroscopy overcomes this limitation. In particular, two-dimensional electronic spectroscopy (2DES) correlates excitation and detection frequencies by controlling the time delays between a sequence of ultrashort laser pulses \cite{jonas2003twodimensionalfemtosecondspectroscopy, cho2009twodimensionalopticalspectroscopy, gelzinisetal2019twodimensionalspectroscopynonspecialists}. The resulting frequency--frequency maps separate homogeneous from inhomogeneous broadening, resolve inter-state couplings through cross peaks, and track energy-transfer pathways as a function of the waiting time. On the theory side, the measured signal can be expressed through multi-time response functions of the transition-dipole operator, providing a direct link between spectroscopic observables and open-quantum-system dynamics \cite{mukamel1995principlesnonlinearoptical}.
 
-Ultrafast optical spectroscopy provides a direct experimental window into quantum dynamics on femtosecond timescales. In many molecular and condensed-matter systems, the relevant degrees of freedom are not isolated: they are embedded in complex environments that induce relaxation and dephasing, and can strongly reshape transport and coherence signatures. This interplay is particularly important in ``hot'' settings (room temperature, soft-matter, biological complexes), where one expects fast decoherence but still observes structured spectral features that encode microscopic couplings and dynamical pathways.
-
-\medskip
-
-Two-dimensional electronic spectroscopy (2DES) was developed to separate such effects. By correlating excitation and detection frequencies while controlling the delays between ultrashort pulses, 2DES separates homogeneous from inhomogeneous broadening and reveals couplings and energy-transfer pathways via diagonal and cross peaks \cite{jonas2003twodimensionalfemtosecondspectroscopy, cho2009twodimensionalopticalspectroscopy, gelzinisetal2019twodimensionalspectroscopynonspecialists}. On the theory side, the same observables can be expressed in terms of multi-time response functions of the dipole operator, which naturally connect spectroscopy to open-quantum-system propagators \cite{mukamel1995principlesnonlinearoptical}.
+This thesis develops a computational framework for simulating 2DES signals of open quantum systems in parameter regimes relevant to warm, structured environments, and applies it to model systems of increasing complexity.
 
 \section{Scope and approach}
 \label{sec:intro_scope}
 
+The open-system dynamics are modelled with the Redfield master equation \cite{breuerpetruccione2009theoryopenquantum, weiss2012quantumdissipativesystems, rivasetal2010markovianmasterequations}, which provides a transparent microscopic link from a system--bath Hamiltonian---characterised by bath correlation functions and spectral densities---to relaxation and dephasing rates. Because Redfield theory is not guaranteed to preserve complete positivity, its application is restricted to regimes where the weak-coupling and Markov assumptions are well motivated; results are benchmarked against Lindblad-form generators to assess the impact of the secular approximation and to ensure physical consistency.
 
-The goal of this thesis is to build a consistent modelling workflow for 2DES signals of open quantum systems in regimes relevant to warm, structured environments. The emphasis is on a pragmatic weak-coupling description that connects microscopic bath models (via correlation functions / spectral densities) to relaxation and dephasing rates, while remaining computationally feasible for parameter scans and multi-site systems.
-
-\medskip
-
-We therefore use the Redfield master equation as the default open-system generator \cite{breuerpetruccione2009theoryopenquantum, weiss2012quantumdissipativesystems, rivasetal2010markovianmasterequations}. Redfield theory provides a clear link from a system--bath Hamiltonian to dissipative dynamics, but it is not guaranteed to be completely positive; throughout, its use is restricted to regimes where the weak-coupling and Markov assumptions are well-motivated and results are interpreted with appropriate care. For comparison and for controlled limiting cases, Lindblad-form models are used where appropriate.
-
-\medskip
-
-On the spectroscopy side, we follow the standard third-order response-function framework of nonlinear optics \cite{mukamel1995principlesnonlinearoptical, cho2009twodimensionalopticalspectroscopy}. In addition, the numerical implementation used in this thesis adopts a non-perturbative (time-domain) strategy in which the driven open-system equation of motion is solved with the pulses explicitly included, and lower-order background contributions are removed by auxiliary runs. This provides direct access to complex-valued signals via phase cycling and enables an accurate treatment of finite pulse durations and pulse overlap effects \cite{segarra-martietal2018accuratesimulationtwodimensional, sunetal2024twodimensionalspectroscopyopen}.
+On the spectroscopy side, the third-order response-function formalism \cite{mukamel1995principlesnonlinearoptical, cho2009twodimensionalopticalspectroscopy} provides the conceptual framework. Numerically, however, a non-perturbative time-domain strategy is adopted: the driven open-system equation of motion is propagated with the laser pulses included explicitly, and lower-order contributions are eliminated through phase cycling over auxiliary propagations \cite{segarra-martietal2018accuratesimulationtwodimensional, sunetal2024twodimensionalspectroscopyopen}. This approach naturally accounts for finite pulse durations and pulse-overlap effects without resorting to the impulsive limit.
 
 \section{Model systems and physical questions}
 \label{sec:intro_models_questions}
 
-
-To connect the formalism to interpretable signatures in 2D spectra, the analysis proceeds from minimal reference models to structured ensembles:
+The formalism is applied to a hierarchy of model systems designed to isolate specific spectroscopic signatures:
 \begin{itemize}
-	\item \textbf{Two-level system (TLS):} a baseline to validate the numerical workflow and to separate homogeneous dephasing, population relaxation and static disorder through their distinct 2D line-shape fingerprints.
-	\item \textbf{Dimer:} the minimal model that produces cross peaks and allows one to contrast coherent coupling (excitonic mixing) with incoherent population transfer during the waiting time.
-	\item \textbf{$N$-site ensembles with geometry:} larger systems in which 2D spectra can visualize geometry-dependent coupling networks and transport. Motivated by protofilament arrangements in microtubules, a discretized cylindrical architecture is used as a concrete, structured test case \cite{kalraetal2023electronicenergymigration}.
+	\item \textbf{Two-level system.} A minimal benchmark for validating the numerical framework and for disentangling the 2D lineshape contributions of homogeneous dephasing, population relaxation, and static disorder.
+	\item \textbf{Dimer.} Two coupled sites that produce cross peaks, enabling a direct comparison of coherent excitonic mixing and incoherent population transfer during the waiting time.
+	\item \textbf{$\boldsymbol{N}$-site cylindrical ensemble.} A multi-chromophore system whose geometry is motivated by the protofilament arrangement in microtubules \cite{kalraetal2023electronicenergymigration}, serving as a structured test case for geometry-dependent coupling networks and their manifestation in 2D spectra.
 \end{itemize}
 
-The central question throughout is how environment-induced relaxation and dephasing compete with coherent couplings to shape experimentally accessible observables: peak positions, line shapes, and waiting-time dynamics.
+The central physical question is how environment-induced relaxation and dephasing, as parametrised by the spectral density and temperature, compete with coherent couplings to determine peak positions, lineshapes, and waiting-time dynamics in two-dimensional spectra.
 
 \section{Thesis outline}
 \label{sec:intro_outline}
 
+\autoref{chapter_open_quantum_systems} introduces the open-quantum-system framework, deriving the Redfield master equation and discussing bath correlation functions and spectral densities.
+\autoref{chapter_spectroscopy} develops the nonlinear-spectroscopy formalism, from linear response and the Kubo formula through third-order response functions to the construction of rephasing and nonrephasing 2D spectra.
+\autoref{chapter_model_systems} specifies the Hamiltonians, dipole operators, and bath models for the systems listed above.
 
-\autoref{chapter_open_quantum_systems} introduces the open-quantum-system framework used throughout, with emphasis on the Redfield master equation, bath correlation functions, and commonly used spectral densities \cite{breuerpetruccione2009theoryopenquantum, weiss2012quantumdissipativesystems}.
-\autoref{chapter_spectroscopy} develops the nonlinear spectroscopy formalism leading to 2DES observables, separating the field-side and matter-side ingredients and establishing the response-function viewpoint \cite{mukamel1995principlesnonlinearoptical, jonas2003twodimensionalfemtosecondspectroscopy, cho2009twodimensionalopticalspectroscopy}.
-\autoref{chapter_model_systems} specifies the concrete Hamiltonians and dipole operators for the TLS, dimer and $N$-site ensembles used in the simulations.
-
-\medskip
-
-The appendices provide derivations and implementation details that support the main text: \autoref{app:numerical_implementation} summarizes the numerical workflow and software architecture; \autoref{app:2dfts_maxwell} derives the Maxwell-to-signal link for coherent 2D Fourier-transform spectroscopy; \autoref{app:response_functions} collects the Dyson-series / response-function derivation of the $n$-th order polarization; and \autoref{app:detection_schemes} discusses detection schemes and complex-signal reconstruction.
+Supporting material is collected in the appendices: \autoref{app:numerical_implementation}~(numerical implementation and software architecture), \autoref{app:2dfts_maxwell}~(Maxwell-to-signal derivation for coherent 2D Fourier-transform spectroscopy), \autoref{app:response_functions}~(Dyson-series derivation of the $n$-th order polarization), and \autoref{app:detection_schemes}~(detection schemes and complex-signal reconstruction).

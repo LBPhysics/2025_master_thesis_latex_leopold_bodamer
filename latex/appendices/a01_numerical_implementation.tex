@@ -6,7 +6,7 @@
 
 This chapter presents the computational framework developed for simulating one- and two-dimensional electronic spectroscopy of open quantum systems.
 
-The implementation is built around the \texttt{qspectro2d} Python package, which provides a modular, configuration-driven workflow that bridges the theoretical framework established in previous chapters with practical computational methods for investigating quantum coherence phenomena in complex molecular systems.
+The implementation is built around the \texttt{qspectro2d} Python package, which provides a modular, configuration-driven workflow that bridges the theoretical framework established in previous chapters with practical computational methods for investigating quantum coherence phenomena in complex molecular systems. The open quantum system dynamics are solved using \texttt{QuTiP}~\cite{lambertetal2024qutip5quantum}.
 
 \section{Software Architecture and Design Philosophy}
 \label{sec:software_architecture}
@@ -21,7 +21,7 @@ The package structure comprises five main submodules: \texttt{core} (fundamental
 \label{sec:configuration_workflow}
 
 
-The simulation framework employs YAML configuration files to specify all physical and computational parameters, enabling reproducible plotes. A typical configuration defines the \textbf{atomic system} through the number of atoms, transition frequencies, geometric arrangement, and inhomogeneous broadening parameters. \textbf{Laser parameters} encompass pulse amplitudes, durations, carrier frequencies, and rotating wave approximation settings, while \textbf{environmental coupling} is characterized by bath type (Ohmic, Drude-Lorentz), temperature, coupling strength, and cutoff frequencies. Finally, \textbf{computational settings} specify the ODE solver choice (Lindblad vs. Bloch-Redfield), signal types, and time windows.
+The simulation framework employs YAML configuration files to specify all physical and computational parameters, enabling reproducible simulations. A typical configuration defines the \textbf{atomic system} through the number of atoms, transition frequencies, geometric arrangement, and inhomogeneous broadening parameters. \textbf{Laser parameters} encompass pulse amplitudes, durations, carrier frequencies, and rotating wave approximation settings, while \textbf{environmental coupling} is characterized by bath type (Ohmic, Drude-Lorentz), temperature, coupling strength, and cutoff frequencies. Finally, \textbf{computational settings} specify the ODE solver choice (Lindblad vs. Bloch-Redfield), signal types, and time windows.
 
 
 The workflow consists of three main execution phases: simulation (\texttt{calc\_datas.py}), post-processing (\texttt{process\_datas.py}), and visualization (\texttt{plot\_datas.py}). This separation enables efficient parameter studies where computationally expensive simulations are performed once, followed by rapid exploration of different analysis and visualization options.
@@ -45,7 +45,8 @@ with frequency $\omega_m = 2\pi \nu_m$, wavevector $\boldsymbol{k}_m$, and elect
 \begin{equation}
 	E'_m(t - \tau_m) = \exp\left( -\frac{4 \ln 2 (t - \tau_m)^2}{\tau_p^2} \right).
 \end{equation}
-The core spectroscopic calculation implements phase-cycled third-order polarization measurement following the established four-wave mixing protocols detailed in \autoref{chapter_spectroscopy}, \autoref{sec:phase_cycling}.
+For numerical efficiency, the Gaussian pulse is truncated to zero once the instantaneous intensity $|E'_m(t)|^2$ falls below $10^{-4}$ of its peak value (approximately two FWHM from the pulse center). In these field-free intervals, the evolution is propagated with the time-independent Liouvillian, which is computationally more efficient.
+The core spectroscopic calculation implements phase-cycled third-order polarization measurement following the established four-wave mixing protocols detailed in \autoref{chapter_spectroscopy}, \autoref{sec:phase_cycling}~\cite{hamm2005principlesnonlinearoptical, greenetal2024vibrationalcoherenceshalfbroadband}.
 
 \medskip
 

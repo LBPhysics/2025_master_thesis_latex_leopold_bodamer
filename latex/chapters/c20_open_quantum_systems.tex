@@ -75,10 +75,10 @@ The conditions in \autoref{eq:DensityMatrix} ensure the following properties tha
 	\mathrm{Tr}(\hat{\rho})          & = 1.
 \end{align}
 
-In this formalism, for a canonical basis $\{\ket{i}\}$ representing a set of quantum states, the diagonal elements $\rho_{ii}$ represent populations and the off-diagonal elements $\rho_{ij}$ represent coherences between states.
-Coherences are phase relations between different quantum states, which are crucial for interference.
+In this formalism, for a canonical basis $\{\ket{i}\}$, the diagonal elements $\rho_{ii}$ represent populations and the off-diagonal elements $\rho_{ij}$ represent coherences between states.
+Coherences are phase relations, which are crucial for interference.
 For example for a two level system a clear phase relation and a pure quantum state would have off diagonal elements of $ \rho_{ij} = 1/2$.
-This state is often referred to as a coherent superposition of the two states.
+This state is often referred to as a fully coherent superposition of the two states.
 
 When coupling a system to an environment, the environment is responsible for decoherence.
 The state evolves over time to a purely statistical mixture of states.
@@ -101,7 +101,6 @@ For a bipartite Hilbert space $\mathcal{H_A} \otimes \mathcal{H_B}$, the partial
 	\| \hat{X} \|_1 = \mathrm{Tr} \sqrt{\hat{X}^\dagger \hat{X}}
 \end{equation}
 This ensures expectation values of local observables $\hat{A} \otimes \mathds{1}_B$ are preserved. In an orthonormal basis $\{\ket{b_i}\}$ of $\mathcal{H_B}$, it acts as \cite{steebhardy2018problemssolutionsquantum}:
-
 \begin{equation} \label{eq:ho_partial_trace_definition}
 	\mathrm{Tr}_B \hat{X} = \sum_i (\mathds{1}_A \otimes \bra{b_i}) \, \hat{X} \, (\mathds{1}_A \otimes \ket{b_i}).
 \end{equation}
@@ -198,7 +197,7 @@ The iteration can be repeated, leading to a series expansion in powers of $\alph
 \end{equation}
 The expansion is truncated at second order, justified by the weak coupling assumption ($\alpha \ll 1$), which represents the \textbf{Born approximation}.
 
-\autoref{eq:Second_Order_Expansion_truncated} still contains the full history through $\hat{\rho}_{T,I}(s)$ inside the integral and is therefore \emph{non-Markovian}. As a first step toward a time-local (Born--Markov) description, one assumes that the total state varies slowly on the bath correlation time and replaces $\hat{\rho}_{T,I}(s) \to \hat{\rho}_{T,I}(t)$ inside the integrand. This is a time-local substitution at second order (not yet the full TCL2 \todoimp{TCL2 verstehen was das sein soll oder weglassen} construction) and yields
+\autoref{eq:Second_Order_Expansion_truncated} still contains the full history through $\hat{\rho}_{T,I}(s)$ inside the integral and is therefore \emph{non-Markovian}. As a first step toward a time-local (Born--Markov) description, one assumes that the total state varies slowly on the bath correlation time and replaces $\hat{\rho}_{T,I}(s) \to \hat{\rho}_{T,I}(t)$ inside the integrand. This is a time-local substitution at second order and yields
 
 \begin{equation}
 	\frac{d}{dt}\hat{\rho}_{T,I}(t) = -i \alpha \big[ \hat{H}_{\mathrm{int},I}(t), \hat{\rho}_{T,I}(0) \big]
@@ -541,7 +540,7 @@ This yields the \emph{secular} Redfield (Lindblad form) equation
 \end{align}
 where $\gamma_{ii'}(\omega) = 2 \mathrm{Re}\,\chi_{ii'}(\omega)$. This form is guaranteed to preserve complete positivity provided the matrix $[\gamma_{ii'}(\omega)]_{i,i'}$ is positive semidefinite for each frequency $\omega$. Without the secular approximation, \autoref{eq:Redfield_Dissipator} need not generate a completely positive dynamical map, explaining the caution required when applying the full Redfield equation.
 
-For a thermal bath satisfying the KMS condition, the fully secular weak-coupling limit (Davies) generator associated with \autoref{eq:Secular_Lindblad_Form} satisfies quantum detailed balance with respect to $\hat{H}_S$ and therefore leaves the Gibbs state stationary~\cite{breuerpetruccione2009theoryopenquantum,alickilendi2007recentdevelopments,davies1974markovianmasterequationsa}. The corresponding Gibbs state is (cf.~\autoref{eq:ho_gibbs_state} with $\hat{H}_E \to \hat{H}_S$)
+For a thermal bath satisfying the KMS condition, the fully secular weak-coupling limit (Davies) generator associated with \autoref{eq:Secular_Lindblad_Form} satisfies quantum detailed balance with respect to $\hat{H}_S$ and therefore leaves the Gibbs state stationary~\cite{breuerpetruccione2009theoryopenquantum,alickilendi2007recentdevelopments,davies1974markovianmasterequations}. The corresponding Gibbs state is (cf.~\autoref{eq:ho_gibbs_state} with $\hat{H}_E \to \hat{H}_S$)
 
 \begin{equation}
 	\hat{\rho}_{\mathrm{Gibbs}} \equiv
@@ -866,39 +865,27 @@ Both choices translate to one single exponentially decaying memory kernel.
 Beyond these overdamped models, one often uses underdamped Brownian-oscillator spectral densities to represent discrete vibrational structure, or considers microscopic chain models such as the Rubin model, whose continuum limits recover Ohmic/Drude-type behavior \cite{thingnasteadystatetransportproperties, dasetal2020quantumbrownianmotion}. In practice, more structured environments are frequently approximated by a sum of such components (e.g. Drude plus Brownian terms), which is also a standard starting point for hierarchical-equations-of-motion (HEOM) approaches \cite{tanimura2012reducedhierarchyequations,lambertetal2023qutipbofinbosonicfermionic}.
 
 
-\subsection{What ``structured" means}
+\subsection{Structured vs.\ unstructured baths and the Markov condition}
 
-Let $\tau_S$ denote the fastest relevant system time (e.g. among relaxation and dephasing times and the intrinsic oscillation time $1/\omega_0$). A bath is \emph{unstructured} when $J(\omega)$ is essentially flat over the system's active bandwidth $|\omega-\omega_0| \lesssim 1/\tau_S$, and \emph{structured} when it has pronounced features near relevant transitions (sharp peaks from underdamped modes, band edges, steep slopes)~\cite{breuerpetruccione2009theoryopenquantum}. Structured spectra are the main reason why a single ``rate'' description can fail: they can create oscillatory bath correlations and long memory even when the overall coupling is not extreme.
+Let $\tau_S$ denote the fastest relevant system time (e.g.\ among relaxation and dephasing times and the intrinsic oscillation time $1/\omega_0$). A bath is \emph{unstructured} when $J(\omega)$ is essentially flat over the system's active bandwidth $|\omega-\omega_0| \lesssim 1/\tau_S$, and \emph{structured} when it has pronounced features near relevant transitions (sharp peaks from underdamped modes, band edges, steep slopes)~\cite{breuerpetruccione2009theoryopenquantum}. Structured spectra can create oscillatory bath correlations and long memory, which is the main reason why a single-rate description can fail.
 
-\subsection{Bath and system timescales}
+Physically, $C(t)=\langle E(t)E(0)\rangle$ measures how long the bath ``remembers'' its past, with decay time $\tau_E$ (computed from $J(\omega)$ via \crefrange{eq:ho_correlator_spectral_density}{eq:ho_correlator_final}). The Markov regime corresponds to $\tau_E \ll \tau_S$, so the bath relaxes before the system changes appreciably. Memory shortens when the spectrum is broadened and lengthens for narrow resonances or strong low-frequency weight.
 
-Physically, $C(t)=\langle E(t)E(0)\rangle$ measures how long the bath ``remembers'' its past, with decay time $\tau_E$ (computed from $J(\omega)$ via \crefrange{eq:ho_correlator_spectral_density}{eq:ho_correlator_final}). The Markov regime corresponds to $\tau_E \ll \tau_S$, so the bath relaxes before the system changes appreciably. For example, a Drude--Lorentz cutoff $\gamma$ gives $\tau_E\sim 1/\gamma$, while an underdamped peak yields oscillatory correlations with phase memory set by $\omega_c$~\cite{weiss2012quantumdissipativesystems}. Memory shortens when the spectrum is broadened and lengthens for narrow resonances or strong low-frequency weight; this can be checked directly from $C(t)$.
-
-\subsection{Drude--Lorentz vs. resonant Lorentzian baths}
+\subsection{Drude--Lorentz vs.\ resonant Lorentzian baths}
 \label{subsec:drude_vs_lorentzian_bath}
 
 Two frequently conflated models differ physically and mathematically.
 
 \paragraph{Drude--Lorentz (overdamped Brownian).}
-
 Spectral density (cutoff $\gamma$; reorganization energy $\lambda$):
 \begin{equation}
 	J_{\mathrm{DL}}(\omega) = \frac{2\lambda\, \omega\, \gamma}{\omega^2+\gamma^2}.
 \end{equation}
-It is peaked at $\omega=0$ and produces a predominantly monotonic bath correlation function with a decay scale $\tau_E\sim 1/\gamma$ (with additional thermal corrections), making it a standard model for broadband low-frequency noise~\cite{tanimura2020numericallyexactapproach, huetal2010communicationpadespectrum}.
+It is peaked at $\omega=0$ and produces a predominantly monotonic bath correlation function with decay scale $\tau_E\sim 1/\gamma$, making it a standard model for broadband low-frequency noise~\cite{tanimura2020numericallyexactapproach}.
 
 \paragraph{Resonant Lorentzian (underdamped mode).}
-
 Spectral density (center $\omega_c\neq 0$, width $\gamma$):
 \begin{equation}
 	J_{\mathrm{Lor}}(\omega) = \frac{\lambda^2}{\pi}\,\frac{\gamma}{(\omega-\omega_c)^2+\gamma^2}.
 \end{equation}
-The corresponding correlator oscillates and decays~\cite{breuerpetruccione2009theoryopenquantum, chinetal2010exactmappingsystemreservoir}:
-\begin{equation}
-	C_{\mathrm{Lor}}(t) \propto e^{-\gamma t}\Big[\coth\!\big(\tfrac{\beta\omega_c}{2}\big)\cos(\omega_c t) - i\sin(\omega_c t)\Big].
-\end{equation}
-Physically equivalent to a reaction coordinate (single damped mode) coupled to a Markovian residual bath; strongly non-Markovian when $\gamma \ll \omega_c$~\cite{chinetal2010exactmappingsystemreservoir}.
-
-\paragraph{Takeaways.}
-
-\emph{DL} describes broadband, low-frequency noise with a single decay scale set by $\gamma$; a resonant \emph{Lorentzian} describes a mode near $\omega_c$ that can exchange energy coherently with the system and hence introduces oscillatory memory when it is narrow ($\gamma$ small). Which one to use depends primarily on spectral \emph{structure} near $\omega_0$, not on coupling strength per se.
+Physically equivalent to a reaction coordinate (single damped mode) coupled to a Markovian residual bath; strongly non-Markovian when $\gamma \ll \omega_c$~\cite{chinetal2010exactmappingsystemreservoir}. Which model to use depends primarily on spectral \emph{structure} near $\omega_0$, not on coupling strength per se.
