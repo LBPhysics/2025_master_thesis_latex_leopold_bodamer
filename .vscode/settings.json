@@ -82,7 +82,7 @@
     "latex-workshop.formatting.tex-fmt.path": "/home/leopold/Projects/2025_master_thesis_latex_leopold_bodamer/.venv/bin/tex-fmt",
     // ---- Language-Specific Formatting Rules for Consistency ----
     "[latex]": {
-        "editor.wordWrap": "bounded",
+        "editor.wordWrap": "wordWrapColumn",
         "editor.wordWrapColumn": 100
     },
     // ---- Hiding Build/Temporary Files from the Explorer ----

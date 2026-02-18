@@ -44,7 +44,7 @@ $\mathcal{V}$ explicit. From \autoref{eq:app_dipole_superoperator} one has
 so the field interaction consists of two pieces: a \emph{left action} of the dipole operator on
 the density operator and a \emph{right action}. This ``left minus right'' commutator structure is the algebraic origin of the different Liouville-space (double-sided) pathways
 encountered in nonlinear optics: whether the dipole acts on the ``ket'' (left) or on the ``bra'' (right)
-determines which coherences or populations are created at each interaction (see also the main-text definition of the dipole superoperator in \autoref{eq:dipole_superoperator_thesis}).
+determines which coherences or populations are created at each interaction (cf.\ also the main-text definition of the dipole superoperator in \autoref{eq:dipole_superoperator_thesis}).
 
 As in standard time-dependent perturbation theory, it is convenient to remove the field-free part by introducing the interaction-picture density operator
 \begin{equation}
@@ -77,7 +77,7 @@ This is exact: the field-free dynamics has been removed, and all remaining time 
 \end{equation}
 Note that the initial condition is the same in both pictures: $\hat{\rho}_{\mathrm I}(t_0)=\hat{\rho}(t_0)$.
 
-In direct analogy to wavefunction-based time-dependent perturbation theory, one may interpret the resulting expansion as an evolution of the density matrix in powers of the interaction-picture coupling: $\hat{\rho}^{(0)}(t)$ is the zeroth-order density matrix (field-free evolution), and the higher-order corrections $\hat{\rho}^{(n)}(t)$ are ordered in powers of the interaction Hamiltonian/superoperator. A key difference compared to the wavefunction is that the density operator carries both a ket and a bra; consequently, the light--matter interaction can act from the left or from the right. This left/right (ket/bra) structure is precisely what later appears as the commutator (``left minus right'') form of the dipole superoperator and underlies the Liouville-space pathway picture used in nonlinear spectroscopy~\cite{hammzanni2011conceptsmethods2d}.
+In direct analogy to wavefunction-based time-dependent perturbation theory, one may interpret the resulting expansion as an evolution of the density matrix in powers of the interaction-picture coupling: $\hat{\rho}^{(0)}(t)$ is the zeroth-order density matrix (field-free evolution), and the higher-order corrections $\hat{\rho}^{(n)}(t)$ are ordered in powers of the interaction Hamiltonian/superoperator. A key difference compared to the wavefunction is that the density operator carries both a ket and a bra. Consequently, the light--matter interaction can act from the left or from the right. This left/right (ket/bra) structure is precisely what later appears as the commutator (``left minus right'') form of the dipole superoperator and underlies the Liouville-space pathway picture used in nonlinear spectroscopy~\cite{hammzanni2011conceptsmethods2d}.
 
 To obtain a perturbation expansion in the field, this equation is iterated: the right-hand side is substituted back into $\hat{\rho}_{\mathrm I}(\tau)$ repeatedly. After $n$ iterations one arrives at the Dyson series
 \begin{equation}
@@ -101,7 +101,7 @@ Formally, one writes this as a time-ordered exponential,
 	= \mathcal{T}\exp\!\left[\,\mathrm{i}\int_{t_0}^{t}\!\mathrm{d}\tau\,\mathcal{V}_{\mathrm I}(\tau)\,E(\tau)\right] \hat{\rho}(t_0),
 	\label{eq:app_time_ordered_exponential}
 \end{equation}
-where $\mathcal{T}$ is the time-ordering operator. This notation is compact but symbolic; for spectroscopy the explicit $n$-th order terms are used.
+where $\mathcal{T}$ is the time-ordering operator. This notation is compact but symbolic. For spectroscopy the explicit $n$-th order terms are used.
 
 \subsection{Polarization as a perturbation series}
 \label{app:sec:polarization_series}
@@ -160,9 +160,8 @@ $t_0<\tau^{(n)}<\cdots<\tau^{(1)}<t$ maps to independent semi-infinite integrals
 
 \medskip
 
-This change of variables is commonly depicted by distinguishing \emph{absolute} interaction times from the experimentally controlled \emph{time intervals} between interactions~\cite{hammzanni2011conceptsmethods2d}. In the present appendix, $\tau^{(j)}$ is used for the absolute, time-ordered interaction times and $\tau_j$ is used for the nonnegative delay intervals.
-
-\begin{figure}[t]
+This change of variables is commonly depicted by distinguishing \emph{absolute} interaction times from the experimentally controlled \emph{time intervals} between interactions~\cite{hammzanni2011conceptsmethods2d}. In the present appendix, $\tau^{(j)}$ is used for the absolute, time-ordered interaction times and $\tau_j$ is used for the nonnegative delay intervals. A schematic is shown in \autoref{fig:app_time_variables_absolute_vs_intervals}.
+\begin{figure}[tbp]
 	\centering
 	\begin{tikzpicture}[x=1.15cm,y=1cm,>=latex]
 		\draw[->,thick] (0,0) -- (9,0) node[below] {time};
@@ -205,9 +204,9 @@ where the \emph{response function} is defined by
 The nested-commutator structure is crucial: since $\mathcal{V}[\hat{A}]=[\hat{\mu},\hat{A}]$ (\autoref{eq:app_dipole_superoperator}), each interaction produces a \emph{left} and a \emph{right} action on the density operator (\autoref{eq:app_V_commutator_expanded}). As a result, expanding the product of $n$ commutators generates $2^n$ Liouville-space contributions (``pathways'') before additional physical selections (e.g. rotating-wave approximation, phase matching/phase cycling) restrict the subset that contributes to a given measured signal. These pathways are naturally represented by double-sided Feynman (Liouville-space) diagrams, where the two branches represent the ket and bra evolution and each field interaction is drawn as an arrow acting from the left or from the right~\cite{mukamel1995principlesnonlinearoptical}.
 
 
-Finally, while the Dyson series itself is time ordered (\autoref{eq:app_dyson}), in an experiment different pulse arrival orders correspond to different time-ordered contributions to $\boldsymbol{P}^{(n)}$; the total polarization is obtained by summing the relevant orderings for the chosen pulse sequence.
+Finally, while the Dyson series itself is time ordered (\autoref{eq:app_dyson}), in an experiment different pulse arrival orders correspond to different time-ordered contributions to $\boldsymbol{P}^{(n)}$. The total polarization is obtained by summing the relevant orderings for the chosen pulse sequence.
 
-Two points are worth emphasizing. First, causality is explicit: $\boldsymbol{S}^{(n)}$ is only needed for nonnegative delays, and the fields are evaluated at times earlier than $t$. Second, $\boldsymbol{S}^{(n)}$ depends only on field-free dynamics and the dipole operator; it is independent of the particular pulse shapes.
+Two points are worth emphasizing. First, causality is explicit: $\boldsymbol{S}^{(n)}$ is only needed for nonnegative delays, and the fields are evaluated at times earlier than $t$. Second, $\boldsymbol{S}^{(n)}$ depends only on field-free dynamics and the dipole operator. It is independent of the particular pulse shapes.
 
 \subsection{Tensorial structure (optional but useful)}
 \label{app:sec:tensorial_structure}
@@ -232,7 +231,7 @@ Then $P^{(n)}_\alpha(t)$ is obtained by contracting this tensor with the field c
 
 Since the central experimental observable in this thesis is a third-order signal, it is useful to write the lowest- and third-order cases explicitly.
 
-\paragraph{Linear response.}
+\subsubsection{Linear Response}
 From \autoref{eq:app_Pn_convolution},
 \begin{equation}
 	\boldsymbol{P}^{(1)}(t)
@@ -246,7 +245,7 @@ with
 	\label{eq:app_S1_def}
 \end{equation}
 
-\paragraph{Third-order response.}
+\subsubsection{Third-Order Response}
 Likewise,
 \begin{equation}
 	\boldsymbol{P}^{(3)}(t)
@@ -260,7 +259,7 @@ with
 	= (\mathrm{i})^3\,\mathrm{Tr}\Bigl\{\hat{\boldsymbol{\mu}}\,\mathcal{U}_0(\tau_3)\,\mathcal{V}\,\mathcal{U}_0(\tau_2)\,\mathcal{V}\,\mathcal{U}_0(\tau_1)\,\mathcal{V}[\hat{\rho}_{\mathrm{eq}}]\Bigr\}.
 	\label{eq:app_S3_def}
 \end{equation}
-In a multi-pulse experiment one typically decomposes $E(t)$ into pulse envelopes (e.g. $E_1+E_2+E_3$) and selects the desired third-order term by phase matching or phase cycling; \autoref{eq:app_P3_convolution} is the causal kernel underlying that selection~\cite{hammzanni2011conceptsmethods2d}.
+In a multi-pulse experiment one typically decomposes $E(t)$ into pulse envelopes (e.g. $E_1+E_2+E_3$) and selects the desired third-order term by phase matching or phase cycling. \autoref{eq:app_P3_convolution} is the causal kernel underlying that selection~\cite{hammzanni2011conceptsmethods2d}.
 
 \medskip
 
@@ -279,9 +278,10 @@ In the frequency domain (after splitting each field into positive/negative-frequ
 with $\omega_S=\sigma_1\omega_1+\sigma_2\omega_2+\sigma_3\omega_3$. Fixing the polarization directions of all beams reduces \autoref{eq:app_P3_freq_domain_bookkeeping_tensor} to a scalar expression of the form used in the main text.
 
 
-\paragraph{Remark.}
+\subsubsection{Remark}
 It is worth pausing to appreciate what has been achieved. The $n$-th order polarization $\boldsymbol{P}^{(n)}(t)$ is obtained by taking the trace of the dipole operator with the $n$-th order contribution to the density operator generated by the Dyson series. In nonlinear spectroscopy this is not merely a formal approximation scheme: each term of fixed order corresponds to a real, experimentally isolable physical process, and the response function $\boldsymbol{S}^{(n)}$ provides the system-specific, causal kernel that the incident fields probe.
 
 \medskip
 
 This appendix stops here. Detection models (homodyne/heterodyne) and the construction of 2D spectra from the phase-selected time-domain signals are discussed in \autoref{chapter_spectroscopy}, \autoref{sec:2D_construction_formal}.
+

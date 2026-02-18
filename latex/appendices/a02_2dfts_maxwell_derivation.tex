@@ -5,9 +5,9 @@
 This appendix collects the \emph{field-side} derivation that connects Maxwell's equations to what is actually recorded in coherent two-dimensional Fourier-transform spectroscopy (2D-FTS/2DES): a heterodyne-detected complex signal field that is (to excellent approximation in the perturbative regime) linear in the third-order polarization $\boldsymbol{P}^{(3)}$.
 
 The logic is:
-(i) Maxwell $\Rightarrow$ a driven wave equation with $\boldsymbol{P}$ as source;
-(ii) phase matching and SVEA $\Rightarrow$ the emitted field in a chosen direction is proportional to the corresponding component of $\boldsymbol{P}^{(3)}$;
-(iii) the microscopic (matter-side) expression for $\boldsymbol{P}^{(3)}$ in terms of the incident fields is derived in \autoref{app:response_functions}.
+(i) Maxwell $\Rightarrow$ a driven wave equation with $\boldsymbol{P}$ as source.
+(ii) Phase matching and SVEA $\Rightarrow$ the emitted field in a chosen direction is proportional to the corresponding component of $\boldsymbol{P}^{(3)}$.
+(iii) The microscopic (matter-side) expression for $\boldsymbol{P}^{(3)}$ in terms of the incident fields is derived in \autoref{app:response_functions}.
 
 \section{From Maxwell's equations to a wave equation for the radiation field}
 \label{app:sec:maxwell_to_wave}
@@ -64,7 +64,7 @@ Then Gauss' law becomes the Poisson equation
 \begin{equation}
 	\boldsymbol{\nabla}^2\phi(\boldsymbol{r},t) = -\frac{\varrho(\boldsymbol{r},t)}{\varepsilon_0},
 \end{equation}
-which determines $\phi$ instantaneously in space. This does \emph{not} violate causality; it is a gauge artifact. The causal, propagating part of the optical field is contained in the transverse components discussed next.
+which determines $\phi$ instantaneously in space. This does \emph{not} violate causality. It is a gauge artifact. The causal, propagating part of the optical field is contained in the transverse components discussed next.
 
 \subsection{Transverse/longitudinal decomposition}
 
@@ -118,7 +118,7 @@ Using \autoref{eq:app_potentials_def}, in Coulomb gauge one identifies
 	\qquad
 	\boldsymbol{E}^{\parallel} = -\boldsymbol{\nabla}\phi.
 \end{equation}
-Thus, the radiation field relevant for optics is $\boldsymbol{E}^{\perp}$; the longitudinal field $\boldsymbol{E}^{\parallel}$ is determined instantaneously by $\varrho$ via the Poisson equation for $\phi$.
+Thus, the radiation field relevant for optics is $\boldsymbol{E}^{\perp}$. The longitudinal field $\boldsymbol{E}^{\parallel}$ is determined instantaneously by $\varrho$ via the Poisson equation for $\phi$.
 
 \subsection{Wave equation for the transverse electric field}
 
@@ -186,7 +186,7 @@ signal field, and then (once that link is explicit) to provide a microscopic exp
 \section{Input fields, phase factors, and phase matching}
 \label{app:sec:phase_matching}
 
-The incident field is represented as a sum of pulses $j\in\{1,2,3\}$ with slowly varying envelopes. The carrier phases (phase kicks) $\phi_j$ are written explicitly for completeness (they are essential for phase cycling in collinear geometries; see \autoref{chapter_spectroscopy}, \autoref{sec:phase_cycling}).
+The incident field is represented as a sum of pulses $j\in\{1,2,3\}$ with slowly varying envelopes. The carrier phases (phase kicks) $\phi_j$ are written explicitly for completeness. They are essential for phase cycling in collinear geometries (see \autoref{chapter_spectroscopy}, \autoref{sec:phase_cycling}).
 \begin{equation}
 	\boldsymbol{E}_{\mathrm{in}}(\boldsymbol{r},t)
 	= \sum_{j=1}^{3}\Big[
@@ -194,7 +194,7 @@ The incident field is represented as a sum of pulses $j\in\{1,2,3\}$ with slowly
 	\Big].
 	\label{eq:app_incoming_field}
 \end{equation}
-In the perturbative regime, the third-order polarization $\boldsymbol{P}^{(3)}$ is cubic in the incident field. Inserting \autoref{eq:app_incoming_field} therefore produces many terms; each carries a plane-wave factor with a signed wavevector combination. Under the usual rotating-wave approximation (equal carrier frequencies), one keeps the contributions oscillating near $\omega_L$, which correspond to exactly one complex-conjugated field factor and two non-conjugated ones. This yields the usual third-order signal wavevector combinations
+In the perturbative regime, the third-order polarization $\boldsymbol{P}^{(3)}$ is cubic in the incident field. Inserting \autoref{eq:app_incoming_field} therefore produces many terms. Each carries a plane-wave factor with a signed wavevector combination. Under the usual rotating-wave approximation (equal carrier frequencies), one keeps the contributions oscillating near $\omega_L$, which correspond to exactly one complex-conjugated field factor and two non-conjugated ones. This yields the usual third-order signal wavevector combinations
 \begin{equation}
 	\boldsymbol{k}_S = \pm\boldsymbol{k}_1 \pm \boldsymbol{k}_2 \pm \boldsymbol{k}_3,
 	\label{eq:app_kS_general}

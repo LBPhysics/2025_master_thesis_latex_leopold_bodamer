@@ -197,7 +197,7 @@
 
 \RequirePackage{caption} % Required for customising the captions
 %\captionsetup{justification=centerlast,font=small,labelfont=sc,margin=50pt}        % ORIGINAL
-\captionsetup{width=1.0\textwidth, font=normal, labelfont=bf}						% My version
+\captionsetup{width=1.2\textwidth, font=normal, labelfont=bf}					% My version
 
 % EDITED Load more essential packages:
 \RequirePackage{csquotes} % For quotes
@@ -269,8 +269,8 @@
 
 \geometry{
     paper=a4paper,
-    inner=2cm,
-    outer=3cm,
+	inner=1.5cm,
+	outer=2.5cm,
     bindingoffset=0.5cm,
     top=1.5cm,
     bottom=1.5cm,

@@ -43,6 +43,11 @@ Do **not** guess. Ask about:
 - Store figures under latex/figures with clear names.
 - Always add captions and labels; reference with \ref/\autoref.
 - Keep table formatting simple and consistent.
+- First mention comes first: introduce the figure in the text, then place the figure immediately after that paragraph (or on the next page if layout forces it).
+- Do not preview figures: avoid placing a figure earlier than its first callout, since the reader has not been told why it is there yet.
+- Keep the callout and the figure close: ideally on the same page; if not possible, ensure it is within the next page or so.
+- Full-page or large figures may land on the next page; ensure the first callout is not pages later than the figure.
+- Prefer flexible placement for figures: use `\begin{figure}[tbp]` to avoid blank space and allow the figure to move to the top of the next page if needed. Reserve `\begin{figure}[H]` for rare cases where strict placement is essential.
 
 ## Bibliography
 - Add sources only in bib/my_bibliography.bib.

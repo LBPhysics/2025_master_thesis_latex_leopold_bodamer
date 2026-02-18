@@ -6,7 +6,7 @@
 
 This chapter presents the computational framework developed for simulating one- and two-dimensional electronic spectroscopy of open quantum systems.
 
-The implementation is built around the \texttt{qspectro2d} Python package, which provides a modular, configuration-driven workflow that bridges the theoretical framework established in previous chapters with practical computational methods for investigating quantum coherence phenomena in complex molecular systems. The open quantum system dynamics are solved using \texttt{QuTiP}~\cite{lambertetal2024qutip5quantum}.
+The implementation is built around the \texttt{qspectro2d} Python package, which provides a modular, configuration-driven workflow that bridges the theoretical framework established in previous chapters with practical computational methods for investigating quantum coherence phenomena in complex molecular systems. The open quantum system dynamics are solved using \texttt{QuTiP}~\cite{lambertetal2026qutip5quantum}.
 
 \section{Software Architecture and Design Philosophy}
 \label{sec:software_architecture}
@@ -31,17 +31,14 @@ The workflow consists of three main execution phases: simulation (\texttt{calc\_
 
 
 In the numerical implementation, the electric field for multiple pulses is modeled following the formalism established in \autoref{chapter_spectroscopy}. The total electric field is expressed as
-
 \begin{equation}
 	\boldsymbol{E}(\boldsymbol{r},t) = \sum_{m=1}^{3} \boldsymbol{E}_m(\boldsymbol{r},t) + \mathrm{c.c.},
 \end{equation}
 where c.c. denotes the complex conjugate, and
-
 \begin{equation}
 	\boldsymbol{E}_m(\boldsymbol{r},t) = \boldsymbol{\chi}_m E'_m(t - \tau_m) \exp(-i (\omega_m t + \varphi_m)),
 \end{equation}
 with frequency $\omega_m = 2\pi \nu_m$, wavevector $\boldsymbol{k}_m$, and electric field amplitude $\boldsymbol{\chi}_m$. The envelope $E'_m(t - \tau_m)$, centered at $\tau_m$, is assumed to be Gaussian with FWHM $\tau_p$
-
 \begin{equation}
 	E'_m(t - \tau_m) = \exp\left( -\frac{4 \ln 2 (t - \tau_m)^2}{\tau_p^2} \right).
 \end{equation}
@@ -69,7 +66,6 @@ The quantum system evolution is handled by the \texttt{SimulationModuleOQS} clas
 
 
 For time-dependent pulse sequences, the total Hamiltonian takes the form established in the spectroscopy theory (\autoref{chapter_spectroscopy}):
-
 \begin{equation}
 	\label{eq:time_dependent_hamiltonian}
 	H(t) = H_0 + \sum_{i} H_{\text{int},i}(t),
@@ -95,7 +91,6 @@ The framework supports both local execution for testing and HPC cluster deployme
 
 
 For each combination of parameters, the averaged response is calculated following the inhomogeneous averaging procedure established in the spectroscopy theory (\autoref{chapter_spectroscopy}):
-
 \begin{equation}
 	\label{eq:averaged_response}
 	\langle E_{k_s}(t_{\text{coh}}, t_{\text{det}}) \rangle = \frac{1}{N_{\text{inhom}}} \sum_{i=1}^{N_{\text{inhom}}} E_{k_s}^{(i)}(t_{\text{coh}}, t_{\text{det}}),
@@ -107,7 +102,6 @@ where $N_{\text{inhom}}$ represents the number of inhomogeneous samples as defin
 
 
 The post-processing pipeline (\texttt{process\_datas.py}) handles the conversion from time-domain signals to 2D spectra. \textbf{Data aggregation} groups individual parameter combination files by inhomogeneous sample and stacks them along coherence time dimensions. \textbf{Zero-padding} extends the time-domain data to improve frequency resolution according to:
-
 \begin{equation}
 	\label{eq:zero_padding}
 	E_{\text{extended}}(t) = \begin{cases}
