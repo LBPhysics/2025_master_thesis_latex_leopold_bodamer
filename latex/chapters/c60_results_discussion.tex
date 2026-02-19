@@ -73,3 +73,53 @@ During coherence, diagonal peaks alternate between elongated and symmetric. Cros
 \subsubsection{Signs and Time Evolution}
 
 Real part: positive for emission/bleach, negative for absorption. Imaginary part shows dispersive changes. Time evolution: 0--50 fs (beats), 100--300 fs (damping/transfer), 300 fs (equilibrium).
+
+%------------------------------------------------------------------------------
+% 3. Interpretation of 2D Spectra and Link to Open Quantum Systems
+%------------------------------------------------------------------------------
+
+\section{Interpretation of 2D Spectra and Link to Open-System Dynamics}
+\label{sec:2D_interpretation_OQS}
+
+Two-dimensional spectra correlate excitation frequency $\omega_{\text{coh}}$ and detection frequency $\omega_{\text{det}}$ and thereby reveal couplings, energy-transfer pathways, and decoherence processes not accessible in 1D spectra.
+
+\subsection{Diagonal and cross peaks}
+
+
+Diagonal peaks ($\omega_{\text{coh}}\simeq\omega_{\text{det}}$) correspond to transitions visible in the linear absorption spectrum. Their diagonal width is dominated by inhomogeneous broadening (static disorder), while their antidiagonal width reflects homogeneous broadening (dephasing and lifetime effects). Off-diagonal (cross) peaks arise from electronic coupling between excitations or population transfer between states.
+
+\subsection{Rephasing vs.\ nonrephasing contributions}
+
+
+Rephasing spectra ($S_R$) contain contributions in which static frequency disorder is partially refocused during $t_{\text{det}}$, producing echo-like narrowing along the antidiagonal. Nonrephasing spectra ($S_{NR}$) contain pathways that do not rephase static disorder and thus emphasize homogeneous dynamics. The absorptive combination \autoref{eq:Sab_def} combines both for optimal resolution.
+In simulations, static inhomogeneity is commonly incorporated by averaging the calculated time-domain signals (or spectra) over an ensemble of Hamiltonian realizations that sample the inhomogeneous distribution~\cite{cho2009twodimensionalopticalspectroscopy, mukamel1995principlesnonlinearoptical}.
+
+\subsection{Connection to open-system modelling}
+
+
+The temporal evolution of coherences and populations during $(t_{\text{coh}},T,t_{\text{det}})$ is governed by the open-system dynamics discussed in \autoref{chapter_open_quantum_systems}. In the presence of the driving field, the master equation for the reduced density matrix takes the general form
+\begin{equation}
+	\frac{d}{dt}\hat{\rho}_S(t)
+	=
+	\mathcal{L}_0[\hat{\rho}_S(t)]
+	-
+	i\,[\hat{V}(t),\hat{\rho}_S(t)],
+	\label{eq:ME_with_field}
+\end{equation}
+where $\mathcal{L}_0$ is the Liouvillian of the field-free open system (e.g.\ Bloch--Redfield generator), and $\hat{V}(t)$ is the dipole coupling to the field.
+
+In a perturbative picture, the $n$-th order part $\hat{\rho}_S^{(n)}(t)$ satisfies
+\begin{equation}
+	\frac{d}{dt}\hat{\rho}_S^{(n)}(t)
+	=
+	\mathcal{L}_0[\hat{\rho}_S^{(n)}(t)]
+	-
+	i\,[\hat{V}(t),\hat{\rho}_S^{(n-1)}(t)],
+\end{equation}
+with $\hat{\rho}_S^{(0)}(t)$ solving the homogeneous equation $\frac{d}{dt}\hat{\rho}_S^{(0)}=\mathcal{L}_0[\hat{\rho}_S^{(0)}]$. The structure of $\mathcal{L}_0$ (e.g.\ its Redfield tensor, secular vs.\ nonsecular form, spectral densities) determines the decay rates and frequency shifts of coherences and populations that enter the correlation functions $S^{(n)}$ and thus the observed 2D spectra.
+
+In this thesis, $\mathcal{L}_0$ is taken to be a Redfield-type generator derived in \autoref{chapter_open_quantum_systems}, with bath correlation functions and spectral densities explicitly specified (cf.\ \crefrange{sec:environmental_correlation_functions}{sec:common_choices_spectral_densities}). The numerical procedure solves \autoref{eq:ME_with_field} nonperturbatively for a given pulse sequence and bath model, computes the polarization \autoref{eq:P_def_spectroscopy}, and uses phase cycling and Fourier transforms to construct $S_R$, $S_{NR}$, and $S_{\mathrm{abs}}$ according to \crefrange{eq:SR_def}{eq:Sab_def}.
+
+\medskip
+
+The results presented in this chapter demonstrate how the interplay between coherent dynamics, environmental decoherence, and disorder shapes the observable 2D spectra. By connecting the measured spectral features to the underlying open-quantum-system dynamics, the response-function formalism provides both a quantitative tool for predicting experimental signals and a theoretical framework for extracting microscopic parameters from measured spectra. This bridge between theory and experiment enables a detailed understanding of energy-transfer mechanisms, electronic couplings, and relaxation pathways in complex molecular systems.

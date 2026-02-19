@@ -34,6 +34,34 @@ Do **not** guess. Ask about:
 - Use consistent sectioning levels (\chapter, \section, \subsection).
 - Prefer semantic macros and reuse existing commands in style_thesis.cls.
 
+## Appendices vs. Supplementary Material
+
+**Appendix (part of the thesis PDF)**
+- Physically included at the end of the thesis document.
+- Examined and archived together with the thesis.
+- Needed for completeness or reproducibility.
+- Can be referenced in the main text ("see Appendix A").
+- Typically includes:
+  - Technical derivations
+  - Extended formulas
+  - Detailed definitions
+  - Additional figures that support the argument
+- **Purpose:** "Not needed for first-pass reading, but essential for full scientific transparency."
+
+**Supplementary Material (separate document or data)**
+- Not part of the main thesis PDF.
+- Often stored separately (data repository, GitHub, university archive).
+- Usually not printed.
+- Contains material too long, too technical, or too data-heavy for the thesis.
+- Typically includes:
+  - Large datasets
+  - Full simulation code
+  - Parameter tables
+  - Extra spectra not discussed in detail
+  - Extended numerical convergence studies
+  - Raw outputs
+- **Purpose:** "Everything required for full reproducibility, but too bulky for the thesis itself."
+
 ## Consistency
 - Use consistent notation for symbols and units across the document.
 - Define new macros in a central place (main.tex or class/style files), not inline.
