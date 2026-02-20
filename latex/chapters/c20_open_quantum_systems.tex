@@ -123,18 +123,18 @@ Without loss of generality, the total Hamiltonian $\hat{H}_T \in \mathcal{B}(\ma
 \end{equation*}
 where $\hat{H}_S$ and $\hat{H}_E$ act on the individual Hilbert spaces $\mathcal{H}_S$ and $\mathcal{H}_E$, respectively, while $\hat{H}_{\mathrm{int}}$ acts on the composite space $\mathcal{H}_T$ and describes the system--environment interaction. The dimensionless parameter $\alpha$ is the coupling strength parameter.
 
-The open-system setup is sketched in \autoref{fig:open_system_setup}.
+The open-system setup is sketched in \autoref{fig:oqs_open_system_setup}.
 \begin{figure}[htbp]
 	\centering
-	\IfFileExists{figures/open_system_setup.pdf}{%
-	\includegraphics[width=0.5\linewidth]{figures/open_system_setup.pdf}%
+	\IfFileExists{figures/oqs_open_system_setup.pdf}{%
+	\includegraphics[width=0.5\linewidth]{figures/oqs_open_system_setup.pdf}%
 	}{%
 	\fbox{\parbox{0.85\linewidth}{\centering\vspace{2mm}
 	Placeholder: schematic open-system setup (system $S$, environment $E$, coupling $\hat{H}_{\mathrm{int}}$, and reduction $\hat{\rho}_S=\mathrm{Tr}_E[\hat{\rho}_T]$).\\
 	Put the file at \texttt{latex/figures/open\_system\_setup.pdf}.\vspace{2mm}}}%
 	}
 	\caption{Schematic open-system setup. A system $S$ is coupled to an environment $E$ via $\hat{H}_{\mathrm{int}}$. Schematically the system is indicated to contain six interacting particles such as atoms or molecules, while the environment has infinitely many degrees of freedom.}
-	\label{fig:open_system_setup}
+	\label{fig:oqs_open_system_setup}
 \end{figure}
 
 The interaction Hamiltonian is typically written in the form
@@ -709,8 +709,8 @@ where \( \gamma \) is the damping constant. This corresponds to a classical fric
 which enforces convergence of integrals such as \autoref{eq:ho_correlator_final}. Here \( \alpha \) is a dimensionless coupling constant, \( \omega_c \) is the cutoff frequency, and \( s \) controls the low-frequency behavior of the bath, thereby effecting the timescale of the environment. The parameter $s$ classifies the spectral density into three regimes: Ohmic (\( s = 1 \)), \emph{sub-Ohmic} (\( s < 1 \)), and \emph{super-Ohmic} (\( s > 1 \)) \cite{weiss2012quantumdissipativesystems, lambertetal2026qutip5quantum}. Sub-Ohmic baths exhibit slower fluctuations and longer memory, while super-Ohmic baths suppress low-frequency noise and emphasize fast, high-frequency modes. To make this separation explicit in the numerical illustrations below, it is convenient to measure all frequencies in units of a characteristic system scale $\omega_0$ and to express bath parameters as dimensionless ratios ($\omega_c/\omega_0$, $T/\omega_0$, $\alpha/\omega_0$). As shown in \autoref{fig:bath_comparison_sub_super_ohmic}, the sub-Ohmic correlation function remains nonzero for longer times than the Ohmic and super-Ohmic cases.
 \begin{figure}[htbp]
 	\centering
-\IfFileExists{figures/bath_comparison_sub_super_ohmic_1.000_10.00_1.000.pdf}{%
-		\includegraphics[width=0.9\textwidth]{figures/bath_comparison_sub_super_ohmic_1.000_10.00_1.000.pdf}%
+\IfFileExists{figures/oqs_bath_comparison_sub_super_ohmic.pdf}{%
+		\includegraphics[width=0.9\textwidth]{figures/oqs_bath_comparison_sub_super_ohmic.pdf}%
 	}{%
 		\fbox{\parbox[c][0.32\textheight][c]{0.92\textwidth}{\centering
 				\textbf{Placeholder: sub/super/ohmic bath comparison}\\
@@ -723,8 +723,8 @@ which enforces convergence of integrals such as \autoref{eq:ho_correlator_final}
 For an Ohmic bath, increasing $\omega_c$ pushes bath weight to shorter times and reduces the bath memory time. This is precisely the physical content behind the Markov approximation and is illustrated in \autoref{fig:bath_memory_vs_cutoff}.
 \begin{figure}[htbp]
 	\centering
-	\IfFileExists{figures/corr_decay_vs_cutoff_ohmic.pdf}{%
-		\includegraphics[width=0.55\linewidth]{figures/corr_decay_vs_cutoff_ohmic.pdf}%
+	\IfFileExists{figures/oqs_corr_decay_vs_cutoff_ohmic.pdf}{%
+		\includegraphics[width=0.55\linewidth]{figures/oqs_corr_decay_vs_cutoff_ohmic.pdf}%
 	}{%
 		\fbox{\parbox{0.75\linewidth}{\centering\vspace{2mm}
 				Placeholder: correlation decay vs cutoff figure.\\
@@ -742,8 +742,8 @@ Another widely used model with linear low-frequency behavior is the Drude--Loren
 where $\lambda$ is the reorganization energy, and $\gamma$ is interpreted as a cutoff. This model represents an overdamped Brownian oscillator. A visual comparison between the Ohmic and Drude--Lorentz spectral densities, together with their corresponding correlation functions and power spectra, is shown in \autoref{fig:bath_comparison}. The Drude--Lorentz model exhibits a longer high-frequency tail than the exponentially cut off Ohmic case.
 \begin{figure}[tbp]
 	\centering
-	\IfFileExists{figures/bath_comparison_combined_0.010_100.00_100.000.pdf}{%
-		\includegraphics[width=\textwidth]{figures/bath_comparison_combined_0.010_100.00_100.000.pdf}%
+	\IfFileExists{figures/oqs_bath_comparison_ohm_dl.pdf}{%
+		\includegraphics[width=\textwidth]{figures/oqs_bath_comparison_ohm_dl.pdf}%
 	}{%
 		\fbox{\parbox[c][0.32\textheight][c]{0.9\textwidth}{\centering
 				\textbf{Placeholder figure: bath model comparison}\\
