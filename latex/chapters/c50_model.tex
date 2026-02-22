@@ -5,15 +5,10 @@
 Having established the spectroscopy workflow in \autoref{chapter_spectroscopy} and the open-system dynamics tools in \autoref{chapter_open_quantum_systems}, the concrete model Hamiltonians and dipole operators used in the numerical simulations are now specified. The discussion proceeds from minimal reference systems to more structured ensembles:
 \begin{itemize}
 	\item a \textbf{qubit} as the simplest benchmark for rephasing/nonrephasing signals.
-	\item a \textbf{dimer} (two coupled sites) with an optional coherent coupling constant $J$.
-	\item an \textbf{$N$-site ensemble} with a prescribed geometry, simulated in the \emph{ground}, \emph{single-excitation}, and (optionally) \emph{double-excitation} manifolds \,$\ket{g},\{\ket{n}\},\{\ket{f}\}$ as introduced in \autoref{chapter_spectroscopy}.
+	\item a \textbf{dimer} (two coupled sites) with a coherent coupling constant $J$.
+	\item an \textbf{$N$-site ensemble} with a prescribed geometry, simulated in the \emph{ground}, \emph{single-excitation}, and \emph{double-excitation} manifolds \,$\ket{g},\{\ket{n}\},\{\ket{f}\}$ as introduced in \autoref{chapter_spectroscopy}.
 \end{itemize}
 Throughout, standard third-order spectroscopy concepts \cite{mukamel1995principlesnonlinearoptical,jonas2003twodimensionalfemtosecondspectroscopy,cho2009twodimensionalopticalspectroscopy} and the master-equation propagation methods from \autoref{chapter_open_quantum_systems} are used.
-
-\section{Thermal population at optical transition energies}
-\label{sec:model_thermal_population_optical}
-
-For the optical transition energies considered here (e.g.\ $\tilde{\nu}_0=16\,000\,\mathrm{cm}^{-1}$), the ratio $\omega_0/(k_BT)\approx 77$ at room temperature implies an excited-to-ground population ratio $p_1/p_0\approx e^{-77}\approx 10^{-34}$, which is negligible even when summed over many states. The initial condition is therefore taken to be the electronic ground state (or an ensemble thereof under static disorder) throughout this thesis.
 
 %-------------------------------------------------------------------------------
 % 1. Qubit (two-level reference)
@@ -60,7 +55,7 @@ The qubit is examined under two broadening scenarios:
 	\item \textbf{Inhomogeneous broadening}: an ensemble of realizations with slightly different $\omega_{eg}$ values (static disorder), and spectra obtained by averaging the resulting signals as discussed in \autoref{chapter_spectroscopy}.
 \end{itemize}
 
-\subsection{Figures: rephasing signal and qubit 2D spectra}
+\subsection{Results: rephasing signal and qubit 2D spectra}
 
 
 To illustrate the meaning of rephasing and the difference between homogeneous and inhomogeneous broadening, (i) a representative time-domain rephasing trace and (ii) sequences of TLS 2D spectra at different waiting times $T$ are included. The figures are inserted below as placeholders. If the image files are not present yet, compilation will fall back to a framed box.
@@ -134,7 +129,7 @@ As the next step, a dimer is considered: two optically active sites with a possi
 The standard excitation-manifold basis is used. The ground state is $\ket{g}$. The singly excited manifold is spanned by two localized excitations $\ket{1}$ and $\ket{2}$ (``site basis''), and the doubly excited state is $\ket{f}\equiv\ket{12}$.
 This matches the \, $\ket{g},\ket{n},\ket{f}$ scheme discussed in \autoref{chapter_spectroscopy} with $n\in\{1,2\}$.
 
-\subsection{Hamiltonian with optional coupling $J$}
+\subsection{Hamiltonian with coupling $J$}
 
 
 In the single-excitation manifold, the Hamiltonian is taken as
@@ -185,7 +180,7 @@ This dimer is the minimal setting in which the 2D spectrum can distinguish quali
 
 This ``$T=0$ cross peak'' versus ``growth with $T$'' distinction is a convenient rule of thumb when interpreting simulated (or measured) spectra.
 
-\subsection{Optional transfer model during the waiting time}
+\subsection{transfer model during the waiting time}
 \label{sec:model_dimer_transfer_model}
 
 

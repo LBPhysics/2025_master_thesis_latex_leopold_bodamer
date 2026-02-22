@@ -150,7 +150,11 @@ To describe the system dynamics, the interaction picture is used, where operator
 \begin{equation*}
 	\hat{O}_I(t) = e^{i(\hat{H}_0)t} \, \hat{O} \, e^{-i(\hat{H}_0)t},
 \end{equation*}
-in the interaction picture. Throughout this thesis, hats indicate operators, while the subscript $I$ indicates an interaction-picture quantity. States now evolve only according to the interaction Hamiltonian $\hat{H}_{\mathrm{int}}$, and \autoref{eq:Von_Neumann_Equation} becomes
+in the interaction picture. Throughout this thesis, hats indicate operators, while the subscript $I$ indicates an interaction-picture quantity. 
+
+This transformation isolates the effect of the system-bath interaction $\hat{H}_{\mathrm{int}}$, allowing systematic perturbative treatment of weak coupling. The same interaction-picture machinery will later be applied to the light--matter interaction in spectroscopy (see \autoref{chapter_spectroscopy} and \autoref{app:response_functions}), but at the level of the already-reduced system.
+
+States now evolve only according to the interaction Hamiltonian $\hat{H}_{\mathrm{int}}$, and \autoref{eq:Von_Neumann_Equation} becomes
 \begin{equation}
 	\frac{d}{dt}\hat{\rho}_{T,I}(t) = -i \alpha [\hat{H}_{\mathrm{int},I}(t), \hat{\rho}_{T,I}(t)],
 	\label{eq:LiouvilleVN_interaction_pic}
@@ -360,7 +364,7 @@ In the interaction picture these acquire simple oscillatory phases
 	\hat{S}_{i,I}(t) = \sum_{\omega} e^{-i \omega t} \hat{S}_i(\omega), \qquad \hat{S}_{i',I}(t-\tau) = \sum_{\omega'} e^{-i \omega'(t-\tau)} \hat{S}_{i'}(\omega').
 	\label{eq:Interaction_Picture_Eigenoperators}
 \end{equation}
-Note that a time-independent system Hamiltonian $\hat{H}_S$ is assumed here. The derivation can in principle be extended to time-dependent $\hat{H}_S(t)$, for example in spectroscopy where external driving fields lead to an explicitly time-dependent system Hamiltonian \cite{mukamel1995principlesnonlinearoptical}. Generalizations of Markovian master-equation derivations to driven systems are discussed in \cite{dabbruzzoetal2023timedependentregularizationredfield}.
+Note that a time-independent system Hamiltonian $\hat{H}_S$ is assumed here. The derivation can in principle be extended to time-dependent $\hat{H}_S(t)$, for example in spectroscopy where external driving fields lead to an explicitly time-dependent system Hamiltonian \cite{mukamel1995principlesnonlinearoptical} (see \autoref{app:response_functions}). Generalizations of Markovian master-equation derivations to driven systems are discussed in \cite{dabbruzzoetal2023timedependentregularizationredfield}.
 
 Inserting \autoref{eq:Interaction_Picture_Eigenoperators} into \autoref{eq:Redfield_Markov_TimeLocal} produces sums over oscillatory factors $e^{-i(\omega - \omega') t}$ multiplying integrals of $C_{ii'}(\tau) e^{i \omega' \tau}$. The inner commutator in \autoref{eq:Redfield_Markov_TimeLocal} becomes
 \begin{equation*}
@@ -528,11 +532,10 @@ The previous section established that the reduced dynamics is governed by the ba
 
 The task now is to calculate the bath correlation function $C(\tau)$ for a concrete model. Recall that $C(\tau)=\langle E(t+\tau)E(t)\rangle$ measures how bath fluctuations at two different times are correlated in thermal equilibrium. For the harmonic oscillator bath, these correlators can be computed exactly, revealing how $C(\tau)$ connects to experimentally relevant spectral densities and governs the system's approach to thermal equilibrium.
 
-\medskip
 For these explicit calculations, the following mathematical result is useful.
 
 
-\subsubsection{Geometric Series}
+\subsection{Geometric Series}
 The infinite geometric series
 \begin{equation*}
 	\mathcal{G} = a + ar + ar^2 + ar^3 + \dots = \sum_{n=0}^{\infty} ar^n,
@@ -726,7 +729,7 @@ For an Ohmic bath, increasing $\omega_c$ pushes bath weight to shorter times and
 	\IfFileExists{figures/oqs_corr_decay_vs_cutoff_ohmic.pdf}{%
 		\includegraphics[width=0.55\linewidth]{figures/oqs_corr_decay_vs_cutoff_ohmic.pdf}%
 	}{%
-		\fbox{\parbox{0.75\linewidth}{\centering\vspace{2mm}
+		\fbox{\parbox{0.8\linewidth}{\centering\vspace{2mm}
 				Placeholder: correlation decay vs cutoff figure.\\
 				Put the file at \texttt{latex/figures/corr\_decay\_vs\_cutoff\_ohmic.pdf}.\vspace{2mm}}}%
 	}
