@@ -7,6 +7,9 @@ Thumbs.db
 .idea/
 
 # LaTeX build outputs
+*.bcf-SAVE-ERROR
+*.bbl
+*.synctex.gz.sum.synctex
 *.aux
 *.fdb_latexmk
 *.fls
@@ -28,7 +31,6 @@ Thumbs.db
 *.bbl-SAVE-ERROR
 latex/*.bbl
 latex/*.pdf
-latex/latex.out/
 latex/auto/
 
 # Glossaries, nomenclature, minted, etc.
