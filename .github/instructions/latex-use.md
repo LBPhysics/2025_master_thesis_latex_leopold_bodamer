@@ -62,6 +62,34 @@ Do **not** guess. Ask about:
   - Raw outputs
 - **Purpose:** "Everything required for full reproducibility, but too bulky for the thesis itself."
 
+## Cross-References and Citations
+
+**Reference commands:**
+- Use `\autoref{label}` for automatic reference names (e.g., "Equation (2.5)", "Figure 3.1")
+- Use `\cref{label}` for abbreviated forms mid-sentence (e.g., "Eq. (2.5)")
+- Use `\Cref{label}` for full forms at sentence start (e.g., "Equation (2.5)")
+
+**Non-breaking spaces before references:**
+Always use a non-breaking space `~` before reference commands when the reference is grammatically attached to the preceding word. This prevents line breaks between the word and the reference.
+
+Correct usage:
+- `derived in~\autoref{sec:derivation}` → "derived in Eq. (2.5)"
+- `from~\autoref{eq:master}` → "from Eq. (1.1)"
+- `to~\autoref{sec:methods}` → "to Section 2.3"
+- `see~\autoref{app:derivation}` → "see Appendix A"
+
+Incorrect usage (missing `~`):
+- `derived in \autoref{sec:derivation}` ❌ (allows unwanted line break)
+
+**Sentence-start references:**
+At the beginning of a sentence, `\autoref` automatically produces full names (e.g., "Equation", "Figure"). No `~` is needed when starting a sentence:
+- `\Autoref{eq:master} shows that...` → "Equation (1.1) shows that..."
+
+**Multiple references:**
+Use `\cref{label1,label2,label3}` for ranges or lists:
+- `\cref{eq:a,eq:b,eq:c}` → "Eqs. (1), (2), and (3)"
+- `\crefrange{eq:start}{eq:end}` → "Eqs. (1.1)–(1.5)"
+
 ## Consistency
 - Use consistent notation for symbols and units across the document.
 - Define new macros in a central place (main.tex or class/style files), not inline.

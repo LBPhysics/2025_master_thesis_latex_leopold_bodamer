@@ -28,13 +28,6 @@ toctotoc, 		      % add table of contents to the table of contents
 \renewcommand*{\bibfont}{\small} % Optional: Make the bibliography font size smaller
 \addbibresource{bib/my_bibliography.bib}
 
-% Suppress visible DOI/URL/eprint text but keep hyperlinks on journal titles
-\DeclareFieldFormat{doi}{}  % Don't print "doi: xxxx"
-\DeclareFieldFormat{url}{}  % Don't print URLs
-\DeclareFieldFormat{eprint}{}  % Don't print arXiv IDs
-\DeclareFieldFormat{isbn}{}  % Don't print ISBN
-\DeclareFieldFormat{issn}{}  % Don't print ISSN
-
 % Added content-related packages and definitions
 \usepackage{graphicx} % Required to include images
 \graphicspath{/figures}
@@ -57,9 +50,9 @@ toctotoc, 		      % add table of contents to the table of contents
     \Crefname{subsection}{Section}{Sections}
     \crefname{subsubsection}{Sec.}{Secs.}
     \Crefname{subsubsection}{Section}{Sections}
-    \crefname{chapter}{Chapter}{Chapters}
+    \crefname{chapter}{Ch.}{Chs.}
     \Crefname{chapter}{Chapter}{Chapters}
-    \crefname{appendix}{Appendix}{Appendices}
+    \crefname{appendix}{App.}{Apps.}
     \Crefname{appendix}{Appendix}{Appendices}
     % Sentence-start aware \autoref using cleveref
     % More robust version: uses spacefactor with higher threshold and vmode check
@@ -68,7 +61,7 @@ toctotoc, 		      % add table of contents to the table of contents
         \ifvmode                           
             \Cref{#1}%
         \else
-            \ifnum\spacefactor>1500\relax
+            \ifnum\spacefactor>2500\relax
                 \Cref{#1}%
             \else
                 \cref{#1}%

@@ -118,8 +118,11 @@ In a perturbative picture, the $n$-th order part $\hat{\rho}_S^{(n)}(t)$ satisfi
 \end{equation}
 with $\hat{\rho}_S^{(0)}(t)$ solving the homogeneous equation $\frac{d}{dt}\hat{\rho}_S^{(0)}=\mathcal{L}_0[\hat{\rho}_S^{(0)}]$. The structure of $\mathcal{L}_0$ (e.g.\ its Redfield tensor, secular vs.\ nonsecular form, spectral densities) determines the decay rates and frequency shifts of coherences and populations that enter the correlation functions $S^{(n)}$ and thus the observed 2D spectra.
 
-In this thesis, $\mathcal{L}_0$ is taken to be a Redfield-type generator derived in \autoref{chapter_open_quantum_systems}, with bath correlation functions and spectral densities explicitly specified (cf.\ \crefrange{sec:environmental_correlation_functions}{sec:common_choices_spectral_densities}). The numerical procedure solves \autoref{eq:ME_with_field} nonperturbatively for a given pulse sequence and bath model, computes the polarization \autoref{eq:P_def_spectroscopy}, and uses phase cycling and Fourier transforms to construct $S_R$, $S_{NR}$, and $S_{\mathrm{abs}}$ according to \crefrange{eq:SR_def}{eq:Sab_def}.
+In this thesis, $\mathcal{L}_0$ is taken to be a Redfield-type generator derived in~\autoref{sec:Redfield_eq}, with bath correlation functions and spectral densities explicitly specified in~\crefrange{sec:environmental_correlation_functions}{sec:common_choices_spectral_densities}. The numerical procedure solves \autoref{eq:ME_with_field} nonperturbatively for a given pulse sequence and bath model, computes the polarization \autoref{eq:P_def_spectroscopy}, and uses phase cycling and Fourier transforms to construct $S_R$, $S_{NR}$, and $S_{\mathrm{abs}}$ according to \crefrange{eq:SR_def}{eq:Sab_def}.
 
 \medskip
 
 The results presented in this chapter demonstrate how the interplay between coherent dynamics, environmental decoherence, and disorder shapes the observable 2D spectra. By connecting the measured spectral features to the underlying open-quantum-system dynamics, the response-function formalism provides both a quantitative tool for predicting experimental signals and a theoretical framework for extracting microscopic parameters from measured spectra. This bridge between theory and experiment enables a detailed understanding of energy-transfer mechanisms, electronic couplings, and relaxation pathways in complex molecular systems.
+
+
+\todoidea{as an outlook to do the same, but with quantum light... \cite{dorfman2016nonlinearopticalsignals}}
