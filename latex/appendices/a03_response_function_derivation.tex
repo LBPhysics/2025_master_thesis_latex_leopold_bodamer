@@ -2,139 +2,164 @@
 \chapter{Dyson Series and Response Functions (Matter Side)}
 \label{app:response_functions}
 
-This appendix derives explicit causal expressions for $\boldsymbol{P}^{(n)}(t)$ in terms of incident fields. Starting from the driven master equation for reduced density operator $\hat{\rho}_S(t)$, the strategy is: (i) set up the driven master equation, (ii) transform to the interaction picture to isolate the light--matter coupling, (iii) expand via the Dyson series, (iv) define response functions as field-independent material properties, and (v) derive convolution formulas for $\boldsymbol{P}^{(n)}$.
-\todoimp{Revisit section order and naming: clarify why the delay-variable change sits here, how it maps to $t_{\mathrm{coh}},T,t_{\mathrm{det}}$ in the main text, and whether a brief roadmap would help readers.}
+This appendix derives explicit, causal expressions for the $n$-th order Polarisation. It keeps the full tensorial formulation where the polarisation $\boldsymbol P^{(n)}(t)$ is a vector and the response $R^{(n)}_{\alpha\beta_1\cdots\beta_n}$ is a rank-$(n{+}1)$ tensor. Starting from a driven master equation for the reduced density operator $\hat{\rho}_{\mathrm{S}}(t)$, the field dependence is isolated in the interaction picture and expanded in powers of the field. This leads to response functions, which capture the intrinsic material dynamics, and to convolution formulas for $P^{(n)}_{\alpha}$ that separate material properties from pulse shapes.
 
-\section{Driven master equation}
+\section{Driven Master Equation}
 \label{app:sec:dyson_response}
 
-To derive an explicit expression for $\boldsymbol{P}^{(n)}$, the microscopic equation of motion is introduced first. Here $\hat{\rho}_S(t)$ denotes the reduced density operator of the material system after tracing out the environment, and the equation of motion is a driven open-system master equation. It is assumed that $\hat{\rho}_S(t)$ obeys
+The starting point is a driven open-system equation of motion for the reduced density operator $\hat{\rho}_{\mathrm{S}}(t)$ of the material system after tracing out the environment,
 \begin{equation}
-	\frac{\mathrm{d}\hat{\rho}_S(t)}{\mathrm{d}t}
-	= -\mathrm{i}\,\mathcal{K}[\hat{\rho}_S(t)]
-	\quad + \mathrm{i}\,\mathcal{V}[\hat{\rho}_S(t)]\,E(t),
+	\frac{\mathrm{d}\hat{\rho}_{\mathrm{S}}(t)}{\mathrm{d}t}
+	= -\mathrm{i}\,\mathcal{K}[\hat{\rho}_{\mathrm{S}}(t)]
+	\quad + \mathrm{i}\,\mathcal{V}_{\beta}[\hat{\rho}_{\mathrm{S}}(t)]\,E_{\beta}(t),
 	\label{eq:app_master_equation_with_field}
 \end{equation}
-where $\mathcal{K}$ is the field-free reduced generator obtained after eliminating the environment (e.g.\ via Redfield or Lindblad theory, cf.\ \autoref{sec:Redfield_eq}). This generator encodes both the system Hamiltonian evolution and dissipative/dephasing effects. The quantity $E(t)$ is the scalar field envelope along a chosen polarization direction, and
+where $\mathcal{K}$ is the field-free reduced generator obtained after eliminating the environment. It contains the Hamiltonian evolution of the system as well as dissipation and dephasing effects, as in Redfield or Lindblad theory (cf.~\autoref{sec:Redfield_eq}). The driving field $\boldsymbol{E}(t)$ enters through its Cartesian components $E_{\beta}(t)$ and the corresponding dipole superoperators
 \begin{equation}
-	\mathcal{V}[\hat{A}] \equiv [\hat{\mu},\hat{A}],
-	\qquad \hat{\mu} \equiv \hat{\boldsymbol{\mu}}\cdot\mathbf e,
+	\mathcal{V}_{\beta}[\hat{A}] \equiv [\hat{\mu}_{\beta},\hat{A}],
 	\label{eq:app_dipole_superoperator}
 \end{equation}
-is the dipole superoperator.
-As a useful remark, the field interaction involves both a left action and a right action of the dipole operator on the density operator. This structure is the algebraic origin of Liouville-space pathways in nonlinear optics. Whether the dipole acts on the ket (left) or on the bra (right) determines which coherences or populations are created at each interaction \cite{hammzanni2011conceptsmethods2d}. A relative minus sign arises between the left and right actions due to the commutator.
+with $\hat{\mu}_{\beta}$ the Cartesian components of the dipole operator $\hat{\boldsymbol{\mu}}$. Throughout this appendix repeated Cartesian indices are summed over (Einstein convention).
 
-The field-free propagator is
+The commutator in~\autoref{eq:app_dipole_superoperator} makes explicit that each interaction has a left and a right action on the density operator. This is the algebraic origin of Liouville-space pathways: whether $\hat{\mu}_{\beta}$ acts on the ket or on the bra determines which coherences or populations are created at each interaction. The commutator introduces a relative minus sign between the two actions.
+
+The field-free propagator is defined as
 \begin{equation*}
 	\mathcal{U}_0(t) \equiv \exp(-\mathrm{i}\,\mathcal{K}t),
 \end{equation*}
-meaning that in the absence of the field one has $\hat{\rho}_S(t)=\mathcal{U}_0(t-t_0)[\hat{\rho}_S(t_0)]$. 
+so that in the absence of the field the state evolves as
+\begin{equation*}
+	\hat{\rho}_{\mathrm{S}}(t)=\mathcal{U}_0(t-t_0)[\hat{\rho}_{\mathrm{S}}(t_0)].
+\end{equation*}
 
-\section{Interaction picture formulation}
+\section{Interaction Picture Formulation}
 \label{app:sec:interaction_picture_K}
 
-To isolate the field-dependent dynamics from the field-free evolution, the interaction picture is defined with respect to the field-free generator $\mathcal{K}$.
-The interaction-picture density operator is defined by
+To isolate the field-driven part of the evolution, introduce an interaction picture with respect to the field-free generator $\mathcal{K}$. Define the interaction-picture density operator by
 \begin{equation}
-	\hat{\rho}_{S,I}(t) \equiv \mathcal{U}_0(-t)[\hat{\rho}_S(t)],
+	\hat{\rho}_{\mathrm{S,I}}(t)
+	\equiv \mathcal{U}_0\!\bigl(-(t-t_0)\bigr)[\hat{\rho}_{\mathrm{S}}(t)],
 	\label{eq:app_rhoI_def}
 \end{equation}
-and the interaction-picture dipole superoperator by
-\begin{equation*}
-	\mathcal{V}_{\mathrm I}(t)
-	\equiv \mathcal{U}_0(-t)\,\mathcal{V}\,\mathcal{U}_0(t).
-\end{equation*}
-By differentiating~\autoref{eq:app_rhoI_def} with respect to time (chain rule), inserting the master equation~\autoref{eq:app_master_equation_with_field}, and using the commutativity of $\mathcal{U}_0$ and $\mathcal{K}$, the equation of motion simplifies to
+and the corresponding time-dependent dipole superoperators by
 \begin{equation}
-	\frac{\mathrm{d}\hat{\rho}_{S,I}(t)}{\mathrm{d}t}
-	= \mathrm{i}\,\mathcal{V}_{\mathrm I}(t)[\hat{\rho}_{S,I}(t)]\,E(t).
+	\mathcal{V}_{\mathrm I,\beta}(t)
+	\equiv \mathcal{U}_0\!\bigl(-(t-t_0)\bigr)\,\mathcal{V}_{\beta}\,\mathcal{U}_0(t-t_0).
+	\label{eq:dipole_super_op_interaction_pic}
+\end{equation}
+By differentiating \autoref{eq:app_rhoI_def} with respect to time, inserting the master equation \autoref{eq:app_master_equation_with_field}, and using that $\mathcal{U}_0$ commutes with $\mathcal{K}$, the equation of motion reduces to
+\begin{equation}
+	\frac{\mathrm{d}\hat{\rho}_{\mathrm{S,I}}(t)}{\mathrm{d}t}
+	= \mathrm{i}\,\mathcal{V}_{\mathrm I,\beta}(t)[\hat{\rho}_{\mathrm{S,I}}(t)]\,E_{\beta}(t).
 	\label{eq:app_rhoI_eom}
 \end{equation}
-This interaction-picture equation is exact for the reduced system. The field-free dynamics (including both Hamiltonian evolution and dissipation/dephasing) have been absorbed into the time-dependence of the operators $\mathcal{V}_{\mathrm I}(t)$ and the picture transformation $\mathcal{U}_0(t)$. Only the explicit light--matter coupling $\mathcal{V}_{\mathrm I}(t)E(t)$ remains on the right-hand side, making this form ideal for perturbation theory in the field strength.
+This form is exact for the reduced system. The field-free dynamics have been absorbed into the picture transformation and into the explicit time dependence of $\mathcal{V}_{\mathrm I,\beta}(t)$. The only remaining term on the right-hand side is the light--matter coupling, which makes \autoref{eq:app_rhoI_eom} a convenient starting point for perturbation theory in the field strength.
 
-\section{Dyson series expansion}
+\section{Dyson Series Expansion}
 \label{app:sec:dyson_series}
 
-To find the solution to~\autoref{eq:app_rhoI_eom}, the equation is converted to an integral form. Integrating~\autoref{eq:app_rhoI_eom} from an initial time $t_0$ to the current time $t$ gives
+Convert \autoref{eq:app_rhoI_eom} into an integral equation by integrating from an initial time $t_0$ to $t$,
 \begin{equation}
-	\hat{\rho}_{S,I}(t)
-	= \hat{\rho}_{S,I}(t_0)
-	\quad + \mathrm{i}\int_{t_0}^{t}\!\mathrm{d}\tau\,\mathcal{V}_{\mathrm I}(\tau)[\hat{\rho}_{S,I}(\tau)]\,E(\tau).
+	\hat{\rho}_{\mathrm{S,I}}(t)
+	= \hat{\rho}_{\mathrm{S,I}}(t_0)
+	\quad + \mathrm{i}\int_{t_0}^{t}\!\mathrm{d}\tau\,\mathcal{V}_{\mathrm I,\beta}(\tau)[\hat{\rho}_{\mathrm{S,I}}(\tau)]\,E_{\beta}(\tau).
 	\label{eq:app_rhoI_integral}
 \end{equation}
-Note that the initial condition is the same in both pictures: $\hat{\rho}_{S,I}(t_0)=\hat{\rho}_S(t_0)$ (the transformation is just a change of basis).
+The initial condition is the same in both pictures,
+$\hat{\rho}_{\mathrm{S,I}}(t_0)=\hat{\rho}_{\mathrm{S}}(t_0)$.
 
-To extract the field-dependent contributions, a perturbation expansion is performed. The right-hand side of~\autoref{eq:app_rhoI_integral} is substituted back into itself iteratively to generate an expansion in powers of the incident field. In direct analogy to standard time-dependent perturbation theory for wavefunctions, each term corresponds to a contribution from a fixed number of light--matter interactions.
-
-After $n$ iterations of substituting the integral equation into itself, collecting all terms of order $n$ in the field, one arrives at the Dyson series expressing the full solution:
+To extract contributions of definite order in the field, substitute \autoref{eq:app_rhoI_integral} back into itself iteratively. After $n$ substitutions, collect all terms containing $n$ factors of $E_{\beta}$. This produces the Dyson series (cf.~\autoref{subsec:oqs_interaction_picture}), which is an infinite perturbation expansion in the field strength,
 \begin{equation}
-	\hat{\rho}_{S,I}(t)
+	\hat{\rho}_{\mathrm{S,I}}(t)
 	= \Biggl[
 	\mathds{1}
 	+ \sum_{n=1}^{\infty} (\mathrm{i})^n
 	\int_{t_0}^{t}\!\mathrm{d}\tau_1
 	\int_{t_0}^{\tau_1}\!\mathrm{d}\tau_2\,\cdots
 	\int_{t_0}^{\tau_{n-1}}\!\mathrm{d}\tau_n\,
-	\mathcal{V}_{\mathrm I}(\tau_1)\cdots\mathcal{V}_{\mathrm I}(\tau_n)
-	E(\tau_1)\cdots E(\tau_n)
-	\Biggr][\hat{\rho}_S(t_0)].
+	\mathcal{V}_{\mathrm I,\beta_1}(\tau_1)\cdots\mathcal{V}_{\mathrm I,\beta_n}(\tau_n)\,
+	E_{\beta_1}(\tau_1)\cdots E_{\beta_n}(\tau_n)
+	\Biggr][\hat{\rho}_{\mathrm{S}}(t_0)].
 	\label{eq:app_dyson}
 \end{equation}
-This expansion is exact to all orders in the field. The nested integration limits $t_0<\tau^{(n)}<\cdots<\tau^{(1)}<t$ enforce the time ordering of interaction events that is required by causality. The series can be compactly written as a time-ordered exponential
-\begin{equation*}
-	\hat{\rho}_{S,I}(t)
-	= \mathcal{T}\exp\!\left[\,\mathrm{i}\int_{t_0}^{t}\!\mathrm{d}\tau\,\mathcal{V}_{\mathrm I}(\tau)\,E(\tau)\right] \hat{\rho}_S(t_0),
-\end{equation*}
-where $\mathcal{T}$ is the time-ordering operator. The explicit Dyson-series form~\autoref{eq:app_dyson} is more useful for spectroscopy because each term of fixed order $n$ can be isolated experimentally.
+The nested limits $t_0<\tau_n<\cdots<\tau_2<\tau_1<t$ enforce time ordering and therefore causality.
+This equation is useful for nonlinear spectroscopy because it isolates the $n$-th order term that can be selected experimentally.
 
+\section{Polarisation as a Perturbation Series}
+\label{app:sec:polarisation_series}
 
-\section{Polarization as a perturbation series}
-\label{app:sec:polarization_series}
-
-With the density operator expressed as a perturbation expansion, the polarization can be extracted. The macroscopic polarization is defined as the expectation value of the dipole operator (cf.~\autoref{eq:P_def_spectroscopy}).
-Using $\hat{\rho}_S(t)=\mathcal{U}_0(t)\,[\hat{\rho}_{S,I}(t)]$ and cyclicity of the trace, this can be written in interaction-picture form as
-\begin{equation*}
-	\boldsymbol{P}(t)
-	= \mathrm{Tr}\{\hat{\boldsymbol{\mu}}_{\mathrm I}(t)\,\hat{\rho}_{S,I}(t)\}
-	= \sum_{n=0}^{\infty} \boldsymbol{P}^{(n)}(t),
-\end{equation*}
-where $\hat{\boldsymbol{\mu}}_{\mathrm I}(t)$ is the interaction-picture dipole operator defined by the field-free dynamics (equivalently, the Heisenberg-evolved dipole under $\mathcal{K}$). In Liouville-space notation this is the adjoint action of the field-free propagator on the observable,
-$\hat{\boldsymbol{\mu}}_{\mathrm I}(t)=\mathcal{U}_0^{\dagger}(t)[\hat{\boldsymbol{\mu}}]$.
-\begin{equation*}
-	\boldsymbol{P}^{(n)}(t) = \mathrm{Tr}\{\hat{\boldsymbol{\mu}}_{\mathrm I}(t)\,\hat{\rho}_{S,I}^{(n)}(t)\}
-\end{equation*}
-the contribution containing $n$ factors of the field. Substituting the Dyson expansion~\autoref{eq:app_dyson} into this definition and extracting the $n$-th order term yields a convolution-like expression. It is often useful to rewrite $\boldsymbol{P}^{(n)}$ directly in terms of the field-free propagators $\mathcal{U}_0$ and the Schrödinger-picture superoperator $\mathcal{V}$, keeping the time ordering explicit
+The macroscopic polarisation is defined as the expectation value of the dipole operator (cf.~\autoref{eq:P_def_spectroscopy}),
 \begin{equation}
-	\begin{split}
-		\boldsymbol{P}^{(n)}(t)
-		 & = (\mathrm{i})^n
-		\int_{t_0}^{t}\!\mathrm{d}\tau^{(1)}\cdots
-		\int_{t_0}^{\tau^{(n-1)}}\!\mathrm{d}\tau^{(n)}\,
-		\\
-		 & \quad \mathrm{Tr}\Bigl\{\hat{\boldsymbol{\mu}}\,\mathcal{U}_0(t-\tau^{(1)})\,\mathcal{V}\,\mathcal{U}_0(\tau^{(1)}-\tau^{(2)})\,\mathcal{V}\cdots\mathcal{V}\,\mathcal{U}_0(\tau^{(n)}-t_0)[\hat{\rho}_S(t_0)]\Bigr\}
-		\prod_{j=1}^{n} E(\tau^{(j)}),
-	\end{split}
-	\label{eq:app_Pn_explicit}
+	P_\alpha(t)
+	= \mathrm{Tr}\!\left\{\hat{\mu}_\alpha\,\hat{\rho}_{\mathrm{S}}(t)\right\}.
+	\label{eq:app_P_def_component}
 \end{equation}
-This form makes the causality and structure transparent: reading from right to left inside the trace, the system starts in the initial state $\hat{\rho}_S(t_0)$, undergoes $n$ alternating interactions (via $\mathcal{V}$) and free evolutions (via $\mathcal{U}_0$), and is finally measured via the dipole operator $\hat{\boldsymbol{\mu}}$. This physical picture underlies the interpretation of Feynman diagrams in nonlinear spectroscopy.
+Using the interaction-picture representation of the state and cyclicity of the trace, it can be written as
+\begin{equation*}
+	P_\alpha(t)
+	= \mathrm{Tr}\!\left\{\hat{\mu}_{\mathrm I,\alpha}(t)\,\hat{\rho}_{\mathrm{S,I}}(t)\right\}
+	= \sum_{n=0}^{\infty} P^{(n)}_\alpha(t),
+\end{equation*}
+where $\hat{\mu}_{\mathrm I,\alpha}(t)$ is the dipole operator evolved under the field-free dynamics. In Liouville-space notation this is the adjoint action of the field-free propagator on the observable,
+\begin{equation*}
+	\hat{\mu}_{\mathrm I,\alpha}(t)=\mathcal{U}_0^{\dagger}(t-t_0)[\hat{\mu}_\alpha].
+\end{equation*}
+The $n$-th order contribution is
+\begin{equation*}
+	P^{(n)}_\alpha(t) = \mathrm{Tr}\!\left\{\hat{\mu}_{\mathrm I,\alpha}(t)\,\hat{\rho}_{\mathrm{S,I}}^{(n)}(t)\right\},
+\end{equation*}
+with $\hat{\rho}_{\mathrm{S,I}}^{(n)}$ the term containing $n$ factors of the field.
 
-\section{Definition of the response function}
+Substituting the Dyson expansion \autoref{eq:app_dyson} and extracting the $n$-th order term yields an expression that is naturally written using the field-free propagator $\mathcal{U}_0$ and the Schr\"odinger-picture superoperators $\mathcal{V}_\beta$. Repeatedly insert the definition \autoref{eq:dipole_super_op_interaction_pic} into the ordered product
+$\mathcal{V}_{\mathrm I,\beta_1}(\tau_1)\cdots \mathcal{V}_{\mathrm I,\beta_n}(\tau_n)$,
+use the group property $\mathcal{U}_0(a)\mathcal{U}_0(b)=\mathcal{U}_0(a+b)$ to combine adjacent propagators, and move the remaining picture transformations within the trace using cyclicity. This produces free-propagation intervals between successive interaction events and the final interval between the last interaction and the measurement time. The result is
+\begin{equation}
+\begin{split}
+P^{(n)}_\alpha(t)
+&= (\mathrm{i})^n
+\int_{t_0}^{t}\!\mathrm{d}\tau^{(1)}\cdots
+\int_{t_0}^{\tau^{(n-1)}}\!\mathrm{d}\tau^{(n)}
+\\
+&\quad \times
+\mathrm{Tr}\Bigl\{
+\hat{\mu}_\alpha
+\,\mathcal{U}_0(t-\tau^{(1)})
+\,\mathcal{V}_{\beta_1}
+\,\mathcal{U}_0(\tau^{(1)}-\tau^{(2)})
+\\
+&\qquad
+\,\mathcal{V}_{\beta_2}
+\cdots
+\mathcal{V}_{\beta_n}
+\,\mathcal{U}_0(\tau^{(n)}-t_0)
+[\hat{\rho}_{\mathrm{S}}(t_0)]
+\Bigr\}
+\\
+&\quad \times
+\prod_{j=1}^{n} E_{\beta_j}(\tau^{(j)}).
+\end{split}
+\label{eq:app_Pn_explicit}
+\end{equation}
+Reading from right to left inside the trace, the system starts in the initial state $\hat{\rho}_{\mathrm{S}}(t_0)$, undergoes $n$ alternating interactions (via $\mathcal{V}_{\beta_j}$) and field-free evolutions (via $\mathcal{U}_0$), and is finally probed through the dipole operator $\hat{\mu}_\alpha$. This sequence underlies the usual Liouville-space pathway picture.
+
+\section{Definition of the Response Function}
 \label{app:sec:response_function_definition}
 
-The relative delay intervals $\tau_j$ defined above are the time separations between successive interactions
+The expression \autoref{eq:app_Pn_explicit} is written in terms of absolute interaction times $\tau^{(j)}$. For spectroscopy it is often more convenient to use nonnegative delay intervals between successive events. Define
 \begin{equation*}
 \tau_n = t-\tau^{(1)},\qquad
-\tau_{n-j}=\tau^{(j)}-\tau^{(j+1)}\ (j=1,\ldots,n-1),
+\tau_{n-j}=
+\tau^{(j)}-\tau^{(j+1)}\ (j=1,\ldots,n-1),
 \end{equation*}
-so that $\tau_j\ge 0$ represents the time interval between the $(j+1)$-th and $j$-th interactions (or between measurement and the last interaction for $j=n$). Explicitly, inverting this definition gives
+so that each $\tau_j\ge 0$ is an interval between two adjacent interactions, and $\tau_n$ is the interval between the last interaction and the measurement at time $t$. Inverting these relations gives
 \begin{equation}
 \tau^{(n)} = t-\sum_{k=1}^{n}\tau_k,\qquad
 \tau^{(n-1)} = t-\sum_{k=2}^{n}\tau_k,\qquad \ldots,\qquad
 \tau^{(1)} = t-\tau_n.
 	\label{eq:app_change_of_variables}
 \end{equation}
-The Jacobian of this transformation is unity.
-Moreover, the nested integration region $t_0<\tau^{(n)}<\cdots<\tau^{(1)}<t$ over absolute times maps to independent semi-infinite integrals $\tau_j\in[0,\infty)$ when the limit $t_0\to-\infty$ is taken. This change of variables is conceptually depicted in~\autoref{fig:app_time_variables_absolute_vs_intervals}:
+The Jacobian of the transformation is unity. In the limit $t_0\to-\infty$, the nested integration region over absolute times maps to independent integrals over $\tau_j\in[0,\infty)$. This change of variables is conceptually depicted in~\autoref{fig:app_time_variables_absolute_vs_intervals}.
+
 \begin{figure}[htbp]
 	\centering
 	\begin{tikzpicture}[x=1.15cm,y=1cm,>=latex]
@@ -158,41 +183,62 @@ Moreover, the nested integration region $t_0<\tau^{(n)}<\cdots<\tau^{(1)}<t$ ove
 		\draw[<->] (2,-0.75) -- (4,-0.75) node[midway,below] {$\tau_2$};
 		\draw[<->] (7.5,-0.75) -- (8.5,-0.75) node[midway,below] {$\tau_n$};
 	\end{tikzpicture}
-	\caption{Time variables in this appendix. \textbf{Old} (top): $\tau^{(j)}$ are absolute interaction times. \textbf{New} (bottom): $\tau_j$ are the nonnegative delay intervals between successive events.}
+	\caption{Time variables in this appendix. \textbf{Old} (top): $\tau^{(j)}$ are absolute interaction times. \textbf{New} (bottom): $\tau_j$ are nonnegative delay intervals between successive events.}
 	\label{fig:app_time_variables_absolute_vs_intervals}
 \end{figure}
-Substituting the change of variables~\autoref{eq:app_change_of_variables} into~\autoref{eq:app_Pn_explicit} and assuming the system starts in equilibrium $\hat{\rho}_S(t_0)=\hat{\rho}_{\mathrm{eq}}$ at $t_0\to -\infty$, the initial evolution becomes trivial since $\mathcal{U}_0(t)[\hat{\rho}_{\mathrm{eq}}]=\hat{\rho}_{\mathrm{eq}}$ for all $t$.  The $n$-th order polarization then takes the standard operationally useful form:
+
+Substitute \autoref{eq:app_change_of_variables} into \autoref{eq:app_Pn_explicit} and assume the system starts in equilibrium, $\hat{\rho}_{\mathrm{S}}(t_0)=\hat{\rho}_{\mathrm{eq}}$, at $t_0\to -\infty$. The initial evolution is then trivial because $\mathcal{U}_0(t)[\hat{\rho}_{\mathrm{eq}}]=\hat{\rho}_{\mathrm{eq}}$. The $n$-th order polarisation becomes
 \begin{equation}
-	\boldsymbol{P}^{(n)}(t)
-	= \int_{0}^{\infty}\!\mathrm{d}\tau_n\cdots\int_{0}^{\infty}\!\mathrm{d}\tau_1\,
-	\boldsymbol{S}^{(n)}(\tau_n,\ldots,\tau_1)
-	E(t-\tau_n)\,E(t-\tau_n-\tau_{n-1})\cdots E\Bigl(t-\sum_{k=1}^{n}\tau_k\Bigr),
-	\label{eq:app_Pn_convolution}
+\begin{split}
+P^{(n)}_\alpha(t)
+&= \int_{0}^{\infty}\!\mathrm{d}\tau_n\cdots\int_{0}^{\infty}\!\mathrm{d}\tau_1\,
+R^{(n)}_{\alpha\beta_1\cdots\beta_n}(\tau_n,\ldots,\tau_1)
+\\
+&\quad \times
+E_{\beta_1}(t-\tau_n)\,
+E_{\beta_2}(t-\tau_n-\tau_{n-1})\cdots
+E_{\beta_n}\!\left(t-\sum_{k=1}^{n}\tau_k\right).
+\end{split}
+\label{eq:app_Pn_convolution}
 \end{equation}
-where the \emph{response function} $\boldsymbol{S}^{(n)}$ is defined as follows. Expanding the product of commutators in~\autoref{eq:app_Pn_explicit} under the delay transformation and taking the limit $t_0\to-\infty$, the contribution that is independent of the field shape is isolated. This intrinsic material response is:
+This formula separates the material dynamics from the experimental pulse shapes. The response tensor $R^{(n)}_{\alpha\beta_1\cdots\beta_n}$ is the field-independent factor,
 \begin{equation}
-	\boldsymbol{S}^{(n)}(\tau_n,\ldots,\tau_1)
-	\equiv (\mathrm{i})^n\,\mathrm{Tr}\Bigl\{\hat{\boldsymbol{\mu}}\,\mathcal{U}_0(\tau_n)\,\mathcal{V}\,\mathcal{U}_0(\tau_{n-1})\,\mathcal{V}\cdots\mathcal{V}\,\mathcal{U}_0(\tau_1)\,\mathcal{V}[\hat{\rho}_{\mathrm{eq}}]\Bigr\}.
+	R^{(n)}_{\alpha\beta_1\cdots\beta_n}(\tau_n,\ldots,\tau_1)
+	\equiv (\mathrm{i})^n\,\mathrm{Tr}\Bigl\{\hat{\mu}_\alpha\,\mathcal{U}_0(\tau_n)\,\mathcal{V}_{\beta_1}\,\mathcal{U}_0(\tau_{n-1})\,\mathcal{V}_{\beta_2}\cdots\mathcal{V}_{\beta_n}\,\mathcal{U}_0(\tau_1)\,\mathcal{V}_{\beta_n}[\hat{\rho}_{\mathrm{eq}}]\Bigr\}.
 	\label{eq:app_Sn_def}
 \end{equation}
-Equation~\autoref{eq:app_Sn_def} defines the (causal) \emph{response function}: $\boldsymbol{S}^{(n)}(\tau_n,\ldots,\tau_1)$ describes the intrinsic material response to $n$ successive light--matter interactions separated by the delay intervals $(\tau_n,\ldots,\tau_1)$. Crucially, $\boldsymbol{S}^{(n)}$ depends only on the field-free dynamics $\mathcal{U}_0$ and the dipole operator (through $\mathcal{V}$), and is completely independent of the particular pulse shapes or envelope functions $E(t)$. This is what makes response functions a fundamental and universal characterization of nonlinear material properties.
-The nested-commutator structure that emerges from expanding the product in~\autoref{eq:app_Sn_def} is essential for understanding nonlinear spectroscopy. Since each interaction produces a left and a right action on the density operator as shown in~\autoref{eq:app_dipole_superoperator}. Expanding the product of $n$ commutators therefore generates $2^n$ distinct Liouville-space contributions or before additional physical selections (e.g., rotating-wave approximation, phase matching/phase cycling) restrict the subset that contributes to a given measured signal.
+By construction, $R^{(n)}_{\alpha\beta_1\cdots\beta_n}(\tau_n,\ldots,\tau_1)$ describes the intrinsic response of the system to $n$ successive light--matter interactions separated by nonnegative delay intervals. Causality is explicit: the response vanishes whenever any $\tau_j<0$, and \autoref{eq:app_Pn_convolution} only involves field values at times earlier than $t$.
 
-A final important point: while the Dyson series (\autoref{eq:app_dyson}) itself is strictly time ordered with $\tau_1>\tau_2>\cdots>\tau_n$, in a real experiment the three pulses can arrive in any order. Different pulse orderings correspond to different time-ordered contributions to $\boldsymbol{P}^{(n)}$. The experimentally measured total response is obtained by summing the relevant orderings for the chosen pulse sequence.
+\section{Fixed-Polarisation Projection Used in This Thesis}
+\label{app:sec:scalar_projection_note}
 
-Two points are emphasized. First, causality is explicit: $\boldsymbol{S}^{(n)}$ is only needed for nonnegative delays, and the fields are evaluated at times earlier than $t$. Second, $\boldsymbol{S}^{(n)}$ depends only on field-free dynamics and the dipole operator. It is independent of the particular pulse shapes.
-
-\section{Tensor structure and polarization components}
-\label{app:sec:tensorial_structure}
-
-If one does not fix a single polarization direction, the response becomes a rank-$(n{+}1)$ tensor. Introduce component dipole superoperators
-\begin{equation*}
-	\mathcal{V}_\beta[\hat{A}] \equiv [\hat{\mu}_\beta,\hat{A}],\qquad \beta\in\{x,y,z\},
-\end{equation*}
-and define
-\begin{equation*}
-	S^{(n)}_{\alpha\beta_1\cdots\beta_n}(\tau_n,\ldots,\tau_1)
-	= (\mathrm{i})^n\,\mathrm{Tr}\Bigl\{\hat{\mu}_\alpha\,\mathcal{U}_0(\tau_n)\,\mathcal{V}_{\beta_n}\,\mathcal{U}_0(\tau_{n-1})\,\mathcal{V}_{\beta_{n-1}}\cdots\mathcal{U}_0(\tau_1)\,\mathcal{V}_{\beta_1}[\hat{\rho}_{\mathrm{eq}}]\Bigr\}.
-\end{equation*}
-Then $P^{(n)}_\alpha(t)$ is obtained by contracting this tensor with the field components $E_{\beta}(t)$. Choosing a fixed unit polarization $\mathbf e$ and writing $E_\beta(t)=e_\beta E(t)$ reduces the tensorial form back to \autoref{eq:app_Pn_convolution}.
-
+The derivation above is fully polarisation-resolved. In the numerical simulations reported in this thesis, all pulses are taken linearly polarised along a fixed laboratory direction $\boldsymbol e_{\mathrm{in}}$, and the detected signal is the component along $\boldsymbol e_{\mathrm{out}}$ (typically $\boldsymbol e_{\mathrm{out}}=\boldsymbol e_{\mathrm{in}}$). Because the simulations use a collinear setup with one fixed polarisation axis for excitation and readout, this projection is used throughout. Accordingly,
+\begin{equation}
+	E_\beta(t)=e_{\mathrm{in},\beta}\,E(t),
+	\qquad
+	P(t)=e_{\mathrm{out},\alpha}\,P_\alpha(t),
+	\label{eq:app_scalar_projection_fields}
+\end{equation}
+so that the tensor response contracts to the scalar quantity
+\begin{equation}
+	R^{(n)} \equiv
+	e_{\mathrm{out},\alpha}\,R^{(n)}_{\alpha\beta_1\cdots\beta_n}\,
+	e_{\mathrm{in},\beta_1}\cdots e_{\mathrm{in},\beta_n}.
+	\label{eq:app_scalar_contracted_response}
+\end{equation}
+In this fixed-polarisation setting, the equations used in the main text are
+\begin{equation}
+	P^{(n)}(t)
+	= \int_{0}^{\infty}\!\mathrm{d}\tau_n\cdots\int_{0}^{\infty}\!\mathrm{d}\tau_1\,
+	R^{(n)}(\tau_n,\ldots,\tau_1)\,
+	E(t-\tau_n)\,E(t-\tau_n-\tau_{n-1})\cdots
+	E\!\Bigl(t-\sum_{k=1}^{n}\tau_k\Bigr),
+	\label{eq:app_Pn_convolution_scalar}
+\end{equation}
+with
+\begin{equation}
+	R^{(n)}(\tau_n,\ldots,\tau_1)
+	\equiv (\mathrm{i})^n\,\mathrm{Tr}\Bigl\{\hat{\mu}\,\mathcal{U}_0(\tau_n)\,\mathcal{V}\,\mathcal{U}_0(\tau_{n-1})\,\mathcal{V}\cdots\mathcal{V}\,\mathcal{U}_0(\tau_1)\,\mathcal{V}[\hat{\rho}_{\mathrm{eq}}]\Bigr\}.
+	\label{eq:app_Sn_def_scalar}
+\end{equation}
+Whenever response functions are used in the main text, indices are suppressed and $P^{(n)}$ and $R^{(n)}$ refer to these fixed-polarisation scalar projections. This is consistent with the numerical workflow, which uses a collinear setup (see~\autoref{sec:phase_cycling}) and therefore a fixed laboratory polarisation orientation.

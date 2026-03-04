@@ -82202,7 +82202,7 @@
              transform="scale(0.996264)"
              id="use45-8" /></g></g></g><g
        id="text_15-7"
-       transform="matrix(0.43686173,0,0,0.43686173,-18.575596,-17.336523)"><!-- $P_{\text{sur}}$ --><g
+       transform="matrix(0.43686173,0,0,0.43686173,-18.575596,-17.336523)"><!-- $P_{\mathrm{sur}}$ --><g
          transform="matrix(0,-0.2,-0.2,0,37.181995,225.38912)"
          id="g51"><defs
            id="defs47-7"><path
@@ -82903,7 +82903,7 @@
              y="215.64941"
              style="stroke:#000000;stroke-width:0.8"
              id="use202-0" /></g></g><g
-         id="text_1-0"><!-- $-\pi / d_{\text{ext}}$ --><g
+         id="text_1-0"><!-- $-\pi / d_{\mathrm{ext}}$ --><g
            transform="matrix(0.2,0,0,-0.2,41.966512,236.90588)"
            id="g209-0"><defs
              id="defs202-2"><path
@@ -82993,7 +82993,7 @@
              y="215.64941"
              style="stroke:#000000;stroke-width:0.8"
              id="use216-8" /></g></g><g
-         id="text_5-2"><!-- $\pi / d_{\text{ext}}$ --><g
+         id="text_5-2"><!-- $\pi / d_{\mathrm{ext}}$ --><g
            transform="matrix(0.2,0,0,-0.2,467.01279,236.90588)"
            id="g222"><use
              xlink:href="#PazoMath-Italic-70-9"
@@ -85023,7 +85023,7 @@
              style="stroke-linecap:butt;stroke-linejoin:round" /></g></g></g><g
        id="text_15-7-0"
        transform="matrix(0.43686173,0,0,0.43686173,-131.29512,127.43259)"
-       style="stroke-linecap:butt;stroke-linejoin:round"><!-- $P_{\text{sur}}$ --><g
+       style="stroke-linecap:butt;stroke-linejoin:round"><!-- $P_{\mathrm{sur}}$ --><g
          transform="matrix(0,-0.2,-0.2,0,37.181995,225.38912)"
          id="g51-4"
          style="stroke-linecap:butt;stroke-linejoin:round"><defs
@@ -86222,7 +86222,7 @@
              style="stroke:#000000;stroke-width:0.8;stroke-linecap:butt;stroke-linejoin:round"
              id="use202-0-7" /></g></g><g
          id="text_1-0-5"
-         style="stroke-linecap:butt;stroke-linejoin:round"><!-- $-\pi / d_{\text{ext}}$ --><g
+         style="stroke-linecap:butt;stroke-linejoin:round"><!-- $-\pi / d_{\mathrm{ext}}$ --><g
            transform="matrix(0.2,0,0,-0.2,41.966512,236.90588)"
            id="g209-0-5"
            style="stroke-linecap:butt;stroke-linejoin:round"><defs
@@ -86334,7 +86334,7 @@
              style="stroke:#000000;stroke-width:0.8;stroke-linecap:butt;stroke-linejoin:round"
              id="use216-8-0" /></g></g><g
          id="text_5-2-7"
-         style="stroke-linecap:butt;stroke-linejoin:round"><!-- $\pi / d_{\text{ext}}$ --><g
+         style="stroke-linecap:butt;stroke-linejoin:round"><!-- $\pi / d_{\mathrm{ext}}$ --><g
            transform="matrix(0.2,0,0,-0.2,467.01279,236.90588)"
            id="g222-1"
            style="stroke-linecap:butt;stroke-linejoin:round"><use

@@ -34,16 +34,16 @@ The free atomic Hamiltonian is expressed as:
 \subsubsection{Electric Field}
 The electric field is given analogously to \autoref{eq:electric_field_three_pulses} by:
 \begin{equation}
-	\mathcal{E}(t) = E_0 e^{i\phi} e^{-i\omega_L t}, \qquad
-	E_{\text{phys}}(t) = \mathcal{E}(t) + \mathcal{E}^*(t)
+	\mathcal{E}(t) = E_0 e^{i\phi} e^{-i\omega_{L} t}, \qquad
+	E_{\mathrm{phys}}(t) = \mathcal{E}(t) + \mathcal{E}^*(t)
 	\label{eq:ElectricFieldComplex}
 \end{equation}
-where \(E_0\) is the field amplitude, \(\phi\) is the phase, and \(\omega_L\) is the laser frequency.
+where \(E_0\) is the field amplitude, \(\phi\) is the phase, and \(\omega_{L}\) is the laser frequency.
 
 \subsubsection{Interaction Hamiltonian}
 Using the electric dipole interaction with raising and lowering operators \(\sigma_\pm = (\sigma_x \pm i\sigma_y)/2\):
 \begin{equation}
-	H_{\text{int}}(t) = -\mu \left( \mathcal{E}(t) \sigma_+ + \mathcal{E}^*(t) \sigma_- \right)
+	H_{\mathrm{int}}(t) = -\mu \left( \mathcal{E}(t) \sigma_+ + \mathcal{E}^*(t) \sigma_- \right)
 	\label{eq:InteractionHamiltonianDipole}
 \end{equation}
 where \(\mu\) is the dipole matrix element.
@@ -56,23 +56,23 @@ where \(\mu\) is the dipole matrix element.
 \subsubsection{Total Hamiltonian}
 The total Hamiltonian of the system is:
 \begin{equation}
-	H(t) = H_0 + H_{\text{int}}(t)
+	H(t) = H_0 + H_{\mathrm{int}}(t)
 	\label{eq:TotalHamiltonian}
 \end{equation}
-The time evolution of the system is governed by the time-dependent Schrödinger equation \autoref{eq:SchrödingerEquation}
+The time evolution of the system is governed by the time-dependent Schrödinger equation \autoref{eq:schroedinger_equation}
 
 \subsection{Transform to the Rotating Frame}
 
 Define the unitary transformation:
 \begin{equation}
-	U(t) = \exp\left(i \omega_L t \frac{\sigma_z}{2}\right)
+	U(t) = \exp\left(i \omega_{L} t \frac{\sigma_z}{2}\right)
 	\label{eq:UnitaryRotatingFrame}
 \end{equation}
 Transform operators as \(\tilde{X} = U X U^\dagger\), and the density matrix as \(\tilde{\rho} = U \rho U^\dagger\).
 
 Useful identities for the transformation:
 \begin{equation}
-	U \sigma_\pm U^\dagger = e^{\pm i \omega_L t} \sigma_\pm, \qquad
+	U \sigma_\pm U^\dagger = e^{\pm i \omega_{L} t} \sigma_\pm, \qquad
 	U \sigma_z U^\dagger = \sigma_z
 	\label{eq:TransformationIdentities}
 \end{equation}
@@ -82,14 +82,14 @@ Useful identities for the transformation:
 \begin{itemize}
 	\item \textbf{Free Hamiltonian:}
 	      \begin{equation}
-		      \tilde{H}_0 = \frac{(\omega_0 - \omega_L)}{2} \sigma_z = \frac{\Delta}{2} \sigma_z
+		      \tilde{H}_0 = \frac{(\omega_0 - \omega_{L})}{2} \sigma_z = \frac{\Delta}{2} \sigma_z
 		      \label{eq:TransformedFreeHamiltonian}
 	      \end{equation}
-	      where \(\Delta = \omega_0 - \omega_L\) is the detuning.
+	      where \(\Delta = \omega_0 - \omega_{L}\) is the detuning.
 
 	\item \textbf{Transformed interaction Hamiltonian:}
 	      \begin{equation}
-		      \tilde{H}_{\text{int}} = -\mu \left( E_0 e^{i\phi} \sigma_+ + E_0 e^{-i\phi} \sigma_- \right)
+		      \tilde{H}_{\mathrm{int}} = -\mu \left( E_0 e^{i\phi} \sigma_+ + E_0 e^{-i\phi} \sigma_- \right)
 		      \label{eq:TransformedInteractionHamiltonian}
 	      \end{equation}
 
@@ -106,7 +106,7 @@ Useful identities for the transformation:
 
 The master equation in the rotating frame is:
 \begin{equation}
-	\\frac{d}{dt}\\rho = -i[\tilde{H}, \rho] + \mathcal{D}(\rho)
+	\frac{\mathrm{d}}{\mathrm{d}t}\rho = -i[\tilde{H}, \rho] + \mathcal{D}(\rho)
 	\label{eq:MasterEquationRotatingFrame}
 \end{equation}
 The dissipator includes spontaneous emission and pure dephasing:
@@ -136,10 +136,10 @@ Let \(\Omega_c = \Omega e^{i\phi}\). The equations of motion are:
 \begin{equation}
 	\boxed{
 		\begin{aligned}
-			\\frac{d}{dt}\\rho_{ee} & = i \Omega_c \rho_{ge} - i \Omega_c^* \rho_{eg} - \gamma_0 \rho_{ee}            \\[6pt]
-			\\frac{d}{dt}\\rho_{gg} & = -i \Omega_c \rho_{ge} + i \Omega_c^* \rho_{eg} + \gamma_0 \rho_{ee}           \\[6pt]
-			\\frac{d}{dt}\\rho_{eg} & = i \Delta \rho_{eg} + i \Omega_c (\rho_{gg} - \rho_{ee}) - \Gamma \rho_{eg}    \\[6pt]
-			\\frac{d}{dt}\\rho_{ge} & = -i \Delta \rho_{ge} - i \Omega_c^* (\rho_{gg} - \rho_{ee}) - \Gamma \rho_{ge}
+			\frac{\mathrm{d}}{\mathrm{d}t}\rho_{ee} & = i \Omega_c \rho_{ge} - i \Omega_c^* \rho_{eg} - \gamma_0 \rho_{ee}            \\[6pt]
+			\frac{\mathrm{d}}{\mathrm{d}t}\rho_{gg} & = -i \Omega_c \rho_{ge} + i \Omega_c^* \rho_{eg} + \gamma_0 \rho_{ee}           \\[6pt]
+			\frac{\mathrm{d}}{\mathrm{d}t}\rho_{eg} & = i \Delta \rho_{eg} + i \Omega_c (\rho_{gg} - \rho_{ee}) - \Gamma \rho_{eg}    \\[6pt]
+			\frac{\mathrm{d}}{\mathrm{d}t}\rho_{ge} & = -i \Delta \rho_{ge} - i \Omega_c^* (\rho_{gg} - \rho_{ee}) - \Gamma \rho_{ge}
 		\end{aligned}
 	}
 	\label{eq:BlochEquations}
@@ -185,7 +185,7 @@ The phase \(\phi\) does not change the \textbf{Rabi frequency}, but it \textbf{r
 
 In matrix form, in the basis \(\{ \ket{e}, \ket{g} \}\), the RWA Hamiltonian is:
 \begin{equation}
-	\tilde{H}_{\text{RWA}} = \frac{1}{2}
+	\tilde{H}_{\mathrm{RWA}} = \frac{1}{2}
 	\begin{pmatrix}
 		\Delta             & -\Omega e^{i\phi} \\
 		-\Omega e^{-i\phi} & -\Delta
@@ -205,8 +205,8 @@ The entries of the original density matrix \(\rho(t)\) are related to the entrie
 \begin{align}
 	\rho_{gg}(t) & = \tilde{\rho}_{gg}(t) \label{eq:RecoveryGG}                  \\
 	\rho_{ee}(t) & = \tilde{\rho}_{ee}(t) \label{eq:RecoveryEE}                  \\
-	\rho_{ge}(t) & = e^{i\omega_L t} \tilde{\rho}_{ge}(t) \label{eq:RecoveryGE}  \\
-	\rho_{eg}(t) & = e^{-i\omega_L t} \tilde{\rho}_{eg}(t) \label{eq:RecoveryEG}
+	\rho_{ge}(t) & = e^{i\omega_{L} t} \tilde{\rho}_{ge}(t) \label{eq:RecoveryGE}  \\
+	\rho_{eg}(t) & = e^{-i\omega_{L} t} \tilde{\rho}_{eg}(t) \label{eq:RecoveryEG}
 \end{align}
 
 %----------------------------------------------------------------------------------------

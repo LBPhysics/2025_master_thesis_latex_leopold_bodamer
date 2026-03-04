@@ -2,11 +2,11 @@
 \chapter{Model Systems}
 \label{chapter_model_systems}
 
-Having established the spectroscopy workflow in \autoref{chapter_spectroscopy} and the open-system dynamics tools in \autoref{chapter_open_quantum_systems}, the concrete model Hamiltonians and dipole operators used in the numerical simulations are now specified. The discussion proceeds from minimal reference systems to more structured ensembles:
+Having established the spectroscopy workflow in~\autoref{chapter_spectroscopy} and the open-system dynamics tools in~\autoref{chapter_open_quantum_systems}, the concrete model Hamiltonians and dipole operators used in the numerical simulations are now specified. The discussion proceeds from minimal reference systems to more structured ensembles:
 \begin{itemize}
 	\item a \textbf{qubit} as the simplest benchmark for rephasing/nonrephasing signals.
 	\item a \textbf{dimer} (two coupled sites) with a coherent coupling constant $J$.
-	\item an \textbf{$N$-site ensemble} with a prescribed geometry, simulated in the \emph{ground}, \emph{single-excitation}, and \emph{double-excitation} manifolds \,$\ket{g},\{\ket{n}\},\{\ket{f}\}$ as introduced in \autoref{chapter_spectroscopy}.
+	\item an \textbf{$N$-site ensemble} with a prescribed geometry, simulated in the \emph{ground}, \emph{single-excitation}, and \emph{double-excitation} manifolds \,$\ket{g},\{\ket{n}\},\{\ket{f}\}$ as introduced in~\autoref{chapter_spectroscopy}.
 \end{itemize}
 Throughout, standard third-order spectroscopy concepts \cite{mukamel1995principlesnonlinearoptical,jonas2003twodimensionalfemtosecondspectroscopy,cho2009twodimensionalopticalspectroscopy} and the master-equation propagation methods from \autoref{chapter_open_quantum_systems} are used.
 
@@ -20,9 +20,9 @@ Throughout, standard third-order spectroscopy concepts \cite{mukamel1995principl
 
 The simplest nontrivial benchmark is a qubit, i.e. a two-level quantum system with ground state $\ket{g}$ and excited state $\ket{e}$.
 
-Although a strict two-level model cannot capture excited-state absorption into a separate higher manifold, it is a clean test case for the basic workflow (pulse sequence $\rightarrow$ induced polarization $\rightarrow$ rephasing/nonrephasing signals and 2D spectra) and for disentangling homogeneous dephasing, population relaxation, and inhomogeneous broadening.
+Although a strict two-level model cannot capture excited-state absorption into a separate higher manifold, it is a clean test case for the basic workflow (pulse sequence $\rightarrow$ induced polarisation $\rightarrow$ rephasing/nonrephasing signals and 2D spectra) and for disentangling homogeneous dephasing, population relaxation, and inhomogeneous broadening.
 
-\subsection{Hamiltonian and dipole operator}
+\subsection{Hamiltonian and Dipole Operator}
 
 
 The field-free system Hamiltonian is taken as
@@ -30,7 +30,7 @@ The field-free system Hamiltonian is taken as
 	\hat{H}_{\mathrm S}^{(\mathrm{TLS})} = \omega_{eg}\,\ket{e}\!\bra{e},
 	\label{eq:tls_hamiltonian}
 \end{equation}
-with transition frequency $\omega_{eg}$. The optical dipole operator (projected onto the chosen polarization direction) is written as
+with transition frequency $\omega_{eg}$. The optical dipole operator (projected onto the chosen polarisation direction) is written as
 \begin{equation}
 	\hat{\mu}_{\mathrm S}^{(\mathrm{TLS})}
 	= \mu_{ge}\,\ket{g}\!\bra{e} + \mu_{eg}\,\ket{e}\!\bra{g},
@@ -38,24 +38,24 @@ with transition frequency $\omega_{eg}$. The optical dipole operator (projected 
 	\label{eq:tls_dipole}
 \end{equation}
 
-\subsection{System--bath coupling types}
+\subsection{System--Bath Coupling Types}
 
 
-For a two-level system it is instructive to distinguish two types of system--bath coupling: \textit{longitudinal} (or \textit{pure-dephasing}) couplings are proportional to $\sigma_z$ and commute with the bare qubit Hamiltonian in \autoref{eq:tls_hamiltonian}, so they do not induce transitions between energy eigenstates but instead cause the energy splitting to fluctuate in time, leading to decay of coherences without population relaxation ($T_\phi$). In contrast, \textit{transverse} couplings (e.g., $\sigma_x,\sigma_y$) can induce transitions and drive population relaxation ($T_1$).
+For a two-level system it is instructive to distinguish two types of system--bath coupling: \textit{longitudinal} (or \textit{pure-dephasing}) couplings are proportional to $\sigma_z$ and commute with the bare qubit Hamiltonian in~\autoref{eq:tls_hamiltonian}, so they do not induce transitions between energy eigenstates but instead cause the energy splitting to fluctuate in time, leading to decay of coherences without population relaxation ($T_\phi$). In contrast, \textit{transverse} couplings (e.g., $\sigma_x,\sigma_y$) can induce transitions and drive population relaxation ($T_1$).
 
-\subsection{Open-system dynamics and broadening scenarios}
+\subsection{Open-System Dynamics and Broadening Scenarios}
 
 
-The reduced dynamics are generated by the open-system Liouvillian introduced in \autoref{chapter_open_quantum_systems}. In practice, either a Redfield-type generator or (when appropriate) a Lindblad form is used.
+The reduced dynamics are generated by the open-system Liouvillian introduced in~\autoref{chapter_open_quantum_systems}. In practice, either a Redfield-type generator or (when appropriate) a Lindblad form is used.
 
 
 The qubit is examined under two broadening scenarios:
 \begin{itemize}
 	\item \textbf{Homogeneous broadening}: a single transition frequency $\omega_{eg}$ with dephasing/relaxation entirely due to the bath.
-	\item \textbf{Inhomogeneous broadening}: an ensemble of realizations with slightly different $\omega_{eg}$ values (static disorder), and spectra obtained by averaging the resulting signals as discussed in \autoref{chapter_spectroscopy}.
+	\item \textbf{Inhomogeneous broadening}: an ensemble of realizations with slightly different $\omega_{eg}$ values (static disorder), and spectra obtained by averaging the resulting signals as discussed in~\autoref{chapter_spectroscopy}.
 \end{itemize}
 
-\subsection{Results: rephasing signal and qubit 2D spectra}
+\subsection{Results: Rephasing Signal and Qubit 2D Spectra}
 
 
 To illustrate the meaning of rephasing and the difference between homogeneous and inhomogeneous broadening, (i) a representative time-domain rephasing trace and (ii) sequences of TLS 2D spectra at different waiting times $T$ are included. The figures are inserted below as placeholders. If the image files are not present yet, compilation will fall back to a framed box.
@@ -69,9 +69,9 @@ To validate the numerical workflow, a simpler phenomenological Lindblad-type evo
 \dot{\rho}_{gg} &= - i\,\mu_{eg} E(t)\,\sigma_{ge} + i\,\mu_{eg} E^{*}(t)\,\sigma_{eg}.
 \label{eq:tls_eom_rhogg}
 \end{align}
-with detuning $\Delta=\omega_{eg}-\Omega$. This is for a resonant coupling to the field ($\Delta=0$) exactly the optical Bloch equations as presented in \cite{mancaletal2006twodimensionalopticalthreepulse}. It uses phenomenological decay rates $\Gamma$ and $\gamma$ for the coherence and population, respectively. By choosing $\Gamma=\gamma/2 + 1/T_2^{*}$, the pure-dephasing contribution $T_2^{*}$ can be separated from the population-relaxation contribution $\gamma/2$ to the total dephasing rate.
-In the reproduction shown in \autoref{fig:rslts_tls_hom_rephasing_time_trace}, the parameters match the paper and the polarization is sampled every $2\,\mathrm{fs}$ for $\tau$ and $t$ in $[0,600]$ fs. The field intensity is chosen so that the excited-state population remains below 1\% ($E_0=0.05$), ensuring higher-order nonlinearities remain negligible.
-\begin{figure}[tbp]
+with detuning $\Delta=\omega_{eg}-\Omega$. This is for a resonant coupling to the field ($\Delta=0$) exactly the optical Bloch equations as presented in~\cite{mancaletal2006twodimensionalopticalthreepulse}. It uses phenomenological decay rates $\Gamma$ and $\gamma$ for the coherence and population, respectively. By choosing $\Gamma=\gamma/2 + 1/T_2^{*}$, the pure-dephasing contribution $T_2^{*}$ can be separated from the population-relaxation contribution $\gamma/2$ to the total dephasing rate.
+In the reproduction shown in~\autoref{fig:rslts_tls_hom_rephasing_time_trace}, the parameters match the paper and the polarisation is sampled every $2\,\mathrm{fs}$ for $\tau$ and $t$ in $[0,600]$ fs. The field intensity is chosen so that the excited-state population remains below 1\% ($E_0=0.05$), ensuring higher-order nonlinearities remain negligible.
+\begin{figure}[htbp]
 	\centering
 	\IfFileExists{figures/rslts_tls_hom_rephasing_time_trace.pdf}{%
 		\includegraphics[width=0.85\linewidth]{figures/rslts_tls_hom_rephasing_time_trace.pdf}%
@@ -80,12 +80,12 @@ In the reproduction shown in \autoref{fig:rslts_tls_hom_rephasing_time_trace}, t
 				Placeholder: 1D rephasing time trace for a qubit.\\
 				Put the file at \texttt{latex/figures/tls\_rephasing\_time\_trace.pdf}.\vspace{2mm}}}%
 	}
-	\caption{Time-domain three-pulse photon-echo (rephasing) signal of a two-level system computed from the RWA equations of motion, \autoref{eq:tls_eom_rhoeg}--\autoref{eq:tls_eom_rhogg}, with the paper parameters ($\tau=300\,\mathrm{fs}$, $T=1000\,\mathrm{fs}$, $\gamma^{-1}=300\,\mathrm{fs}$, $T_2^{*}=100\,\mathrm{fs}$, $\tau_{\mathrm{pulse}}=15\,\mathrm{fs}$, $\omega_{eg}=16000\,\mathrm{cm}^{-1}$, and inhomogeneous FWHM $\Delta=200\,\mathrm{cm}^{-1}$) at resonance $\omega_L=\omega_{eg}$. This reproduces the reference result of \cite{mancaletal2006twodimensionalopticalthreepulse}.}
+	\caption{Time-domain three-pulse photon-echo (rephasing) signal of a two-level system computed from the RWA equations of motion, \autoref{eq:tls_eom_rhoeg}--\autoref{eq:tls_eom_rhogg}, with the paper parameters ($\tau=300\,\mathrm{fs}$, $T=1000\,\mathrm{fs}$, $\gamma^{-1}=300\,\mathrm{fs}$, $T_2^{*}=100\,\mathrm{fs}$, $\tau_{\mathrm{pulse}}=15\,\mathrm{fs}$, $\omega_{eg}=16000\,\mathrm{cm}^{-1}$, and inhomogeneous FWHM $\Delta=200\,\mathrm{cm}^{-1}$) at resonance $\omega_{L}=\omega_{eg}$. This reproduces the reference result of \cite{mancaletal2006twodimensionalopticalthreepulse}.}
 	\label{fig:rslts_tls_hom_rephasing_time_trace}
 \end{figure}
 
-The homogeneous case is shown in \autoref{fig:tls_2d_spectra_homogeneous}.
-\begin{figure}[tbp]
+The homogeneous case is shown in~\autoref{fig:tls_2d_spectra_homogeneous}.
+\begin{figure}[htbp]
 	\centering
 	\IfFileExists{figures/tls_2d_spectra_homogeneous.pdf}{%
 		\includegraphics[width=0.95\linewidth]{figures/tls_2d_spectra_homogeneous.pdf}%
@@ -98,8 +98,8 @@ The homogeneous case is shown in \autoref{fig:tls_2d_spectra_homogeneous}.
 	\label{fig:tls_2d_spectra_homogeneous}
 \end{figure}
 
-The inhomogeneous case is shown in \autoref{fig:tls_2d_spectra_inhomogeneous}.
-\begin{figure}[tbp]
+The inhomogeneous case is shown in~\autoref{fig:tls_2d_spectra_inhomogeneous}.
+\begin{figure}[htbp]
 	\centering
 	\IfFileExists{figures/tls_2d_spectra_inhomogeneous.pdf}{%
 		\includegraphics[width=0.95\linewidth]{figures/tls_2d_spectra_inhomogeneous.pdf}%
@@ -123,13 +123,13 @@ The inhomogeneous case is shown in \autoref{fig:tls_2d_spectra_inhomogeneous}.
 
 As the next step, a dimer is considered: two optically active sites with a possible coherent coupling constant $J$. This is the minimal model that can produce cross peaks and coupling-induced spectral structure in 2D spectra, and it is a natural bridge to larger ensembles.
 
-\subsection{Manifolds and basis states}
+\subsection{Manifolds and Basis States}
 
 
 The standard excitation-manifold basis is used. The ground state is $\ket{g}$. The singly excited manifold is spanned by two localized excitations $\ket{1}$ and $\ket{2}$ (``site basis''), and the doubly excited state is $\ket{f}\equiv\ket{12}$.
-This matches the \, $\ket{g},\ket{n},\ket{f}$ scheme discussed in \autoref{chapter_spectroscopy} with $n\in\{1,2\}$.
+This matches the \, $\ket{g},\ket{n},\ket{f}$ scheme discussed in~\autoref{chapter_spectroscopy} with $n\in\{1,2\}$.
 
-\subsection{Hamiltonian with coupling $J$}
+\subsection{Hamiltonian with Coupling \texorpdfstring{$J$}{J}}
 
 
 In the single-excitation manifold, the Hamiltonian is taken as
@@ -142,7 +142,7 @@ In the single-excitation manifold, the Hamiltonian is taken as
 \end{equation}
 Setting $J=0$ recovers two uncoupled transitions. Finite $J$ produces excitonic eigenstates and characteristic peak splittings/cross peaks in 2D spectra.
 
-\subsection{Exciton basis (useful limiting picture)}
+\subsection{Exciton Basis (Useful Limiting Picture)}
 
 
 For interpretation of spectra it is often useful to diagonalize the single-excitation block. Introducing the site-energy difference $\Delta\varepsilon=\varepsilon_1-\varepsilon_2$, the two single-exciton eigenenergies are
@@ -152,7 +152,7 @@ For interpretation of spectra it is often useful to diagonalize the single-excit
 \end{equation}
 The corresponding eigenstates $\ket{\pm}$ interpolate between localized excitations (for $|J|\ll |\Delta\varepsilon|$) and fully delocalized superpositions (for $|J|\gg |\Delta\varepsilon|$). In the 2D spectrum this coherent mixing is visible already at waiting time $T=0$ through peak splittings and, generically, non-vanishing off-diagonal structure.
 
-\subsection{Dipole operator}
+\subsection{Dipole Operator}
 
 
 The dipole operator is written as the sum over allowed one-quantum transitions,
@@ -167,7 +167,7 @@ with $\mu_{ng}=\mu_{gn}^*$ and $\mu_{fn}=\mu_{nf}^*$. The $\ket{n}\leftrightarro
 
 The specific dimer parameter choices and the figures to be shown for the dimer will be specified later.
 
-\subsection{Physical interpretation in 2D spectra: coupling vs.	transfer}
+\subsection{Physical Interpretation in 2D Spectra: Coupling vs. Transfer}
 \label{sec:model_dimer_interpretation}
 
 
@@ -180,7 +180,7 @@ This dimer is the minimal setting in which the 2D spectrum can distinguish quali
 
 This ``$T=0$ cross peak'' versus ``growth with $T$'' distinction is a convenient rule of thumb when interpreting simulated (or measured) spectra.
 
-\subsection{transfer model during the waiting time}
+\subsection{Transfer Model During the Waiting Time}
 \label{sec:model_dimer_transfer_model}
 
 
@@ -193,7 +193,7 @@ To model unidirectional or bidirectional excitation transfer within the single-e
 \end{equation}
 in addition to site-local relaxation/dephasing operators (\autoref{chapter_open_quantum_systems}). In the numerical workflow this affects the evolution superoperator acting between the second and third interactions and therefore controls the waiting-time dependence of diagonal and cross-peak amplitudes.
 
-\subsection{Coherences during $T$ (oscillatory peak dynamics)}
+\subsection{Coherences During \texorpdfstring{$T$}{T} (Oscillatory Peak Dynamics)}
 \label{sec:model_dimer_coherences}
 
 
@@ -207,15 +207,15 @@ If the system supports excited-state coherences during the waiting time (e.g. be
 \label{sec:model_ensemble}
 
 
-Finally, an ensemble of $N$ optically active sites (``atoms'' or chromophores) placed in a prescribed geometry is considered. Motivated by protofilament arrangements in microtubules, the geometry of interest in this thesis is a discretized cylindrical surface \cite{kalraetal2023electronicenergymigration}. The model is formulated in the excitation-manifold basis \,$\ket{g},\{\ket{n}\},\{\ket{f}\}$ already used in \autoref{chapter_spectroscopy}.
+Finally, an ensemble of $N$ optically active sites (``atoms'' or chromophores) placed in a prescribed geometry is considered. Motivated by protofilament arrangements in microtubules, the geometry of interest in this thesis is a discretized cylindrical surface \cite{kalraetal2023electronicenergymigration}. The model is formulated in the excitation-manifold basis \,$\ket{g},\{\ket{n}\},\{\ket{f}\}$ already used in~\autoref{chapter_spectroscopy}.
 
-\subsection{States and truncation}
+\subsection{States and Truncation}
 
 
 The ground state is $\ket{g}$. The single-excitation manifold is spanned by states $\ket{n}$, $n\in\{1,\dots,N\}$, which represent one excitation localized at site $n$ (or, after diagonalization, an excitonic eigenstate). If double excitations are included, states $\ket{f}\equiv\ket{mn}$ with $1\le m<n\le N$ are used, representing two simultaneous excitations.
 In this thesis the Hilbert space is restricted to the ground state plus the single-excitation manifold, or (when needed for ESA contributions) to ground + single + double excitations.
 
-\subsection{What 2D spectra diagnose in ensembles}
+\subsection{What 2D Spectra Diagnose in Ensembles}
 \label{sec:model_ensemble_interpretation}
 
 
@@ -243,7 +243,7 @@ In this basis, a generic Frenkel-exciton-type Hamiltonian reads
 where $\varepsilon_n$ are site transition frequencies and $J_{mn}$ are coherent couplings.
 The ellipsis indicates additional terms in the double-excitation manifold if one wishes to include interactions beyond an additive two-exciton energy (e.g. exciton--exciton shifts).
 
-\subsection{Geometry and couplings}
+\subsection{Geometry and Couplings}
 
 
 The couplings $J_{mn}$ may be parameterized phenomenologically (e.g. nearest-neighbour) or computed from transition-dipole interactions. In the latter case one uses
@@ -260,7 +260,7 @@ with site positions $\boldsymbol{r}_n$ and displacement $\boldsymbol{r}_{mn}=\bo
 
 For a cylindrical arrangement, let $N_{\theta}$ be the number of sites per ring and $N_z$ the number of rings (so $N=N_{\theta}N_z$), with sites indexed by an azimuthal index and an axial index. Periodic boundary conditions can be imposed in the azimuthal direction.
 
-\subsection{Dipole operator}
+\subsection{Dipole Operator}
 
 
 The dipole operator is the sum over allowed one-quantum transitions between adjacent excitation manifolds,
@@ -274,3 +274,65 @@ where the second sum is only needed if the double-excitation manifold is include
 
 
 This model class captures collective transport pathways and their photon-echo signatures, offering a route to connect microscopic couplings and geometry to observable 2D spectra \cite{kalraetal2023electronicenergymigration}.
+
+
+\todoidea{Include this:}
+
+
+\subsubsection{Multilevel Generalization}
+\label{sec:multilevel_generalization_thesis}
+Realistic systems typically have many optically accessible excited states, and a central goal of this thesis is to extend the simulation framework from a minimal two-level model to multilevel Hamiltonians. A convenient (and widely used) idealisation that already captures the essential physics of ground-state bleach (GSB), stimulated emission (SE), and excited-state absorption (ESA) is a three-manifold ``band'' picture:
+\begin{itemize}
+	\item a single ground state $\ket{g}$.
+	\item a manifold of singly excited states $\{\ket{n}\}$.
+	\item a manifold of higher excited (doubly excited) states $\{\ket{f}\}$.
+\end{itemize}
+Optically allowed transitions connect $\ket{g}\leftrightarrow\ket{n}$ and $\ket{n}\leftrightarrow\ket{f}$. In third-order spectroscopy the Liouville pathways do not contain populations of the $f$ manifold (they end in coherences such as $\rho_{fn}$), so relaxation out of $f$ typically enters effectively through additional dephasing/broadening of the $n\leftrightarrow f$ coherences.
+
+\medskip
+
+\textbf{Propagators in the secular approximation.}
+In the secular approximation, the $\tau_2$ evolution is expressed in terms of Liouville-space propagator elements of the generic form
+\begin{equation}
+	U_{nn,mm}(\tau_2),\qquad U_{nm,nm}(\tau_2),\qquad U_{gg,nn}(\tau_2),
+	\label{eq:multilevel_propagators_thesis}
+\end{equation}
+describing population transfer within the excited manifold ($nn\to mm$), coherence dephasing within the excited manifold ($nm\to nm$), and refilling of the ground state from excited populations ($nn\to gg$). ESA pathways additionally involve propagators for $f$-manifold coherences (e.g. $U_{fn,fm}(\tau_2)$).
+
+\medskip
+
+\textbf{Recipe for constructing multilevel signals.}
+Given these propagators, multilevel spectra are obtained by the same ``stitching'' procedure as in the two-level case:
+\begin{enumerate}
+	\item choose the relevant pulse sequence (and thus the allowed pathway classes and phase matching / phase cycling).
+	\item for each pathway, write the product of four dipole matrix elements (e.g. $d_{ng}$, $d_{mg}$, and, for ESA, $d_{fn}$) and three propagators (coherence--population--coherence) appropriate to that pathway.
+	\item Fourier transform over the detection time to obtain contributions as functions of $\omega_{\mathrm{det}}$ (and, for 2D spectra, also over the coherence time to obtain $\omega_{\mathrm{coh}}$).
+	\item sum over all intermediate state indices $n,m,f,\dots$.
+\end{enumerate}
+
+
+This multilevel bookkeeping is exactly what becomes necessary once the system Hamiltonian contains multiple excited eigenstates (or excitonic bands) and the open-system Liouvillian generates non-trivial transfer and dephasing within these manifolds. The explicit multilevel formulation will therefore serve as the bridge from the pedagogical two-level picture to the full numerical simulations targeted in the later thesis chapters.
+
+\medskip
+
+\textbf{General dissipative channels (preview).}
+For later use it is helpful to note that a multilevel relaxation model can be written compactly in Lindblad form by introducing one jump operator per allowed transition $\ket{n}\to\ket{m}$,
+\begin{equation*}
+	\hat{L}_{mn} = \sqrt{k_{mn}}\,\ket{m}\bra{n},
+\end{equation*}
+and, if needed, pure-dephasing operators for each level,
+\begin{equation*}
+	\hat{L}_{n}^{(\varphi)} = \sqrt{\gamma_{\varphi,n}}\,\ket{n}\bra{n}.
+\end{equation*}
+These ingredients define the Liouvillian whose propagator elements $U_{ab,cd}(t)$ enter directly in the pathway products described above.
+
+\todoimp{at the correct point implement this:}
+In a chosen basis $\{\ket{n}\}$ of the system Hilbert space \autoref{eq:P_def_spectroscopy} becomes 
+\begin{equation*}
+	\boldsymbol{P}(t)=\sum_{n,m}
+	\boldsymbol{\mu}_{nm}\,\rho_{S,mn}(t),
+	\qquad
+	\boldsymbol{\mu}_{nm}=\bra{n}\hat{\boldsymbol{\mu}}\ket{m}.
+\end{equation*}
+Oscillating polarisation is generated by optical coherences, i.e.\ off-diagonal elements of the density matrix. If the relevant electronic states carry no permanent dipoles in the chosen eigenbasis, i.e.\ $\boldsymbol{\mu}_{nn}=\boldsymbol{0}$, then populations do not contribute.
+

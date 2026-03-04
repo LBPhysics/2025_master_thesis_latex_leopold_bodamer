@@ -2,25 +2,25 @@
 \chapter{Detection Schemes and Complex-Signal Reconstruction in 2D Spectroscopy}
 \label{app:detection_schemes}
 
-This appendix collects the experimental detection-side remarks that motivate why coherent two-dimensional Fourier-transform spectroscopy (2D-FTS/2DES) is commonly described in terms of a \emph{complex} signal field. The Maxwell-side link from a nonlinear polarization source to an emitted phase-matched field (including the heterodyne cross term that renders the measurement linear in the signal field) is derived in \autoref{app:2dfts_maxwell}.
+This appendix collects the experimental detection-side remarks that motivate why coherent two-dimensional Fourier-transform spectroscopy (2D-FTS/2DES) is commonly described in terms of a \emph{complex} signal field. The Maxwell-side link from a nonlinear polarisation source to an emitted phase-matched field (including the heterodyne cross term that renders the measurement linear in the signal field) is derived in~\autoref{app:2dfts_maxwell}.
 
-\section{Homodyne and heterodyne detection}
-
+\section{Homodyne and Heterodyne Detection}
+\label{app:sec:homodyne_heterodyne}
 
 Experimentally there are two common detection schemes that differ in sensitivity and in whether phase information is retained: homodyne and heterodyne detection~\cite{abramaviciusetal2009coherentmultidimensionaloptical}.
 
 
-Detectors measure intensities. In 2DES, the outgoing field is typically sent through a spectrometer and recorded as a function of detection frequency $\omega_{\text{det}}$ (spectrally dispersed detection). Formally, the recorded signal is proportional to the detected intensity integrated over the detector response time,
+Detectors measure intensities. In 2DES, the outgoing field is typically sent through a spectrometer and recorded as a function of detection frequency $\omega_{\mathrm{det}}$ (spectrally dispersed detection). Formally, the recorded signal is proportional to the detected intensity integrated over the detector response time,
 \begin{equation}
-	S_{\mathrm{det}}(\omega_{\text{det}}) \propto \int I_{\mathrm{det}}(\omega_{\text{det}},t)\,\mathrm{d}t.
+	S_{\mathrm{det}}(\omega_{\mathrm{det}}) \propto \int I_{\mathrm{det}}(\omega_{\mathrm{det}},t)\,\mathrm{d}t.
 	\label{eq:signal_intensity}
 \end{equation}
 \textbf{Homodyne (self-heterodyne) detection.}
-In \emph{homodyne} detection, one records the intensity of the signal field itself,
+in~\emph{homodyne} detection, one records the intensity of the signal field itself,
 \begin{equation}
-	I_{\mathrm{HOD}}(\omega_{\text{det}}) \propto \big|E_S(\omega_{\text{det}})\big|^2.
+	I_{\mathrm{HOD}}(\omega_{\mathrm{det}}) \propto \big|E_{\mathrm{S}}(\omega_{\mathrm{det}})\big|^2.
 \end{equation}
-This scales quadratically with the signal field (and thus with the underlying polarization), mixes different nonlinear orders, and does not directly retain the signal phase. Many linear experiments can nonetheless be viewed as a special ``self-heterodyne'' limit where the weak generated field interferes with a strong transmitted reference field that is automatically present.
+This scales quadratically with the signal field (and thus with the underlying polarisation), mixes different nonlinear orders, and does not directly retain the signal phase. Many linear experiments can nonetheless be viewed as a special ``self-heterodyne'' limit where the weak generated field interferes with a strong transmitted reference field that is automatically present.
 
 \medskip
 
@@ -28,26 +28,26 @@ This scales quadratically with the signal field (and thus with the underlying po
 In background-free four-wave-mixing geometries the signal is emitted into a distinct phase-matched direction, so no strong reference beam automatically co-propagates with it. One therefore introduces an explicit \emph{local oscillator} (LO) field $E_{\mathrm{LO}}$ that overlaps with the signal on the detector.
 Writing the spectrally resolved total field as
 \begin{equation}
-	E_{\mathrm{tot}}(\omega_{\text{det}}) = E_{\mathrm{LO}}(\omega_{\text{det}}) + E_S(\omega_{\text{det}}),
+	E_{\mathrm{tot}}(\omega_{\mathrm{det}}) = E_{\mathrm{LO}}(\omega_{\mathrm{det}}) + E_{\mathrm{S}}(\omega_{\mathrm{det}}),
 	\label{eq:heterodyne_total_field_freq}
 \end{equation}
 the measured spectral intensity is
 \begin{equation}
-	I_{\mathrm{HET}}(\omega_{\text{det}})
+	I_{\mathrm{HET}}(\omega_{\mathrm{det}})
 	\propto
-	\big|E_{\mathrm{tot}}(\omega_{\text{det}})\big|^2
+	\big|E_{\mathrm{tot}}(\omega_{\mathrm{det}})\big|^2
 	=
-	|E_{\mathrm{LO}}(\omega_{\text{det}})|^2
-	+ |E_S(\omega_{\text{det}})|^2
-	+ 2\,\Re\big[E_{\mathrm{LO}}^*(\omega_{\text{det}})E_S(\omega_{\text{det}})\big].
+	|E_{\mathrm{LO}}(\omega_{\mathrm{det}})|^2
+	+ |E_{\mathrm{S}}(\omega_{\mathrm{det}})|^2
+	+ 2\,\Re\big[E_{\mathrm{LO}}^*(\omega_{\mathrm{det}})E_{\mathrm{S}}(\omega_{\mathrm{det}})\big].
 	\label{eq:heterodyne_intensity_expanded_freq}
 \end{equation}
-For $|E_S|\ll|E_{\mathrm{LO}}|$ the $|E_S|^2$ term can be neglected, and the LO background $|E_{\mathrm{LO}}|^2$ can be measured and subtracted. It is common to define a normalized heterodyne signal,
+For $|E_{\mathrm{S}}|\ll|E_{\mathrm{LO}}|$ the $|E_{\mathrm{S}}|^2$ term can be neglected, and the LO background $|E_{\mathrm{LO}}|^2$ can be measured and subtracted. It is common to define a normalized heterodyne signal,
 \begin{equation}
-	S_{\mathrm{HET}}(\omega_{\text{det}})
+	S_{\mathrm{HET}}(\omega_{\mathrm{det}})
 	\equiv
-	\frac{I_{\mathrm{HET}}(\omega_{\text{det}})-|E_{\mathrm{LO}}(\omega_{\text{det}})|^2}{|E_{\mathrm{LO}}(\omega_{\text{det}})|^2}
-	\approx 2\,\Re\left[\frac{E_{\mathrm{LO}}^*(\omega_{\text{det}})E_S(\omega_{\text{det}})}{|E_{\mathrm{LO}}(\omega_{\text{det}})|^2}\right],
+	\frac{I_{\mathrm{HET}}(\omega_{\mathrm{det}})-|E_{\mathrm{LO}}(\omega_{\mathrm{det}})|^2}{|E_{\mathrm{LO}}(\omega_{\mathrm{det}})|^2}
+	\approx 2\,\Re\left[\frac{E_{\mathrm{LO}}^*(\omega_{\mathrm{det}})E_{\mathrm{S}}(\omega_{\mathrm{det}})}{|E_{\mathrm{LO}}(\omega_{\mathrm{det}})|^2}\right],
 	\label{eq:heterodyne_signal_normalized}
 \end{equation}
 which makes explicit that heterodyne detection renders the measurement linear in the signal field.
@@ -55,28 +55,28 @@ which makes explicit that heterodyne detection renders the measurement linear in
 \medskip
 
 \textbf{Phase sensitivity and phasing.}
-Writing the LO as $E_{\mathrm{LO}}(\omega_{\text{det}})=A(\omega_{\text{det}})e^{i\phi_{\mathrm{LO}}(\omega_{\text{det}})}$ shows that the recorded cross term depends on the (in general unknown) LO spectral phase,
+Writing the LO as $E_{\mathrm{LO}}(\omega_{\mathrm{det}})=A(\omega_{\mathrm{det}})e^{i\phi_{\mathrm{LO}}(\omega_{\mathrm{det}})}$ shows that the recorded cross term depends on the (in general unknown) LO spectral phase,
 \begin{equation}
-	S_{\mathrm{HET}}(\omega_{\text{det}})
-	\propto \Re\Big\{e^{-i\phi_{\mathrm{LO}}(\omega_{\text{det}})}\,E_S(\omega_{\text{det}})\Big\}.
+	S_{\mathrm{HET}}(\omega_{\mathrm{det}})
+	\propto \Re\Big\{e^{-i\phi_{\mathrm{LO}}(\omega_{\mathrm{det}})}\,E_{\mathrm{S}}(\omega_{\mathrm{det}})\Big\}.
 	\label{eq:heterodyne_phase_sensitive}
 \end{equation}
-If $\phi_{\mathrm{LO}}(\omega_{\text{det}})$ is not properly controlled or calibrated, absorptive and dispersive contributions are mixed in the measured spectrum. In practice one addresses this by spectral interferometry with a known LO, or by an equivalent analytic-signal reconstruction plus an overall \emph{phasing} procedure~\cite{hybletal1998twodimensionalelectronicspectroscopy}.
+If $\phi_{\mathrm{LO}}(\omega_{\mathrm{det}})$ is not properly controlled or calibrated, absorptive and dispersive contributions are mixed in the measured spectrum. In practice one addresses this by spectral interferometry with a known LO, or by an equivalent analytic-signal reconstruction plus an overall \emph{phasing} procedure~\cite{hybletal1998twodimensionalelectronicspectroscopy}.
 
 \medskip
 
 \textbf{Remark (pulse shaping and direct access to $S^{(3)}$).}
-In the impulsive limit (short, well-separated pulses), the heterodyne-detected signal can become directly proportional to the response function evaluated at the experimental delays, $S^{(3)}(t_{\text{det}},T,t_{\text{coh}})$, rather than a broad convolution with long pulse envelopes~\cite{mukamel1995principlesnonlinearoptical}.
+In the impulsive limit (short, well-separated pulses), the heterodyne-detected signal can become directly proportional to the response function evaluated at the experimental delays, $S^{(3)}(t_{\mathrm{det}},t_{\mathrm{wait}},t_{\mathrm{coh}})$, rather than a broad convolution with long pulse envelopes~\cite{mukamel1995principlesnonlinearoptical}.
 
 \medskip
 
 \textbf{Remark (what is actually measured, and how to recover a complex signal).}
-Even with heterodyne detection, the detector output at fixed waiting time $T$ and detection frequency is a \emph{real} function of the coherence time. In an idealized description one may write the measured (rephasing) trace as
+Even with heterodyne detection, the detector output at fixed waiting time $t_{\mathrm{wait}}$ and detection frequency is a \emph{real} function of the coherence time. In an idealized description one may write the measured (rephasing) trace as
 \begin{equation}
-	S_{R}^{(\mathrm{meas})}(\omega_{\text{det}};T,t_{\text{coh}})
-	= \Re\big[ e^{i\phi}\,E_{S,R}(\omega_{\text{det}};T,t_{\text{coh}}) \big],
+	\tilde{E}_{\mathrm{R}}(\omega_{\mathrm{det}};t_{\mathrm{wait}},t_{\mathrm{coh}})
+	= \Re\big[ e^{i\phi}\,E_{\mathrm{R}}(\omega_{\mathrm{det}};t_{\mathrm{wait}},t_{\mathrm{coh}}) \big],
 \end{equation}
 where $\phi$ is an (unknown) global phase set by the relative signal/LO optical paths. A corresponding expression holds for the nonrephasing branch.
 
 In experiments, one reconstructs a complex signal by spectral interferometry with a known LO (or equivalent analytic-signal methods) and then fixes the remaining global phase by a standard \emph{phasing} procedure (often using a pump--probe projection).
-In this thesis, complex $E_{S,R/NR}(t_{\text{coh}},T,t_{\text{det}})$ is obtained directly from phase cycling in the simulations and the experimental reconstruction is therefore not discussed in detail.
+In this thesis, complex $E_{\mathrm{R/NR}}(t_{\mathrm{coh}},t_{\mathrm{wait}},t_{\mathrm{det}})$ is obtained directly from phase cycling in the simulations and the experimental reconstruction is therefore not discussed in detail.
