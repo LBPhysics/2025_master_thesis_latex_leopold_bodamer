@@ -1,4 +1,5 @@
 % !TEX root = ../main.tex
+% This appendix is currently excluded from main.tex and retained only as supporting notes.
 \chapter{Detection Schemes and Complex-Signal Reconstruction in 2D Spectroscopy}
 \label{app:detection_schemes}
 
@@ -13,7 +14,7 @@ Experimentally there are two common detection schemes that differ in sensitivity
 Detectors measure intensities. In 2DES, the outgoing field is typically sent through a spectrometer and recorded as a function of detection frequency $\omega_{\mathrm{det}}$ (spectrally dispersed detection). Formally, the recorded signal is proportional to the detected intensity integrated over the detector response time,
 \begin{equation}
 	S_{\mathrm{det}}(\omega_{\mathrm{det}}) \propto \int I_{\mathrm{det}}(\omega_{\mathrm{det}},t)\,\mathrm{d}t.
-	\label{eq:signal_intensity}
+	\label{eq:spctr_signal_intensity}
 \end{equation}
 \textbf{Homodyne (self-heterodyne) detection.}
 in~\emph{homodyne} detection, one records the intensity of the signal field itself,
@@ -29,7 +30,7 @@ In background-free four-wave-mixing geometries the signal is emitted into a dist
 Writing the spectrally resolved total field as
 \begin{equation}
 	E_{\mathrm{tot}}(\omega_{\mathrm{det}}) = E_{\mathrm{LO}}(\omega_{\mathrm{det}}) + E_{\mathrm{S}}(\omega_{\mathrm{det}}),
-	\label{eq:heterodyne_total_field_freq}
+	\label{eq:spctr_heterodyne_total_field_freq}
 \end{equation}
 the measured spectral intensity is
 \begin{equation}
@@ -40,7 +41,7 @@ the measured spectral intensity is
 	|E_{\mathrm{LO}}(\omega_{\mathrm{det}})|^2
 	+ |E_{\mathrm{S}}(\omega_{\mathrm{det}})|^2
 	+ 2\,\Re\big[E_{\mathrm{LO}}^*(\omega_{\mathrm{det}})E_{\mathrm{S}}(\omega_{\mathrm{det}})\big].
-	\label{eq:heterodyne_intensity_expanded_freq}
+	\label{eq:spctr_heterodyne_intensity_expanded_freq}
 \end{equation}
 For $|E_{\mathrm{S}}|\ll|E_{\mathrm{LO}}|$ the $|E_{\mathrm{S}}|^2$ term can be neglected, and the LO background $|E_{\mathrm{LO}}|^2$ can be measured and subtracted. It is common to define a normalized heterodyne signal,
 \begin{equation}
@@ -48,7 +49,7 @@ For $|E_{\mathrm{S}}|\ll|E_{\mathrm{LO}}|$ the $|E_{\mathrm{S}}|^2$ term can be 
 	\equiv
 	\frac{I_{\mathrm{HET}}(\omega_{\mathrm{det}})-|E_{\mathrm{LO}}(\omega_{\mathrm{det}})|^2}{|E_{\mathrm{LO}}(\omega_{\mathrm{det}})|^2}
 	\approx 2\,\Re\left[\frac{E_{\mathrm{LO}}^*(\omega_{\mathrm{det}})E_{\mathrm{S}}(\omega_{\mathrm{det}})}{|E_{\mathrm{LO}}(\omega_{\mathrm{det}})|^2}\right],
-	\label{eq:heterodyne_signal_normalized}
+	\label{eq:spctr_heterodyne_signal_normalized}
 \end{equation}
 which makes explicit that heterodyne detection renders the measurement linear in the signal field.
 
@@ -59,7 +60,7 @@ Writing the LO as $E_{\mathrm{LO}}(\omega_{\mathrm{det}})=A(\omega_{\mathrm{det}
 \begin{equation}
 	S_{\mathrm{HET}}(\omega_{\mathrm{det}})
 	\propto \Re\Big\{e^{-i\phi_{\mathrm{LO}}(\omega_{\mathrm{det}})}\,E_{\mathrm{S}}(\omega_{\mathrm{det}})\Big\}.
-	\label{eq:heterodyne_phase_sensitive}
+	\label{eq:spctr_heterodyne_phase_sensitive}
 \end{equation}
 If $\phi_{\mathrm{LO}}(\omega_{\mathrm{det}})$ is not properly controlled or calibrated, absorptive and dispersive contributions are mixed in the measured spectrum. In practice one addresses this by spectral interferometry with a known LO, or by an equivalent analytic-signal reconstruction plus an overall \emph{phasing} procedure~\cite{hybletal1998twodimensionalelectronicspectroscopy}.
 

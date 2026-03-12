@@ -59,6 +59,16 @@ Ask when any of the following is unclear:
 - Use `\cref{a,b,c}` for lists.
 - Use `\crefrange{start}{end}` for ranges.
 
+### Equation labels and numbering
+- Only assign a `\label{...}` to a displayed equation if that equation is referenced somewhere in the thesis.
+- If a displayed equation is not referenced, use the unnumbered form:
+  - `equation*` instead of `equation`
+  - `align*` instead of `align`
+- For multi-line `align` environments that contain at least one referenced line:
+  - keep numbering only on the referenced lines
+  - add `\notag` to every unreferenced line
+- Do not leave numbered display equations in the thesis without a purpose.
+
 ---
 
 ## 5) Notation rules

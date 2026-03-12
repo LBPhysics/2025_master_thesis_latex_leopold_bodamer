@@ -14,7 +14,7 @@ The starting point is a driven open-system equation of motion for the reduced de
 	\quad + \mathrm{i}\,\mathcal{V}_{\beta}[\hat{\rho}_{\mathrm{S}}(t)]\,E_{\beta}(t),
 	\label{eq:app_master_equation_with_field}
 \end{equation}
-where $\mathcal{K}$ is the field-free reduced generator obtained after eliminating the environment. It contains the Hamiltonian evolution of the system as well as dissipation and dephasing effects, as in Redfield or Lindblad theory (cf.~\autoref{sec:Redfield_eq}). The driving field $\boldsymbol{E}(t)$ enters through its Cartesian components $E_{\beta}(t)$ and the corresponding dipole superoperators
+where $\mathcal{K}$ is the field-free reduced generator obtained after eliminating the environment. It contains the Hamiltonian evolution of the system as well as dissipation and dephasing effects, as in Redfield or Lindblad theory (cf.~\autoref{sec:oqs_Redfield_eq}). The driving field $\boldsymbol{E}(t)$ enters through its Cartesian components $E_{\beta}(t)$ and the corresponding dipole superoperators
 \begin{equation}
 	\mathcal{V}_{\beta}[\hat{A}] \equiv [\hat{\mu}_{\beta},\hat{A}],
 	\label{eq:app_dipole_superoperator}
@@ -88,16 +88,15 @@ This equation is useful for nonlinear spectroscopy because it isolates the $n$-t
 \section{Polarisation as a Perturbation Series}
 \label{app:sec:polarisation_series}
 
-The macroscopic polarisation is defined as the expectation value of the dipole operator (cf.~\autoref{eq:P_def_spectroscopy}),
-\begin{equation}
+The macroscopic polarisation is defined as the expectation value of the dipole operator (cf.~\autoref{eq:spctr_P_def_spectroscopy}),
+\begin{equation*}
 	P_\alpha(t)
-	= \mathrm{Tr}\!\left\{\hat{\mu}_\alpha\,\hat{\rho}_{\mathrm{S}}(t)\right\}.
-	\label{eq:app_P_def_component}
-\end{equation}
+	= \mathrm{Tr}_{\mathrm{S}}\!\left\{\hat{\mu}_\alpha\,\hat{\rho}_{\mathrm{S}}(t)\right\}.
+\end{equation*}
 Using the interaction-picture representation of the state and cyclicity of the trace, it can be written as
 \begin{equation*}
 	P_\alpha(t)
-	= \mathrm{Tr}\!\left\{\hat{\mu}_{\mathrm I,\alpha}(t)\,\hat{\rho}_{\mathrm{S,I}}(t)\right\}
+	= \mathrm{Tr}_{\mathrm{S}}\!\left\{\hat{\mu}_{\mathrm I,\alpha}(t)\,\hat{\rho}_{\mathrm{S,I}}(t)\right\}
 	= \sum_{n=0}^{\infty} P^{(n)}_\alpha(t),
 \end{equation*}
 where $\hat{\mu}_{\mathrm I,\alpha}(t)$ is the dipole operator evolved under the field-free dynamics. In Liouville-space notation this is the adjoint action of the field-free propagator on the observable,
@@ -106,7 +105,7 @@ where $\hat{\mu}_{\mathrm I,\alpha}(t)$ is the dipole operator evolved under the
 \end{equation*}
 The $n$-th order contribution is
 \begin{equation*}
-	P^{(n)}_\alpha(t) = \mathrm{Tr}\!\left\{\hat{\mu}_{\mathrm I,\alpha}(t)\,\hat{\rho}_{\mathrm{S,I}}^{(n)}(t)\right\},
+	P^{(n)}_\alpha(t) = \mathrm{Tr}_{\mathrm{S}}\!\left\{\hat{\mu}_{\mathrm I,\alpha}(t)\,\hat{\rho}_{\mathrm{S,I}}^{(n)}(t)\right\},
 \end{equation*}
 with $\hat{\rho}_{\mathrm{S,I}}^{(n)}$ the term containing $n$ factors of the field.
 
@@ -121,7 +120,7 @@ P^{(n)}_\alpha(t)
 \int_{t_0}^{\tau^{(n-1)}}\!\mathrm{d}\tau^{(n)}
 \\
 &\quad \times
-\mathrm{Tr}\Bigl\{
+\mathrm{Tr}_{\mathrm{S}}\Bigl\{
 \hat{\mu}_\alpha
 \,\mathcal{U}_0(t-\tau^{(1)})
 \,\mathcal{V}_{\beta_1}
@@ -202,30 +201,27 @@ E_{\beta_n}\!\left(t-\sum_{k=1}^{n}\tau_k\right).
 \label{eq:app_Pn_convolution}
 \end{equation}
 This formula separates the material dynamics from the experimental pulse shapes. The response tensor $R^{(n)}_{\alpha\beta_1\cdots\beta_n}$ is the field-independent factor,
-\begin{equation}
+\begin{equation*}
 	R^{(n)}_{\alpha\beta_1\cdots\beta_n}(\tau_n,\ldots,\tau_1)
-	\equiv (\mathrm{i})^n\,\mathrm{Tr}\Bigl\{\hat{\mu}_\alpha\,\mathcal{U}_0(\tau_n)\,\mathcal{V}_{\beta_1}\,\mathcal{U}_0(\tau_{n-1})\,\mathcal{V}_{\beta_2}\cdots\mathcal{V}_{\beta_n}\,\mathcal{U}_0(\tau_1)\,\mathcal{V}_{\beta_n}[\hat{\rho}_{\mathrm{eq}}]\Bigr\}.
-	\label{eq:app_Sn_def}
-\end{equation}
+	\equiv (\mathrm{i})^n\,\mathrm{Tr}_{\mathrm{S}}\Bigl\{\hat{\mu}_\alpha\,\mathcal{U}_0(\tau_n)\,\mathcal{V}_{\beta_n}\,\mathcal{U}_0(\tau_{n-1})\,\mathcal{V}_{\beta_{n-1}}\cdots\mathcal{U}_0(\tau_1)\,\mathcal{V}_{\beta_1}[\hat{\rho}_{\mathrm{eq}}]\Bigr\}.
+\end{equation*}
 By construction, $R^{(n)}_{\alpha\beta_1\cdots\beta_n}(\tau_n,\ldots,\tau_1)$ describes the intrinsic response of the system to $n$ successive light--matter interactions separated by nonnegative delay intervals. Causality is explicit: the response vanishes whenever any $\tau_j<0$, and \autoref{eq:app_Pn_convolution} only involves field values at times earlier than $t$.
 
 \section{Fixed-Polarisation Projection Used in This Thesis}
 \label{app:sec:scalar_projection_note}
 
 The derivation above is fully polarisation-resolved. In the numerical simulations reported in this thesis, all pulses are taken linearly polarised along a fixed laboratory direction $\boldsymbol e_{\mathrm{in}}$, and the detected signal is the component along $\boldsymbol e_{\mathrm{out}}$ (typically $\boldsymbol e_{\mathrm{out}}=\boldsymbol e_{\mathrm{in}}$). Because the simulations use a collinear setup with one fixed polarisation axis for excitation and readout, this projection is used throughout. Accordingly,
-\begin{equation}
+\begin{equation*}
 	E_\beta(t)=e_{\mathrm{in},\beta}\,E(t),
 	\qquad
 	P(t)=e_{\mathrm{out},\alpha}\,P_\alpha(t),
-	\label{eq:app_scalar_projection_fields}
-\end{equation}
+\end{equation*}
 so that the tensor response contracts to the scalar quantity
-\begin{equation}
+\begin{equation*}
 	R^{(n)} \equiv
 	e_{\mathrm{out},\alpha}\,R^{(n)}_{\alpha\beta_1\cdots\beta_n}\,
 	e_{\mathrm{in},\beta_1}\cdots e_{\mathrm{in},\beta_n}.
-	\label{eq:app_scalar_contracted_response}
-\end{equation}
+\end{equation*}
 In this fixed-polarisation setting, the equations used in the main text are
 \begin{equation}
 	P^{(n)}(t)
@@ -238,7 +234,7 @@ In this fixed-polarisation setting, the equations used in the main text are
 with
 \begin{equation}
 	R^{(n)}(\tau_n,\ldots,\tau_1)
-	\equiv (\mathrm{i})^n\,\mathrm{Tr}\Bigl\{\hat{\mu}\,\mathcal{U}_0(\tau_n)\,\mathcal{V}\,\mathcal{U}_0(\tau_{n-1})\,\mathcal{V}\cdots\mathcal{V}\,\mathcal{U}_0(\tau_1)\,\mathcal{V}[\hat{\rho}_{\mathrm{eq}}]\Bigr\}.
+	\equiv (\mathrm{i})^n\,\mathrm{Tr}_{\mathrm{S}}\Bigl\{\hat{\mu}\,\mathcal{U}_0(\tau_n)\,\mathcal{V}\,\mathcal{U}_0(\tau_{n-1})\,\mathcal{V}\cdots\mathcal{V}\,\mathcal{U}_0(\tau_1)\,\mathcal{V}[\hat{\rho}_{\mathrm{eq}}]\Bigr\}.
 	\label{eq:app_Sn_def_scalar}
 \end{equation}
-Whenever response functions are used in the main text, indices are suppressed and $P^{(n)}$ and $R^{(n)}$ refer to these fixed-polarisation scalar projections. This is consistent with the numerical workflow, which uses a collinear setup (see~\autoref{sec:phase_cycling}) and therefore a fixed laboratory polarisation orientation.
+Whenever response functions are used in the main text, indices are suppressed and $P^{(n)}$ and $R^{(n)}$ refer to these fixed-polarisation scalar projections. This is consistent with the numerical workflow, which uses a collinear setup (see~\autoref{sec:spctr_phase_cycling}) and therefore a fixed laboratory polarisation orientation.

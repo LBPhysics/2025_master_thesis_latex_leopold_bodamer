@@ -189,10 +189,10 @@
 
 \RequirePackage{longtable} % Required for tables that span multiple pages (used in the symbols, abbreviations and physical constants pages)
 
-\RequirePackage{siunitx} % Required for \SI commands
+%\RequirePackage{siunitx} % Required for \SI commands -> uncommented because it was not used and conflicts with "physics" package
 
 \RequirePackage{graphicx} % Required to include images
-\graphicspath{{../figures/figures_in_development_svg/}} % TODO not sure if this relative path works with LaTeX
+\graphicspath{{figures/}}
 \RequirePackage{booktabs} % Required for better table rules
 
 \RequirePackage{caption} % Required for customising the captions
@@ -203,6 +203,33 @@
 \RequirePackage{csquotes} % For quotes
 \RequirePackage{tikz} % For graphics
 \RequirePackage[colorinlistoftodos,prependcaption,textsize=small]{todonotes} % For TODO notes
+
+% Define custom TODO commands with different colors
+\newcommand{\todoimp}[1]{\todo[inline,color=red!70]{\textbf{IMPORTANT:} #1}}
+\newcommand{\todoidea}[1]{\todo[inline,color=green!60]{\textbf{IDEA:} #1}}
+\newcommand{\todoeq}[1]{\todo[inline,color=blue!50]{\textbf{EQUATION:} #1}}
+\newcommand{\todoref}[1]{\todo[inline,color=purple!50]{\textbf{REFERENCE:} #1}}
+\newcommand{\todofix}[1]{\todo[inline,color=orange!70]{\textbf{FIX:} #1}}
+
+%----------------------------------------------------------------------------------------
+%	FLOAT PLACEMENT PARAMETERS
+%----------------------------------------------------------------------------------------
+
+% Allow more floats per page
+\setcounter{totalnumber}{5}       % max floats per page (default 3)
+\setcounter{topnumber}{3}         % max floats at top (default 2)
+\setcounter{bottomnumber}{3}      % max floats at bottom (default 1)
+
+% Relax fraction constraints
+\renewcommand{\topfraction}{0.85}       % max fraction of page for top floats (default 0.7)
+\renewcommand{\bottomfraction}{0.70}    % max fraction for bottom floats (default 0.3)
+\renewcommand{\textfraction}{0.10}      % min fraction for text (default 0.2)
+\renewcommand{\floatpagefraction}{0.70} % min fraction for float-only page (default 0.5)
+
+% Reduce spacing around floats
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}          % space between floats (default 12pt plus 2pt minus 2pt)
+\setlength{\textfloatsep}{16pt plus 2pt minus 4pt}     % space between text and floats (default 20pt plus 2pt minus 4pt)
+\setlength{\intextsep}{12pt plus 2pt minus 2pt}        % space around in-text floats (default 12pt plus 2pt minus 2pt)
 
 
 %----------------------------------------------------------------------------------------
@@ -555,6 +582,41 @@ KOMA-script documentation for details.}]{fancyhdr}
 \pdfstringdefDisableCommands{% If there is an explicit linebreak in a section heading (or anything printed to the pdf-bookmarks), it is replaced by a space
 	\let\\\space%
 }
+
+% Load cleveref after hyperref and configure reference naming
+\RequirePackage[capitalise,nameinlink]{cleveref}
+% Unify naming and spell out references at sentence start
+\crefname{equation}{Eq.}{Eqs.}
+\Crefname{equation}{Equation}{Equations}
+\crefname{figure}{Fig.}{Figs.}
+\Crefname{figure}{Figure}{Figures}
+\crefname{table}{Tab.}{Tabs.}
+\Crefname{table}{Table}{Tables}
+\crefname{section}{Sec.}{Secs.}
+\Crefname{section}{Section}{Sections}
+\crefname{subsection}{Sec.}{Secs.}
+\Crefname{subsection}{Section}{Sections}
+\crefname{subsubsection}{Sec.}{Secs.}
+\Crefname{subsubsection}{Section}{Sections}
+\crefname{chapter}{Ch.}{Chs.}
+\Crefname{chapter}{Chapter}{Chapters}
+\crefname{appendix}{App.}{Apps.}
+\Crefname{appendix}{Appendix}{Appendices}
+% Sentence-start aware \autoref using cleveref
+% More robust version: uses spacefactor with higher threshold and vmode check
+\makeatletter
+\renewcommand{\autoref}[1]{%
+    \ifvmode                           
+        \Cref{#1}%
+    \else
+        \ifnum\spacefactor>2500\relax
+            \Cref{#1}%
+        \else
+            \cref{#1}%
+        \fi
+    \fi
+}%
+\makeatother
 	}
 }{%nothing
 }

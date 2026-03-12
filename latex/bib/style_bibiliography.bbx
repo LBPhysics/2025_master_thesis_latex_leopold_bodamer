@@ -1,36 +1,294 @@
-\ProvidesFile{customstyle.bbx}
+\ProvidesFile{style_bibiliography.bbx}[2026/03/05 Clickable numeric bibliography]
 \RequireBibliographyStyle{standard}
 
-% Ensure title is in italics and journal title is not italicized
-\DeclareFieldFormat[article]{title}{\mkbibemph{#1}} % Title in italics without quotes
-\DeclareFieldFormat[article]{journaltitle}{#1}      % Journal title not italicized
+% We link externally ourselves -> don't additionally print DOI/URL fields
+\ExecuteBibliographyOptions{doi=false,url=false,eprint=false}
 
-\DeclareBibliographyDriver{article}{%
-  \setunit{\addspace}% Space after the label
-  \printnames{author}% Print the author names
-  \setunit{\space}% Add space before title
-  \printfield{title}% Print the title (italicized)
-  \setunit{\space}% Add space after title
-  \iffieldundef{url}
+% ---------------------------------------------------------------------------
+% Abbreviations
+% ---------------------------------------------------------------------------
+\DefineBibliographyStrings{english}{%
+  volume  = {vol\adddot},
+  number  = {no\adddot},
+  pages   = {pp\adddot},
+  page    = {p\adddot},
+  edition = {ed\adddot},
+}
+\DefineBibliographyStrings{british}{%
+  volume  = {vol\adddot},
+  number  = {no\adddot},
+  pages   = {pp\adddot},
+  page    = {p\adddot},
+  edition = {ed\adddot},
+}
+
+% ---------------------------------------------------------------------------
+% Helpers
+% ---------------------------------------------------------------------------
+
+\DeclareFieldFormat{year}{#1}
+\DeclareFieldFormat{pages}{#1}
+\DeclareFieldFormat{volume}{\mkbibbold{#1}}
+
+% Book titles plain; article/chapter/thesis titles in quotes
+\DeclareFieldFormat[book]{title}{#1}
+\DeclareFieldFormat[article,incollection,thesis]{title}{\mkbibquote{#1}}
+\DeclareFieldFormat[online,video]{title}{#1}
+
+% Print (YEAR) only if a labelyear exists
+\newbibmacro*{yearparens}{%
+  \iffieldundef{year}
     {%
-      \printfield{journaltitle}% Print journal title (not italicized)
-      \setunit{\space}% Add space before volume
-      \textbf{\printfield{volume}}% Print volume in bold
-      \setunit{\space}% Add comma and space before pages
-      \printfield{pages}% Print starting page
-      \setunit{\addspace}% Add space before year
-      \printtext[parens]{\printfield{year}}% Print year in parentheses
+      \iffieldundef{date}
+        {}
+        {\addspace\mkbibparens{\printdate}}%
+    }
+    {\addspace\mkbibparens{\printfield{year}}}%
+}
+
+% Print only the first part of the institution (before the first comma)
+\newbibmacro*{shortinstitution}{%
+  \iffieldundef{institution}
+    {}
+    {%
+      \edef\tempinst{\thefield{institution}}%
+      \expandafter\shortinstitutionaux\tempinst,\relax
+    }%
+}
+
+\def\shortinstitutionaux#1,#2\relax{#1}
+
+% Print (Publisher, Year)
+\newbibmacro*{publisherlocationyear}{%
+  \ifboolexpr{
+    test {\iflistundef{publisher}}
+    and
+    test {\iffieldundef{year}}
+    and
+    test {\iffieldundef{date}}
+  }
+    {}
+    {%
+      \addspace
+      \printtext{%
+        \mkbibparens{%
+          \iflistundef{publisher}
+            {}
+            {\printlist{publisher}\setunit{\addcomma\space}}%
+          \iffieldundef{year}
+            {\printfield{date}}
+            {\printfield{year}}%
+        }%
+      }%
+    }%
+}
+
+% Print (Institution/School, Year)
+\newbibmacro*{thesisdetails}{%
+  \ifboolexpr{
+    test {\iflistundef{institution}}
+    and
+    test {\iffieldundef{school}}
+    and
+    test {\iffieldundef{year}}
+    and
+    test {\iffieldundef{date}}
+  }
+    {}
+    {%
+      \addspace
+      \printtext{%
+        \mkbibparens{%
+          \iflistundef{institution}
+            {\iffieldundef{school}{}{\printfield{school}\setunit{\addcomma\space}}}
+            {\printlist{institution}\setunit{\addcomma\space}}%
+          \iffieldundef{year}
+            {\printfield{date}}
+            {\printfield{year}}%
+        }%
+      }%
+    }%
+}
+
+% Clickable source segment only: DOI preferred, else URL
+\newbibmacro*{sourcelink}[1]{%
+  \iffieldundef{doi}
+    {%
+      \iffieldundef{url}
+        {#1}
+        {%
+          \ifhyperref
+            {%
+              \savefield{url}{\bbxlinktarget}%
+              \href{\bbxlinktarget}{#1}%
+            }
+            {#1}%
+        }%
     }
     {%
-      \href{\thefield{url}}% If URL is available, make the whole block clickable
+      \ifhyperref
         {%
-          \printfield{journaltitle}% Print journal title (not italicized)
-          \setunit{\space}% Add space before volume
-          \textbf{\printfield{volume}}% Print volume in bold
-          \setunit{\space}% Add comma and space before pages
-          \printfield{pages}% Print starting page
-          \setunit{\addspace}% Add space before year
-          \printtext[parens]{\printfield{year}}% Print year in parentheses
-        }%
+          \savefield{doi}{\bbxdoitarget}%
+          \href{https://doi.org/\bbxdoitarget}{#1}%
+        }
+        {#1}%
     }%
+}
+
+% ---------------------------------------------------------------------------
+% DRIVERS
+% ---------------------------------------------------------------------------
+
+% Article: Author, "Title", Journal Volume, Pages (Year).
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printtext{[\printfield{labelnumber}]}\space
+  \ifnameundef{author}
+    {\printfield{title}}
+    {%
+      \printnames{author}%
+      \setunit{\addcomma\space}%
+      \printfield{title}%
+    }%
+  \addcomma\space
+  \usebibmacro{sourcelink}{%
+    \iffieldundef{shortjournal}
+      {\printfield{journaltitle}}
+      {\printfield{shortjournal}}%
+    \setunit{\addspace}%
+    \printfield{volume}%
+    \iffieldundef{pages}
+      {}
+      {\setunit{\addcomma\space}\printfield{pages}}%
+    \usebibmacro{yearparens}%
+  }%
+  \usebibmacro{finentry}%
+}
+
+% Book: Author, Title, 1st ed. (Publisher, Location, Year).
+\DeclareBibliographyDriver{book}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printtext{[\printfield{labelnumber}]}\space
+  \ifnameundef{author}
+    {\printfield{title}}
+    {%
+      \printnames{author}%
+      \setunit{\addcomma\space}%
+      \printfield{title}%
+    }%
+  \iffieldundef{edition}
+    {}
+    {\setunit{\addcomma\space}\printfield{edition}}%
+  \usebibmacro{sourcelink}{%
+    \usebibmacro{publisherlocationyear}%
+  }%
+  \usebibmacro{finentry}%
+}
+
+% Incollection: Author, "Title", in Booktitle, Vol. X, pp. ... (Publisher, Location, Year).
+\DeclareBibliographyDriver{incollection}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printtext{[\printfield{labelnumber}]}\space
+  \ifnameundef{author}
+    {\printfield{title}}
+    {%
+      \printnames{author}%
+      \setunit{\addcomma\space}%
+      \printfield{title}%
+    }%
+  \addcomma\space
+  \usebibmacro{sourcelink}{%
+    \printtext{in\addspace\printfield{booktitle}}%
+    \ifnameundef{editor}
+      {}
+      {\setunit{\addcomma\space}\printtext{edited by\addspace\printnames{editor}}}%
+    \iffieldundef{volume}
+      {}
+      {\setunit{\addcomma\space}\printtext{Vol\adddot\addspace\printfield{volume}}}%
+    \iffieldundef{pages}
+      {}
+      {\setunit{\addcomma\space}\printtext{\bibstring{pages}\addspace\printfield{pages}}}%
+    \usebibmacro{publisherlocationyear}%
+  }%
+  \usebibmacro{finentry}%
+}
+
+% Online: Author, Title (Year).
+\DeclareBibliographyDriver{online}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printtext{[\printfield{labelnumber}]}\space
+  \ifnameundef{author}
+    {\printfield{title}}
+    {%
+      \printnames{author}%
+      \setunit{\addcomma\space}%
+      \printfield{title}%
+    }%
+  \iffieldundef{type}
+    {}
+    {\addcomma\space}%
+  \usebibmacro{sourcelink}{%
+    \iffieldundef{type}
+      {}
+      {\printfield{type}}%
+    \usebibmacro{yearparens}%
+  }%
+  \usebibmacro{finentry}%
+}
+
+% Thesis: Author, "Title", PhD thesis (Institution, Location, Year).
+\DeclareBibliographyDriver{thesis}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printtext{[\printfield{labelnumber}]}\space
+  \printnames{author}%
+  \setunit{\addcomma\space}%
+  \printfield{title}%
+  \addcomma\space
+  \usebibmacro{sourcelink}{%
+    \iffieldundef{type}
+      {\printtext{Thesis}}
+      {\printfield{type}}%
+    \addspace
+    \mkbibparens{%
+      \iffieldundef{institution}
+        {}
+        {%
+          \usebibmacro{shortinstitution}%
+          \iffieldundef{year}
+            {\iffieldundef{date}{}{\addcomma\space\printdate}}
+            {\addcomma\space\printfield{year}}%
+        }%
+      \iffieldundef{institution}
+        {%
+          \iffieldundef{year}
+            {\iffieldundef{date}{}{\printdate}}
+            {\printfield{year}}%
+        }
+        {}%
+    }%
+  }%
+  \usebibmacro{finentry}%
+}
+
+% Video: Author, Title (Year).
+\DeclareBibliographyDriver{video}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printtext{[\printfield{labelnumber}]}\space
+  \ifnameundef{author}
+    {\printfield{title}}
+    {%
+      \printnames{author}%
+      \setunit{\addcomma\space}%
+      \printfield{title}%
+    }%
+  \usebibmacro{sourcelink}{%
+    \usebibmacro{yearparens}%
+  }%
+  \usebibmacro{finentry}%
 }

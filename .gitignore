@@ -1,4 +1,5 @@
 # OS and editor artifacts
+*.pdf
 .DS_Store
 Thumbs.db
 *.tmp
@@ -9,6 +10,7 @@ Thumbs.db
 # LaTeX build outputs
 *.bcf-SAVE-ERROR
 *.bbl
+*.bak0
 *.synctex.gz.sum.synctex
 *.aux
 *.fdb_latexmk

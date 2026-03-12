@@ -2,7 +2,7 @@
 \chapter{Maxwell-to-Signal Derivation (Field Side)}
 \label{app:2dfts_maxwell}
 
-This appendix gives the \emph{field-side} derivation for coherent 2D-FTS/2DES. Starting from Maxwell's equations, it shows how the radiated, heterodyne-detected signal field is linear in the third-order polarisation $\boldsymbol{P}^{(3)}$. This provides the proportionality used in~\autoref{sec:pol_and_macr_response}.
+This appendix gives the \emph{field-side} derivation for coherent 2D-FTS/2DES. Starting from Maxwell's equations, it shows how the radiated, heterodyne-detected signal field is linear in the third-order polarisation $\boldsymbol{P}^{(3)}$. This provides the proportionality used in~\autoref{sec:spctr_pol_and_macr_response}.
 
 The argument proceeds in three steps. First, Maxwell's equations lead to a driven wave equation in which the macroscopic polarisation acts as the source. Second, under the slowly varying envelope approximation, the emitted signal field follows the corresponding component of $\boldsymbol{P}^{(3)}$. 
 The microscopic expression for $\boldsymbol{P}^{(3)}$ is derived on the matter side in~\autoref{app:response_functions}.
@@ -46,19 +46,19 @@ This automatically satisfies Faraday's law \cref{eq:app_maxwell_faraday} and Gau
 \subsection{Gauge Freedom and Coulomb Gauge}
 \label{app:subsec:gauge_freedom}
 To proceed, a gauge must be chosen. The potentials in~\autoref{eq:app_potentials_def} are not unique: for any scalar function $\chi(\boldsymbol{r},t)$,
-\begin{equation}
+\begin{equation*}
 	\boldsymbol{A}' = \boldsymbol{A} + \boldsymbol{\nabla}\chi,
 	\qquad
 	\phi' = \phi - \frac{\partial \chi}{\partial t},
-\end{equation}
+\end{equation*}
 leaves $\boldsymbol{E}$ and $\boldsymbol{B}$ invariant. For optics, the Coulomb gauge is used,
 \begin{equation*}
 \boldsymbol{\nabla}\cdot\boldsymbol{A} = 0.
 \end{equation*}
 Inserting \autoref{eq:app_potentials_def} into Gauss' law \autoref{eq:app_maxwell_gaussE} then gives the Poisson equation
-\begin{equation}
+\begin{equation*}
 	\boldsymbol{\nabla}^2\phi(\boldsymbol{r},t) = -\varrho(\boldsymbol{r},t),
-\end{equation}
+\end{equation*}
 so $\phi$ is determined instantaneously in space. This does not violate causality; it reflects the gauge-dependent description of the Coulomb interaction. The propagating optical field resides in the transverse sector, discussed next.
 
 \subsection{Transverse/Longitudinal Decomposition}
@@ -66,19 +66,19 @@ so $\phi$ is determined instantaneously in space. This does not violate causalit
 To separate propagating radiation from the Coulomb part, decompose fields into transverse and longitudinal components. Only the transverse component carries radiative degrees of freedom.
 
 Any sufficiently well-behaved vector field $\boldsymbol{F}(\boldsymbol{r})$ admits the Helmholtz decomposition,
-\begin{equation}
+\begin{equation*}
 	\boldsymbol{F} = \boldsymbol{F}^{\perp} + \boldsymbol{F}^{\parallel},
-\end{equation}
+\end{equation*}
 where the transverse part is divergence-free and the longitudinal part is curl-free,
-\begin{equation}
+\begin{equation*}
 	\boldsymbol{\nabla}\cdot\boldsymbol{F}^{\perp}=0,\qquad \boldsymbol{\nabla}\times\boldsymbol{F}^{\parallel}=0.
-\end{equation}
+\end{equation*}
 Applying this decomposition to the electric field in~\autoref{eq:app_potentials_def},
-\begin{equation}
+\begin{equation*}
 	\boldsymbol{E} = \boldsymbol{E}^{\perp} + \boldsymbol{E}^{\parallel},
-\end{equation}
+\end{equation*}
 with $\boldsymbol{E}^{\perp} = -\partial_t \boldsymbol{A}$ in Coulomb gauge and $\boldsymbol{E}^{\parallel} = -\boldsymbol{\nabla}\phi$. Maxwell's equations \cref{eq:app_maxwell_ampere,eq:app_maxwell_faraday,eq:app_maxwell_gaussE,eq:app_maxwell_gaussB} then split into independent transverse and longitudinal parts,
-\begin{align}
+\begin{align*}
 	\boldsymbol{\nabla}\times\boldsymbol{E}^{\perp}     & = -\frac{\partial \boldsymbol{B}}{\partial t},
 	                                                    &
 	\boldsymbol{\nabla}\times\boldsymbol{E}^{\parallel} & = 0,
@@ -86,7 +86,7 @@ with $\boldsymbol{E}^{\perp} = -\partial_t \boldsymbol{A}$ in Coulomb gauge and 
 	\boldsymbol{\nabla}\cdot\boldsymbol{E}^{\parallel}  & = \varrho,
 	                                                    &
 	\boldsymbol{\nabla}\cdot\boldsymbol{E}^{\perp}      & = 0.
-\end{align}
+\end{align*}
 Faraday's law constrains only the transverse field because $\boldsymbol{\nabla}\times\boldsymbol{E}^{\parallel}=0$ identically, while Gauss' law fixes the longitudinal field through the charge density. The propagating and Coulomb degrees of freedom are therefore separated.
 
 \medskip
@@ -97,9 +97,9 @@ To understand which current sources what, recall that charge and current are not
 	\label{eq:app_continuity}
 \end{equation}
 Decomposing $\boldsymbol{j}=\boldsymbol{j}^{\perp}+\boldsymbol{j}^{\parallel}$ and using $\boldsymbol{\nabla}\cdot\boldsymbol{j}^{\perp}=0$ shows that \autoref{eq:app_continuity} constrains only the longitudinal part,
-\begin{equation}
+\begin{equation*}
 	\frac{\partial \varrho}{\partial t} + \boldsymbol{\nabla}\cdot\boldsymbol{j}^{\parallel}=0.
-\end{equation}
+\end{equation*}
 In this sense, $\boldsymbol{j}^{\parallel}$ is tied to Coulomb near-field physics, while radiative fields are sourced by $\boldsymbol{j}^{\perp}$.
 
 Two immediate consequences follow.
@@ -108,30 +108,30 @@ Two immediate consequences follow.
 	\item In Coulomb gauge $\boldsymbol{\nabla}\cdot\boldsymbol{A}=0$, the vector potential is purely transverse, so $\boldsymbol{A}=\boldsymbol{A}^{\perp}$.
 \end{itemize}
 Combining the decomposition with Coulomb gauge and \autoref{eq:app_potentials_def} yields
-\begin{equation}
+\begin{equation*}
 	\boldsymbol{E}^{\perp} = -\frac{\partial \boldsymbol{A}}{\partial t},
 	\qquad
 	\boldsymbol{E}^{\parallel} = -\boldsymbol{\nabla}\phi.
-\end{equation}
+\end{equation*}
 The radiation field relevant for propagating optics is $\boldsymbol{E}^{\perp}$. The longitudinal field $\boldsymbol{E}^{\parallel}$ is fixed instantaneously by $\varrho$ via the Poisson equation and does not describe propagation.
 
 \subsection{Wave Equation for the Transverse Electric Field}
 \label{app:subsec:wave_equation}
 With the radiative field isolated, the wave equation it satisfies is derived. Starting from Faraday's law \autoref{eq:app_maxwell_faraday}, take the curl of both sides,
-\begin{equation}
+\begin{equation*}
 	\boldsymbol{\nabla}\times(\boldsymbol{\nabla}\times\boldsymbol{E})
 	= -\frac{\partial}{\partial t}\big(\boldsymbol{\nabla}\times\boldsymbol{B}\big).
-\end{equation}
+\end{equation*}
 Next, eliminate $\boldsymbol{\nabla}\times\boldsymbol{B}$ using Ampère--Maxwell's law \autoref{eq:app_maxwell_ampere} to obtain
-\begin{equation}
+\begin{equation*}
 	-\,\boldsymbol{\nabla}\times(\boldsymbol{\nabla}\times\boldsymbol{E})
 	= \frac{\partial^2\boldsymbol{E}}{\partial t^2} + \frac{\partial \boldsymbol{j}}{\partial t}.
-\end{equation}
+\end{equation*}
 Only transverse parts contribute to the curl--curl operator because $\boldsymbol{\nabla}\times\boldsymbol{E}^{\parallel}=0$. Likewise, the radiated field is sourced by the transverse current $\boldsymbol{j}^{\perp}$. Projecting onto the transverse sector gives
-\begin{equation}
+\begin{equation*}
 	-\,\boldsymbol{\nabla}\times(\boldsymbol{\nabla}\times\boldsymbol{E}^{\perp})
 	= \frac{\partial^2\boldsymbol{E}^{\perp}}{\partial t^2} + \frac{\partial \boldsymbol{j}^{\perp}}{\partial t}.
-\end{equation}
+\end{equation*}
 Using $\boldsymbol{\nabla}\times(\boldsymbol{\nabla}\times\boldsymbol{E}^{\perp}) = \boldsymbol{\nabla}(\boldsymbol{\nabla}\cdot\boldsymbol{E}^{\perp}) - \boldsymbol{\nabla}^2\boldsymbol{E}^{\perp}$ and $\boldsymbol{\nabla}\cdot\boldsymbol{E}^{\perp}=0$ yields the driven wave equation
 \begin{equation}
 	\boldsymbol{\nabla}^2\boldsymbol{E}^{\perp}(\boldsymbol{r},t)
@@ -148,9 +148,9 @@ The wave equation \autoref{eq:app_wave_E_perp_j} is expressed in terms of the cu
 	\label{eq:app_j_equals_Pdot}
 \end{equation}
 Together with the continuity equation \autoref{eq:app_continuity}, this implies the standard relation between bound charge density and polarisation,
-\begin{equation}
+\begin{equation*}
 	\varrho_b(\boldsymbol{r},t) = -\boldsymbol{\nabla}\cdot\boldsymbol{P}(\boldsymbol{r},t).
-\end{equation}
+\end{equation*}
 Substituting the polarisation current \autoref{eq:app_j_equals_Pdot} into \autoref{eq:app_wave_E_perp_j} gives
 \begin{equation}
 	\boldsymbol{\nabla}^2\boldsymbol{E}^{\perp}(\boldsymbol{r},t)
@@ -170,9 +170,9 @@ For nonlinear spectroscopy, write $\boldsymbol{P}=\boldsymbol{P}^{(1)}+\boldsymb
 	\label{eq:app_wave_eq_nonlinear}
 \end{equation}
 In a three-pulse experiment operated in the weak-field regime, the dominant nonlinear source is the third-order term,
-\begin{equation}
+\begin{equation*}
 	\boldsymbol{P}_{\mathrm{NL}}(\boldsymbol{r},t) \approx \boldsymbol{P}^{(3)}(\boldsymbol{r},t),
-\end{equation}
+\end{equation*}
 where $\boldsymbol{P}^{(3)}$ is cubic in the incident field.
 
 The remaining task is to connect $\boldsymbol{P}^{(3)}$ to a measurable signal field using the SVEA.
@@ -186,7 +186,7 @@ The driven wave equation \autoref{eq:app_wave_eq_nonlinear} is solved to connect
 \subsection{Setup: Fourier Components and Ansatz}
 \label{app:subsec:fourier_ansatz}
 
-Consider a slab sample of thickness $L$ along $z$. The third-order polarisation contains Fourier components with different wavevector combinations $\boldsymbol{k}_\text{S}$. Phase matching selects which signal direction is observed, as discussed in~\autoref{subsec:phase_matching_condition}. A single component is written with a slowly varying envelope,
+Consider a slab sample of thickness $L$ along $z$. The third-order polarisation contains Fourier components with different wavevector combinations $\boldsymbol{k}_\text{S}$. Phase matching selects which signal direction is observed, as discussed in~\autoref{subsec:spctr_phase_matching_condition}. A single component is written with a slowly varying envelope,
 \begin{equation}
 	\boldsymbol{P}_{\mathrm{NL}}(\boldsymbol{r},t) \supset \boldsymbol{P}_{\mathrm{S}}^{(3)}(t)\,e^{\mathrm{i}(\boldsymbol{k}_\text{S}\cdot\boldsymbol{r}-\omega_{L} t)} + \text{c.c.}
 	\label{eq:app_pol_component}
@@ -214,14 +214,14 @@ This scale separation allows higher-order derivatives of the envelope to be negl
 \subsubsection{Spatial and Temporal Derivatives}
 \label{app:subsubsec:spatial_temporal}
 To isolate the envelope dynamics, keep only the positive-frequency part and suppress explicit time dependence momentarily. For a positive-frequency component
-\begin{equation}
+\begin{equation*}
 	\boldsymbol{E}_{\mathrm{S}}^{(+)}(z) = \tfrac{1}{2}\,\boldsymbol{E}_{\mathrm{S}}(z)\,e^{\mathrm{i} k'_{\mathrm{S}} z},
-\end{equation}
+\end{equation*}
 one finds
 \begin{align}
 	\partial_z \boldsymbol{E}_{\mathrm{S}}^{(+)}
 	 & = \tfrac{1}{2}\left(\partial_z \boldsymbol{E}_{\mathrm{S}} + \mathrm{i} k'_{\mathrm{S}}\boldsymbol{E}_{\mathrm{S}}\right)e^{\mathrm{i} k'_{\mathrm{S}} z},
-	\\
+	\notag\\
 	\partial_z^2 \boldsymbol{E}_{\mathrm{S}}^{(+)}
 	 & = \tfrac{1}{2}\left(\partial_z^2 \boldsymbol{E}_{\mathrm{S}} + 2 \mathrm{i} k'_{\mathrm{S}}\partial_z \boldsymbol{E}_{\mathrm{S}} - k_{\mathrm{S}}'^2\boldsymbol{E}_{\mathrm{S}}\right)e^{\mathrm{i} k'_{\mathrm{S}} z}
 	\approx \tfrac{1}{2}\left(2 \mathrm{i} k'_{\mathrm{S}}\partial_z \boldsymbol{E}_{\mathrm{S}} - k_{\mathrm{S}}'^2\boldsymbol{E}_{\mathrm{S}}\right)e^{\mathrm{i} k'_{\mathrm{S}} z},
@@ -261,13 +261,12 @@ where $\Delta k = k_{\mathrm{S}} - k'_{\mathrm{S}}$ is the phase mismatch betwee
 This result shows that the emitted signal field is directly proportional to the corresponding component of $\boldsymbol{P}_{\mathrm{S}}^{(3)}$, and the $\mathrm{sinc}$ term captures phase-mismatch suppression. The response is maximal near $\Delta k \approx 0$.
 
 When the experiment is phase matched, $\Delta k\approx 0$, so $\mathrm{sinc}(\Delta k L/2)\to 1$ and $e^{\mathrm{i}\Delta k L/2}\to 1$. \autoref{eq:app_sinc} then reduces to
-\begin{equation}
+\begin{equation*}
 	\boldsymbol{E}_{\mathrm{S}}(t)\equiv \boldsymbol{E}_{\mathrm{S}}(L,t)
 	\propto \mathrm{i}\,\frac{\omega_{L}}{n(\omega_{L})}\,\boldsymbol{P}_{\mathrm{S}}^{(3)}(t)\,L.
-	\label{eq:field_polarisation_relation}
-\end{equation}
+\end{equation*}
 
-In the frequency domain, this relation is often summarized as
+In the frequency domain, this relation takes the analogue form
 \begin{equation}
 	\boldsymbol{E}_{\mathrm{S}}(\omega) = \kappa\, \mathrm{i}\omega\,\boldsymbol{P}^{(3)}(\omega),
 	\label{eq:app_Es_iomegaP}
@@ -276,4 +275,4 @@ where $\kappa$ is a real prefactor that depends on propagation conventions and e
 
 \medskip
 
-This completes the field-side derivation. The incident fields drive the matter system, producing $\boldsymbol{P}^{(3)}$ via the response-function formalism in~\autoref{app:response_functions}. That polarisation then acts as the source term that radiates the measured signal field. Detection models and the construction of 2D spectra from phase-selected time-domain signals are discussed in~\autoref{sec:2D_construction_formal}.
+This completes the field-side derivation. The incident fields drive the matter system, producing $\boldsymbol{P}^{(3)}$ via the response-function formalism in~\autoref{app:response_functions}. That polarisation then acts as the source term that radiates the measured signal field. Detection models and the construction of 2D spectra from phase-selected time-domain signals are discussed in~\autoref{sec:spctr_2D_construction_formal}.

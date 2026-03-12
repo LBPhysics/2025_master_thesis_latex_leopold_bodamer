@@ -2,7 +2,7 @@
 \chapter{Introduction}
 \label{Chapter_Introduction}
 \todoref{sounds good but are refs good?}
-Quantum dynamics in molecular and condensed-matter systems unfold on femtosecond timescales and are shaped by the interplay of coherent inter-site couplings and environmental fluctuations. In many systems of current interest---light-harvesting complexes, molecular aggregates, conjugated polymers---the relevant electronic degrees of freedom are embedded in warm, structurally complex surroundings that drive rapid decoherence and dissipation \cite{breuerpetruccione2007theoryopenquantum, weiss2012quantumdissipativesystems}.
+Quantum dynamics in molecular and condensed-matter systems unfold on femtosecond timescales and are shaped by the interplay of coherent inter-site couplings and environmental fluctuations. In many systems of current interest, such as light-harvesting complexes, molecular aggregates, and conjugated polymers, the relevant electronic degrees of freedom are embedded in warm, structurally complex surroundings that drive rapid decoherence and dissipation \cite{breuerpetruccione2007theoryopenquantum, weiss2012quantumdissipativesystems}.
 
 Understanding how these environment-induced processes compete with coherent energy transfer, and identifying their signatures in experimentally accessible observables, is a central challenge in the physics of open quantum systems.
 
@@ -26,7 +26,7 @@ The formalism is applied to a hierarchy of model systems designed to isolate spe
 \begin{itemize}
 	\item \textbf{Two-level system.} A minimal benchmark for validating the numerical framework and for disentangling the 2D lineshape contributions of homogeneous dephasing, population relaxation, and static disorder.
 	\item \textbf{Dimer.} Two coupled sites that produce cross peaks, enabling a direct comparison of coherent excitonic mixing and incoherent population transfer during the waiting time.
-	\item \textbf{$\boldsymbol{N}$-site cylindrical ensemble.} A multi-chromophore system whose geometry is motivated by the protofilament arrangement in microtubules \cite{kalraetal2023electronicenergymigration}, serving as a structured test case for geometry-dependent coupling networks and their manifestation in 2D spectra.
+	\item \textbf{$\boldsymbol{N}$-site cylindrical ensemble.} A multi-chromophore system whose geometry is motivated by the protofilament arrangement in microtubules~\cite{kalraetal2023electronicenergymigration}, serving as a structured test case for geometry-dependent coupling networks and their manifestation in 2D spectra.
 \end{itemize}
 
 The central physical question is how environment-induced relaxation and dephasing, as parametrised by the spectral density and temperature, compete with coherent couplings to determine peak positions, lineshapes, and waiting-time dynamics in two-dimensional spectra.
@@ -34,8 +34,8 @@ The central physical question is how environment-induced relaxation and dephasin
 \section{Thesis outline}
 \label{sec:intro_outline}
 
-\autoref{chapter_open_quantum_systems} introduces the open-quantum-system framework, deriving the Redfield master equation and discussing bath correlation functions and spectral densities.
-\autoref{chapter_spectroscopy} develops the nonlinear-spectroscopy formalism, from linear response and the Kubo formula through third-order response functions to the construction of rephasing and nonrephasing 2D spectra.
-\autoref{chapter_model_systems} specifies the Hamiltonians, dipole operators, and bath models for the systems listed above.
+\autoref{chapter:oqs_open_quantum_systems} introduces the open-quantum-system framework, deriving the Redfield master equation and discussing bath correlation functions and spectral densities.
+\autoref{chapter:spctr_spectroscopy} develops the nonlinear-spectroscopy formalism, showing how these reduced open-system dynamics are converted into measurable nonlinear optical observables, from linear response and the Kubo formula through third-order response functions to the construction of rephasing and nonrephasing 2D spectra.
+\autoref{chapter:model_systems} specifies the Hamiltonians, dipole operators, and bath models for the systems listed above.
 
-Technical supporting material is collected in the appendices: \autoref{app:numerical_implementation}~(numerical implementation and software architecture), \autoref{app:2dfts_maxwell}~(Maxwell-to-signal derivation for coherent 2D Fourier-transform spectroscopy), and \autoref{app:response_functions}~(Dyson-series derivation of the $n$-th order polarisation).
+Technical supporting material is collected in four appendices, in the order used in the compiled thesis: \autoref{app:numerical_implementation}~(numerical implementation and software architecture), \autoref{app:response_functions}~(Dyson-series derivation of the $n$-th order polarisation), \autoref{app:2dfts_maxwell}~(Maxwell-to-signal derivation for coherent 2D Fourier-transform spectroscopy), and \autoref{app:phase_kick_intuition}~(ultrashort-pulse intuition for carrier-phase effects).

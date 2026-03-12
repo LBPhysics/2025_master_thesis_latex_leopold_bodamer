@@ -4,7 +4,7 @@
 
 
 
-This chapter presents the computational framework developed for simulating one- and two-dimensional electronic spectroscopy of open quantum systems.
+This chapter presents the computational framework used to simulate one- and two-dimensional electronic spectra of open quantum systems.
 
 The implementation is built around the \texttt{qspectro2d} Python package, which provides a modular, configuration-driven workflow that bridges the theoretical framework established in previous chapters with practical computational methods for investigating quantum coherence phenomena in complex molecular systems. The open quantum system dynamics are solved using \texttt{QuTiP}~\cite{lambertetal2026qutip5quantum}.
 
@@ -12,7 +12,7 @@ The implementation is built around the \texttt{qspectro2d} Python package, which
 \label{app:sec:software_architecture}
 
 
-The \texttt{qspectro2d} package follows a modular design that separates concerns across distinct functional domains. The architecture enables efficiency through parallel processing and flexible configuration management. The core design is built around a \textbf{configuration-driven workflow} where YAML-based parameter specification decouples physical models from computational implementation. This approach ensures that \textbf{modular components} including atomic systems, laser pulses, environmental baths, and spectroscopic calculations remain independently configurable. The framework provides \textbf{scalable execution} with support for both local testing and high-performance computing (HPC) batch processing, complemented by \textbf{comprehensive post-processing} through automated workflows for averaging, Fourier transforms, and visualization.
+The \texttt{qspectro2d} package follows a modular design that separates concerns across distinct functional domains. The architecture enables efficiency through parallel processing and flexible configuration management. The core design is built around a \textbf{configuration-driven workflow} that decouples physical models from computational implementation. This approach ensures that \textbf{modular components} including atomic systems, laser pulses, environmental baths, and spectroscopic calculations remain independently configurable. The framework provides \textbf{scalable execution} with support for both local testing and high-performance computing (HPC) batch processing, complemented by \textbf{comprehensive post-processing} through automated workflows for averaging, Fourier transforms, and visualization.
 
 
 The package structure comprises five main submodules: \texttt{core} (fundamental system components), \texttt{spectroscopy} (calculation engines), \texttt{config} (parameter management), \texttt{utils} (data handling utilities), and \texttt{visualization} (plotting tools).
@@ -21,16 +21,16 @@ The package structure comprises five main submodules: \texttt{core} (fundamental
 \label{app:sec:configuration_workflow}
 
 
-The simulation framework employs YAML configuration files to specify all physical and computational parameters, enabling reproducible simulations. A typical configuration defines the \textbf{atomic system} through the number of atoms, transition frequencies, geometric arrangement, and inhomogeneous broadening parameters. \textbf{Laser parameters} encompass pulse amplitudes, durations, carrier frequencies, and rotating wave approximation settings, while \textbf{environmental coupling} is characterized by bath type (Ohmic, Drude-Lorentz), temperature, coupling strength, and cutoff frequencies. Finally, \textbf{computational settings} specify the ODE solver choice (Lindblad vs. Bloch-Redfield), signal types, and time windows.
+The simulation framework uses configuration files to specify the physical and computational parameters, enabling reproducible simulations. A typical configuration defines the \textbf{atomic system} through the number of atoms, transition frequencies, geometric arrangement, excitation-manifold truncation, and inhomogeneous broadening parameters. \textbf{Laser parameters} encompass pulse amplitudes, durations, carrier frequency, phase-cycling settings, and the rotating-wave-approximation option, while \textbf{environmental coupling} is characterized by bath type (for example Ohmic or Drude-Lorentz), temperature, coupling strength, and cutoff frequency. Finally, \textbf{computational settings} specify the ODE solver choice, signal type, time windows, and numerical discretization.
 
 
-The workflow consists of three main execution phases: simulation (\texttt{calc\_datas.py}), post-processing (\texttt{process\_datas.py}), and visualization (\texttt{plot\_datas.py}). This separation enables efficient parameter studies where computationally expensive simulations are performed once, followed by rapid exploration of different analysis and visualization options.
+The workflow consists of three main execution phases: simulation (\texttt{calc\_datas.py}), post-processing (\texttt{process\_datas.py}), and visualization (\texttt{plot\_datas.py}). The simulation stage generates individual artifacts for each combination of coherence time and inhomogeneous realization, the processing stage stacks these one-dimensional outputs into 2D datasets and averages over disorder realizations, and the plotting stage produces the final spectra and figures. This separation enables computationally expensive simulations to be performed once, followed by rapid exploration of different analysis and visualization options.
 
 \section{Third-Order Polarisation and Phase Cycling}
 \label{app:sec:third_order_polarisation}
 
 
-In the numerical implementation, the electric field for multiple pulses is modeled following the formalism established in~\autoref{chapter_spectroscopy}. The total electric field is expressed as
+In the numerical implementation, the electric field for multiple pulses is modeled following the formalism established in~\autoref{chapter:spctr_spectroscopy}. The total electric field is expressed as
 \begin{equation*}
 	\boldsymbol{E}(\boldsymbol{r},t) = \sum_{m=1}^{3} \boldsymbol{E}_m(\boldsymbol{r},t) + \mathrm{c.c.},
 \end{equation*}
@@ -42,12 +42,10 @@ with frequency $\omega_m = 2\pi \nu_m$, wavevector $\boldsymbol{k}_m$, and elect
 \begin{equation*}
 	E'_m(t - \tau_m) = \exp\left( -\frac{4 \ln 2 (t - \tau_m)^2}{\tau_p^2} \right).
 \end{equation*}
-For numerical efficiency, the Gaussian pulse is truncated to zero once the instantaneous intensity $|E'_m(t)|^2$ falls below $10^{-4}$ of its peak value (approximately two FWHM from the pulse center). In these field-free intervals, the evolution is propagated with the time-independent Liouvillian, which is computationally more efficient.
-The core spectroscopic calculation implements phase-cycled third-order polarisation measurement following the established four-wave mixing protocols detailed in~\autoref{chapter_spectroscopy}, \autoref{sec:phase_cycling}~\cite{mukamel1995principlesnonlinearoptical, greenetal2024vibrationalcoherenceshalfbroadband}.
+For numerical efficiency, each Gaussian pulse is represented with finite support over a precomputed active window $t \in [\tau_m-1.823\,\tau_p,\tau_m+1.823\,\tau_p]$. Within this window the Gaussian envelope is evaluated explicitly and shifted by its boundary value so that it vanishes smoothly at the cutoff. Outside, where $|E'_m(t)|^2$ falls below $10^{-4}$, the pulse contribution is set to zero. As a result, away from the pulse windows the dynamics reduce to the field-free evolution generated by $H_0$ together with the dissipative terms.
+The core spectroscopic calculation implements phase-cycled third-order polarisation measurement following the established four-wave mixing protocols detailed in~\autoref{chapter:spctr_spectroscopy}, \autoref{sec:spctr_phase_cycling}~\cite{mukamel1995principlesnonlinearoptical, greenetal2024vibrationalcoherenceshalfbroadband}.
 
-\medskip
-
-This thesis instead uses a more microscopic, non-perturbative (NP) approach: the full (time-dependent) equation of motion is solved with the pulses included and the induced polarisation is computed via \autoref{eq:P_def_spectroscopy}. To isolate the nonlinear signal in the time domain, auxiliary runs are performed in which only a subset of pulses is active, and the lower-order (linear) contributions are subtracted from the full signal. In the weak-field regime and for centrosymmetric media (where $\chi^{(2)}$ vanishes), this yields a background-free polarisation that is dominated by the desired third-order response,
+This thesis uses a microscopic, non-perturbative (NP) approach: the full time-dependent equation of motion is solved with the pulses included and the induced polarisation is computed via \autoref{eq:spctr_P_def_spectroscopy}. For each phase setting, the code evaluates one run with all pulses present and three auxiliary runs in which only a single pulse is active; subtracting these auxiliary signals removes the leading lower-order contributions from the full signal. In the weak-field regime and for centrosymmetric media (where $\chi^{(2)}$ vanishes), this yields a background-free polarisation that is dominated by the desired third-order response,
 \begin{equation}
 	\boldsymbol{P}^{(3)}(t)
 	\approx
@@ -56,70 +54,54 @@ This thesis instead uses a more microscopic, non-perturbative (NP) approach: the
 	\sum_{m=1}^{3} \boldsymbol{P}_{(m)}(t),
 	\label{eq:third_order_signal_numerical}
 \end{equation}
-where $\boldsymbol{P}_{\mathrm{total}}(t)$ is obtained with all three pulses present and $\boldsymbol{P}_{(m)}(t)$ denotes the polarisation obtained when only pulse $m$ is applied. In practice, the complex analytic (positive-frequency) component of the polarisation is used to retain amplitude and phase information for subsequent phase cycling and signal construction.
+where $\boldsymbol{P}_{\mathrm{total}}(t)$ is obtained with all three pulses present and $\boldsymbol{P}_{(m)}(t)$ denotes the polarisation obtained when only pulse $m$ is applied. In practice, the emitted complex polarisation is extracted in the energy eigenbasis from the radiating part of the dipole operator, so that both amplitude and phase are retained for the later phase-cycling step. The emitted field $E_{\mathrm{S}}(t) \propto iP^{(3)}(t)$ is then formed according to \autoref{eq:spctr_signal_field_from_polarisation}.
+
+To isolate the rephasing and nonrephasing contributions, the third-order polarisation is evaluated on the discrete phase grid $\phi_1,\phi_2 \in \{0,\pi/2,\pi,3\pi/2\}$, while the third pulse phase is kept fixed at zero. The required phase combinations are distributed over worker processes, and the desired components are extracted by the discrete Fourier projection of \autoref{eq:spctr_phase_cycling_projection}, using the sign pairs $(l,m)=(-1,+1)$ for the rephasing signal and $(l,m)=(+1,-1)$ for the nonrephasing signal.
 
 \section{Open Quantum System Evolution}
 \label{app:sec:oqs_evolution}
 
 
-The quantum system evolution is handled by the \texttt{SimulationModuleOQS} class, which provides a unified interface for different solver backends implementing the open quantum system dynamics developed in~\autoref{chapter_open_quantum_systems}. The implementation supports both Lindblad master equation evolution (via QuTiP's \texttt{mesolve}) and Bloch-Redfield dynamics (\texttt{brmesolve}) with automatic handling of pulse overlap and time-dependent Hamiltonians.
+The quantum system evolution is handled by the \texttt{SimulationModuleOQS} class, which provides a unified interface for the solver backends implementing the open quantum system dynamics developed in~\autoref{chapter:oqs_open_quantum_systems}. The implementation supports Lindblad master-equation evolution via QuTiP's \texttt{mesolve}, Bloch-Redfield dynamics via \texttt{brmesolve}, and a custom \texttt{paper\_eqs} Liouvillian used for the dimer benchmark calculations. The initial state is taken as the ground-state density matrix by default. Every operator is transformed to the energy eigenbasis before propagation.
 
 
-For time-dependent pulse sequences, the total Hamiltonian takes the form established in the spectroscopy theory (\autoref{chapter_spectroscopy}):
+For time-dependent pulse sequences, the total Hamiltonian takes the form established in the spectroscopy theory (\autoref{chapter:spctr_spectroscopy}):
 \begin{equation}
 	\label{eq:time_dependent_hamiltonian}
 	H(t) = H_0 + \sum_{i} H_{\mathrm{int},i}(t),
 \end{equation}
-where $H_0$ is the bare system Hamiltonian and $H_{\mathrm{int},i}(t)$ represents the interaction with pulse $i$, following the light-matter interaction formalism detailed in~\autoref{chapter_spectroscopy}. The solver automatically detects pulse overlap regions and constructs appropriate piecewise evolution operators, ensuring accurate treatment of multi-pulse sequences regardless of timing complexity.
+where $H_0$ is the bare system Hamiltonian and $H_{\mathrm{int},i}(t)$ represents the interaction with pulse $i$, following the light-matter interaction formalism detailed in~\autoref{chapter:spctr_spectroscopy}. In the RWA implementation, the code constructs the slowly varying positive-frequency field, propagates the density matrix in the rotating frame, and transforms the resulting states back to the laboratory frame before evaluating the emitted polarisation. Dissipative terms are supplied either as Lindblad collapse operators or as Bloch-Redfield system-bath coupling operators derived from the same underlying system model.
 
 \section{Inhomogeneous Broadening and Statistical Averaging}
 \label{app:sec:inhomogeneous_broadening}
 
 
-Real molecular systems exhibit inhomogeneous broadening due to environmental variations, as discussed in the spectroscopy fundamentals (\autoref{chapter_spectroscopy}). The implementation models this through Gaussian-distributed transition frequencies following the theoretical treatment:
+Real molecular systems exhibit inhomogeneous broadening due to environmental variations, as discussed in the spectroscopy fundamentals (\autoref{chapter:spctr_spectroscopy}). The implementation models this through Gaussian-distributed transition frequencies following the theoretical treatment:
 \begin{equation}
 	\label{eq:gaussian_broadening}
 	p(\omega) = \frac{1}{\sigma\sqrt{2\pi}} \exp\left(-\frac{(\omega-\omega_0)^2}{2\sigma^2}\right),
 \end{equation}
-where $\sigma = \Delta_{\mathrm{FWHM}}/(2\sqrt{2\ln 2})$ relates the standard deviation to the experimentally relevant full width at half maximum, consistent with the broadening models established in~\autoref{chapter_spectroscopy}. The sampling employs a rejection algorithm optimized for computational efficiency while maintaining statistical accuracy.
+where $\sigma = \Delta_{\mathrm{FWHM}}/(2\sqrt{2\ln 2})$ relates the standard deviation to the experimentally relevant full width at half maximum, consistent with the broadening models established in~\autoref{chapter:spctr_spectroscopy}. In the implementation, the Gaussian samples are generated by vectorized rejection sampling and truncated to the interval $[\omega_0-10\Delta_{\mathrm{FWHM}},\omega_0+10\Delta_{\mathrm{FWHM}}]$. Each accepted frequency vector is then written back into the \texttt{AtomicSystem} before the corresponding propagation is launched.
 
 \section{Parallel Processing and Scalable Execution}
 \label{app:sec:parallel_processing}
 
 
-The framework supports both local execution for testing and HPC cluster deployment for large parameter studies. The local workflow (\texttt{calc\_datas.py}) generates all combinations of coherence times and inhomogeneous samples, while the HPC workflow (\texttt{hpc\_batch\_dispatch.py}) distributes individual parameter combinations across compute nodes.
+The framework supports both local execution for testing and HPC cluster deployment for large parameter studies. The local workflow (\texttt{calc\_datas.py}) generates the full Cartesian product of coherence times and inhomogeneous realizations and stores each combination as an individual artifact. For every such combination, the internal phase-cycling loop is parallelized with \texttt{ProcessPoolExecutor} over the discrete $(\phi_1,\phi_2)$ grid. The HPC workflow dispatches batches of these parameter combinations to separate SLURM jobs.
 
 
-For each combination of parameters, the averaged response is calculated following the inhomogeneous averaging procedure established in the spectroscopy theory (\autoref{chapter_spectroscopy}):
+For each combination of parameters, the averaged response is calculated following the inhomogeneous averaging procedure established in the spectroscopy theory (\autoref{chapter:spctr_spectroscopy}):
 \begin{equation}
 	\label{eq:averaged_response}
 	\langle E_{\mathrm{S}}(t_{\mathrm{coh}}, t_{\mathrm{det}}) \rangle = \frac{1}{N_{\mathrm{inhom}}} \sum_{i=1}^{N_{\mathrm{inhom}}} E_{\mathrm{S}}^{(i)}(t_{\mathrm{coh}}, t_{\mathrm{det}}),
 \end{equation}
-where $N_{\mathrm{inhom}}$ represents the number of inhomogeneous samples as defined in the broadening treatment (\autoref{chapter_spectroscopy}). The implementation utilizes Python's \texttt{ProcessPoolExecutor} for local parallel execution and integrates with SLURM-based job scheduling systems for HPC deployment, enabling efficient scaling from desktop testing to production-scale parameter sweeps.
+where $N_{\mathrm{inhom}}$ represents the number of inhomogeneous samples as defined in the broadening treatment (\autoref{chapter:spctr_spectroscopy}). In the post-processing stage, runs are first grouped by disorder sample, stacked along the coherence-time axis, duplicate coherence-time entries are merged if necessary, and only then is the average over samples computed.
 
 \section{Post-Processing and Spectral Analysis}
 \label{app:sec:post_processing}
 
 
-The post-processing pipeline (\texttt{process\_datas.py}) handles the conversion from time-domain signals to 2D spectra. \textbf{Data aggregation} groups individual parameter combination files by inhomogeneous sample and stacks them along coherence time dimensions. \textbf{Zero-padding} extends the time-domain data to improve frequency resolution according to:
-\begin{equation}
-	\label{eq:zero_padding}
-	E_{\mathrm{extended}}(t) = \begin{cases}
-		E(t) & \text{for } t \in [0, T_{\mathrm{orig}}]                   \\
-		0    & \text{for } t \in (T_{\mathrm{orig}}, T_{\mathrm{extended}}]
-	\end{cases}.
-\end{equation}
-Subsequently, \textbf{Fourier transformation} converts the data to frequency domain. For the rephasing signal this is implemented as the (two-dimensional) Fourier transform over the coherence and detection times,
-In practice, windowing trades spectral resolution for reduced ringing, while zero-padding improves visual interpolation without adding new information.
-\begin{equation}
-	\label{eq:rephasing_transform}
-	R_{\mathrm{R}}(\omega_1,T,\omega_3)
-	\;=\;
-	\int_{0}^{\infty}\!\mathrm{d}t_1\int_{0}^{\infty}\!\mathrm{d}t_3\;
-	e^{+i\omega_1 t_1}\,e^{+i\omega_3 t_3}\,R_{\mathrm{R}}(t_1,T,t_3),
-\end{equation}
-with the specific sign conventions matching those used in the spectroscopy chapter.
-
+The post-processing pipeline (\texttt{process\_datas.py}) converts the phase-selected time-domain signals into 2D spectra by double Fourier transformation with respect to $t_{\mathrm{coh}}$ and $t_{\mathrm{det}}$ (see~\autoref{eq:SR_def,eq:SNR_def}).
 
 The frequency axes are expressed in wavenumber units ($10^4$ cm$^{-1}$) for direct comparison with experimental literature.
 
@@ -127,11 +109,9 @@ The frequency axes are expressed in wavenumber units ($10^4$ cm$^{-1}$) for dire
 \label{app:sec:model_systems}
 
 
-The \texttt{AtomicSystem} class provides flexible construction of multi-atom quantum systems with configurable geometries. For the microtubule-inspired models central to this thesis, the implementation supports \textbf{cylindrical arrangements} where atoms are positioned on cylindrical surfaces with specified chain and ring numbers. \textbf{Excitation manifold truncation} restricts the system to single and double excitation subspaces with automatic basis construction, while \textbf{dynamic coupling} enables nearest-neighbor and long-range interactions based on geometric proximity. The framework also incorporates \textbf{inhomogeneous disorder} through site-specific frequency variations sampled from realistic distributions.
+The \texttt{AtomicSystem} class provides flexible construction of multi-atom quantum systems with configurable geometries. The Hilbert space is built explicitly from the ground state, the single-excitation manifold, and, when requested, the double-excitation manifold, giving a total dimension $1+N+\binom{N}{2}$ for a system with $N$ sites and \texttt{max\_excitation = 2}. For the microtubule-inspired models central to this thesis, the implementation supports \textbf{cylindrical arrangements} where atoms are positioned on cylindrical surfaces specified by the numbers of chains and rings. The system Hamiltonian contains site energies together with isotropic dipole-dipole couplings that scale as $1/r^3$ on this geometry, and the framework incorporates \textbf{inhomogeneous disorder} through site-specific frequency variations sampled for each realization.
 
 
-The system construction automatically handles basis transformations between site and excitation manifold representations, enabling efficient evolution in the appropriate eigenbasis while maintaining physical interpretability of results.
+The system construction automatically handles basis transformations between the site basis and the Hamiltonian eigenbasis, enabling propagation and observable evaluation in the diagonal basis while maintaining access to the underlying site-resolved structure of the model.
 
-\todoimp{implement this at a suitable location, of course only if it is not yet included:}
-Besides phase cycling, another common numerical strategy is to isolate a desired nonlinear order by combining runs with different subsets of pulses turned on (and subtracting lower-order contributions). In this thesis phase cycling is used, because it selects the desired rephasing/nonrephasing pathways directly through their phase dependence.
 

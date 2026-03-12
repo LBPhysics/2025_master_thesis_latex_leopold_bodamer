@@ -88,16 +88,16 @@ Two-dimensional spectra correlate excitation frequency $\omega_{\mathrm{coh}}$ a
 
 Diagonal peaks ($\omega_{\mathrm{coh}}\simeq\omega_{\mathrm{det}}$) correspond to transitions visible in the linear absorption spectrum. Their diagonal width is dominated by inhomogeneous broadening (static disorder), while their antidiagonal width reflects homogeneous broadening (dephasing and lifetime effects). Off-diagonal (cross) peaks arise from electronic coupling between excitations or population transfer between states.
 
-\subsection{Rephasing vs.\ Nonrephasing Contributions}
+\subsection{Rephasing vs.~Nonrephasing Contributions}
 
 
-Rephasing spectra ($S_R$) contain contributions in which static frequency disorder is partially refocused during $t_{\mathrm{det}}$, producing echo-like narrowing along the antidiagonal. Nonrephasing spectra ($S_{NR}$) contain pathways that do not rephase static disorder and thus emphasize homogeneous dynamics. The absorptive combination \autoref{eq:Sab_def} combines both for optimal resolution.
-In simulations, static inhomogeneity is commonly incorporated by averaging the calculated time-domain signals (or spectra) over an ensemble of Hamiltonian realizations that sample the inhomogeneous distribution~\cite{cho2009twodimensionalopticalspectroscopy, mukamel1995principlesnonlinearoptical}.
+Rephasing spectra ($\tilde{E}_{\mathrm{R}}$) contain contributions in which static frequency disorder is partially refocused during $t_{\mathrm{det}}$, producing echo-like narrowing along the antidiagonal. Nonrephasing spectra ($\tilde{E}_{\mathrm{NR}}$) contain pathways that do not rephase static disorder and thus emphasize homogeneous dynamics. The absorptive combination \autoref{eq:Sab_def} combines both for optimal resolution.
+In simulations, static inhomogeneity is commonly incorporated by averaging the calculated time-domain signals \autoref{eq:time_domain_signal} (or spectra) over an ensemble of Hamiltonian realizations that sample the inhomogeneous distribution~\cite{cho2009twodimensionalopticalspectroscopy, mukamel1995principlesnonlinearoptical}.
 
 \subsection{Connection to Open-System Modelling}
 
 
-The temporal evolution of coherences and populations during $(t_{\mathrm{coh}},T,t_{\mathrm{det}})$ is governed by the open-system dynamics discussed in~\autoref{chapter_open_quantum_systems}. In the presence of the driving field, the master equation for the reduced density matrix takes the general form
+The temporal evolution of coherences and populations during $(t_{\mathrm{coh}},T,t_{\mathrm{det}})$ is governed by the open-system dynamics discussed in~\autoref{chapter:oqs_open_quantum_systems}. In the presence of the driving field, the master equation for the reduced density matrix takes the general form
 \begin{equation}
 	\frac{\mathrm{d}}{\mathrm{d}t}\hat{\rho}_{\mathrm{S}}(t)
 	=
@@ -109,16 +109,16 @@ The temporal evolution of coherences and populations during $(t_{\mathrm{coh}},T
 where $\mathcal{L}_0$ is the Liouvillian of the field-free open system (e.g.\ Bloch--Redfield generator), and $\hat{V}(t)$ is the dipole coupling to the field.
 
 In a perturbative picture, the $n$-th order part $\hat{\rho}_{\mathrm{S}}^{(n)}(t)$ satisfies
-\begin{equation}
+\begin{equation*}
 	\frac{\mathrm{d}}{\mathrm{d}t}\hat{\rho}_{\mathrm{S}}^{(n)}(t)
 	=
 	\mathcal{L}_0[\hat{\rho}_{\mathrm{S}}^{(n)}(t)]
 	-
 	i\,[\hat{V}(t),\hat{\rho}_{\mathrm{S}}^{(n-1)}(t)],
-\end{equation}
+\end{equation*}
 with $\hat{\rho}_{\mathrm{S}}^{(0)}(t)$ solving the homogeneous equation $\frac{\mathrm{d}}{\mathrm{d}t}\hat{\rho}_{\mathrm{S}}^{(0)}=\mathcal{L}_0[\hat{\rho}_{\mathrm{S}}^{(0)}]$. The structure of $\mathcal{L}_0$ (e.g.\ its Redfield tensor, secular vs.\ nonsecular form, spectral densities) determines the decay rates and frequency shifts of coherences and populations that enter the correlation functions $S^{(n)}$ and thus the observed 2D spectra.
 
-In this thesis, $\mathcal{L}_0$ is taken to be a Redfield-type generator derived in~\autoref{sec:Redfield_eq}, with bath correlation functions and spectral densities explicitly specified in~\crefrange{sec:environmental_correlation_functions}{sec:common_choices_spectral_densities}. The numerical procedure solves \autoref{eq:ME_with_field} nonperturbatively for a given pulse sequence and bath model, computes the polarisation \autoref{eq:P_def_spectroscopy}, and uses phase cycling and Fourier transforms to construct $S_R$, $S_{NR}$, and $S_{\mathrm{abs}}$ according to \crefrange{eq:SR_def}{eq:Sab_def}.
+In this thesis, $\mathcal{L}_0$ is taken to be a Redfield-type generator derived in~\autoref{sec:oqs_Redfield_eq}, with bath correlation functions and spectral densities explicitly specified in~\crefrange{sec:oqs_environmental_correlation_functions}{sec:oqs_common_choices_spectral_densities}. The numerical procedure solves \autoref{eq:ME_with_field} nonperturbatively for a given pulse sequence and bath model, computes the polarisation \autoref{eq:spctr_P_def_spectroscopy}, and uses phase cycling and Fourier transforms to construct the time-domain signal $E_\mathrm{R}$ and $E_\mathrm{NR}$ (\autoref{eq:time_domain_signal}), from which the 2D spectra $\tilde{E}_\mathrm{R}$, $\tilde{E}_\mathrm{NR}$, and $\tilde{E}_{\mathrm{abs}}$ are obtained via \crefrange{eq:SR_def}{eq:Sab_def}.
 
 \medskip
 

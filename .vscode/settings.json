@@ -4,19 +4,39 @@
     // ---- LaTeX Project Configuration ----
     "latex-workshop.latex.recipes": [
         {
-            "name": "lualatexmk",
+            "name": "LuaLaTeX -> Biber -> LuaLaTeX x2",
             "tools": [
-                "lualatexmk"
+                "lualatex",
+                "biber",
+                "lualatex",
+                "lualatex"
             ]
         },
         {
-            "name": "latexmk (PDF)",
+            "name": "latexmk (LuaLaTeX + Biber)",
             "tools": [
-                "latexmk"
+                "lualatexmk"
             ]
         }
     ],
     "latex-workshop.latex.tools": [
+        {
+            "name": "lualatex",
+            "command": "lualatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
         {
             "name": "lualatexmk",
             "command": "latexmk",
@@ -33,10 +53,11 @@
             "name": "latexmk",
             "command": "latexmk",
             "args": [
+                "-lualatex",
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
-                "-pdf",
+                "-halt-on-error",
                 "-outdir=%OUTDIR%",
                 "%DOC%"
             ],
@@ -75,11 +96,10 @@
     ],
     // ---- LaTeX PDF Viewer and SyncTeX Configuration ----
     // Auto-build and compilation settings
+    "latex-workshop.latex.recipe.default": "latexmk (LuaLaTeX + Biber)",
     "latex-workshop.latex.autoBuild.run": "onSave",
     "latex-workshop.latex.autoClean.run": "never",
     "latex-workshop.latex.build.clearLog.everyRecipeStep.enabled": false,
-    "latex-workshop.formatting.latex": "tex-fmt",
-    "latex-workshop.formatting.tex-fmt.path": "/home/leopold/Projects/2025_master_thesis_latex_leopold_bodamer/.venv/bin/tex-fmt",
     // ---- Language-Specific Formatting Rules for Consistency ----
     "[latex]": {
         "editor.wordWrap": "wordWrapColumn",

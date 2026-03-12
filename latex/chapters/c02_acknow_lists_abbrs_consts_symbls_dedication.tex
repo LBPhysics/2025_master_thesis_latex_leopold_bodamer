@@ -43,8 +43,8 @@
 %-------------------------------------------------------------------------------
 \subsection*{Notation and conventions}
 
-Throughout this thesis, natural units are used such that $\hbar = 1$ and $c = 1$. 
-Frequencies, energies, and inverse times are therefore expressed in the same units.
+Throughout this thesis, natural units are used with $\hbar = 1$ and $c = 1$.
+Frequencies, energies, and inverse times are expressed in the same units.
 
 The following notation conventions apply:
 
@@ -72,7 +72,7 @@ Their action on density operators is written explicitly as $\mathcal{L}[\hat{\rh
 For a fixed laboratory polarisation direction $\boldsymbol{e}$, vector fields are often projected onto this axis. 
 The scalar field envelope is then defined as
 \[
-\varepsilon(t) = \boldsymbol{e} \cdot \boldsymbol{E}(t),
+E(t) = \boldsymbol{e} \cdot \boldsymbol{E}(t),
 \]
 and correspondingly $\hat{\mu} = \hat{\boldsymbol{\mu}} \cdot \boldsymbol{e}$. 
 Whenever such projections are used, the underlying vector character is understood but suppressed in the notation.
@@ -108,13 +108,8 @@ The symbols $\Re$ and $\Im$ denote the real and imaginary parts of a complex qua
 	\begin{constants}{lr@{${}={}$}l} % The list of physical constants is a three column table
 
 		Constant Name & $Symbol$ & $Constant Value$ with units\\
-		% The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
-		% The \SI units
-		Speed of Light & $c_{0}$ & \SI{2.99792458e8}{\meter\per\second}\\
-		Planck's Constant & $\hbar$ & \SI{1.0545718e-34}{\joule\second}\\
-		% The Natural units
-		Speed of Light & $c$ & $1$\\ % Natural units where $c = 1$
-		Planck's Constant & $\hbar$ & \SI{1}{\electronvolt\second}\\
+		Speed of Light & $c$ & $1$\\
+		Planck's Constant & $\hbar$ & $1$\\
 
 	\end{constants}
 \fi
@@ -126,13 +121,13 @@ The symbols $\Re$ and $\Im$ denote the real and imaginary parts of a complex qua
 \iffalse
 	\begin{symbols}{lll} % Include a list of Symbols (a three column table)
 
-		$a$ & distance & \si{\meter} \\
-		$P$ & power & \si{\watt} (\si{\joule\per\second}) \\
+		$a$ & distance & natural-unit length scale \\
+		$P$ & polarisation amplitude & natural units \\
 		%Symbol & Name & Unit \\
 
 		\addlinespace % Gap to separate the Roman symbols from the Greek
 
-		$\omega$ & angular frequency & \si{\radian} \\
+		$\omega$ & angular frequency & inverse time (natural units) \\
 
 	\end{symbols}
 \fi

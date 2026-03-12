@@ -2,47 +2,83 @@
 \chapter{Ultrashort-Pulse Intuition}
 \label{app:phase_kick_intuition}
 
-This appendix collects an optional geometric intuition for the role of pulse carrier phases in pathway selection. It complements the formal treatment in~\autoref{subsec:phase_matching_condition,subsec:rephasing_nonrephasing,sec:phase_cycling} without changing the main derivation used in the thesis.
+This appendix collects an optional geometric intuition for the role of pulse carrier phases in pathway selection. It complements the formal treatment in~\autoref{subsec:spctr_phase_matching_condition,subsec:spctr_rephasing_nonrephasing,sec:spctr_phase_cycling} without changing the main derivation used in the thesis.
 
 \section{Carrier Phase, Pulse Area, and Bloch-Sphere Picture}
 \label{app:sec:phase_kick_pulse_area_intuition}
 
-The carrier phases $\phi_j$ in~\autoref{eq:E_three_pulses_space} are experimentally controlled parameters that imprint well-defined phase factors on driven coherences and hence on the nonlinear polarisation. This provides the pathway selection used throughout this thesis.
-This geometric picture is used as intuition. All quantitative results in this thesis are obtained from the full, numerically exact propagation and the phase-selection procedures developed in~\autoref{sec:phase_cycling}.
+The carrier phases $\phi_j$ in~\autoref{eq:spctr_E_three_pulses_space} are experimentally controlled parameters that imprint well-defined phase factors on driven coherences and hence on the nonlinear polarisation. This provides the pathway selection used throughout this thesis.
+This geometric picture is used as intuition. All quantitative results in this thesis are obtained from the full, numerically exact propagation and the phase-selection procedures developed in~\autoref{sec:spctr_phase_cycling}.
 
-A visual interpretation arises for a resonantly driven two-level system within the RWA, where $\phi_j$ sets the rotation axis of the drive.
-Writing the complex Rabi frequency of pulse $j$ as
-\begin{equation}
-    \Omega_j(t) \equiv \boldsymbol{\mu}_{eg}\cdot\boldsymbol{E}_j(t),
-\end{equation}
-the interaction Hamiltonian in the laser-rotating frame can be expressed as
-\begin{equation}
+To connect this intuition directly to the main text, start from the scalar semiclassical light--matter Hamiltonian in~\autoref{eq:spctr_semiclassical_hamiltonian_scalar} and specialize it to the two-level reference system introduced in~\autoref{sec:spctr_two_level_system_linear_response}. The aim of this appendix section is only to show how the pulse-resolved quantity $\Omega_j$ arises from the same dipole coupling already used in the formal response-function derivation.
+
+\subsection{From the Dipole Hamiltonian to the Complex Rabi Frequency}
+
+For the two-level system, the field-free Hamiltonian and dipole operator are
+\begin{equation*}
+    \hat{H}_{0} = \omega_{eg}\,\ket{e}\!\bra{e},
+    \qquad
+    \hat{\mu}
+    = \mu_{ge}\,\ket{g}\!\bra{e} + \mu_{eg}\,\ket{e}\!\bra{g},
+\end{equation*}
+as given in~\autoref{eq:spctr_tls_hamiltonian,eq:spctr_tls_dipole}. Inserting these into~\autoref{eq:spctr_semiclassical_hamiltonian_scalar} gives
+\begin{equation*}
+    \hat{H}_{\mathrm{S}}(t)
+    = \omega_{eg}\,\ket{e}\!\bra{e}
+    - E(t)\Big(\mu_{ge}\,\ket{g}\!\bra{e} + \mu_{eg}\,\ket{e}\!\bra{g}\Big).
+\end{equation*}
+To isolate the effect of one pulse, insert the $j$th contribution from~\autoref{eq:spctr_E_three_pulses_space},
+\begin{equation*}
+    E_j^{(+)}(t)
+    = E_j(t-t_j)\,e^{-\mathrm{i}\omega_L t + \mathrm{i}\phi_j},
+    \qquad
+    E_j^{(-)}(t)=\bigl[E_j^{(+)}(t)\bigr]^*,
+\end{equation*}
+so that $E(t)=E_j^{(+)}(t)+E_j^{(-)}(t)$ for that pulse. In the interaction picture with respect to $\hat{H}_{0}$, the transition operators acquire the phases
+\begin{equation*}
+    e^{+\mathrm{i}\hat{H}_0 t}\ket{e}\!\bra{g}e^{-\mathrm{i}\hat{H}_0 t}=e^{+\mathrm{i}\omega_{eg}t}\ket{e}\!\bra{g},
+    \qquad
+    e^{+\mathrm{i}\hat{H}_0 t}\ket{g}\!\bra{e}e^{-\mathrm{i}\hat{H}_0 t}=e^{-\mathrm{i}\omega_{eg}t}\ket{g}\!\bra{e}.
+\end{equation*}
+The interaction Hamiltonian therefore contains terms oscillating at $\omega_{eg}\pm\omega_L$. Near resonance, the RWA keeps only the slowly varying combinations $\ket{e}\!\bra{g}\,E_j^{(+)}$ and $\ket{g}\!\bra{e}\,E_j^{(-)}$, while the counter-rotating terms are discarded. Up to the sign and factor conventions associated with the chosen rotating frame, this yields
+\begin{equation*}
+    \hat{H}_{\mathrm{int},j}(t)
+    \;\propto\;
+    \mu_{eg}E_j(t-t_j)e^{+\mathrm{i}\phi_j}\,\ket{e}\!\bra{g}
+    + \mu_{ge}E_j^*(t-t_j)e^{-\mathrm{i}\phi_j}\,\ket{g}\!\bra{e}.
+\end{equation*}
+This motivates defining the complex Rabi frequency of pulse $j$ as the slowly varying dipole--field coupling amplitude,
+\begin{equation*}
+    \Omega_j(t) \equiv \mu_{eg}E_j(t).
+\end{equation*}
+Depending on whether the carrier phase is attached to the field envelope or absorbed into the definition of the rotating-frame basis, one may equivalently write $\phi_j\to -\phi_j$. Using the convention adopted for the Bloch-sphere picture below, the interaction Hamiltonian in the laser-rotating frame can be expressed as
+\begin{equation*}
     \hat{H}_{\mathrm{int},j}(t)
     \;\propto\;
     \Omega_j(t-t_j)
 \Big( e^{-\mathrm{i}\phi_j}\,\ket{e}\!\bra{g} + e^{+\mathrm{i}\phi_j}\,\ket{g}\!\bra{e} \Big).
-    \label{eq:Hint_phasekick}
-\end{equation}
+\end{equation*}
+This is the form in which the carrier phase appears as a rotation angle in the equatorial plane of the Bloch sphere.
 Changing $\phi_j$ rotates the complex drive while leaving the pulse envelope unchanged. On the Bloch sphere this corresponds to a rotation about an equatorial axis with azimuth angle $\phi_j$ (cf.~\cite{grolletal2025fundamentalsheterodynewave}).
 
 The pulse area
-\begin{equation}
+\begin{equation*}
     \theta_j \;\equiv\; \int_{-\infty}^{\infty}\!\mathrm{d}t\,\Omega_j(t-t_j)
-    \label{eq:pulse_area_def}
-\end{equation}
+\end{equation*}
 sets the corresponding rotation angle.
 In the idealised delta-pulse limit one replaces $\Omega_j(t-t_j)\to \theta_j\,\delta(t-t_j)$, so the pulse acts as an instantaneous unitary
-\begin{equation}
+\begin{equation*}
     \hat{U}_j
     \;=\;
 \exp\!\left[-\frac{\mathrm{i}\,\theta_j}{2}\,\big(\cos\phi_j\,\hat{\tau}_x+\sin\phi_j\,\hat{\tau}_y\big)\right],
-    \label{eq:delta_pulse_unitary}
-\end{equation}
+\end{equation*}
 where $\hat{\tau}_{x,y,z}$ denote the Pauli matrices.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/spctr_bloch_phase_rotation.pdf}
-    \caption{Bloch-sphere visualization of one ultrashort interaction with a two-level system. The initial state is $\ket{0}$. Panels show examples for (a) $\theta=\pi/2$ and (b) $\theta=\pi$ with different carrier phase kicks $\phi$.}
+    \includegraphics[width=0.7\textwidth]{figures/app_spctr_bloch_phase_rotation.pdf}
+    \caption{Bloch-sphere visualization of one ultrashort interaction with a two-level system. The initial state is $\ket{g}$. Panels show examples for (a) $\theta=\pi/2$ and (b) $\theta=\pi$ with different carrier phase kicks $\phi$. The stars mark the final state after the pulse.}
     \label{fig:delta_phase_kick_bloch_rotation}
 \end{figure}
+
+Successive phase kicks therefore accumulate factors of the form $e^{\pm i\phi_j}$ on the optical coherences. This is the geometric counterpart of the phase factors used in the main text: phase cycling isolates a desired pathway class by Fourier projecting the measured signal with respect to $(\phi_1,\phi_2,\phi_3)$.
