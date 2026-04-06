@@ -95,10 +95,7 @@ With this definition thermal expectation values take the form
 	\langle \hat{A} \rangle = \mathrm{Tr}[\hat{\rho}\, \hat{A}] = \frac{1}{Z} \sum_n e^{-\beta E_n} A_{nn},
 \label{eq:oqs_ho_expectation_value} 
 \end{equation}
-with the inverse temperature
-\begin{equation*}
-	\beta = \frac{1}{k_{\mathrm{B}} T}.
-\end{equation*}
+with the inverse temperature $\beta = T^{-1}$.
 
 
 \subsection{System--Environment Setup}
@@ -547,7 +544,7 @@ so that for any bath operator $\hat{A}$,
 \begin{equation*}
 \langle \hat{A} \rangle = \mathrm{Tr}(\hat{\rho}_{\mathrm{Gibbs}}\, \hat{A}) = \frac{1}{Z} \sum_n e^{-\beta E_n} A_{nn},
 \end{equation*}
-in the energy eigenbasis of $\hat{H}_{\mathrm{E}}$, where $Z = \mathrm{Tr}[e^{-\beta \hat{H}_{\mathrm{E}}}]$ and $\beta = 1/(k_B T)$ is the inverse temperature of the environment. The bath Hamiltonian consists of independent harmonic oscillators
+in the energy eigenbasis of $\hat{H}_{\mathrm{E}}$, where $Z = \mathrm{Tr}[e^{-\beta \hat{H}_{\mathrm{E}}}]$ and $\beta = T^{-1}$ is the inverse temperature of the environment. The bath Hamiltonian consists of independent harmonic oscillators
 \begin{equation}
 	\hat{H}_{\mathrm{E}} = \sum_k \omega_k \Big(\hat{b}_k^{\dagger} \hat{b}_k + \tfrac{1}{2}\Big),
 	\label{eq:oqs_ho_bath_hamiltonian}

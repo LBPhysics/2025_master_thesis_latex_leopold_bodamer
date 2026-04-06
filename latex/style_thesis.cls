@@ -182,6 +182,7 @@
 \RequirePackage{scrhack} % Loads fixes for various packages
 
 \RequirePackage{setspace} % Required for changing line spacing
+\RequirePackage{silence} % Filter known non-actionable package warnings
 
 % NOTE: Reference naming (\autoref/\cref) is configured in main.tex
 % to ensure cleveref is loaded after hyperref. This keeps sentence-start
@@ -189,7 +190,8 @@
 
 \RequirePackage{longtable} % Required for tables that span multiple pages (used in the symbols, abbreviations and physical constants pages)
 
-%\RequirePackage{siunitx} % Required for \SI commands -> uncommented because it was not used and conflicts with "physics" package
+\RequirePackage[overwrite-functions=false]{siunitx} % Required for \SI/\si while avoiding \qty clashes with physics package
+\WarningFilter{siunitx}{Detected the "physics" package}
 
 \RequirePackage{graphicx} % Required to include images
 \graphicspath{{figures/}}
