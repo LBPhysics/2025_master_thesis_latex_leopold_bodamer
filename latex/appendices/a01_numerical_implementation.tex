@@ -62,7 +62,7 @@ To isolate the rephasing and nonrephasing contributions, the third-order polaris
 \label{app:sec:oqs_evolution}
 
 
-The quantum system evolution is handled by the \texttt{SimulationModuleOQS} class, which provides a unified interface for the solver backends implementing the open quantum system dynamics developed in~\autoref{chapter:oqs_open_quantum_systems}. The implementation supports Lindblad master-equation evolution via QuTiP's \texttt{mesolve}, Bloch-Redfield dynamics via \texttt{brmesolve}, and a custom \texttt{paper\_eqs} Liouvillian used for the dimer benchmark calculations. The initial state is taken as the ground-state density matrix by default. Every operator is transformed to the energy eigenbasis before propagation.
+The quantum system evolution is handled by the \texttt{SimulationModuleOQS} class, which provides a unified interface for the solver backends implementing the open quantum system dynamics developed in~\autoref{chapter:oqs_open_quantum_systems}. The implementation supports Lindblad master-equation evolution via QuTiP's \texttt{mesolve}, Bloch-Redfield dynamics via \texttt{brmesolve}, and a custom \texttt{paper\_eqs} Liouvillian used for the monomer and dimer benchmark calculations. The initial state is taken as the ground-state density matrix by default. Every operator is transformed to the energy eigenbasis before propagation.
 
 
 For time-dependent pulse sequences, the total Hamiltonian takes the form established in the spectroscopy theory (\autoref{chapter:spctr_spectroscopy}):

@@ -1,0 +1,804 @@
+RESEARCH ARTICLE | JUNE 16 2006
+
+Two-dimensional optical three-pulse photon echo
+spectroscopy. I. Nonperturbative approach to the calculation
+of spectra 
+Tomáš Mančal; Andrei V. Pisliakov; Graham R. Fleming
+
+
+
+J. Chem. Phys. 124, 234504 (2006)
+https://doi.org/10.1063/1.2200704
+
+
+
+
+                                                                                           
+                                                                                           View        Export
+                                                                                           Online      Citation
+
+
+  Articles You May Be Interested In
+
+   A nonperturbative calculation of nonlinear spectroscopic signals in liquid solution
+   J. Chem. Phys. (December 2006)
+
+   Two-dimensional optical three-pulse photon echo spectroscopy. II. Signatures of coherent electronic
+   motion and exciton population transfer in dimer two-dimensional spectra
+   J. Chem. Phys. (June 2006)
+
+
+
+
+                                                                                                                  07 February 2025 11:23:07
+   Efficient method for the calculation of time- and frequency-resolved four-wave mixing signals and its
+   application to photon-echo spectroscopy
+   J. Chem. Phys. (October 2005)
+                                      THE JOURNAL OF CHEMICAL PHYSICS 124, 234504 共2006兲
+
+
+Two-dimensional optical three-pulse photon echo spectroscopy.
+I. Nonperturbative approach to the calculation of spectra
+          Tomáš Mančal, Andrei V. Pisliakov, and Graham R. Fleminga兲
+          Department of Chemistry, University of California, Berkeley, California 94720
+          and Physical Biosciences Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720
+          共Received 2 May 2005; accepted 6 April 2006; published online 16 June 2006兲
+
+          The nonperturbative approach to the calculation of nonlinear optical spectra of Seidner et al. 关J.
+          Chem. Phys. 103, 3998 共1995兲兴 is extended to describe four-wave mixing experiments. The
+          system-field interaction is treated nonperturbatively in the semiclassical dipole approximation,
+          enabling a calculation of third order nonlinear spectroscopic signals directly from molecular
+          dynamics and an efficient modeling of multilevel systems exhibiting relaxation and transfer
+          phenomena. The method, coupled with the treatment of dynamics within the Bloch model, is
+          illustrated by calculations of the two-dimensional three-pulse photon echo spectra of a simple model
+          system—a two-electronic-level molecule. The nonperturbative calculations reproduce well-known
+          results obtained by perturbative methods. Technical limitations of the nonperturbative approach in
+          dealing with a dynamic inhomogeneity are discussed, and possible solutions are suggested. An
+          application of the approach to an excitonically coupled dimer system with emphasis on the
+          manifestation of complex exciton dynamics in two-dimensional optical spectra is presented in paper
+          II Pisliakov et al. 关J. Chem. Phys. 124, 234505 共2006兲, following paper兴. © 2006 American Institute
+          of Physics. 关DOI: 10.1063/1.2200704兴
+
+
+I. INTRODUCTION                                                      that enable the calculation of the time evolution of complex
+                                                                     systems. These methods range from rigorous quantum-
+
+
+
+
+                                                                                                                                         07 February 2025 11:23:07
+     Nonlinear spectroscopy is an increasingly important tool
+                                                                     mechanical methods 共for review, see Ref. 33兲 to a semiclas-
+for studying the dynamics and structure of molecular sys-
+                                                                     sical initial value representation method 共see, e.g., Refs. 34
+tems on the femtosecond time scale. An impressive progress
+                                                                     and 35兲 or stochastic wave function propagation.34–39 Typi-
+in infrared 共IR兲 spectroscopy with the establishment of new
+                                                                     cally, the dissipative effects in multistate systems are de-
+multidimensional methods to probe vibrational dynamics and
+                                                                     scribed by the numerical propagation of the reduced density
+couplings1–10 has been followed by descriptions of a visible-
+                                                                     matrix via the Redfield equation.40,41 When using these
+domain heterodyne detection of nonlinear signals and two-
+                                                                     methods, it is logical and often more straightforward to
+dimensional photon echo measurements,11–22 optical phase
+                                                                     implement a direct numerical treatment of the system-field
+cycling on atoms,23 and very recently two-dimensional pho-
+                                                                     interaction in order to avoid the evaluation of the multiple
+ton echo spectra measurements of the biologically relevant
+                                                                     system response functions. The main advantage of the non-
+Fenna-Matthews-Olson 共FMO兲 complex.24,25
+                                                                     perturbative 共NP兲 approach, introduced in Ref. 30 and ex-
+     The conventional approach26–29 to the theory of nonlin-
+                                                                     tended in this paper, is that it enables calculation of nonlinear
+ear spectroscopy, which utilizes a perturbative expansion of
+                                                                     optical signals directly from the system dynamics when us-
+the system dynamics in orders of the external electric field, is
+                                                                     ing the above mentioned theoretical methods. The system-
+convenient and efficient, provided that the nonlinear re-
+                                                                     field interaction is treated 共numerically兲 exactly by its ex-
+sponse functions can be evaluated analytically. This is pos-
+                                                                     plicit inclusion into the total Hamiltonian
+sible even for multilevel systems26,28,29 in interaction with a
+bath of harmonic oscillators, given that no population trans-            Htot共t兲 = Hmol − ␮ · nE共t兲,                              共1兲
+fer between the levels is induced by this bath. When the
+number of states increases and the dynamics of the molecular         where ␮ is the system transition dipole operator, E共t兲 is the
+system requires a more complex description, the perturbative         external 共laser兲 electric field, and n is a unity vector in the
+formalism can be used in the form of a doorway-window                direction of the field polarization. The total optical polariza-
+picture26 that utilizes the system propagation for the calcula-      tion, which is the key quantity for the calculation of spectro-
+tion of nonlinear response functions. In this paper we pro-          scopic signals, is obtained as an expectation value of the
+vide an extension of an alternative method30 that avoids an          dipole moment operator ␮ 关see Eq. 共5兲兴.
+evaluation of response functions and calculates the nonlinear             Depending on the geometry of the experiment, the con-
+signal directly from the system dynamics.                            tributions corresponding to different orders of the nonlinear
+     Several decades of research in the field of open quantum        response are usually distinguishable by the direction of the
+systems31,32 provide a number of methods and approaches              emitted field. In a computer simulation, only the overall po-
+                                                                     larization is produced, and no directional information is re-
+a兲
+ Electronic mail: grfleming@lbl.gov                                  tained. The key to the NP method is the ability to extract the
+
+0021-9606/2006/124共23兲/234504/10/$23.00                     124, 234504-1                         © 2006 American Institute of Physics
+234504-2     Mančal, Pisliakov, and Fleming                                                                J. Chem. Phys. 124, 234504 共2006兲
+
+
+directional information from the total polarization.30 Once
+this is established, the NP approach allows a convenient
+treatment of experimental situations that require an extra the-
+oretical effort if handled perturbatively. For example, in the
+case of overlapping pulses, perturbative methods need to
+take into account different time orderings inside the pulse
+overlap region.42 The NP approach handles overlapping
+pulses automatically. Moreover, the NP method may enable
+the treatment of strong field effects and non-Condon effects
+and the inclusion of an arbitrary form of dissipation even
+during the pulses if these are correctly described by the sys-
+tem’s equations of motion. While the NP approach provides         FIG. 1. The pulse scheme of a photon echo experiment. Three pulses with
+a convenient and flexible tool for the calculation of nonlinear   successive interpulse delays ␶ and T are applied to the system. The time
+                                                                  origin is conventionally set to the middle of the third pulse. The photon echo
+signals, it provides less guidance for the interpretation of      signal arises at times t ⬎ 0. In the 2D spectroscopy we vary the first delay ␶
+signals in terms of elementary processes than do perturbative     to record a two-dimensional signal 共in ␶ and t兲 for a given delay T.
+methods. Accordingly, we will often use a perturbative ter-
+minology to describe and explain the underlying dynamical
+                                                                       En共t兲 = lEn共t兲exp兵− i␻nt + iknr其 + c.c.                              共2兲
+processes. The method offered here, however, has a clear
+physical interpretation based on the differences of the phase     The pulse envelope carries information about the additional
+of the electric field experienced by molecules in different       time dependent phase modulation and chirp so that it enables
+positions in the sample and is related to the interpretation of   us to describe rather complicated pulse forms, provided all
+nonlinear spectroscopy in terms of a dynamic grating.43 To-       envelope changes are slow in comparison with the carrier
+gether with molecular dynamics it may become useful, e.g.,        frequency ␻n.
+for finite field calculations such as those in Refs. 44 and 45.        The photon echo signal detected along the wave-vector
+     So far, the NP method has been implemented mainly for        direction ks = −k1 + k2 + k3 results from a system excitation by
+the calculation of two-pulse pump-probe signals.30,46–50 Ex-      three pulses centered at times t = −␶ − T, −T, and 0, with ␶ and
+amples include electron transfer model systems,46,47 cis-trans
+
+
+
+
+                                                                                                                                                   07 February 2025 11:23:07
+                                                                  T being the relative delay times described in Fig. 1.
+multidimensional photoisomerization models,30,48 and photo-            The signal field of the photon echo, Es, is proportional to
+synthetic antenna complexes.49,50 Recently, the NP approach       the component of the nonlinear polarization in the direction
+was developed for the calculation of time- and frequency-         k s,
+gated spontaneous emission spectra.51 In this article, we ex-
+tend the nonperturbative approach to the most general 共three-          Eks共␶,T,t兲 ⬃ iPks共␶,T,t兲,                                            共3兲
+pulse兲 four-wave mixing 共FWM兲 spectroscopic experiments.
+The theoretical method is illustrated by the calculation of       and can be detected using the heterodyne detection scheme
+two-dimensional 共2D兲 spectra of a simple and well under-          described, for example, in Ref. 22. For a given value of the
+stood model two-level system. In paper II52 of this study, we     delay, T 共population time兲, between the second and the third
+apply the approach to an excitonically coupled dimer system.      pulses in the sequence 共see Fig. 1兲, a 2D spectrum is ob-
+     The paper is organized as follows. In Sec. II we discuss     tained by successive frequency-resolved measurements of
+three-pulse FWM experiments and define the spectroscopic          the photon echo signal for different values of the delay ␶
+signals. In Sec. III the main idea of the NP approach is in-      共coherence time兲 between the first and the second pulses.
+troduced and a method to calculate directional contributions      Conventionally, one switches to the frequency domain com-
+is established. The model molecular system we use for the         pletely by Fourier transforming the spectrum in ␶ numeri-
+calculation of the spectroscopic signals and the equations of     cally so that the process is equivalent to a double Fourier
+motion are introduced in Sec. IV. Section V presents the          transform of the time dependent signal
+results and discussion of our calculations for the model sys-
+tem.                                                                   S2D共␻␶,T, ␻t兲 ⬃      冕 −⬁
+                                                                                                ⬁
+                                                                                                    dt exp共− i␻tt兲
+
+
+II. TWO-DIMENSIONAL PHOTON ECHO SPECTRA                                                     ⫻   冕   ⬁
+
+
+                                                                                                    −⬁
+                                                                                                         d␶ exp共i␻␶␶兲Eks共␶,T,t兲.            共4兲
+     Formally, the only difference between the perturbative
+and nonperturbative approaches is in the treatment of the         Here Eks is related to Eks by Eks = mEks where m is a polar-
+polarization P共t兲. As a consequence, the definitions of non-      ization vector of the signal field. The definition of 2D spectra
+linear spectroscopic signals remain completely equivalent in      has been discussed in great detail in Refs. 19 and 22. In the
+the two formulations.                                             frequency domain a 2D spectrum can be easily interpreted
+     The system-field interaction is described in the semiclas-   intuitively. A 2D spectrum calculated by the procedure de-
+sical dipole approximation 关see Eq. 共1兲兴 where the external       scribed in the next section is a complex valued function, so
+electric field E共t兲 is comprised of three laser pulses E共t兲       that one may plot either the absolute value and phase spectra
+= ⌺n=1
+    3
+       En共t兲. Each pulse is characterized by its frequency ␻n,    or the real and imaginary spectra. We use the latter represen-
+wave vector kn, polarization e, and a complex envelope En共t兲      tation in this paper.
+234504-3     Two-dimensional photon echo spectroscopy                                                 J. Chem. Phys. 124, 234504 共2006兲
+
+
+III. NONPERTURBATIVE CALCULATION OF THE                                 Let us now calculate the number of components appear-
+POLARIZATION                                                        ing in the 共2N + 1兲th order polarization P共2N+1兲共t兲 for the gen-
+                                                                    eral case of a three-pulse FWM spectroscopic experiment.
+    The polarization induced by the laser field is defined as
+                                                                    We discuss even orders only, since the odd ones vanish for
+an expectation value of the dipole operator
+                                                                    random isotropic media with the inversion symmetry.26 We
+                                                                    assume the rotating wave approximation 共RWA兲, which pre-
+    P共t兲 ⬅ Tr兵␮
+              ˆ ␳共t兲其,                                       共5兲    serves only resonant optical transitions and also prevents us
+                                                                    from addressing experiments such as the four-wave sum fre-
+where the density matrix 共DM兲 ␳共t兲 is obtained by solving a         quency mixing. In this case, the most general electronic sys-
+suitable equation of motion.                                        tem that can be studied by a 共2N + 1兲th order experiment is a
+     In general, the overall nonlinear polarization consists of     ladder of N + 2 electronic bands 共including the ground state兲
+a number of contributions,                                          with a transition dipole moment
+
+    PNL共t兲 = 兺 Plmn共t兲exp关i共lk1 + mk2 + nk3兲r兴 + c.c.,       共6兲                N
+             l,m,n                                                      ˆ = 兺 ␮a,a+1兩a典具a + 1兩 + c.c.,
+                                                                        ␮                                                          共9兲
+                                                                               a=0
+as a result of the system interaction with different wave-
+vector components of the field. Individual terms can easily         where the state vectors 兩a典 represent different bands. For ex-
+be distinguished both experimentally and in a perturbative          ample, the third order nonlinear spectroscopy can reveal in-
+calculation via the direction of the emitted radiation, k = lk1     formation about a system with a ground state and at maxi-
++ mk2 + nk3. The photon echo, for example, corresponds to           mum two bands separated by energy gaps resonant with the
+l = −1, m = 1, and n = 1. In contrast to the experiment, a non-     laser field. Using a wave function formalism, we can conve-
+perturbative calculation of the expectation value of the di-        niently write the 共2N + 1兲th order component of the nonlinear
+pole operator 关Eq. 共5兲兴, gives an overall polarization, which       polarization as
+is a sum of all contributions. For the case of two pulses and
+systems with a single optical transition, Seidner et al.30 have                               N−a
+                                                                            共2N+1兲
+                                                                                     共t兲 = 兺 兺 具␺2共N+a−j兲+a共t兲
+
+
+
+
+                                                                                                                                          07 February 2025 11:23:07
+developed a method to extract individual components. Our                P
+aim is to extend their approach to three-pulse experiments.                               a   j=0
+
+     We start by formally defining the phase as ␾n = knr. The                            ⫻兩␮a,a+1兩a典具a + 1兩␺共2j+1兲+a共t兲典.         共10兲
+polarization can then be written as
+                                                                    For a = 0 we obtain the expression from Ref. 30 for the two-
+    P共t; ␾1, ␾2, ␾3兲 ⬅ 兺 Plmn共t兲exp关i共l␾1 + m␾2 + n␾3兲兴,            level system. For a ⬎ 0 we construct the expression analo-
+                                                                    gously by assuming there are j + 1 + a absorption and j emis-
+                                                             共7兲
+                                                                    sion events on the ket and N − j absorption and N − a − j
+                                                                    emission events on the bra side of the expression. Each of
+where the phase factors ␾n can be considered as parameters
+                                                                    the 2N + 1 interactions with a field introduces one of the six
+of the individual external fields. Thus the overall polarization
+                                                                    phase factors e±ik1r, e±ik2r, and e±ik3r resulting 共without in-
+depends parametrically on a set 兵␾n其. Equation 共7兲 can be
+                                                                    voking the RWA兲 in 6 ⫻ 共2N + 1兲 terms in the polarization
+viewed as a Fourier decomposition. Consequently, after cal-
+                                                                    with wave vectors ks = lk1 + mk2 + nk3 such that 兩l兩 + 兩m兩 + 兩n兩
+culating the polarization P共t ; ␾1 , ␾2 , ␾3兲 for a set of phases
+                                                                    = 2N + 1. As discussed in Ref. 30, the RWA enables a reduc-
+共␾1 , ␾2 , ␾3兲, the individual components Plmn can be obtained
+                                                                    tion in the number of polarization components necessary to
+from an inverse Fourier transform47                                 calculate the nonlinear signal, although a full formulation of
+
+                冕 冕 冕
+                  2␲         2␲         2␲
+                                                                    the nonperturbative approach is in principle possible. For the
+    Plmn共t兲 ⬃          d␾1        d␾2        d␾3                    remainder of this paper we will invoke the RWA, taking into
+                 0           0          0                           account nearly resonant excitation processes only. With re-
+                                                                    spect to the RWA, the nonperturbative method developed
+                ⫻ exp关− i共l␾1 + m␾2 + n␾3兲兴P共t; ␾1, ␾2, ␾3兲.        below carriers essentially the same error as perturbative
+                                                             共8兲    methods. The accuracy of RWA in the context of nonlinear
+                                                                    spectroscopy is discussed in detail, e.g., in Ref. 53.
+This discrete Fourier transform method is equivalent to the             Conventionally, absorption and emission processes in
+method developed by Seidner et al.30 where the individual           the ket yield the phase factors eikir and e−ikir, respectively,
+components are obtained by constructing and solving the al-         while the corresponding bra interactions give the complex
+gebraic set of equations. As we will show below, in a given         conjugate phase factors. For a given transition 兩a典 → 兩a + 1典
+order of the nonlinear signal, the number of components             we can derive the overall phase factor of its contribution to
+present in the signal is limited 共to 12 in the case of the third    the signal analogously to Ref. 30. First, we denote the num-
+order兲 and the inversion of the algebraic set of equations 关Eq.     ber of absorption and emission events of the laser pulse hav-
+                                                                                                           共1兲      共1兲
+共7兲兴 is easily accomplished after the polarization is calcu-        ing k vector k1 in the ket vector as aket  and eket respectively,
+lated. Note that we have only half of expression 共6兲 in Eq.         and similarly for pulses with wave vectors k2 and k3 and the
+共7兲 so that the polarization P共t ; ␾1 , ␾2 , ␾3兲 remains complex.   bra vector. Thus, we can write for the number of events
+234504-4       Mančal, Pisliakov, and Fleming                                                                     J. Chem. Phys. 124, 234504 共2006兲
+
+      共1兲    共2兲    共3兲                                                      Thus, the nonperturbative method can be applied to the
+     aket + aket + aket = j + 1 + a,
+                                                                             simulation of nondegenerate FWM experiments.
+      共1兲
+     eket    共2兲
+          + eket    共3兲
+                 + eket = j,                                        共11兲           For convenience, we set ␾3 = 0 and calculate the overall
+                                                                             polarization P共t ; ␦1 , ␦2兲 for the phases ␦1,2 = m1,2␲ / 2 共m1,2
+      共1兲    共2兲    共3兲                                                      = 0 , 1 , 2 , 3兲. Because P共t ; ␦1 , ␦2兲 also contains contributions
+     abra + abra + abra = N − a − j + a,
+                                                                             from the lower order of expansion N = 0 共linear polarization兲,
+      共1兲    共2兲    共3兲
+                                                                             we need to calculate three linear polarizations 共one for each
+     ebra + ebra + ebra = N − a − j.                                         pulse兲 and subtract these polarizations from the overall po-
+                                                                             larization
+Using the constraints 共11兲, the overall phase factor of the
+共2N + 1兲th order nonlinear signal becomes                                        P共3兲 = P − P1共1兲only − P2共1兲only − P3共1兲only .               共15兲
+                        共1兲    共1兲    共1兲    共1兲
+     P共2N+1兲共t兲 ⬇ ei共eket−aket−ebra+abra兲共k3−k1兲r                            The direction-resolved contributions are then obtained from
+                              共2兲    共2兲    共2兲    共2兲                       the total nonlinear polarization via the inverse Fourier trans-
+                    ⫻ ei共ebra−aket−ebra+abra兲共k3−k2兲r+ik3r .        共12兲     form 共8兲.
+                                                                                  Although Eq. 共6兲 does not require the applied external
+All the contributions of j and a have canceled each other in
+                                                                             electric field to be weak, the subsequent analysis of the di-
+Eq. 共12兲, resulting in the same general formula for the phase
+                                                                             rections in which signals of different order travel shows that
+factor from all the contributing transitions. Thus, we can
+                                                                             a weak field has to be applied to prevent higher order signals,
+write the following expression for the possible k vectors of
+                                                                             significantly influencing the calculation. For example, the
+the signal field,
+                                                                             photon echo direction in the third order, −k1 + k2 + k3, is the
+     ks = n1共k3 − k1兲 + n2共k3 − k2兲 + k3 ,                          共13兲     same as the fifth order direction −k1 + k1 − k1 + k2 + k3. The
+            共1兲    共1兲    共1兲      共1兲
+                                                                             problem is, in this respect, similar to the true experimental
+where n1 = eket − aket − ebra + abra   and similarly for n2. We can          situation. Since in a computer simulation we have access to
+                               共3兲     共3兲    共3兲    共3兲
+also formally define n3 = eket     − aket  − ebra + abra and note that all   information about the population of excited states, we can
+three numbers satisfy the relation                                           easily assure the correct weak field conditions.
+     n1 + n2 + n3 = − 1                                             共14兲
+
+
+
+
+                                                                                                                                                      07 February 2025 11:23:07
+because for the polarization contribution to be nonzero we                   IV. MODEL SYSTEM AND EQUATIONS OF MOTION
+require one ket absorption event more than the number of
+emission events. Since all the a’s and e’s are non-negative,                      In this section we introduce a simple model system that
+we can also easily determine the limits for the values of na as              will provide a basis for development and testing of the
+min共na兲 = −N − 1 and max共na兲 = N, a = 1 , 2 , 3. From Eq. 共14兲               method. As the analysis in the previous section shows, the
+we also have n1 + n2 = −共N + 1兲 , . . . , N. The conclusion of the           method can be applied to an arbitrary model system, and it
+above discussion is that the nonlinear polarization of the                   does not rely on any particular method of propagation of its
+共2N + 1兲th order 共and consequently the emitted electric field                equations of motion to calculate the complex polarization of
+of the nonlinear signal兲 depends only on the relative phases                 the system induced by the external fields 共although in its
+␦1 ⬅ ␾3 − ␾1 and ␦2 ⬅ ␾3 − ␾2 of the incoming laser pulses. It               present formulation it does require the RWA兲. Here we dem-
+is important to note that ␾1, ␾2, and ␾3 are additional phase                onstrate the implementation of the method on a very simple
+factors of the pulses resulting from the position r of the                   system, an ensemble of molecular systems with only two
+molecular system interacting with the field. All phase factors               electronic levels embedded in a solvent. Relaxation 共transi-
+that the pulses acquire by, e.g., delays in the experimental                 tion from the excited state to the ground state兲 and dephasing
+setup remain unchanged.                                                      in the system are described by phenomenological rates 共see
+     For the third-order polarization P共3兲共t兲 we have 2N + 1                 below兲. Furthermore, we assume that the members of the
+= 3 and therefore n1 + n2 = −2, −1, 0, or 1, giving rise to ra-              ensemble experience a range of different environments, re-
+diation into 12 directions. We can write down all possible                   sulting in a slight shift of their transition energies. We choose
+directions: k1, k2, k3, k1 − 2k2, k1 − 2k3, k2 − 2k1, k2 − 2k3,              a Gaussian distribution for the transition energies:
+k3 − 2k1, k3 − 2k2, k1 + k2 − k3, k1 − k2 + k3, −k1 + k2 + k3.                                    冑ln 2 −关共E − E 兲2/共⌬/2兲2兴ln 2
+                                                                                 ␴共E − E0兲 =                                                  共16兲
+                                                                                                 冑␲⌬/2 e                        ,
+                                                                                                                0
+     The above derivation can be performed with a more
+complicated form of the dipole operator that provides mul-
+tiple electronic levels for each band, and the laser field wave              with a full width at half maximum 共FWHM兲 of ⌬. The pres-
+vectors k1, k2, and k3 can represent incoming fields of dif-                 ence of inhomogeneity in the system is vital for the time
+ferent frequencies. In such a case one needs to track the                    domain photon echo effect to appear.26 While pump-probe
+number of excitations by all three pulses separately, e.g., a1,              signals are much less dependent on inhomogeneity, the pres-
+a2, and a3 instead of a in Eq. 共11兲. In the final expression all             ence of two time periods that involve the propagation of
+contributions of a1, a2, and a3 are canceled, and Eq. 共13兲                   coherence in the photon echo scheme results in effects that
+remains valid. Caution has to be taken in cases where the                    cannot be included directly into the standard equations of
+frequencies of the incoming fields are multiples of each                     motion, as will be shown in Sec. V. Consequently, we have
+other, though even here a reformulation of the problem                       to include inhomogeneity by averaging over a set of indi-
+yields Eq. 共13兲 if the k3 pulse has the lowest frequency.                    vidual members of an inhomogeneous ensemble.
+234504-5     Two-dimensional photon echo spectroscopy                                                J. Chem. Phys. 124, 234504 共2006兲
+
+
+    The Hamiltonian of a two-electronic-level system can be        step method and steps dtRWA for the calculation with the
+written simply as                                                  RWA and dtfull for the calculation without invoking the
+                                                                   RWA. Let us assume that the method needs N = ␶ p / dtRWA
+    HS = Hg共Q兲兩g典具g兩 + He共Q兲兩e典具e兩,                        共17兲
+                                                                   steps within FWHM ␶ p of the Gaussian laser pulse envelope.
+with                                                               We expect that approximately the same number of steps is
+                                                                   necessary to integrate half of the sine wave with a period
+    H1共Q兲 = ⑀i + Vi共Q兲,     i = e,g,                       共18兲
+                                                                   Toptical. If the FWHM of the sine wave is approximated by
+where ⑀g共=0兲 is the ground state 共兩g典兲 electronic energy,          Toptical / 4, i.e., N = Toptical / 4dtfull the relation between the two
+Vg共Q兲 is the nuclear potential energy in the electronic ground     time steps is dtRWA = 共4␶ p / Toptical兲dtfull. Hence, the number of
+state, and Q is the set of all intra- and intermolecular nuclear   steps needed for a full calculation is 4␶ p / Toptical larger than
+coordinates 共and similarly for the electronic excited state        for the calculation with the RWA.
+兩e典兲. The transition dipole moment operator responsible for             We assume here that all laser pulses have the same car-
+coupling to the external electrical field reads                    rier frequency: ␻n = ⍀ for n = 1 , 2 , 3 共the generalization for
+                                                                   the case of different frequencies is rather straightforward兲.
+    ˆ = ␮eg兩e典具g兩 + ␮ge兩g典具e兩.
+    ␮                                                      共19兲    Thus, the electric field can be written as
+     This is the simplest model of a molecular system exhib-             E共t兲 = E共t兲e−i⍀t + E*共t兲ei⍀t ,                             共22兲
+iting a single electronic transition in the spectral region of
+interest. The nuclear potentials Vg共Q兲 and Ve共Q兲 describe all      where
+degrees of freedom 共DOF兲 of the molecule and its environ-                        3
+ment except the electronic DOF. The Hamiltonian 共17兲 can                 E共t兲 = 兺 En共t兲e−i␾n .                                      共23兲
+be easily rewritten in the common system-bath interaction                       n=1
+form 共see Sec. IV in Paper II兲. If nonadiabatic terms are
+                                                                   Invoking RWA means neglecting all terms in the equation of
+present in the Hamiltonian 共17兲, it leads to both relaxation
+                                                                   motion that oscillate faster than e±i⍀t. Therefore we use the
+共decay of the diagonal DM element ␳ee兲 and dephasing 共de-
+                                                                   following ansatz for the off-diagonal element of the DM
+cay of the off-diagonal DM element ␳ge兲. In this paper we
+treat the dynamics of the two-level system within the Bloch              ␳eg = ␴ege−i⍀t .                                           共24兲
+
+
+
+
+                                                                                                                                             07 February 2025 11:23:07
+model: we describe the relaxation and dephasing phenomena
+                                                                   We then obtain the equations of motion where only the
+by the corresponding population relaxation rate ␥ = 1 / T1 and
+                                                                   slowly varying functions 共pulse envelope function E共t兲 and
+coherence dephasing rate ⌫ = 1 / T2, where T1 and T2 are the
+                                                                   DM elements ␴eg, ␳gg, and ␳ee兲 are present. We find the fol-
+respective decay times. In more elaborate theories these rates
+                                                                   lowing expressions for coherence, excited state population,
+can be derived microscopically from a specific form of the
+                                                                   and ground state population, respectively:
+system-bath interaction. The total dephasing rate ⌫ contains
+a contribution from the population decay of the excited state            ⳵t␴eg = − ⌫␴eg + in · ␮egE共t兲共␳gg − ␳ee兲,                  共25兲
+as well as from the pure dephasing rate 1 / T*2 according to54
+                                                                         ⳵t␳ee = − ␥␳ee + in · ␮egE共t兲␴ge − in · ␮egE*共t兲␴eg ,      共26兲
+    ⌫ = ␥/2 + 1/T*2 .                                      共20兲
+     The equation of motion for the system DM can be writ-               ⳵t␳gg = − in · ␮egE共t兲␴ge + in · ␮egE*共t兲␴eg .             共27兲
+ten in a general form as
+                                                                   The closed set of Eqs. 共25兲–共27兲 is solved by standard meth-
+    ⳵t␳共t兲 = − i关共HS − ␮ · E共t兲兲, ␳共t兲兴 + R␳共t兲,           共21兲    ods with the initial condition 共before the first interaction with
+                                                                   a field兲
+where R is the relaxation operator which describes the popu-
+lation decay and coherence dephasing in the system, as                   ␳共0兲 = ␳gg .                                               共28兲
+specified above. This is a simplified version of the Redfield
+                                                                       The key quantity for calculating nonlinear optical signals
+equation that will be discussed in detail in Paper II. The
+                                                                   of the system is the complex polarization, which for a two-
+explicit presence of the system-field interaction term in Eq.
+                                                                   level system is
+共21兲 underlines the fact that we work within the NP ap-
+proach.                                                                  P共t兲 = ␮eg␳ge共t兲.                                          共29兲
+     With the general equation of motion for the DM 共21兲 in
+                                                                   To utilize the NP method one has to calculate the polariza-
+hand we can calculate the dynamics of the system under the
+                                                                   tion for a set of different phase relations between the excita-
+influence of any type of laser field. From the general form
+                                                                   tion laser pulses. The application of the method can be sum-
+we can derive equations of motion for the elements of the
+                                                                   marized into the following recipe.
+density matrix. Since the method for the extraction of differ-
+ent special components of the polarization has been derived        共1兲    Obtain a system DM by solving equations of motion
+assuming the RWA, we need to introduce this approximation                 for a selected set of relative laser pulse phases ␦1 and
+into the equations of motion. Introducing the RWA also pro-               ␦ 2.
+vides a numerical advantage as it enables the avoidance of         共2兲    Calculate P共t ; ␦1 , ␦2兲.
+rapidly oscillating terms in Eq. 共21兲 that present a problem       共3兲    Repeat steps 1 and 2 for different values of ␦1 and ␦2;
+for the numerical solution of the equations. The numerical                extract the component Pk, according to the method de-
+advantage can be quantified by assuming a fixed propagation               scribed in Sec. III.
+234504-6     Mančal, Pisliakov, and Fleming                                                                  J. Chem. Phys. 124, 234504 共2006兲
+
+
+共4兲   Calculate the desired spectroscopic signal, for example
+      the 2D spectrum 共Eq. 共4兲兲.
+
+The static inhomogeneity can be simulated by repeating this
+scheme for different realizations of the Hamiltonian and
+summing the resulting signals Pks before the calculation of
+the 2D spectrum. Since we have twelve different combina-
+tions of ␦1 and ␦2, we need 12⫻ N calculations of the system
+dynamics to average over N different disorder realizations.
+However, looking more carefully at the meaning of the phase
+factors ␦n, we can further optimize the procedure and also
+obtain physical insight into the NP method. Since the electric
+field E共t兲 is composed of three components 关as in Eq. 共2兲兴
+traveling in directions k1, k2, and k3, the phase relation be-
+tween the pulses is set to be ␦1 = k3r − k1r and ␦2 = k3r − k2r
+by the choice of a point r in the sample. In fact, there is a
+                                                                      FIG. 2. The time dependent three-pulse photon echo signal of a two-level
+whole set of equivalent points 兵ri共r兲其 with the same phase            system calculated for ␶ = 300 fs and T = 1000 fs. The relaxation and dephas-
+relation among the pulses. In other words, choosing 12 dif-           ing rates are ␥ = 300 fs and ⌫* = 1 / T*2 = 100 fs, respectively, and the duration
+ferent phase relations between pulses and using them to cal-          of all three laser pulses is ␶pulse = 15 fs. Curve 共a兲 presents the homogeneous
+culate the system dynamics is equivalent to choosing twelve           case with all molecules having a transition frequency ␻eg = 16 000 cm−1.
+                                                                      Curve 共b兲 shows the signal from an inhomogeneously broadened ensemble
+points r1 , . . . , r12 in the sample that experience the laser       with the same mean frequency ␻eg and a distribution width 共FWHM兲 ⌬
+pulses with a given phase relation and calculating the dy-            = 200 cm−1.
+namics of 12 ensembles of molecules residing at points
+equivalent to r1 , . . . , r12. Consequently, it is physically more
+                                                                      motion. The total complex polarization is outputted every
+realistic to calculate the polarization for different ␦1 and ␦2
+                                                                      2 fs for ␶ and t delay times in the interval from 0 to 600 fs.
+values with a different realization of the Hamiltonian 共repre-
+                                                                      The time step of the RK method is chosen as an integer
+senting different molecules in the sample兲 than to repeat the
+
+
+
+
+                                                                                                                                                           07 February 2025 11:23:07
+                                                                      fraction of the output time and is tested for cumulative error
+whole calculation scheme given above N times. Thus, in cal-
+                                                                      by comparing calculations with different time steps. When
+culations where disorder has to be explicitly taken into
+                                                                      the intensity of the absolute value of the laser pulse electric
+account,55–57 the nonperturbative approach does not repre-
+                                                                      field drops below 0.01% of the maximum of the laser pulse
+sent any computational overhead to the calculation. We will
+                                                                      intensity 共approximately two times the FWHM from the cen-
+return to this topic later in Sec. VI.
+                                                                      ter of a Gaussian pulse兲, we invoke a more efficient field-free
+                                                                      propagation algorithm based on the diagonalization of the
+V. 2D SPECTRA OF TWO-LEVEL MODEL SYSTEM:
+                                                                      corresponding Liouvian matrix. The photon echo signal is
+NUMERICAL RESULTS AND DISCUSSION
+                                                                      then extracted using the discrete Fourier transform method of
+    In this section we illustrate the nonperturbative approach        Eq. 共6兲. The 2D trace is calculated by a standard fast Fourier
+by numerical calculations of 2D photon echo spectra for the           transform 共FFT兲 algorithm with a suitable zero padding for
+two-level model system introduced in the previous section.            times higher then 600 fs. The intensity of the electric field is
+The two-level system serves as a well-understood reference            chosen so that the population of the excited state is less then
+model for the 2D optical spectroscopy and has been exten-             1% to ensure that contributions of higher nonlinearities re-
+sively studied within the perturbative approach by Jonas and          main negligible.
+co-workers14–19 and recently by our group.22                               Let us first investigate the shape of the three-pulse pho-
+    In the two-level model there are only a small number of           ton echo signal generated by an ensemble of molecules that
+parameters that influence the shape of the 2D spectra. Most           all posses the same transition frequency 共⌬ = 0兲.26,60,61 The
+notably, the width ⌬ of the inhomogeneous distribution of             time dependence of the photon echo signal for the coherence
+transition frequencies broadens spectral features. An addi-           time ␶ = 300 fs is presented in Fig. 2. Due to the fact that the
+tional contribution comes from homogeneous broadening                 ensemble transition frequency has no distribution, there is no
+共dephasing rate ⬃1 / T2兲 which consists of relaxation induced         rephasing effect, i.e., no delayed photon echo signal appear-
+dephasing and pure dephasing 关see Eq. 共20兲兴. Because we               ing around t = ␶ 共Refs. 26, 60, and 61兲 as observed in inho-
+work in the static inhomogeneous limit, we do not expect the          mogeneously broadened systems. Figure 2 also presents the
+2D spectrum to present any important dynamic effects for              time dependent photon echo signal for an ensemble with an
+varying population time T, except those arising from the              inhomogeneous width ⌬ = 200 cm−1. We see that the photon
+overlap of the laser pulses for times T ⬍ ␶pulse where ␶pulse is      echo signal now appears at t = ␶ and later decays due to
+the width of the pulses used to excite the system. In this            dephasing.
+simple static model, unlike in the case of the dynamic                     Calculations for the homogeneous and inhomogeneous
+inhomogeneity,58 the relaxation of the excited level does not         systems resulted in the 2D spectra shown in Fig. 3 and 4,
+change the shape of the 2D spectrum.                                  respectively. We present a sequence of 2D spectra calculated
+    In the calculations that follow, we use a simple fourth           for various population times T. At T = 0 关Figs. 3共a兲 and 4共a兲兴
+order Runge-Kutta 共RK兲 method59 to solve the equations of             the spectra are strongly distorted 共called a “phase-twist” ef-
+234504-7        Two-dimensional photon echo spectroscopy                                                               J. Chem. Phys. 124, 234504 共2006兲
+
+
+
+
+                                                                                                                                                                   07 February 2025 11:23:07
+FIG. 3. A sequence of 2D spectra for a homogeneously broadened 共⌬ = 0兲             FIG. 4. A sequence of 2D spectra for an inhomogeneously broadened 共⌬
+two-level system. The population times are T = 0, 20, and 40 fs; the relax-        = 200 cm−1兲 two-level system. All other parameters are the same as in Fig. 3.
+ation parameters are the same as in Fig. 2. Since the duration of the laser        The inhomogeneous broadening results in a diagonal elongation of the
+pulses is ␶pulse = 15 fs, the pulse overlap effects quickly disappear and the      features.
+traces remain almost unaltered for T ⬎ 40 fs, except for the absolute value of
+the signal which decreases for increasing T. Contour lines are drawn in 10%
+intervals at −95% 85%,¼, 5%, 5%,¼, 95% for the absorptive real parts               关Fig. 3共c兲兴, we observe a highly symmetric shape in both real
+共left column兲 and refractive imaginary parts 共right column兲 of S2D共␻␶ , T , ␻t兲.   and imaginary parts. This symmetric “star” shape, a 2D
+The 100% level is determined by the highest peak value within the spec-            Lorentzian, is characteristic of a homogeneously broadened
+trum. Solid contour lines correspond to positive amplitudes, and dashed
+lines to negative amplitudes.
+                                                                                   2D spectrum.2,16,62 In the inhomogeneously broadened spec-
+                                                                                   trum 关Fig. 4共c兲兴, we see an elliptical diagonal elongation of
+                                                                                   the real spectrum, together with a diagonal orientation of the
+fect by Faeder and Jonas in Ref. 16兲 and the real parts have                       nodal line separating the positive and negative features in the
+weak negative regions for both ⌬ = 0 and ⌬ = 200 cm−1. The                         imaginary spectrum. The shape of the inhomogeneously
+effect of the finite laser pulse duration on 2D spectra is                         broadened spectrum can be easily understood when we real-
+clearly visible in both the inhomogeneous and homogeneous                          ize that the latter can be obtained by adding together many
+examples: as T increases, we can observe the 2D spectra                            homogeneous spectra, each shifted slightly on the diagonal
+evolving through an intermediate stage at T = 20 fs 关Figs.                         by its frequency shift value.2,16,22,62 The homogeneous broad-
+3共b兲 and 4共b兲兴, still in the overlap region, to the “final” shape                  ening is responsible for the width of the homogeneous spec-
+at T = 40 fs 关Figs. 3共c兲 and 4共c兲兴, which corresponds to a                         tral features that is the same in both diagonal and antidiago-
+population time outside the overlap region 共T ⬎ ␶pulse兲. We                        nal directions. Therefore even the inhomogeneously
+want to stress again that the NP method automatically                              broadened spectrum reveals the homogeneous contribution
+handles the case of overlapping pulses. For population times                       in the width of the features along the antidiagonal line.19 One
+larger than the pulse duration 关Figs. 3共c兲 and 4共c兲兴, the real                     can understand the orientation of the line separating the posi-
+parts of the 2D spectra are entirely positive and the shapes of                    tive and negative features in the imaginary part of the spec-
+the 2D spectra are considerably different from the short time                      trum in a similar manner. Such a simple pictorial interpreta-
+shapes. For larger population times the 2D spectra do not                          tion of 2D spectral shapes can be applied to more
+change 共except the absolute magnitude, which decays due to                         complicated systems as long as we can identify the basic
+dephasing兲.                                                                        homogeneous spectral shapes. In Paper II of this study we
+     These final figures represent the intrinsic 2D spectral                       apply this analysis to an excitonic dimer system.
+shapes of both systems. In the case without inhomogeneity                               The above discussion is valid as long as the inhomoge-
+234504-8      Mančal, Pisliakov, and Fleming                                                                  J. Chem. Phys. 124, 234504 共2006兲
+
+
+neity remains static. If the energy gap evolves between inter-
+actions of the sample with the laser pulses, i.e., if the indi-
+vidual molecules change their position in the spectrum
+共spectral diffusion兲, we can expect the shape of the homoge-
+neous contribution to be different, and the associated averag-
+ing should result in a more symmetric shape of the 2D
+spectrum.2,16,62 In particular, one can measure the degree to
+which the system remains static or, in other words, the de-
+gree to which it remembers its original distribution of inho-
+mogeneity by looking at the evolution of the diagonal elon-
+gation and the orientation of the line separating the positive
+and negative features as a function of population time T. In
+the next section we demonstrate one possible method of in-
+cluding a dynamical inhomogeneity in the nonperturbative
+calculation.
+
+
+VI. DYNAMIC INHOMOGENEITY WITH SPECTRAL
+DIFFUSION
+
+     The NP approach fails to correctly describe the spectral
+diffusion mainly because approaches based on the reduced
+equation of motion propagate the density matrix using the                 FIG. 5. Two-dimensional spectrum of a two-level system calculated using
+                                                                          the stochastic scheme of Sec. VI averaging over 50 molecules. The com-
+averaged transition frequencies of the system, whereas the                parison of the 2D traces at T = 0 fs and T = 1000 fs reveals a considerable
+delayed time-domain photon echo effect appears only when                  symmetrization of the real part of the spectrum and a change of the slope of
+we average over an ensemble of dynamics with different                    the nodal line in the imaginary part of the spectrum caused by the loss of a
+transition frequencies. Perturbative approaches correctly av-             system memory. The slope of the nodal line at T = 0 fs and T = 1000 fs is
+
+
+
+
+                                                                                                                                                         07 February 2025 11:23:07
+                                                                          represented by continuous and dashed lines, respectively.
+erage over ensemble dynamics only after the latter have been
+evaluated formally in the response functions 共see Ref. 26兲.
+The transition frequency or, in other words, the energy gap               molecule with the nth transition frequency again we can ob-
+between the ground state and the excited state of each mol-               tain a small fluctuation of the correlation function 共30兲, but
+ecule also evolves in time. In perturbative calculations this             its value stays approximately constant. To allow for a spec-
+effect is taken into account by the well-known energy gap                 tral diffusion, it is crucial that at each of the m time points
+correlation function26,63                                                 when we generate transition frequencies, we allow the
+                                                                          “neighboring” molecules to exchange positions in the distri-
+    C共t兲 = 具␻eg共t兲␻eg共0兲典,                                       共30兲
+                                                                          bution with a certain probability, pexch. Depending on this
+where the energy gap ␻eg is defined as He共Q兲 − Hg共Q兲                      probability, the correlation function 共30兲 decays approxi-
+− 具He共Q兲 − Hg共Q兲典 = Ve共Q兲 − Vg共Q兲, and the time dependence                mately exponentially with a certain characteristic rate 1 / ␶corr.
+denotes the interaction picture with respect to the Hamil-                Connecting all generated transition frequencies associated
+tonian Vg共Q兲. By partitioning the Hamiltonian 共17兲 into the               with each molecule, we obtain time dependent transition fre-
+                                                                                      共n兲
+standard system-bath HS + HB + HS−B form, we see that Vg共Q兲               quencies ␻eg    共t兲, n = 1 , . . . , N that are used in the equations of
+can be identified with the bath Hamiltonian. Thus, Eq. 共30兲 is            motion 共21兲. Two-dimensional spectra resulting from such a
+the correlation function of the time evolution of the transition          calculation are presented in Fig. 5. We assume a set of time
+                                                                                                                        共n兲
+energy due to the action of the bath. If this evolution can be            dependent transition frequencies ␻eg              共t兲 that generate a cor-
+correctly incorporated into our inhomogeneity averaging                   relation function decaying with ␶corr ⬇ 1 ps. Comparing the
+process, we should be able to model the dynamic inhomoge-                 spectra at times T = 0 fs and T = 1 ps, we clearly observe
+neity.                                                                    changes in the shape of both the real and imaginary parts of
+      Let us assume that the distribution of the transition fre-          the spectrum associated with the spectral diffusion. The pur-
+quencies in the ensemble is Gaussian 共16兲 at all times, but               pose of the above example is simply to illustrate the effect of
+particular molecules can change their frequencies so that                 the spectral diffusion. The statistical behavior of our molecu-
+they diffuse stochastically through the transition frequency              lar ensemble is not strictly correct.64 In practical calculations,
+space of the ensemble. A simple implementation of such a                  one would calculate the fluctuation pathways of individual
+process is as follows. First, a random number generator pro-              molecules by means of a stochastic equation of motion, e.g.,
+duces the initial Gaussian set of transition frequencies for N            the Langevin equation, or molecular dynamics in which case
+molecules. The N transition frequencies will be sorted from               a truly microscopic picture can be established.44,45
+highest to lowest and numbered from 1 to N. In the first step,                 This demonstration suggests that a proper handling of
+i.e., at time t = t0, we associate the nth molecule with the nth          the dynamic inhomogeneity by means of a stochastic de-
+transition frequency. At later times t = t0 + ⌬t, t0 + 2⌬t , . . . , t0   scription of the energy gap evolution should be possible. An
++ m⌬t, we again generate Gaussian sets of transition frequen-             ideal method for the evaluation of the system dynamics
+cies for N molecules and sort them. By associating the nth                would be one that itself includes N or more separate trajec-
+234504-9      Two-dimensional photon echo spectroscopy                                                          J. Chem. Phys. 124, 234504 共2006兲
+
+                                                                             6
+tories where the energy gap evolves in time. In fact, such                      M. Khalil and A. Tokmakoff, Chem. Phys. 266, 213 共2001兲.
+                                                                             7
+                                                                                N. Demirdoven, M. Khalil, and A. Tokmakoff, Phys. Rev. Lett. 89,
+methods exist and are usually termed stochastic wave func-
+                                                                                237401 共2002兲.
+tion or Monte Carlo wave function methods 共MCWM兲.36–39                        8
+                                                                                M. Khalil, N. Demirdoven, and A. Tokmakoff, J. Phys. Chem. A 107,
+In the MCWM, an ensemble of wave functions is propa-                            5258 共2003兲.
+                                                                              9
+gated, and the influence of the environment on the wave                         M. Khalil, N. Demirdoven, and A. Tokmakoff, Phys. Rev. Lett. 90,
+functions is simulated by allowing “quantum jumps” be-                          047401 共2003兲.
+                                                                             10
+                                                                                M. Khalil, N. Demirdoven, and A. Tokmakoff, J. Chem. Phys. 121, 362
+tween the eigenstates of the system. For these methods, the                     共2004兲.
+implementation of the nonperturbative algorithm does not                     11
+                                                                                L. Lepetit and M. Joffre, Opt. Lett. 21, 564 共1996兲.
+                                                                             12
+represent any additional calculations of system dynamics.                       J.-P. Likforman, M. Joffre, and V. Thierry-Mieg, Opt. Lett. 22, 1104
+Stochastic methods scale only linearly with the size of the                     共1997兲.
+                                                                             13
+                                                                                N. Belabas and M. Joffre, Opt. Lett. 27, 2043 共2002兲.
+system and provide a description of a system-bath interaction                14
+                                                                                S. M. G. Faeder, A. W. Albrecht, J. D. Hybl, B. L. Landin, B. Rajaram,
+that is equivalent to the density matrix description for certain                and D. M. Jonas, J. Opt. Soc. Am. B 15, 2338 共1998兲.
+types of relaxation operators. Since all observables, includ-                15
+                                                                                J. D. Hybl, A. W. Albrecht, S. M. G. Faeder, and D. M. Jonas, Chem.
+ing the polarization, are evaluated by averaging over the en-                   Phys. Lett. 297, 307 共1998兲.
+                                                                             16
+semble of wave functions 共molecules兲, the problems that lead                    S. M. G. Faeder and D. M. Jonas, J. Phys. Chem. A 103, 10489 共1999兲.
+                                                                             17
+                                                                                J. D. Hybl, A. A. Ferro, and D. M. Jonas, J. Chem. Phys. 115, 6606
+to the failure of the NP method to include a dynamic inho-                      共2001兲.
+mogeneity are naturally avoided in the stochastic propaga-                   18
+                                                                                J. D. Hybl, A. Yu, D. A. Farrow, and D. M. Jonas, J. Phys. Chem. A 106,
+tion. Therefore, we propose that the NP approach with a                         7651 共2002兲.
+                                                                             19
+stochastic wave function method could represent an ideal                        D. M. Jonas, Annu. Rev. Phys. Chem. 54, 425 共2003兲.
+                                                                             20
+                                                                                M. L. Cowan, J. P. Ogilvie, and R. J. D. Miller, Chem. Phys. Lett. 386,
+method for calculating nonlinear optical signals. This topic
+                                                                                184 共2004兲.
+will be addressed in more detail elsewhere.                                  21
+                                                                                T. Brixner, I. V. Stiopkin, and G. R. Fleming, Opt. Lett. 29, 884 共2004兲.
+                                                                             22
+                                                                                T. Brixner, T. Mančal, I. V. Stiopkin, and G. R. Fleming, J. Chem. Phys.
+                                                                                 121, 4221 共2004兲.
+VII. CONCLUSIONS                                                             23
+                                                                                P. Tian, D. Keusters, Y. Suzaki, and W. S. Warren, Science 300, 1553
+     In this paper we have developed a nonperturbative ap-                      共2003兲.
+                                                                             24
+                                                                                T. Brixner, J. Stenger, H. M. Vaswani, M. Cho, R. E. Blankenship, and G.
+proach to calculate nonlinear spectroscopic signals in three                    R. Fleming, Nature 共London兲 434, 625 共2005兲.
+pulse experiments. We have established a method to extract
+
+
+
+
+                                                                                                                                                            07 February 2025 11:23:07
+                                                                             25
+                                                                                M. Cho, H. M. Vaswani, T. Brixner, J. Stenger, and G. R. Fleming, J.
+the directional components of an arbitrary order optical po-                    Phys. Chem. B 109, 10542 共2005兲.
+                                                                             26
+larization in four-wave mixing experiments on electronic                        S. Mukamel, Principles of Nonlinear Optical Spectroscopy 共Oxford Uni-
+                                                                                versity Press, New York, 1995兲.
+systems with an arbitrary number of levels. The method has                   27
+                                                                                W. Domcke and G. Stock, Adv. Chem. Phys. 100, 1 共1997兲.
+been implemented to obtain the direction-resolved compo-                     28
+                                                                                J. Sung and R. J. Silbey, J. Chem. Phys. 115, 9266 共2001兲.
+nents for third order signals.                                               29
+                                                                                J. Sung and R. J. Silbey, J. Chem. Phys. 118, 2443 共2003兲.
+                                                                             30
+     We have illustrated the method by calculating the two-                     L. Seidner, G. Stock, and W. Domcke, J. Chem. Phys. 103, 3998 共1995兲.
+                                                                             31
+dimensional photon echo spectra of a model two-level sys-                       U. Weiss, Quantum Dissipative Systems 共World Scientific, Singapore,
+                                                                                1993兲.
+tem. The spectral features established previously within a                   32
+                                                                                V. May and O. Kühn, Charge and Energy Transfer Dynamics in Molecu-
+perturbative theoretical framework have been reproduced by                      lar Dynamics 共Wiley-VCH, Berlin, 2000兲.
+                                                                             33
+our nonperturbative calculations. We have demonstrated that                     W. H. Miller, Faraday Discuss. 110, 1 共1998兲.
+                                                                             34
+by means of averaging over a fluctuating energy gap one                         H. B. Wang, M. Thoss, K. L. Sorge, R. Gelabert, X. Gimenez, and W. H.
+                                                                                Miller, J. Chem. Phys. 114, 2562 共2001兲.
+may overcome difficulties of treating the dynamic inhomo-                    35
+                                                                                M. Ovchinnikov, V. A. Apkarian, and G. A. Voth, J. Chem. Phys. 114,
+geneity within the nonperturbative approach. We also sug-                       7130 共2001兲.
+                                                                             36
+gested the nonperturbative approach be used with the sto-                       M. B. Plenio and P. L. Knight, J. Phys. Chem. A 102, 4414 共1998兲.
+                                                                             37
+chastic wave function approach where it does not represent                      H.-P. Breuer, B. Kappler, and F. Petruccione, J. Phys. Chem. A 102, 4414
+                                                                                共1998兲.
+an additional computational overhead to the method.                          38
+                                                                                O. Linden and V. May, J. Phys. Chem. A 102, 4414 共1998兲.
+                                                                             39
+                                                                                I. Kondov, U. Kleinekathöfer, and M. Schreiber, J. Chem. Phys. 119,
+ACKNOWLEDGMENTS                                                                 6635 共2003兲.
+                                                                             40
+                                                                                J. Jean, R. Friesner, and G. Fleming, J. Chem. Phys. 96, 5827 共1992兲.
+                                                                             41
+    The authors thank Phillip Geissler for incisive comments                    D. Egorova, A. Kühl, and W. Domcke, Chem. Phys. 268, 105 共2001兲.
+                                                                             42
+                                                                                T. Joo, Y. Jia, J.-Y. Yu, M. J. Lang, and G. R. Fleming, J. Chem. Phys.
+on spectral diffusion and Elizabeth L. Read for helpful com-
+                                                                                 104, 6089 共1996兲.
+ments on the text. This work was supported by a grant from                   43
+                                                                                K. Duppen and D. A. Wiersma, J. Opt. Soc. Am. B 3, 614 共1986兲.
+NSF.                                                                         44
+                                                                                T. I. C. Jansen, J. G. Snijders, and K. Duppen, J. Chem. Phys. 113, 307
+                                                                                共2000兲.
+ 1                                                                           45
+   P. Hamm, M. Lim, and R. M. Hochstrasser, J. Phys. Chem. B 102, 6123          T. I. C. Jansen, J. G. Snijders, and K. Duppen, J. Chem. Phys. 114, 10910
+   共1998兲.                                                                      共2001兲.
+ 2                                                                           46
+   P. Hamm, M. Lim, W. F. DeGrado, and R. M. Hochstrasser, J. Phys.             B. Wolfseder, L. Seidner, G. Stock, and W. Domcke, Chem. Phys. 217,
+   Chem. A 103, 10049 共1999兲.                                                   275 共1997兲.
+                                                                             47
+ 3
+   M. C. Asplund, M. T. Zanni, and R. M. Hochstrasser, Proc. Natl. Acad.        H. Wang and M. Thoss, Chem. Phys. Lett. 389, 43 共2004兲.
+                                                                             48
+   Sci. U.S.A. 97, 8219 共2000兲.                                                 B. Balzer and G. Stock, J. Phys. Chem. A 108, 6464 共2004兲.
+                                                                             49
+ 4
+   N.-H. Ge, M. T. Zanni, and R. M. Hochstrasser, J. Phys. Chem. A 106,         T. Renger and V. May, J. Phys. Chem. A 102, 4381 共1998兲.
+                                                                             50
+   962 共2002兲.                                                                  O. Kühn and V. Sundström, J. Chem. Phys. 107, 4154 共1997兲.
+                                                                             51
+ 5
+   C. Fang, J. Wang, A. K. Charnley, W. Barber-Armstrong, A. B. Smith III,      M. F. Gelin, D. Egorova, and W. Domcke, Chem. Phys. 301, 129 共2004兲.
+                                                                             52
+   S. M. Decatur, and R. M. Hochstrasser, Chem. Phys. Lett. 382, 586            A. V. Pisliakov, T. Mančal, and G. R. Fleming, J. Chem. Phys. 124,
+   共2003兲.                                                                      234505 共2006兲.
+234504-10      Mančal, Pisliakov, and Fleming                                                                      J. Chem. Phys. 124, 234504 共2006兲
+
+53                                                                              59
+   A. A. Ferro, J. D. Hybl, and D. M. Jonas, J. Chem. Phys. 114, 4649              W. H. Press, B. P. Flannery, S. A. Teukolsky, and W. T. Vetterling, Nu-
+   共2001兲.                                                                         merical Recipes 共Cambridge University Press, Cambridge, 1986兲.
+54
+   F. Bloch, Phys. Rev. 70, 460 共1946兲.                                         60
+                                                                                   M. Cho, N. F. Scherer, G. R. Fleming, and S. Mukamel, J. Chem. Phys.
+55
+   R. Agarwal, A. H. Rizvi, B. S. Prall, J. D. Olsen, C. N. Hunter, and G. R.      96, 5618 共1992兲.
+   Fleming, J. Phys. Chem. A 106, 7573 共2002兲.                                  61
+                                                                                   T. Joo, Y. Jia, J.-Y. Yu, J. Lang, and G. R. Fleming, J. Chem. Phys. 104,
+56
+   M. Yang, R. Agarwal, and G. R. Fleming, J. Photochem. Photobiol., A             6089 共1996兲.
+    142, 107 共2001兲.                                                            62
+                                                                                   A. Tokmakoff, J. Phys. Chem. A 104, 4247 共2000兲.
+57
+   M. Yang and G. R. Fleming, J. Chem. Phys. 113, 2823 共2000兲.                  63
+                                                                                   G. R. Fleming and M. Cho, Annu. Rev. Phys. Chem. 47, 109 共1996兲.
+58
+   M. Yang, K. Ohta, and G. R. Fleming, J. Chem. Phys. 110, 10243 共1999兲.       64
+                                                                                   P. Geissler 共private communication兲.
+
+
+
+
+                                                                                                                                                               07 February 2025 11:23:07
+

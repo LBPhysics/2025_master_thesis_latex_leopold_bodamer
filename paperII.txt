@@ -1,0 +1,1094 @@
+RESEARCH ARTICLE | JUNE 16 2006
+
+Two-dimensional optical three-pulse photon echo
+spectroscopy. II. Signatures of coherent electronic motion
+and exciton population transfer in dimer two-dimensional
+spectra 
+Andrei V. Pisliakov; Tomáš Mančal; Graham R. Fleming
+
+
+
+J. Chem. Phys. 124, 234505 (2006)
+https://doi.org/10.1063/1.2200705
+
+
+
+
+                                                                                          
+                                                                                           View         Export
+                                                                                           Online       Citation
+
+
+  Articles You May Be Interested In
+
+   Vibrational wave packet induced oscillations in two-dimensional electronic spectra. I. Experiments
+   J. Chem. Phys. (May 2010)
+
+   Analysis of cross peaks in two-dimensional electronic photon-echo spectroscopy for simple models with
+   vibrations and dissipation
+
+
+
+
+                                                                                                                   29 January 2025 07:55:59
+   J. Chem. Phys. (February 2007)
+
+   Molecular vibrations-induced quantum beats in two-dimensional electronic spectroscopy
+   J. Chem. Phys. (July 2012)
+                                      THE JOURNAL OF CHEMICAL PHYSICS 124, 234505 共2006兲
+
+
+Two-dimensional optical three-pulse photon echo spectroscopy.
+II. Signatures of coherent electronic motion and exciton population
+transfer in dimer two-dimensional spectra
+          Andrei V. Pisliakov, Tomáš Mančal, and Graham R. Fleminga兲
+          Department of Chemistry, University of California, Berkeley, California 94720
+          and Physical Biosciences Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720
+          共Received 2 May 2005; accepted 6 April 2006; published online 16 June 2006兲
+
+          Using the nonperturbative approach to the calculation of nonlinear optical spectra developed in a
+          foregoing paper 关Mančal et al., J. Chem. Phys. 124, 234504 共2006兲, preceding paper兴, calculations
+          of two-dimensional electronic spectra of an excitonically coupled dimer model system are
+          presented. The dissipative exciton transfer dynamics is treated within the Redfield theory and
+          energetic disorder within the molecular ensemble is taken into account. The manner in which the
+          two-dimensional spectra reveal electronic couplings in the aggregate system and the evolution of the
+          spectra in time is studied in detail. Changes in the intensity and shape of the peaks in the
+          two-dimensional relaxation spectra are related to the coherent and dissipative dynamics of the
+          system. It is shown that coherent electronic motion, an electronic analog of a vibrational wave
+          packet, can manifest itself in two-dimensional optical spectra of molecular aggregate systems as a
+          periodic modulation of both the diagonal and off-diagonal peaks. © 2006 American Institute of
+          Physics. 关DOI: 10.1063/1.2200705兴
+
+
+I. INTRODUCTION                                                      paper36 共Paper I兲. The main advantage of the nonperturbative
+                                                                     共NP兲 method is that it allows description of system dynamics
+     The requirement for optical spectroscopy to provide use-        in a very flexible way including a rather general description
+
+
+
+
+                                                                                                                                         29 January 2025 07:55:59
+ful information on increasingly complex, multicomponent              of relaxation and dephasing processes and a numerically ex-
+systems is fueled by advances over a wide range of areas             act treatment of the system-field interaction. In the present
+from biology to materials science. In response, multidimen-          paper we apply the NP approach to calculate 2D optical pho-
+sional techniques have been developed initially for nuclear          ton echo spectra of an excitonically coupled molecular
+motions 共infrared and Raman兲1–14 and more recently for elec-         dimer. We study the 2D spectrum of the dimer as the sim-
+tronic interactions.15–23 Theory and computational methods           plest molecular aggregate, in order to clarify the relation be-
+have been quite extensively developed for the infrared and           tween the content of 2D spectrum and the system dynamics
+Raman spectroscopies2,4,8,24–26 and even for optical spec-           when both coherent and dissipative features are present.
+troscopies of multilevel electronic systems.27,28 However, the       Since we are interested in coherent effects, the Förster theory
+level structure and dynamical mechanisms relevant to multi-          cannot be used to describe ultrafast photoinduced exciton
+chromophore electronic spectroscopy are quite distinct from          dynamics which is a nonequilibrium process. In this case one
+their vibrational relatives or relaxation free electronic state      needs a more detailed dynamical description such as the
+manifold, and new methods must be developed for prediction           Redfield theory. We model the dissipative exciton dynamics
+and analysis of spectral features.                                   using the Frenkel-exciton model and Redfield theory.
+     Recently, Brixner et al.23 and Cho et al.29 have described           Although coherent nuclear motion 共vibrational wave
+experiments and theoretical analysis of two-dimensional              packets兲 is a standard feature of ultrafast optical
+共2D兲 photon echo spectra of the seven-bacteriochlorophyll            spectroscopy,37–47 the observation of electronic coherence in
+containing Fenna-Matthews-Olson 共FMO兲 complex.30,31 In               molecular systems does not appear to have been definitively
+related work, the connection between the two-color photon            reported. A number of theoretical studies have suggested that
+echo peak shift32,33 and the 2D photon echo spectra was              electronic coherence might also be observable in, for ex-
+explored.34 The theoretical approach in both cases was based         ample, ultrafast electron transfer 共ET兲 reactions.48–54 In the
+on the perturbative approach which, largely as a result of           short-time dynamics of such systems, large amplitude quan-
+Mukamel’s classic text,35 enabled rapid and efficient calcu-         tum beats are potentially observable, but to the best of our
+lation of the dynamics and 2D spectral evaluation. Because           knowledge they have not been reported in spectroscopic sig-
+of the approximation made in Ref. 29, the very short-time            nals. This is perhaps not surprising as there are a number of
+dynamics could not be calculated. In this paper we take a            natural obstacles to such an observation: 共i兲 in the so-called
+different approach to the calculation of 2D spectra based on         internal case where the ET occurs between the same elec-
+the nonperturbative approach described in the companion              tronically coupled states as the optical transition, the elec-
+                                                                     tronic coherence 共EC兲 period is very short 共a few femtosec-
+a兲
+ Electronic mail: grfleming@lbl.gov                                  onds兲 and the effect cannot be resolved with currently
+
+0021-9606/2006/124共23兲/234505/14/$23.00                     124, 234505-1                         © 2006 American Institute of Physics
+234505-2     Pisliakov, Mančal, and Fleming                                                               J. Chem. Phys. 124, 234505 共2006兲
+
+
+available techniques and 共ii兲 in the case of a three-state ET
+system with an optical transition between a ground state and
+an excited state which in turn consists of two coupled elec-
+tronic states, one usually has a rather long EC period 共typi-
+cally few hundred femtoseconds兲; however, the very fast
+dephasing time present in real systems 共typically 10– 100 fs兲
+destroys the coherent superposition and precludes its obser-
+vation. The situation in an excitonic manifold of a coupled
+multichromophore aggregate may be more favorable for the
+observation of electronic coherence. First, the oscillation pe-
+riods corresponding to the energy gaps between pairs of ex-       FIG. 1. The pulse scheme of a photon echo experiment. Three pulses with
+citon states can often be in an intermediate time regime:         successive delays ␶ and T are applied to the system. The time origin is
+short enough to survive dephasing and long enough to be           conventionally set to the middle of the third pulse. The photon echo signal
+                                                                  arises at times t ⬎ 0. In 2D spectroscopy we vary the first delay ␶ to record
+resolved with femtosecond 2D spectroscopy. Second, in pho-
+                                                                  a two-dimensional signal 共in ␶ and t兲 for a given delay T.
+tosynthetic light harvesting complexes, the reorganization
+energy is remarkably small55 which makes such systems at-
+tractive candidates for the observation of electronic coher-      field consists of three laser pulses: E共t兲 = ⌺n=13
+                                                                                                                      En共t兲, each
+ence. By means of nonperturbative calculations on a model         pulse En共t兲 = enEn共t兲exp兵−i共␻nt兲其 + c.c. is characterized by its
+dimer system, we explore how electronic coherence is mani-        frequency ␻n, phase, ␾n ⬅ knr, polarization direction en, and
+fested in 2D photon echo spectroscopy with the aim of guid-       envelope En共t兲. The overall nonlinear polarization consists of
+ing experimental studies.                                         a number of contributions with different directions of propa-
+     The paper is organized as follows. In Sec. II we briefly     gation in space as a result of the interaction of the system
+review the main ideas of NP approach and give definitions of      with the fields having different wave vectors. The central
+the spectroscopic signals. The Hamiltonian of the dimer           result on which the NP approach is based is that in a general
+model system and the equations of motion including the            FWM experiment, a nonlinear signal of 共2N + 1兲th order can
+Redfield theory for the description of the dissipation are in-    only travel into directions given by a wave vector
+                                                                       ks − n1共k1 − k3兲 + n2共k2 − k3兲,                                     共3兲
+
+
+
+
+                                                                                                                                                  29 January 2025 07:55:59
+troduced in Secs. III and IV, respectively. Section V presents
+the results of our calculations of 2D spectra of the dimer for
+different values of the system parameters and the discussion      where n1 + n2 = −共N + 1兲 , . . . , N. Consequently the signal de-
+of the 2D spectral features that reflect the dimer dynamics       pends only on the phase difference between the first and the
+with an emphasis on electronic coherence effects. Some es-        third 共␦1兲 and the second and third 共␦2兲 pulses in the FWM
+timations of the possible appearance of coherent effects in       sequence. By calculating the nonlinear signal with varying
+the 2D spectra of large aggregates are offered in that section,   phase relations among the pulses, we can separate the spatial
+too. All details of the description of relaxation and dephasing   components of the nonlinear signal.
+in the dimer system within the Redfield theory are summa-              In Paper I we illustrated the method by its implementa-
+rized in Appendices.                                              tion for the calculation of 2D three-pulse photon echo spec-
+                                                                  tra. The photon echo signal Eks is proportional to the com-
+                                                                  ponent of the nonlinear polarization in the direction ks =
+II. NONPERTURBATIVE CALCULATION                                   −k1 + k2 + k3 共see Fig. 1兲 and can be detected using a hetero-
+OF NONLINEAR SIGNALS AND DEFINITION                               dyne detection scheme.22 Two-dimensional spectra are re-
+OF 2D OPTICAL SPECTRUM                                            corded for a given value of the delay T between the second
+                                                                  and the third pulses 共the population time, see Fig. 1兲 by
+     In the foregoing paper36 共Paper I兲 we presented a general
+                                                                  successive frequency-resolved measurements of the photon
+nonperturbative approach to the calculation of nonlinear
+                                                                  echo signal for different values of the delay ␶ between the
+spectroscopic signals. The main idea of the method is to treat
+                                                                  first and the second pulses 共the coherence time兲. A conven-
+the system-field interaction 共numerically兲 exactly by its ex-
+                                                                  tional 2D spectrum is obtained by switching to the frequency
+plicit inclusion into the Hamiltonian
+                                                                  domain via numerical Fourier transform:
+
+                                                                                           冕
+    Htot共t兲 = Hmol − ␮
+                     ˆ · E共t兲,                             共1兲                                 ⬁
+                                                  35                   S2D共␻␶,T, ␻t兲 ⬃             dt exp共− i␻tt兲
+in contrast to standard perturbative treatments. We start                                    −⬁
+with a short overview of the NP method; the details can be
+found in Paper I.
+    The main problem in NP approach is to extract the
+                                                                                           ⫻   冕   ⬁
+
+
+                                                                                                   −⬁
+                                                                                                        d␶ exp共i␻␶␶兲Eks共␶,T,t兲.            共4兲
+direction-resolved components from the total polarization
+obtained as the expectation value of the dipole operator:
+    P共t兲 ⬅ Tr兵␮
+              ˆ ␳共t兲其.                                     共2兲    III. DIMER MODEL SYSTEM
+
+In Paper I 共Ref. 36兲 we extended the method developed by              A dimer is the simplest prototype of a molecular aggre-
+Seidner et al.56 to the most general case of four-wave-mixing     gate. To describe correctly the third-order nonlinear spectro-
+共FWM兲 experiments. We assume that the external electric           scopic experiment on molecular aggregates, one has to ac-
+234505-3          Two-dimensional photon echo spectroscopy                                                       J. Chem. Phys. 124, 234505 共2006兲
+
+
+                                                                                  CA共2兲 = cos ␪,     CB共2兲 = sin ␪ ,
+
+                                                                                  CA共1兲 = − sin ␪,    CB共1兲 = cos ␪ ,                        共10兲
+                                                                              with
+                                                                                               2J
+                                                                                  tan 2␪ =           ,                                       共11兲
+                                                                                             ⑀A − ⑀B
+FIG. 2. The electronic-level scheme of the model dimer system. 共a兲 Het-       and the eigenenergies read
+erodimer in the molecular electronic states representation, with transition
+moments ␮A and ␮B and the excitonic coupling J. 共b兲 Heterodimer complex           ⑀2,1 = 21 共⑀A + ⑀B兲 ± 21 冑共⑀A − ⑀B兲2 + 4J2 ,               共12兲
+after diagonalization, i.e., in the eigenstate 共exciton兲 representation.
+                                                                                  ⑀¯␣ = ⑀A + ⑀B .                                            共13兲
+count for one- and two-exciton states. We consider two
+                                                                                  In the exciton basis the dipole operator takes the form
+molecules A and B with intermolecular coupling J 共see Fig.
+2兲, and the system Hamiltonian formulated in terms of mo-                         ␮ = 兺 ␮␣0兩␣典具0兩 + ␮¯␣␣兩¯␣典具␣兩 + c.c.,                      共14兲
+lecular electronic states is written using the standard Frenkel-                        ␣
+exciton model as
+                                                                              with the matrix elements between the ground and one-
+     Hdimer = 共HAg共Q兲 + HBg共Q兲兲兩0典具0兩 + HAe共Q兲兩A典具A兩                          exciton states given by
+                  + HBe共Q兲兩B典具B兩 + J共兩A典具B兩 + 兩B典具A兩兲                             ␮20 = cos ␪␮A + sin ␪␮B ,
+                  + 共HAe共Q兲 + HBe共Q兲兲兩AB典具AB兩.                         共5兲        ␮10 = − sin ␪␮A + cos ␪␮B ,                                共15兲
+Here 兩0典 denotes the collective state of the dimer with both                  where ␮i describes an optical transition in the ith molecule.
+molecules in the ground state, 兩A典 共兩B典兲 denotes the electronic               For transitions between the one- and two-exciton states, we
+state when the molecule A共B兲 is excited, and Hgi 共Q兲 and                      obtain
+Hei 共Q兲 are the nuclear Hamiltonians of ith molecule 共i
+
+
+
+
+                                                                                                                                                     29 January 2025 07:55:59
+= A , B兲 in the ground and excited states, respectively. Further,                 ␮¯␣2 = cos ␪␮B + sin ␪␮A ,
+兩AB典 denotes the electronic state when two molecules are
+excited simultaneously 共doubly excited state兲, and coupling J                     ␮¯␣1 = − sin ␪␮B + cos ␪␮A .                               共16兲
+describes the Coulombic interaction between excitations lo-                       An analogous transformation to that of the electronic
+cated on sites A and B. The nuclear Hamiltonians read                         energies from the diagonalization also operates on the
+     HAg共Q兲 = ⑀Ag + TA + VAg共Q兲,                                       共6兲    nuclear potentials VAg共Q兲, etc. Since we diagonalized only
+                                                                              with respect to the electronic energies, certain off-diagonal
+     HAe共Q兲 = ⑀Ae + TA + VAe共Q兲,                                       共7兲    terms remain nonzero. These terms lead to the transitions
+                                                                              between the eigenstates and they will be treated within the
+and similarly for B, where ⑀Ag共=0兲 and ⑀Ae are the electronic                 Redfield theory57 as described in the next section.
+energies of molecule A in the ground and excited 共i.e., exci-
+tation energy兲 states, respectively. The quantities VAg共Q兲 and                IV. EQUATIONS OF MOTION
+VAe共Q兲 are the ground- and excited-state nuclear potential en-
+ergy surfaces, respectively, and TA is the kinetic energy of                       As we stressed before, the NP approach has the advan-
+the nuclei. The molecular electronic states form a complete                   tage of including the system-field interaction explicitly into
+basis set: 兩0典具0兩 + ⌺i=A,B兩i典具i兩 + 兩AB典具AB兩 = 1.                              the equations of motion and thus avoiding the cumbersome
+     For the description of the system-field and system-bath                  numerical evaluation of multitime response functions. The
+interactions, we switch to the eigenstate representation, the                 conventional approach to account for dissipative effects in
+so-called exciton basis. After diagonalization of the Hamil-                  complex systems is the reduced density matrix 共RDM兲 for-
+tonian with respect to the electronic energies, we obtain a set               malism leading to the Redfield equations. In this section, we
+of eigenstates: two single-exciton states 兩␣典 and one two-                    outline the RDM approach and present its application to the
+exciton state 兩¯␣典 with energies ⑀␣ and ⑀¯␣, respectively. The                dimer system.
+exciton states are constructed from the molecular states as
+                                                                              A. Reduced density matrix description
+     兩␣典 = 兺 C共i ␣兲兩i典 = CA共␣兲兩A典 + CB共␣兲兩B典,      ␣ = 1,2,            共8兲         In photosynthetic systems, excitation energy is trans-
+             i
+                                                                              ported between pigments of the antenna to allow the energy
+                                                                              to reach the reaction centers. The optical excitation process is
+     兩¯␣典 = 兺 C共ij¯␣兲兩ij典 = 兩AB典.                                      共9兲    much faster than the response of the nuclear degrees of free-
+            i⬎j
+                                                                              dom resulting in a creation of a nonequilibrium nuclear wave
+The diagonalization of the dimer Hamiltonian can be easily                    packet in the excited electronic state. The motion of vibra-
+performed analytically. The elements of the transformation                    tional wave packets has been observed as coherent oscilla-
+matrix are                                                                    tions in pump-probe signals during energy transfer in the
+234505-4     Pisliakov, Mančal, and Fleming                                                            J. Chem. Phys. 124, 234505 共2006兲
+
+
+photosynthetic reaction center and antenna complexes of            for dephasing rates 共see Appendix B兲. The presence of the
+bacteria.37–40,58 Naturally, with short femtosecond pulses, it     system-field interaction term in the Liouvillian 关commutator
+is also possible to create a coherent 共electronic兲 excitonic       part of Eq. 共19兲兴 underlines the fact that we work within the
+superposition of states. In this paper we discuss the possibil-    NP approach.
+ity of such an effect—electronic or excitonic coherence—in
+the ultrafast energy transfer in molecular aggregates.             B. Rotating wave approximation
+     During the equilibration process part of the excitation
+energy is dissipated into the surroundings. To describe dissi-          With the general equation of motion for the RDM 共19兲 in
+pation in the system, it is a conventional practice to adopt a     hand, we can calculate the dynamics of the system under the
+system-bath approach that assumes a separation of the prob-        influence of any type of laser field. From the general form
+lem into a relevant 共system兲 part and an irrelevant 共bath兲 part    we can derive equations of motion for the RDM elements ␳0␣
+that is regarded as a dissipative environment. The approach        and ␳␣␣¯ which are relevant to the calculation of the polariza-
+leads to a RDM description 共see Ref. 57 for details兲. This         tion 关see Eq. 共24兲兴. We introduce the rotating wave approxi-
+theory has been successfully applied to many problems, the         mation 共RWA兲 into the equations of motion to avoid rapidly
+most intensively studied being the photoinduced ultrafast          oscillating terms in Eq. 共19兲 that would present a problem in
+electron48,52,59 and energy transfer60–63 problems. For the        the numerical solution of the equations and to obtain the total
+Hamiltonian 共5兲 it is possible to separate system 共electronic兲,    polarization from which the spatial components of the signal
+bath 共nuclear兲, and the interaction parts and write formally       can be extracted. As discussed in Ref. 36, the method for
+                                                                   extraction of the polarization components requires the RWA.
+    Hmol = HS + HB + HSB .                                 共17兲    We assume in addition that all laser pulses have the same
+Since we concentrate here only on excitonic wave packets,          carrier frequency: ␻n = ⍀ for n = 1 , 2 , 3. 共The generalization
+the separation is natural: The system consists only of the         for the case of different frequencies is rather straightfor-
+electronic part of the molecular Hamiltonian, while it is as-      ward.兲 Thus, the electric field can be written as
+sumed that the nuclear 共vibrational/phonon兲 modes are only             E共t兲 = E共t兲e−i⍀t + E*共t兲ei⍀t ,                               共20兲
+weakly coupled to the system and can be described as a heat
+bath. If one wants to study the 共coherent兲 vibrational effects     where
+
+
+
+
+                                                                                                                                            29 January 2025 07:55:59
+in exciton dynamics, then the system has to be redefined to                    3
+include one 共or several兲 vibrational modes explicitly64,65 as it       E共t兲 = 兺 eEn共t兲e−i␾n .                                       共21兲
+is done in the electron transfer problem.48,52,59                             n=1
+    In the system-bath approach, in order to derive the equa-      The RWA means neglecting all the terms in the equation of
+tion of motion for the system, we can switch from the entire       motion that oscillate faster than e±i⍀t. Therefore we use the
+共system plus bath兲 phase space to that of the system only.         following ansartz for the off-diagonal elements of the RDM:
+Neglecting the effect of the field-matter coupling on dissipa-
+tion and employing perturbation theory with respect to the             ␳␣0 = ␴␣0e−i⍀t,    ␳¯␣␣ = ␴¯␣␣e−i⍀t,      ␳¯␣0 = ␴¯␣0e−i2⍀t . 共22兲
+system-bath interaction, the bath variables can be averaged
+                                                                   We then obtain the equations of motion where only the
+out in the standard way.57 Thus, one arrives at an equation
+                                                                   slowly varying functions 关pulse envelope function E共t兲 and
+for the reduced density matrix ␳, which is defined as the
+                                                                   RDM elements ␴ij and ␳ii兴 are present. The particular equa-
+trace over all bath variables of the full density matrix, W : ␳
+                                                                   tions of motion for our dimer problem can be found in Ap-
+= TrB兵W其, and depends only on system degrees of freedom.
+                                                                   pendix D.
+The RDM ␳共t兲 is the primary quantity describing the relevant
+                                                                       The closed set of Eqs. 共D1兲–共D6兲 is solved by standard
+system dynamics. A dissipative equation of motion for the
+                                                                   methods with the initial condition 共before the first interaction
+RDM, in a general form, reads
+                                                                   with a field兲
+    ⳵t␳共t兲 = − iL␳共t兲 + D共t; ␳共t兲兲,                        共18兲
+                                                                       ␳共0兲 = 兩0典具0兩.                                               共23兲
+where L is an effective system Liouvillian and the operator        The relaxation and dephasing rates entering these equations
+D共t ; ␳共t兲兲 describes the relaxation dynamics induced by the       are given in Appendix C. A similar type of analysis can be
+system-bath interaction. Furthermore, introducing the Mar-         performed for any type of molecular system.
+kovian approximation for the relaxation operators 共see Refs.
+57 and 66 for details兲, we obtain the well-known Redfield
+equation for the reduced density matrix which is written ex-       C. Calculation scheme
+plicitly as follows:                                                    The key quantity for the calculation of the nonlinear op-
+    ⳵t␳共t兲 = − i关共HS − ␮E共t兲兲, ␳共t兲兴 + R␳共t兲,              共19兲    tical signals of the system is the polarization. For the specific
+                                                                   form of the dipole operator 共14兲, the polarization 共2兲 be-
+where R is the relaxation or Redfield operator which is speci-     comes
+fied in detail in Appendix A. The Redfield operator contains
+the relaxation and dephasing rates that are calculated directly        P共t兲 = 兺 ␮␣0␳0␣共t兲 + 兺 ␮¯␣␣␳␣␣¯ 共t兲.                         共24兲
+                                                                               ␣                ␣,¯␣
+from the interaction Hamiltonian HSB. We further employ the
+so-called secular approximation and the Redfield tensor re-        In Paper I we described how to calculate 2D spectra using
+duces to two rate matrices—one for relaxation and the other        the NP method. The application of the method to molecular
+234505-5     Two-dimensional photon echo spectroscopy                                                       J. Chem. Phys. 124, 234505 共2006兲
+
+
+aggregates can be summarized in the following recipe: 共1兲
+define the molecular Hamiltonian 共site energies and cou-
+plings兲, 共2兲 diagonalize the Hamiltonian and obtain the exci-
+ton states, 共3兲 calculate the Redfield tensor 共relaxation and
+dephasing rates兲, 共4兲 solve the Redfield equation 共19兲 with a
+selected set of laser pulse phases ␦1 and ␦2 and get RDM
+␳共t兲, 共5兲 calculate P共t ; ␦1 , ␦2兲 关Eq. 共24兲兴, 共6兲 repeat steps 1–5
+for different values of ␦1 and ␦2 and extract the component
+Pks according to the method described in Sec. II, and 共7兲
+calculate the desired spectroscopic signal, for example, the
+2D photon echo spectrum 关Eq. 共4兲兴. Static inhomogeneity is
+taken into account by averaging the results over an ensemble
+of different realizations of the Hamiltonian. As we discussed
+in Paper I, the presence of inhomogeneity in the system is
+vital for the delayed time domain photon echo effect to
+appear.35 The inhomogeneous width describes the distribu-             FIG. 3. Comparison of the 2D spectra 共a兲 of two uncoupled monomers 共J
+                                                                      = 0兲 and 共b兲 of the dimer 共J = 300 cm−1兲. The parameters have been chosen
+tion of transition energies of the monomers in the ensemble.          to produce the same energy separation between two diagonal peaks. The
+We might expect the distributions of the two monomers                 electronic coupling between two monomers is revealed by the appearance of
+forming the dimer to be correlated to some degree. In the             the cross peaks 21 and 12 in the 2D spectrum. Contour lines are drawn in
+present work we will only study limiting cases of noncorre-           10% intervals at −95%, −85% , . . . , 5 % , 5 % , . . . , 95% for the absorptive
+                                                                      real parts 共left column兲 and refractive imaginary parts 共right column兲 of
+lated and fully correlated/anticorrelated monomers.                   S2D共␻␶ , T , ␻t兲. The level of 100% is determined from the highest peak value
+                                                                      within the spectrum. Solid contour lines correspond to positive and dashed
+                                                                      lines to negative amplitudes.
+V. 2D SPECTRA OF A DIMER MODEL SYSTEM:
+NUMERICAL RESULTS AND DISCUSSION
+     In this section we utilize the NP calculation scheme             compare the 2D spectra of two uncoupled monomers 共J = 0兲
+given above for the numerical calculations of 2D photon               and of the dimer 共excitonically coupled monomers, J
+
+
+
+
+                                                                                                                                                         29 January 2025 07:55:59
+echo spectra of a model dimer system. We discuss various              = 300 cm−1兲 calculated at T = 0. The parameters have been
+spectral features in the 2D spectrum calculated by the NP             chosen to produce the same energy separation between the
+method. Some of these features, such as the appearance of             two diagonal peaks in both spectra and, since the diagonal
+cross peaks in the 2D spectrum due to the excitonic coupling          slice reflects the linear absorption spectrum, this leads to
+and the shapes of the peaks, are the generic properties of the        similar linear absorption spectra, each showing a doublet
+two-dimensional spectra 共both optical and IR兲 which have              structure. In the calculation we used the following system
+been discussed in detail in many experimental and theoreti-           parameters: ⑀A = 16 360 cm−1, ⑀B = 15 640 cm−1, and dA = dB
+cal 共within a perturbative approach兲 works 共see review                = 1 共␮A = dAn and ␮B = dBn, where n is a unity vector in the
+papers.3,8,25,26,29,67 We also show several features in the cal-      direction of the dipole moment兲 in case of two monomers
+culated 2D relaxation spectrum that appear to be novel and            and ⑀A = 16 200 cm−1, ⑀B = 15 800 cm−1, J = 300 cm−1, dA = 1,
+had not been reported before; they originate from the com-            and dB = −0.23 for the dimer. The other parameters are the
+plex interplay of coherent and dissipative excitonic dynam-           inhomogeneous distribution width of the monomer transi-
+ics.                                                                  tions, ⌬ = 200 cm−1, the pulse-carrier frequency ⍀
+     As in Ref. 36, we use a simple fourth-order Runge-Kutta          = 16 000 cm−1 共excitation in the center of one-exciton mani-
+共RK兲 method68 with fixed time step to solve the equations of          fold兲, and the pulse duration ␶pulse = 5 fs. As this laser pulse is
+motion. The total complex polarization is outputted with a            very short the validity of the RWA needs to be discussed. At
+step of 2 fs over the time delays ␶ and t in the interval from        ⍀ = 16 000 cm−1 the laser pulse completes about 2.5 optical
+0 to 600 fs. The time step of the RK method is chosen as an           cycles during its full width at half maximum 共FWHM兲 and
+integer fraction of the output time and tested for cumulative         the RWA neglects contributions that oscillate with frequency
+error by comparing calculations with a different time step.           about 2⍀, i.e., those that complete about five optical cycles,
+The photon echo signal is then extracted using the discrete           against those arising from the relatively slowly varying en-
+Fourier transform method described in Ref. 36. The 2D trace           velope. In Ref. 69, Ferro et al. showed by reformulating the
+is calculated by a standard fast Fourier transform algorithm          RWA in the frequency domain that the RWA neglects the
+with suitable zero padding for times higher then 600 fs. As in        frequency overlap between the negative frequency field and
+Ref. 36, the intensity of the electric field is chosen so that the    the positive frequency susceptibility. If the laser pulse spec-
+population of the excited state is less than 1% to ensure that        trum is well confined to its expected side of zero, it is not
+contributions from higher nonlinearities remain negligible.           responsible for the breakdown of the approximation. The fre-
+                                                                      quency FWHM of a 5 fs laser pulse is about 6000 cm−1
+                                                                      which is significantly less then the energy gap of
+A. Dimer versus two uncoupled two-level
+                                                                      16 000 cm−1 and the RWA can be assumed to be still valid
+systems
+                                                                      for these parameters.
+    We start with a simple example which illustrates one of                Let us first consider the uncoupled system 关Fig. 3共a兲兴: It
+the main advantages of 2D optical spectroscopy. In Fig. 3 we          is simply two two-level systems having different excited-
+234505-6        Pisliakov, Mančal, and Fleming                                                                              J. Chem. Phys. 124, 234505 共2006兲
+
+
+
+
+                                                                                                                                                                          29 January 2025 07:55:59
+FIG. 4. 2D relaxation spectra of the dimer calculated at population times 共a兲 T = 0 fs, 共b兲 T = 16 fs, 共c兲 T = 30 fs, 共d兲 T = 46 fs, 共e兲 T = 62 fs, 共f兲 T = 108 fs, 共g兲
+T = 140 fs, and 共h兲 T = 310 fs. The exciton energy splitting corresponds to the modulation period of 31 fs. Population times in 共a兲, 共c兲, and 共e兲 and 共b兲, 共d兲, 共f兲,
+and 共g兲 correspond to the maxima and minima of periodic modulations 共electronic coherence effect兲, respectively. At longer population times, T = 310 fs 共h兲,
+the intensity is transferred from the diagonal peak 22 to the cross peak 21 due to the population relaxation. The shape of the peaks also varies with the
+population time 共see the discussion in the text兲.
+
+
+state energies. The 2D spectrum of the two-level system was                           ately the presence of couplings between the corresponding
+discussed in detail in a previous paper.36 The 2D spectrum                            chromophores. A full interpretation of a 2D spectrum can
+contains only two diagonal peaks appearing along the diag-                            give quantitative information about the system parameters:
+onal axis, ␻␶ = ␻t, which can be obtained as a combination of                         The intensity of the cross peaks depends on the electronic
+two spectra of two-level system shifted along the diagonal by                         coupling strength J and on dipole moments 共absolute values
+the value ⌬⑀21. The figure shows that, for example, excita-                           and mutual orientations兲 of the transitions contributing to
+tion at ␻20 causes emission only at ␻20 but not at ␻10. Some                          this peak. One cannot obtain such type of information from,
+features which one may erroneously attribute to the cross                             e.g., pump-probe spectra.
+peaks appear because of the overlap of the two spectra.
+     In the 2D spectrum of the dimer 关J = 300 cm−1, Fig. 3共b兲兴
+additional—cross 共or off diagonal兲—peaks appear due to the                            B. Dimer relaxation spectra
+coupling between the monomers. The 2D spectra are very                                     Next, we focus on the evolution of the dimer 2D spectra
+informative; they show how excitation at one frequency af-                            with increasing population time T. In Fig. 4 we present a
+fects the spectrum 共e.g., increased emission or absorption兲 at                        series of 2D spectra calculated for a series of population
+other frequencies 共see, e.g., recent reviews25,26兲. In the dimer,                     times: T = 0, 16, 30, 46, 62, 108, 140, and 310 fs; we will
+for example, excitation at ␻20 may cause emission not only                            refer to these as 2D relaxation spectra.8,16 The dynamics of
+at the same frequency but, because of the coupling, also at                           the density matrix is obtained from the Redfield equation as
+␻10. This leads to the appearance of cross peak at the posi-                          described in Sec. V. The system parameters are ⑀A
+tion we denote by 21. In the present paper we use the peak                            = 16 200 cm−1, ⑀B = 15 800 cm−1, J = 500 cm−1, dA = 1, and
+notation where the first number indicates the position of the                         dB = −0.15. Other parameters are the same as in the previous
+peak on the excitation frequency axis ␻␶ and the second on                            example 关Fig. 3共b兲兴. The chosen system parameters produce
+the emission frequency axis ␻␶ 关see Fig. 3共b兲兴. In general, for                       an initial 2D spectrum 关T = 0 fs, Fig. 4共a兲兴 with two diagonal
+aggregates consisting of many molecules, the positions of the                         peaks of roughly equal intensities and two well-resolved
+cross peaks, if they appear in the spectrum, show immedi-                             cross peaks. After the system has an opportunity to evolve
+234505-7     Two-dimensional photon echo spectroscopy                                               J. Chem. Phys. 124, 234505 共2006兲
+
+
+during the population period 关T ⬎ 0, Figs. 4共b兲–4共h兲兴, a num-      splitting 共and consequently a short modulation period兲 have
+ber of features can be observed in the 2D relaxation spectra:      been chosen to emphasize the periodic behavior. Changing
+appearance and disappearance of cross peaks, modulations of        the exciton splitting 共via ⌬⑀AB and/or J兲 changes the modu-
+the diagonal peak intensities, intensity redistribution between    lation period, as described above.
+the peaks, and changes of the peak shapes as T increases.               For an intuitive explanation of the appearance of quan-
+Looking at the spectra in more detail, we notice that there are    tum beats in 2D spectra, it is helpful to use “perturbative”
+two processes with different dependences on T: a periodic          language.2,6,26,71 Let us first consider the appearance/
+behavior 共appearance and disappearance of cross peaks and          disappearance of cross peaks. There are two types of contri-
+smaller intensity modulations of diagonal peaks兲 at short          butions to the cross peaks: 共i兲 those not dependent on T that
+times and a monotonous transfer of the intensity from the          involve Feynman diagrams when the system is in the exciton
+diagonal peak 22 to the cross peak 21 at longer population         population state 共␳22, ␳11, and ␳00兲 during the population pe-
+times.                                                             riod and 共ii兲 oscillating contributions which involve the dia-
+                                                                   grams describing the system in an exciton-coherence state
+1. Coherent electronic motion                                      共␳12 and ␳21; note that these are coherences within the one-
+     Let us first consider the short-time periodic behavior of     exciton manifold but not inter-band coherences兲. Constant
+the peaks. Figure 4共b兲 shows that a very strong negative           contributions are better seen in the real part of the 2D spec-
+cross peak, 12, quickly grows and reaches its maximum at           trum at T = 共2k + 1兲TEC / 2, k = 0 , 1 , . . ., 关Figs. 4共b兲, 4共d兲, and
+T = 16 fs and on the same time scale the second cross peak,        4共f兲兴 when the oscillating contributions disappear. The inten-
+21, loses its intensity and becomes negative. Correspond-          sities of these constant contributions 共strong negative peak
+ingly, the absolute value spectrum 共not shown here兲 would          12 and weak positive peak 21兲 are determined by the system
+show the appearance of a new peak 21 and the disappearance         parameters, in particular, by combination of all dipole
+of a peak 12. When T exceeds 16 fs, the process is reversed:       moments.2,8,29 At T = 2kTEC / 2 关Figs. 4共a兲, 4共c兲, and 4共e兲兴 the
+The negative peak 12 quickly loses its intensity and peak 21       oscillating contributions reach their maximum values and we
+grows back 关see Fig. 4共a兲 which corresponds to T = 30 fs兴.         see an amplitude decrease of the negative peak, 12, in paral-
+The observed features cannot be attributed to the pulse over-      lel with a growth of the positive peak, 21. In the absolute
+lap effect: Calculations performed for different pulse dura-       value spectrum this effect would manifest itself as a periodic
+
+
+
+
+                                                                                                                                            29 January 2025 07:55:59
+tions, ␶pulse = 30 fs and ␶pulse = 2 fs, show the same behavior    appearance/disappearance of cross peaks.
+共maximum of the negative peak 12 at a population time T of              The EC also modulates the diagonal peaks, though this is
+16 fs兲 irrespective of the pulse duration.                         not clearly seen in Fig. 4. The 2D spectra shown here are
+     Figures 4共d兲–4共g兲 which correspond to values of T be-         contour plots which have been scaled to the maximum value
+yond the pulse overlap region, also show strikingly periodic       for each value of T. Therefore, as long as the intensity of the
+behavior. Clearly, the effect is entirely due to the system        diagonal peak is the largest in the spectrum, the diagonal
+dynamics. The periodic behavior of peaks 共“quantum beats”兲         peaks appear unchanged even though they might undergo
+in the dimer 2D spectrum is the manifestation of coherent          significant amplitude changes. Some indications of the dy-
+electronic motion. Similar quantum beats associated with           namics in the diagonal peaks come from changes in their
+electronic coherence have been shown theoretically to be           shape 共see Sec. V B 3 below兲. To show that diagonal peaks
+present in the population dynamics in the electron transfer        are also sensitive to the motion of the excitonic wave packet,
+problem.52,54 In excitonically coupled molecular complexes,        in Fig. 5 we have plotted a cut of the 2D spectrum along the
+short excitation pulses prepare a coherent superposition of        diagonal using absolute amplitudes 共without normalization兲.
+excitonic states. Oscillatory responses observed earlier in the    We see that the diagonal peaks exhibit oscillatory behavior
+photosynthetic complexes37–40 are associated with the mo-          with the same modulation period 共but much smaller ampli-
+tion of vibrational wave packets. Here one could speak of          tude than the cross peaks兲. A detailed explanation of the pe-
+excitonic wave packets or electronic coherence 共determined         riodic behavior of the diagonal peaks can be obtained in the
+by the off-diagonal elements of the density matrix兲. A             same way it was outlined for cross peaks. Depending on the
+complementary interpretation can be given in terms of the          amplitudes and resolution of the cross peaks, it may be
+molecular states. Because of the presence of strong coupling       easier, in some systems, to observe coherent excitonic mo-
+between two monomers, the probability of find the system,          tion from diagonal peak amplitudes, rather than cross-peak
+for example, in the state 兩A典 when initially it was in the state   modulation.
+兩B典 is a periodic function with a period corresponding to the           The spectrum at T = 0 关Fig. 4共a兲兴 does not follow exactly
+exciton energy splitting ⌬⑀21 = 冑共⑀A − ⑀B兲2 + 4J2. The observed    the modulation behavior of the later-time spectra 共there is a
+modulation period of the peaks in the dimer 2D spectrum,           strong cross peak 12兲 because of the pulse overlap effect as
+TEC = 31 fs, exactly corresponds to the ⌬⑀21 value. The peri-      described in Paper I for a two-level system. At T ⬇ 0 all three
+odic behavior is clearly seen from Figs. 4共b兲–4共g兲 where the       pulses 共of finite duration兲 overlap and pulse sequences such
+population times were chosen to correspond to minima and           as 2-3-1 contribute to the signal. These contributions are im-
+maxima of the oscillations. A similar modulation rule was          portant only in the overlap region and quickly disappear as T
+determined recently by Khalil et al.70 from experimentally         increases.
+measured 2D infrared 共IR兲 spectra. In that case, obviously,             The influence of electronic coherence gradually disap-
+the modulation of the peaks resulted from vibrational wave         pears at longer population times 关Figs. 4共f兲–4共h兲兴. Firstly, the
+packet motion. System parameters which give a large exciton        coherent superposition is destroyed on the dephasing time
+234505-8        Pisliakov, Mančal, and Fleming                                                                 J. Chem. Phys. 124, 234505 共2006兲
+
+
+                                                                                 between the peaks as illustrated by Figs. 4共f兲–4共h兲: The in-
+                                                                                 tensity of the diagonal peak 22 decreases while the intensity
+                                                                                 of the cross peak 21 peak increases with T. This “transfer” of
+                                                                                 the intensity reflects the exciton population relaxation: Since
+                                                                                 the downhill relaxation rate is larger than the uphill one 共see
+                                                                                 Appendix C兲, the relaxation results in a larger population of
+                                                                                 the lower one-exciton state, ␳11共T兲 ⬎ ␳22共T兲. Consequently,
+                                                                                 the probability of the emission from state 兩2典, after initial
+                                                                                 excitation at ␻2, decreases while the same from state 兩1典
+                                                                                 increases. Within a perturbative approach this effect is de-
+                                                                                 scribed by the introduction of several additional Feynman
+                                                                                 diagrams involving a transfer process within the population
+                                                                                 period.71,73,74
+                                                                                      In contrast to the coherent electronic motion, within our
+                                                                                 model, the population transfer is an incoherent process and
+                                                                                 proceeds irreversibly. Correspondingly, in the 2D spectra it
+                                                                                 appears as a monotonic transfer of the intensity. The effect of
+                                                                                 population relaxation becomes notable in 2D spectra at times
+FIG. 5. The diagonal cuts of the real-part 2D relaxation spectra; absolute
+                                                                                 T ⬎ 100 fs. When the oscillations due to the EC effect are not
+intensities 共without scaling to the maximum value兲 are shown. Cuts corre-
+spond to the same population times 共a兲 T = 0 fs, 共b兲 T = 16 fs, 共c兲 T = 30 fs,   yet damped completely, one can observe a “competition” be-
+共d兲 T = 46 fs as in Fig. 4. The figure shows that diagonal peaks are also        tween relaxation and electronic coherence. For example, the
+modulated by the motion of the excitonic wave packet.                            2D spectra calculated at times T = 108 and 140 fs 关Figs. 4共f兲
+                                                                                 and 4共g兲兴, which correspond to the “minima” of the EC ef-
+T2 = 1 / ⌫12 due to destructive influence of the bath. Another                   fect, T = 7TEC / 2 and T = 9TEC / 2, respectively, show a small-
+process also becomes important, namely, population transfer                      amplitude 关compared to Fig. 4共b兲兴 growth of the negative
+which proceeds in the one-exciton manifold with a popula-                        peak 12 along with a rather strong positive peak 21 and a
+
+
+
+
+                                                                                                                                                    29 January 2025 07:55:59
+tion relaxation time T1 = 1 / ⌫22. These two processes are re-                   weakened diagonal peak 22 共the manifestation of the popu-
+lated as demonstrated by the rate expression 共C4兲. The                           lation transfer兲. For population times larger than the relax-
+dephasing and relaxation times in the system which we used                       ation time 共T ⬎ T1兲, the system reaches equilibrium in the
+in the calculation were defined to be 350 and 200 fs, corre-                     one-exciton manifold. If the energy splitting between two
+spondingly, to allow the observation of the motion of the                        eigenstates is large 共compared to kBT 兲, the system relaxes
+excitonic wave packet for at least several periods.                              completely to the lower eigenstate, i.e., ␳22共T兲 = 0, and we
+     At this point it is appropriate to note some important                      can neglect the contribution to the signal from the higher
+differences between 2D infrared and 2D optical spectra. Al-                      one-exciton state. Then emission is possible only at ␻10: In
+though the formal description of these two is very similar,                      Fig. 4共h兲 共T = 310 fs兲 the spectrum is dominated by the two
+there are significant differences between the vibrational and                    peaks 11 and 21. There is no correlation between excitation
+electronic spectroscopies. Most importantly, in the IR case                      and emission frequencies. In this case, the 2D spectrum can
+one always has a ladder of states 共e.g., for the simplest pos-                   be obtained as a product of the linear 共one dimensional兲 ab-
+sible system, two coupled vibrations, there are two one-                         sorption and emission spectra.16 If, furthermore, the prob-
+exciton states and three states in the two-exciton manifold—                     abilities of excitation of both eigenstates were the same at
+two overtones and one combination mode兲 and all possible                         T = 0 fs, then we can expect equal intensities of the cross
+transitions between these states have the oscillator strength                    peak 21 and of the diagonal peak 11 as T → ⬁. As we men-
+of the same order of magnitude.2,6,9,26,71,72 Consequently,                      tioned, the 2D spectra are scaled to the maximum value for
+many contributions nearly cancel each other; if anharmonic-                      every time T; the absolute intensity of the peaks decays due
+ity is absent in the system, the cancellation is complete and                    to dephasing.
+the total signal is zero. This results in a nearly symmetric                          For this simple model system there are three main pa-
+shape of 2D IR spectra. The situation is different in the case                   rameters obtained from the Redfield theory 共see Appendices
+of 2D optical spectroscopy: The structure of the two-exciton                     B and C兲: the population relaxation time T1 = 1 / ⌫22, the
+manifold is qualitatively different, oscillator strengths of                     dephasing time T2 = 1 / ⌫12, and the homogeneous dephasing
+transitions could differ by order共s兲 of magnitude, and there-                    rate which is determined by the intraband coherence dephas-
+fore there is no cancellation of various contributions. 2D                       ing rate, e.g., ⌫01. We studied how these parameters influence
+optical spectra display some, often a considerable, degree of                    the relaxation dynamics and manifest themselves in 2D spec-
+asymmetry about the diagonal as compared with typical 2D                         tra. Clearly a larger value for the population relaxation time
+IR spectra.23,29                                                                 T1 simply shifts the peak intensity redistribution to a longer
+                                                                                 time scale. A longer dephasing time T2 allows the electronic
+                                                                                 coherence effect 共periodic behavior兲 to survive to longer
+C. Population transfer
+                                                                                 population times, while a larger homogeneous dephasing rate
+    Population relaxation dynamics becomes dominant at                           broadens the peaks along both frequency axes, which results
+longer population times. It induces intensity redistribution                     in larger overlap of the peaks.
+234505-9       Two-dimensional photon echo spectroscopy                                                          J. Chem. Phys. 124, 234505 共2006兲
+
+
+
+
+                                                                            FIG. 7. The schematic explanation of the peak-shape formation for different
+                                                                            correlation broadening cases. In the case where the energy fluctuations on
+                                                                            both monomers are fully correlated 共shown on the cross peak in the lower-
+                                                                            right part of the figure兲, any change of the energy in one diagonal peak
+                                                                            results in the same direction change in the other one. This shifts the position
+                                                                            of the off-diagonal peak parallel with the diagonal. In the anticorrelated case
+                                                                            共upper-left cross peak兲, the energetic changes in the diagonal peaks result in
+                                                                            a shift of the cross peak that is orthogonal to the diagonal.
+FIG. 6. Dimer homogeneously broadened 共⌬ = 0兲 2D spectra which corre-
+spond to inhomogeneous 共⌬ = 200 cm−1兲 case depicted on Figs. 4共d兲 and
+4共e兲. Comparison shows that the form of 2D 共inhomogeneous兲 spectrum can     cross peak 21 is entirely symmetric. At longer population
+be obtained from elemental 共homogeneous兲 spectral shapes. The presence of   times, this process evolves 关Fig. 4共g兲兴 and results in the “fi-
+inhomogeneity can be understood in the way shown schematically on Fig. 7.   nal” 2D spectrum form 关Fig. 4共h兲兴. 共This is valid as long as
+                                                                            the inhomogeneity remains static.兲 The final shape of the
+1. Shape of the peaks                                                       diagonal peak can be understood in the same way as dis-
+                                                                            cussed for the two-level system 共see the detailed discussion
+
+
+
+
+                                                                                                                                                              29 January 2025 07:55:59
+     The peaks change not only in intensity but also in their
+form. Remarkably, diagonal and cross peaks do this in a very                in Paper I兲: Due to the presence of inhomogeneous broaden-
+different manner. Before population transfer becomes impor-                 ing in the system, peaks in the real part and the nodal line
+tant 关Figs. 4共b兲–4共e兲兴, the cross peaks are always diagonally               between the positive and negative regions in the imaginary
+elongated; only one of two peaks can be seen in the spectrum                part of the 2D spectrum are oriented along the diagonal, and
+at a particular time and they appear/disappear with the oppo-               the diagonal cut characterizes the inhomogeneous distribu-
+site phase. As long as coherent electronic motion is present                tion.
+in the system, we also observe periodic behavior in the shape                    Two-dimensional spectra contain information not only
+of the diagonal peaks. The effect is clearly seen from, e.g.,               on line broadening mechanisms but also on correlation in the
+Figs. 4共d兲 and 4共e兲 which represent the two opposite phases                 distribution of the transition energies of the coupled mono-
+of the peak modulations 共i.e., the two turning points of the                mers. In particular, the form of the cross peaks is determined
+electronic wave packet兲: When T corresponds to the mini-                    to a large extent by the correlation type.4,8,75 This is illus-
+mum of the EC modulation, the diagonal peaks are strongly                   trated schematically by Fig. 7 for the situation of two equal
+elongated along the diagonal 关see both real and imaginary                   diagonal peaks. We consider three possible correlation types
+parts in Fig. 4共d兲, T = 46 fs兴, and when T corresponds to the               of fluctuations of the transition frequencies of two mono-
+maximum of the EC modulation, the peaks are highly sym-                     mers, ␦␻10 and ␦␻20: 共i兲 positively correlated, ␦␻10 = ␦␻20,
+metric 关Fig. 4共e兲, T = 62 fs兴. To explain the shapes of the                 共ii兲 negatively correlated, ␦␻10 = −␦␻20, and 共iii兲 independent
+spectral features of the inhomogeneously broadened spectra,                 共uncorrelated兲 fluctuations. 共In the calculations throughout
+one can utilize calculations without inhomogeneity in the                   the paper we assumed the latter case.兲 When the energy fluc-
+way we did for the two-level system.36 In Fig. 6 we present                 tuations on both monomers are fully correlated, ␦␻10 = ␦␻20,
+the calculated homogeneously broadened 共⌬ = 0兲 spectra for                  any change of the energy in one diagonal peak results in the
+T = 46 fs and T = 62 fs corresponding to Figs. 4共d兲 and 4共e兲.               same 共direction and magnitude兲 change in the other peak.
+Using these figures as elemental shapes for the dimer spec-                 This shifts the position of the off-diagonal peak parallel to
+trum, we can predict the form of the spectral features for the              the diagonal and results in the diagonal-elongated shape of
+inhomogeneously disordered system depending on the type                     the cross peak as illustrated schematically by Fig. 7. In a
+of correlation between the fluctuations of the transition ener-             similar manner one can understand the antidiagonal orienta-
+gies of the molecules forming the dimer.                                    tion of the cross peak in the case of negatively correlated
+     At short times the shape changes of the diagonal peaks                 fluctuations 共the energetic changes in the diagonal peaks re-
+clearly arise from the electronic coherence. At longer times                sult in a shift of the cross peak that is orthogonal to the
+population transfer becomes important. The signature of this                diagonal兲 and the symmetric shape of the cross peak in the
+process can be seen first in Fig. 4共f兲: The negative cross                  uncorrelated case 共the shift of the transition energy ␻20 is
+peak, 12, starts to loose its diagonal orientation 关compare                 combined with an arbitrary, i.e., same or the opposite sign,
+with Fig. 4共d兲兴 and the new 共population-transfer-induced兲                   larger or smaller magnitude shift in ␻10兲.
+234505-10       Pisliakov, Mančal, and Fleming                                                                         J. Chem. Phys. 124, 234505 共2006兲
+
+
+                                                                                       2. Summary and outlook
+                                                                                            Our calculations reveal the influence of both coherent
+                                                                                       共excitonic wave packet motion兲 and incoherent 共population
+                                                                                       transfer兲 effects in the photoinduced exciton dynamics of a
+                                                                                       model dimer system and their manifestation in 2D photon
+                                                                                       echo optical spectra. Similar phenomena should be found in
+                                                                                       larger complexes: periodic modulation 共or even appearance/
+                                                                                       disappearance兲 of certain peaks after coherent excitation and
+                                                                                       intensity transfer from diagonal peaks to 共possibly new兲
+                                                                                       cross peaks as the result of population transfer. In multistate
+                                                                                       systems, new cross peaks may arise also due to coherence
+                                                                                       transfer between the pairs of eigenstates.70,71 We will address
+                                                                                       these issues in a greater detail 共including coherence transfer
+                                                                                       and a more general form of the Redfield equation兲 for larger
+                                                                                       systems in future work.
+                                                                                            The first 2D optical spectrum of a molecular complex
+FIG. 8. The effect of correlated broadening on the dimer 2D spectra: real              revealing resolvable and time-dependent cross-peak features
+parts of the 共a兲 homogeneous 共⌬ = 0兲 and inhomogeneous 共⌬ = 400 cm−1兲                  has recently been reported by Brixner and co-workers23,29 for
+spectra calculated at time T = 310 fs for the 共b兲 fully correlated, 共c兲 uncorre-
+                                                                                       the seven-bacteriochlorophyll-protein complex known as the
+lated, and 共d兲 fully anticorrelated fluctuations. Compare the shapes of the
+diagonal and cross peaks in different cases 共see the discussion in the text兲.          FMO complex.76 The analysis in Refs. 23 and 29 used a
+                                                                                       perturbative approach developed by Cho et al. and described
+     In the calculation of 2D spectra, the described effect is                         in detail in Ref. 29. Within the limitations of the current
+combined with the actual elemental shapes 共i.e., homoge-                               Hamiltonian29,76 the intermediate and long-time behavior of
+neous spectra兲 to produce inhomogeneously broadened 2D                                 the FMO 2D spectra was quite well described. However, the
+spectra for a given type of correlation. As an example, ho-                            very short-time behavior cannot be calculated with the ap-
+mogeneous 共⌬ = 0兲 and inhomogeneous 共⌬ = 400 cm−1兲 cor-                                proach of Cho et al.29 because of the approximations used to
+
+
+
+
+                                                                                                                                                           29 January 2025 07:55:59
+related, uncorrelated, and anticorrelated 2D spectra calcu-                            obtain analytical approximations for the response functions.
+lated at time T = 310 fs are depicted on Fig. 8. The elemental                         The nonperturbative approach described here can be used to
+shapes are slightly elongated peaks: diagonal peak oriented                            investigate the short-time behavior of such a system.
+along the antidiagonal and cross peak along the diagonal                                    The experimental data on the FMO complex show a very
+关Fig. 8共a兲兴. The calculations confirm our qualitative analysis                         striking change in the amplitude of the lowest energy diago-
+given above: Adding inhomogeneity to these elemental                                   nal peak at T = 0, 50, and 100 fs. This peak is very strong at
+shapes, one gets remarkably different shapes of the peaks for                          T = 0 fs, not detected at T = 50 fs, and present with moderate
+the different correlation cases 关Figs. 8共b兲–8共d兲兴. In all three                        intensity at T = 100 fs.23 Of course, these time intervals were
+cases diagonal peaks become 共to a different extent兲 diago-                             selected for experimental convenience rather than with
+nally elongated. In contrast, differently correlated transitions                       knowledge of the electronic coherence frequencies of the
+show different shapes of the cross peak:8 Cross peak be-                               system, but such an oscillation of amplitude is strongly sug-
+comes elongated along the diagonal 关Fig. 8共b兲兴, keeps its                              gestive of the electronic coherence effects described here for
+shape but simply becomes broader symmetrically in all di-                              the model dimer system. Numerical simulations and detailed
+rections 关Fig. 8共c兲兴, and gets the antidiagonal orientation                            analysis of the experimental data are underway, but in ad-
+关Fig. 8共d兲兴 in the cases of correlated, uncorrelated, and anti-                        vance of this we can make estimates of the periods and upper
+correlated transitions, respectively. Thus, analysis of the                            limits of dephasing times expected in the FMO complex,
+form 共ellipticity and orientation兲 of the peaks in experimen-                          based on the parameters used for the perturbative
+tally measured 2D spectra should allow the degree of corre-                            treatment.29
+lation between different transitions in the system to be quali-                             Table I shows the exciton splitting 共difference兲 frequen-
+fied. It seems likely that such correlated fluctuations could                          cies and their corresponding periods of pairs of eigenstates
+significantly influence dynamical behavior in molecular                                based on the Hamiltonian of Vulto et al.76 The periods range
+complexes.                                                                             from 60 to 980 fs. An upper limit to the dephasing time can
+                        TABLE I. Difference frequencies ␻共␣␤兲 共cm−1兲/corresponding periods T␣␤ 共fs兲 in the FMO complex.
+
+                        Exciton energy En 共cm−1兲         1         2               3         4          5          6            7
+
+                                  1.121 12               0     150/ 222      243/ 138     302/ 111   336/ 100    499/ 67      537/ 64
+                                  2.122 62                            0       92/ 365     152/ 220   186/ 180    349/ 96      387/ 88
+                                  3.123 55                                          0      59/ 564    93/ 360   256/ 130     294/ 113
+                                  4.124 14                                                       0    34/ 980   197/ 168     235/ 141
+                                  5.124 48                                                                  0   163/ 204     201/ 164
+                                  6.126 11                                                                             0      38/ 877
+                                  7.126 49                                                                                          0
+234505-11     Two-dimensional photon echo spectroscopy                                                    J. Chem. Phys. 124, 234505 共2006兲
+
+
+be obtained from the relaxation rates between levels:              共with the Redfield tensor responsible for system relaxation兲
+共⌫␣␤兲min = 21 共␥␣␤ + ␥␤␣兲. This corresponds to an upper limit      and the external field, respectively.
+because pure dephasing 共⌫␣␤   *
+                                兲 is neglected 关see Eq. 共C4兲兴.          The Redfield tensor elements R␬␭␮␯ can be expressed
+The experiments were performed at 77 K, making pure                as48,52
+dephasing likely to be slower than at room temperature. Re-
+laxation rates taken from a modified Forster/Redfield                     R␮␯␬␭ = ⌫␭+␯␮␬ + ⌫␭−␯␮␬ − ␦␯␭ 兺 ⌫␮␣␣␬
+                                                                                                           +
+                                                                                                                − ␦␮␬ 兺 ⌫␭−␣␣␯ ,
+calculation29 produce dephasing times in the range of                                                        ␣               ␣
+
+100– 300 fs. Taking into account that the first minimum of                                                                           共A3兲
+the electronic coherence occurs at a half of the T␣␤ period, it
+seems very likely that the manifestation of electronic coher-      where
+
+
+                                                                                     冕
+ence will be observable even in a system with seven one-                                 ⬁
+exciton states. Whether this phenomenon survives at physi-                ⌫␭+␯␮␬ =           dt具具␭兩HSB共t兲兩␯典具␮兩HSB兩␬典典Be−i␻␮␬t ,     共A4兲
+ological temperatures remains an open question, and detailed                             0
+numerical calculations are clearly necessary to provide a de-
+finitive answer on the role of multiple states, temperature,
+coherence transfer, and the correlation of nuclear fluctuations
+on such a complex system. However, the level spacing 共and
+                                                                          ⌫␭−␯␮␬ =   冕   ⬁
+
+
+                                                                                         0
+                                                                                             dt具具␭兩HSB兩␯典具␮兩HSB共t兲兩␬典典Be−i␻␭␯t ,     共A5兲
+
+thus the moderate oscillation frequencies兲 and the weak
+electron-phonon coupling common to all photosynthetic                     HSB共t兲 = eiHBtHSBe−iHBt ,                                  共A6兲
+complexes55,77 make photosynthetic pigment-protein com-
+plexes particularly favorable systems for the study of mo-         and 具¯典B denotes a thermal average over the bath.
+lecular electronic coherence.                                          For the dimer, the system-bath coupling is written in a
+                                                                   general form as
+VI. CONCLUSIONS
+                                                                          HSB = 兺 Fi兩i典具i兩 + 共FA + FB兲兩AB典具AB兩,                      共A7兲
+     In this paper we have applied the nonperturbative                          i=A,B
+method developed in Paper I 共Ref. 36兲 to calculate 2D pho-
+
+
+
+
+                                                                                                                                              29 January 2025 07:55:59
+ton echo spectra of model dimer system and demonstrated            where the coupling function Fi describes the interaction of an
+the feasibility of including a sophisticated form of dissipative   excitation at site 兩i典 with the bath. The damping matrices
+dynamics in the calculations. The different processes ob-          共A4兲 and 共A5兲 are expressed in terms of the exciton overlap
+served in the 2D spectra at different population times 共peri-      integrals 共analogs of the Frank-Condon factors兲 and the Fou-
+odic appearance/disappearance of cross peaks, intensity re-        rier transforms of the bath coupling functions 共CFs兲. To cal-
+distribution between the peaks, and changes of the peak            culate the elements of the Redfield tensor, we have to specify
+shapes兲 were described in terms of two effects: coherent           the form of the coupling function. We make the following
+electronic motion and exciton population transfer. A qualita-      simplifying assumptions about the nature of the system-bath
+tive understanding of the system dynamics is obtainable by a       共SB兲 interaction.
+simple analysis of the time-dependent 2D spectra, and de-          共i兲      The SB interactions at different sites are not corre-
+tailed numerical studies should enable extraction of quanti-                lated, i.e., each monomer is coupled only to localized
+tative information about the coherent and dissipative pro-                  vibrations. Thus, the two-site bath CF becomes
+cesses in multilevel molecular systems.                                     具Fi共t兲F j典B = ␦ij 具Fi共t兲Fi典B.
+                                                                   共ii兲     The SB interaction is treated within a linear response
+ACKNOWLEDGMENT                                                              theory: The monomers are linearly coupled to the bath
+    This work was supported by a grant from NSF.                            oscillators and the coupling function Fi is specified as
+
+APPENDIX A: REDFIELD EQUATIONS                                              Fi = 兺 g共i兲
+                                                                                    x qx ,                                           共A8兲
+                                                                                     x
+    In the eigenstate representation, the Redfield equation
+共19兲 takes the form                                                         where the coupling parameters g共i兲 x describe the inter-
+                                                                            action of an excitation at site 兩i典 with mode x of the
+    ⳵t␳ij共t兲 = − i␻ij␳ij共t兲 + 兺 Rijkl␳kl共t兲                                 bath. The more general case of the SB interaction,
+                                 kl                                         which includes the effect of finite correlation length
+               + iE共t兲 兺 共␮ik␳kj − ␳ik␮kj兲                共A1兲              and terms that are quadratic in the bath coordinate,
+                         k                                                  has been discussed by Kühn and Sundström,60 May
+                                                                            and co-workers.78,79
+with frequencies
+                                                                        For a bath of harmonic oscillators, analytic expressions
+    ␻ij = ⑀i − ⑀ j,   i, j = 0, ␣, ¯␣ .                   共A2兲
+                                                                   for the bath CF and its Fourier transform can be obtained57
+The first term on the right-hand side of Eq. 共A1兲 describes        共we neglect the imaginary part of the Redfield tensor, the
+the isolated system evolution, while the second and third          so-called Lamb shift, which describes a spectral shift of sys-
+represent its interaction with the dissipative environment         tem transitions due to dephasing兲:
+234505-12        Pisliakov, Mančal, and Fleming                                                                     J. Chem. Phys. 124, 234505 共2006兲
+
+
+    具Fi共t兲Fi典B = 21 兺 g共i兲2
+                       x 关n共␻x兲e
+                                 i␻xt
+                                      + 共1 + n共␻x兲兲e−i␻xt兴,                    ⌫␮␯ ⬅ − R␮␯␮␯ = − ⌫␯␯
+                                                                                                  +
+                                                                                                     ␮␮ − ⌫␯␯␮␮ + 兺 ⌫␮␭␭␮ + 兺 ⌫␯␭␭␯
+                                                                                                           −         +         −
+
+                            x                                                                                                   ␭           ␭
+
+                                                                    共A9兲             = ⌫ˆ ␮␯ + 21 兺 ␥␭␮ + 21 兺 ␥␭␯ ,                            共B6兲
+                                                                                                         ␭⫽␮        ␭⫽␯
+
+    C̃i共␻兲 = Re       冕 0
+                          ⬁
+                                dt具Fi共t兲Fi典Be−i␻t                          describing coherence dephasing. The latter consists of popu-
+                                                                           lation relaxation rates and so-called pure dephasing,
+            = n共␻兲Ji共␻兲 + 共1 + n共− ␻兲兲Ji共− ␻兲
+
+                 再                                             冎
+                                                                               ⌫ˆ ␮␯ = − ⌫␯␯
+                                                                                          +
+                                                                                             ␮␮ − ⌫␯␯␮␮ + ⌫␯␯␯␯ + ⌫␮␮␮␮
+                                                                                                   −       +       −
+
+
+            =
+                            n共␻兲Ji共␻兲
+                     共1 + n共− ␻兲兲Ji共− ␻兲 if ␻ ⬍ 0.
+                                                    if ␻ ⬎ 0
+                                                                   共A10兲             = Re        冕
+                                                                                                 0
+                                                                                                     ⬁
+                                                                                                         dt具关具␮兩HSB共t兲兩␮典 − 具␯兩HSB共t兲兩␯典兴
+
+Here, n共␻兲 = 1 / 共e␻/kT − 1兲 is the Bose thermal distribution                          ⫻关具␮兩HSB兩␮典 − 具␯兩HSB兩␯典兴典B ,                             共B7兲
+function, and the spectral density function, Ji共␻兲, which en-
+tirely describes the parameters of the bath, is defined for each           which is a generalization of the well-known relation between
+monomer as                                                                 the relaxation times T1 and T2. The elements of the transfor-
+                                                                           mation matrix which diagonalize the dimer Hamiltonian 共5兲
+                 ␲                                                         have a simple form 关Eq. 共10兲兴, and all rates ␥␮␯ and ⌫␮␯ are
+    J i共 ␻ 兲 =     兺 g共i兲2␦共␻ − ␻x兲.
+                 2 x x
+                                                                   共A11兲
+                                                                           written explicitly in Appendix C.
+
+For convenience we assume that the spectral density for both
+monomers is equivalent. For the calculations in this paper,                APPENDIX C: DIMER RELAXATION AND DEPHASING
+the spectral density is taken to be of the form                            RATES
+                  ␻                                                             In this appendix, we give the relaxation and dephasing
+    J共␻兲 = g2        exp共− ␻/␻c兲,                                  共A12兲
+                  ␻c                                                       rates for the dimer. The population relaxation and pure
+
+
+
+
+                                                                                                                                                        29 January 2025 07:55:59
+                                                                           dephasing rates between one-exciton states are
+where ␻c is a cutoff frequency and g2 is a dimensionless
+coupling strength parameter.                                                   ␥␣␤ = 2 兺 兩Ci␣兩2兩Ci␤兩2C̃共␻␣␤兲 = sin2 2␪C̃共␻␣␤兲,
+                                                                                             i
+
+                                                                                       ␣, ␤ = 1,2,                                              共C1兲
+APPENDIX B: SECULAR APPROXIMATION
+                                                                               ⌫ˆ ␣␤ = 兺 共兩Ci␣兩2 − 兩Ci␤兩2兲2C̃共0兲 = 2 cos2 2␪C̃共0兲.              共C2兲
+     Next we employ a secular approximation that is widely                               i
+accepted in Redfield theory for relaxation processes. We con-
+sider only so-called secular terms of the Redfield tensor sat-             For the spectral density 共A12兲, a zero-frequency limit that
+isfying                                                                    determines the pure dephasing rate is C̃共0兲 = g2kT / ␻c. Note
+                                                                           that the detailed balance condition 共the relation between the
+    兩␻␮␯ − ␻␬␭兩 = 0.                                                共B1兲   downhill, ␥12, and uphill, ␥21, rates兲 is satisfied: ␥12
+                                                                           = e␻21/kT␥21, i.e., ␥12 ⬎ ␥21. Obviously, if there are only two
+In this case the equations of motion for populations and co-
+                                                                           states in the manifold then ⌫11 = ␥21 and ⌫22 = ␥12.
+herences are decoupled: Populations obey the Pauli master
+                                                                                Coherence dephasing rates that appear in the equations
+equation 共rate equations兲
+                                                                           of motion 关共D1兲–共D6兲兴 are defined as follows:
+     兩⳵t␳␮␮共t兲兩diss = − ⌫␮␮␳␮␮共t兲 + 兺 ␥␮␯␳␯␯共t兲,                    共B2兲       ⌫␣0 = ⌫ˆ ␣0 + 21 ␥␤␣ ,                                           共C3兲
+                                               ␯⫽␮
+
+where ␥␮␯ ⬅ ␥␮←␯ is the relaxation rate from state ␯ to state                  ⌫␣␤ = ⌫ˆ ␣␤ + 21 共␥␣␤ + ␥␤␣兲,                                    共C4兲
+␮ and
+                                                                               ⌫¯␣␣ = ⌫ˆ ¯␣␣ + 21 ␥␤␣ ,                                         共C5兲
+    ⌫␮␮ = 兺 ␥␭␮ ,                                                   共B3兲
+             ␭⫽␮
+                                                                               ⌫¯␣0 = ⌫ˆ ¯␣0 .                                                  共C6兲
+while coherences show an exponential decay
+                                                                           The explicit expressions for pure dephasing rates in the
+     兩⳵t␳␮␯共t兲兩diss = − ⌫␮␯␳␮␯共t兲.                                  共B4兲   dimer are
+The Redfield tensor reduces to the rate matrices57                             ⌫ˆ ␣0 = 兺 兩Ci␣兩4C̃共0兲 = 共1 − 21 sin2 2␪兲C̃共0兲                    共C7兲
+                                                                                         i
+    ␥␮␯ ⬅ R␮␮␯␯ = ⌫␯+␮␮␯ + ⌫␯−␮␮␯                   for ␮ ⫽ ␯ ,     共B5兲
+                                                                           for the coherence connecting one-exciton states with the
+describing population relaxation, and                                      ground state and
+234505-13        Two-dimensional photon echo spectroscopy                                                       J. Chem. Phys. 124, 234505 共2006兲
+
+
+
+
+              i⬎j
+                        再
+     ⌫ˆ ¯␣0 = 兺 兩C¯␣ij兩2 兺 兩C¯ik
+                              ␣ 2
+                            i⬎k
+                                 兩 + 兺 兩C¯ki
+                                     i⬍k
+                                          ␣ 2
+                                             兩 + 兺 兩C¯␣jk兩2
+                                                  j⬎k
+                                                                             8
+                                                                                237401 共2002兲.
+                                                                                M. Khalil, N. Demirdoven, and A. Tokmakoff, J. Phys. Chem. A 107,
+                                                                                5258 共2003兲.
+
+                            冎
+                                                                              9
+
+              + 兺 兩C¯␣kj兩2 C̃共0兲 = 2C̃共0兲
+                                                                                M. Khalil, N. Demirdoven, and A. Tokmakoff, Phys. Rev. Lett. 90,
+                                                                    共C8兲        047401 共2003兲.
+                                                                             10
+                 j⬍k                                                            Y. Tanimura and S. Mukamel, J. Chem. Phys. 99, 9496 共1993兲.
+                                                                             11
+                                                                                S. Saito and I. Ohmine, Phys. Rev. Lett. 88, 207401 共2002兲.
+for the two-exciton coherence. Finally, the pure dephasing                   12
+                                                                                L. J. Kaufman, J. Y. Heo, L. D. Ziegler, and G. R. Fleming, Phys. Rev.
+rate for the one-two-exciton coherence is the same as for the                   Lett. 88, 207402 共2002兲.
+one-exciton coherence 共this holds only for the dimer兲:                       13
+                                                                                K. J. Kubarych, C. J. Milne, S. Lin, V. Astinov, and R. J. D. Miller, J.
+                                                                                Chem. Phys. 116, 2016 共2002兲.
+     ⌫ˆ ¯␣␣ = ⌫ˆ ␣0 .
+                                                                             14
+                                                                    共C9兲        K. J. Kubarych, C. J. Milne, and R. J. D. Miller, Int. Rev. Phys. Chem.
+                                                                                 22, 437 共2003兲.
+                                                                             15
+                                                                                S. M. G. Faeder, A. W. Albrecht, J. D. Hybl, B. L. Landin, B. Rajaram,
+                                                                                and D. M. Jonas, J. Opt. Soc. Am. B 15, 2338 共1998兲.
+APPENDIX D: EQUATIONS OF MOTION                                              16
+                                                                                J. D. Hybl, A. W. Albrecht, S. M. G. Faeder, and D. M. Jonas, Chem.
+FOR THE DIMER IN RWA                                                            Phys. Lett. 297, 307 共1998兲.
+                                                                             17
+                                                                                J. D. Hybl, A. A. Ferro, and D. M. Jonas, J. Chem. Phys. 115, 6606
+    Introducing the ansatz 共22兲 into the Liouville equation                     共2001兲.
+共19兲 we find the following equations for one-exciton coher-                  18
+                                                                                J. D. Hybl, A. Yu, D. A. Farrow, and D. M. Jonas, J. Phys. Chem. A 106,
+ence:                                                                           7651 共2002兲.
+                                                                             19
+                                                                                N. Belabas and M. Joffre, Opt. Lett. 27, 2043 共2002兲.
+     ⳵t␴10 = − i共␻10 − ⍀兲␴10 − ⌫10␴10 + iE共t兲兵␮10共␳00 − ␳11兲
+                                                                             20
+                                                                                M. L. Cowan, J. P. Ogilvie, and R. J. D. Miller, Chem. Phys. Lett. 386,
+                                                                                184 共2004兲.
+                − ␮20␳12其 + iE * 共t兲␮31␴30 ,                        共D1兲     21
+                                                                                T. Brixner, I. V. Stiopkin, and G. R. Fleming, Opt. Lett. 29, 884 共2004兲.
+                                                                             22
+                                                                                T. Brixner, T. Mančal, I. V. Stiopkin, and G. R. Fleming, J. Chem. Phys.
+coherence between two- and one-exciton states:                                   121, 4221 共2004兲.
+                                                                             23
+                                                                                T. Brixner, J. Stenger, H. M. Vaswani, M. Cho, R. E. Blankenship, and G.
+     ⳵t␴31 = − i共␻31 − ⍀兲␴31 − ⌫31␴31 + iE共t兲兵␮31␳11                            R. Fleming, Nature 共London兲 434, 625 共2005兲.
+                                                                             24
+                                                                                A. Takmakoff, J. Phys. Chem. A 104, 4247 共2000兲.
+                + ␮32␳21其 − iE * 共t兲␮10␴30 ,                        共D2兲     25
+                                                                                S. Mukamel, Annu. Rev. Phys. Chem. 51, 691 共2000兲.
+                                                                             26
+                                                                                S. Woutersen and P. Hamm, J. Phys.: Condens. Matter 14, R1035 共2002兲.
+two-exciton coherence:                                                       27
+                                                                                J. Sung and R. J. Silbey, J. Chem. Phys. 115, 9266 共2001兲.
+
+
+
+
+                                                                                                                                                            29 January 2025 07:55:59
+                                                                             28
+     ⳵t␴30 = − i共␻30 − 2⍀兲␴30 − ⌫30␴30 + iE共t兲兵␮31␴10                           J. Sung and R. J. Silbey, J. Chem. Phys. 118, 2443 共2003兲.
+                                                                             29
+                                                                                M. Cho, H. M. Vaswani, T. Brixner, J. Stenger, and G. R. Fleming, J.
+                + ␮32␴20 − ␮10␴31 − ␮20␴32其,                        共D3兲     30
+                                                                                Phys. Chem. B 109, 10542 共2005兲.
+                                                                                R. E. Fenna and B. W. Matthews, Nature 共London兲 258, 573 共1975兲.
+                                                                             31
+one-exciton population:                                                         Y.-F. Li, W. Zhou, R. E. Blankenship, and J. P. Allen, J. Mol. Biol. 271,
+                                                                                456 共1997兲.
+     ⳵t␳11 = − ⌫11␳11 + ␥12␳22 + iE共t兲兵␮10␴01 − ␮31␴13其                      32
+                                                                                M. Yang and G. R. Fleming, J. Chem. Phys. 110, 2983 共1999兲.
+                                                                             33
+                                                                                B. S. Prall, D. Y. Parkinson, G. R. Fleming, M. Yang, and N. Ishikawa, J.
+               + iE * 共t兲兵␮31␴31 − ␮10␴10其,                         共D4兲        Chem. Phys. 120, 2537 共2004兲.
+                                                                             34
+                                                                                M. Cho and G. R. Fleming, J. Chem. Phys. 123, 114506 共2005兲.
+intraband 共one-exciton manifold兲 coherence:                                  35
+                                                                                S. Mukamel, Principles of Nonlinear Optical Spectroscopy 共Oxford Uni-
+                                                                                versity Press, New York, 1995兲.
+     ⳵t␳12 = − i␻12␳12 − ⌫12␳12 + iE共t兲兵␮10␴02 − ␮32␴13其                     36
+                                                                                T. Mančal, A. V. Pisliakov, and G. R. Fleming, J. Chem. Phys. 124,
+               + iE * 共t兲兵␮31␴32 − ␮20␴10其,                         共D5兲        234504 共2006兲.
+                                                                             37
+                                                                                M. H. Vos, J. C. Lambry, S. J. Robles, D. C. Youvan, J. Breton, and J. L.
+and ground-state population:                                                    Martin, Proc. Natl. Acad. Sci. U.S.A. 88, 8885 共1991兲.
+                                                                             38
+                                                                                M. H. Vos, F. Rappaport, J. C. Lambry, J. Breton, and J. L. Martin,
+     ⳵t␳00 = − iE共t兲兵␮10␴01 + ␮20␴02其                                           Nature 共London兲 363, 320 共1993兲.
+                                                                             39
+                                                                                M. Chachisvilis, T. Pullerits, M. R. Jones, C. N. Hunter, and V. Sund-
+               + iE * 共t兲兵␮10␴10 + ␮20␴20其.                         共D6兲        ström, Chem. Phys. Lett. 224, 345 共1994兲.
+                                                                             40
+                                                                                R. J. Stanley and S. G. Boxer, J. Phys. Chem. 99, 859 共1995兲.
+Note that we use indices 0 and 3 for the ground state 兩g典 and                41
+                                                                                P. J. Reid, C. Silva, P. F. Barbara, L. Karki, and J. T. Hupp, J. Phys.
+two-exciton state 兩¯␣典, respectively. The equations for the                     Chem. 99, 2609 共1995兲.
+                                                                             42
+RDM elements involving state ␣ = 2 共namely, ␴20, ␴32, and                       S. Engleitner, M. Seel, and W. Zinth, J. Phys. Chem. 103, 3013 共1999兲.
+                                                                             43
+                                                                                I. Rubtsov and K. Yoshihara, in Femtochemistry, edited by F. C. De-
+␳22兲 are obtained by the substitution 1 ↔ 2 in the correspond-                  Schryver, S. D. Feyter, and G. Schweiteret 共Wiley, Berlin, 2001兲, pp.
+ing equations involving state ␣ = 1.                                            367–380.
+                                                                             44
+                                                                                C. Zimmermann, F. Willig, S. Ramakrishna, B. Burfeindt, B. Pettinger,
+ 1
+   P. Hamm, M. Lim, and R. M. Hochstrasser, J. Phys. Chem. B 102, 6123          R. Eichberger, and W. Storck, J. Phys. Chem. B 105, 9245 共2001兲.
+                                                                             45
+   共1998兲.                                                                      J. Stenger, D. Madsen, J. Dreyer, E. T. J. Nibbering, P. Hamm, and T.
+ 2
+   P. Hamm, M. Lim, W. F. DeGrado, and R. M. Hochstrasser, J. Phys.             Elsaesser, J. Phys. Chem. A 105, 2929 共2001兲.
+                                                                             46
+   Chem. A 103, 10049 共1999兲.                                                   D. H. Son, P. Kambhampati, T. W. Kee, and P. F. Barbara, J. Phys. Chem.
+ 3
+   M. C. Asplund, M. T. Zanni, and R. M. Hochstrasser, Proc. Natl. Acad.        A 106, 4591 共2002兲.
+                                                                             47
+   Sci. U.S.A. 97, 8219 共2000兲.                                                 N. Mataga, H. Chosrowjan, Y. Shibata, Y. Imamoto, M. Kataoka, and F.
+ 4
+   N.-H. Ge, M. T. Zanni, and R. M. Hochstrasser, J. Phys. Chem. A 106,         Tokunaga, Chem. Phys. Lett. 352, 220 共2002兲.
+                                                                             48
+   962 共2002兲.                                                                  J. Jean, R. Friesner, and G. Fleming, J. Chem. Phys. 96, 5827 共1992兲.
+                                                                             49
+ 5
+   C. Fang, J. Wang, A. K. Charnley, W. Barber-Armstrong, A. B. Smith III,      J. Tang and S. H. Lin, Chem. Phys. Lett. 254, 6 共1996兲.
+                                                                             50
+   S. M. Decatur, and R. M. Hochstrasser, Chem. Phys. Lett. 382, 586            A. Lucke, C. H. Mak, R. Egger, J. Ankerhold, J. Stockburger, and H.
+   共2003兲.                                                                      Grabert, J. Chem. Phys. 107, 8397 共1997兲.
+ 6                                                                           51
+   M. Khalil and A. Tokmakoff, Chem. Phys. 266, 213 共2001兲.                     J. Casado-Pascual, C. Denk, M. Morillo, and R. I. Cukier, J. Chem. Phys.
+ 7
+   N. Demirdoven, M. Khalil, and A. Tokmakoff, Phys. Rev. Lett. 89,              113, 11176 共2000兲.
+234505-14     Pisliakov, Mančal, and Fleming                                                                   J. Chem. Phys. 124, 234505 共2006兲
+
+52
+   D. Egorova, A. Kühl, and W. Domcke, Chem. Phys. 268, 105 共2001兲.         67
+                                                                               D. M. Jonas, Annu. Rev. Phys. Chem. 54, 425 共2003兲.
+53
+   T. O. Cheche and S. H. Lin, Phys. Rev. E 64, 061103 共2001兲.              68
+                                                                               W. H. Press, B. P. Flannery, S. A. Teukolsky, and W. T. Vetterling, Nu-
+54
+   A. V. Pisliakov, M. F. Gelin, and W. Domcke, J. Phys. Chem. A 107,          merical Recipes 共Cambridge University Press, Cambridge, 1986兲.
+   2657 共2003兲.                                                             69
+                                                                               A. A. Ferro, J. D. Hybl, and D. M. Jonas, J. Chem. Phys. 114, 4649
+55
+   H. van Amerongen, L. Valkunas, and R. van Grondelle, Photosynthetic         共2001兲.
+   Excitons 共World Scientific, Singapore, 2000兲.                            70
+                                                                               M. Khalil, N. Demirdoven, and A. Tokmakoff, J. Chem. Phys. 121, 362
+56
+   L. Seidner, G. Stock, and W. Domcke, J. Chem. Phys. 103, 3998 共1995兲.       共2004兲.
+57
+   K. Blum, Density Matrix Theory and Applications 共Plenum, New York,       71
+                                                                               A. Piryatinski, V. Chernyak, and S. Mukamel, Chem. Phys. 266, 285
+   1981兲.                                                                      共2001兲.
+58
+   M. H. Vos, M. R. Jones, and J.-L. Martin, Chem. Phys. 233, 179 共1998兲.   72
+                                                                               C. Scheurer and S. Mukamel, J. Chem. Phys. 115, 4989 共2001兲.
+59
+   J. M. Jean and G. R. Fleming, J. Chem. Phys. 103, 2092 共1995兲.           73
+                                                                               M. Yang, K. Ohta, and G. R. Fleming, J. Chem. Phys. 110, 10243 共1999兲.
+60
+   O. Kühn and V. Sundström, J. Chem. Phys. 107, 4154 共1997兲.               74
+                                                                               M. Yang and G. R. Fleming, J. Chem. Phys. 113, 2823 共2000兲.
+61
+   T. Renger and V. May, J. Phys. Chem. A 102, 4381 共1998兲.                 75
+                                                                               R. Venkatramani and S. Mukamel, J. Chem. Phys. 117, 11089 共2002兲.
+62
+   M. Yang and G. R. Fleming, Chem. Phys. 275, 355 共2002兲.                  76
+                                                                               S. I. E. Vulto, M. A. de Baat, R. J. W. Louwe, H. P. Permentier, T. Neef,
+63
+   M. Yang, A. Damjanovic, H. M. Vaswani, and G. R. Fleming, Biophys. J.       M. Miller, H. van Amerongen, and T. J. Aartsma, J. Phys. Chem. B 102,
+    85, 140 共2003兲.                                                            9577 共1999兲.
+64
+   O. Kühn, T. Renger, and V. May, Chem. Phys. 204, 99 共1996兲.              77
+                                                                               R. Agarwal, M. Yang, Q. H. Xu, and G. R. Fleming, J. Chem. Phys. 110,
+65
+   V. May and O. Kühn, Charge and Energy Transfer Dynamics in Molecu-          10243 共1999兲.
+   lar Dynamics 共Wiley-VCH, Berlin, 2002兲.                                  78
+                                                                               T. Renger and V. May, J. Phys. Chem. B 101, 7232 共1997兲.
+66
+   A. G. Redfield, Adv. Magn. Reson. 1, 1 共1965兲.                           79
+                                                                               T. Renger, O. Kühn, and V. May, Phys. Rep. 343, 137 共2001兲.
+
+
+
+
+                                                                                                                                                           29 January 2025 07:55:59
+

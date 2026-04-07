@@ -1,0 +1,48 @@
+atomic:
+  n_atoms: 1
+  n_chains: 1
+  frequencies_cm:
+  - 16000.0
+  dip_moments:
+  - 1.0
+  coupling_cm: 0.0
+  max_excitation: 1
+  n_inhomogen: 1
+  delta_inhomogen_cm: 0.0
+  deph_rate_fs: 0.01
+  down_rate_fs: 0.0033333333333333335
+  up_rate_fs: 0.0
+laser:
+  pulse_fwhm_fs: 15.0
+  pulse_amplitudes:
+  - 0.02
+  - 0.02
+  - 0.002
+  envelope_type: gaussian
+  carrier_freq_cm: 16000.0
+  rwa_sl: true
+bath:
+  bath_type: ohmic
+  bath_temperature: 0.01
+  bath_cutoff: 100.0
+  sb_coupling: 0.0001
+  s: 1.0
+  wmax_factor: 10.0
+  peak_strength: 0.0
+  peak_width: 1.0
+  peak_center: 0.0
+config:
+  solver: paper_eqs
+  solver_options: {}
+  solver_run_kwargs: {}
+  sim_type: 2d
+  t_det: 600.0
+  t_coh: 600.0
+  t_wait: 20.0
+  dt: 2.0
+  n_phases: 4
+  signal_types:
+  - rephasing
+  - nonrephasing
+  initial_state: ground
+  max_workers: 12
