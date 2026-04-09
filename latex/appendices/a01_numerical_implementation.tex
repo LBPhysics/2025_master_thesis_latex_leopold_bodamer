@@ -2,116 +2,552 @@
 \chapter{Numerical Implementation}
 \label{app:numerical_implementation}
 
+This appendix documents how the theoretical model developed in the main text is translated into the Python code used for the numerical results of this thesis. The implementation is built around the \texttt{qspectro2d} package and uses \texttt{QuTiP} for the time propagation of open quantum systems~\cite{lambertetal2026qutip5quantum}. The central design choice is deliberately microscopic: instead of evaluating the third-order response analytically from pre-derived pathway expressions, the code propagates the density matrix under the full time-dependent pulse sequence, extracts the emitted positive-frequency polarisation, and applies phase cycling numerically afterwards. The discussion below therefore focuses on how the physics itself is encoded in the codebase.
 
+The use of QuTiP is not only a matter of software convenience. It is the step that turns the thesis workflow from a paper-specific implementation into a reusable spectroscopy framework. Once the model is encoded in terms of Hamiltonians, operators, and propagation backends, the same signal-construction pipeline can be reused for general finite-dimensional systems, different bath models, and larger excitonic aggregates. In that sense, the explicit paper-equation backend serves as a calibration reference, while the generic Lindblad and Redfield backends provide the extensible formulation.
 
-This chapter presents the computational framework used to simulate one- and two-dimensional electronic spectra of open quantum systems.
-
-The implementation is built around the \texttt{qspectro2d} Python package, which provides a modular, configuration-driven workflow that bridges the theoretical framework established in previous chapters with practical computational methods for investigating quantum coherence phenomena in complex molecular systems. The open quantum system dynamics are solved using \texttt{QuTiP}~\cite{lambertetal2026qutip5quantum}.
-
-\section{Software Architecture and Design Philosophy}
+\section{Overview of the Computational Workflow}
 \label{app:sec:software_architecture}
 
+The codebase is split into a small number of physics-oriented modules. One part constructs the truncated excitonic system, the pulse sequence, the bath coupling, and the propagation object itself. Another part turns propagated density matrices into measurable signals through polarisation extraction, phase cycling, inhomogeneous broadening, and Fourier-domain post-processing. The surrounding infrastructure only assembles these pieces from the chosen physical parameters and distributes the resulting calculations.
 
-The \texttt{qspectro2d} package follows a modular design that separates concerns across distinct functional domains. The architecture enables efficiency through parallel processing and flexible configuration management. The core design is built around a \textbf{configuration-driven workflow} that decouples physical models from computational implementation. This approach ensures that \textbf{modular components} including atomic systems, laser pulses, environmental baths, and spectroscopic calculations remain independently configurable. The framework provides \textbf{scalable execution} with support for both local testing and high-performance computing (HPC) batch processing, complemented by \textbf{comprehensive post-processing} through automated workflows for averaging, Fourier transforms, and visualization.
+From the point of view of the physics, every simulation run proceeds through four stages:
+\begin{enumerate}
+	\item the chosen physical parameters are converted into a concrete Hamiltonian, pulse sequence, bath model, and solver setup;
+	\item for each chosen coherence time and each inhomogeneous realisation, the density matrix is propagated under the complete three-pulse sequence;
+	\item the emitted third-order field is obtained by one-pulse subtraction and discrete phase cycling;
+	\item the time-domain signals are averaged over disorder and Fourier transformed into the final 1D or 2D spectra.
+\end{enumerate}
 
+The physical content is therefore represented explicitly as operators, density matrices, and time-dependent fields, while the surrounding workflow only serves to assemble and execute that model.
 
-The package structure comprises five main submodules: \texttt{core} (fundamental system components), \texttt{spectroscopy} (calculation engines), \texttt{config} (parameter management), \texttt{utils} (data handling utilities), and \texttt{visualization} (plotting tools).
-
-\section{Configuration-Driven Simulation Workflow}
+\section{Physical Parameters, Units, and Time Axes}
 \label{app:sec:configuration_workflow}
 
+\subsection{Physical Parameters}
 
-The simulation framework uses configuration files to specify the physical and computational parameters, enabling reproducible simulations. A typical configuration defines the \textbf{atomic system} through the number of atoms, transition frequencies, geometric arrangement, excitation-manifold truncation, and inhomogeneous broadening parameters. \textbf{Laser parameters} encompass pulse amplitudes, durations, carrier frequency, phase-cycling settings, and the rotating-wave-approximation option, while \textbf{environmental coupling} is characterized by bath type (for example Ohmic or Drude-Lorentz), temperature, coupling strength, and cutoff frequency. Finally, \textbf{computational settings} specify the ODE solver choice, signal type, time windows, and numerical discretization.
+At the level of the physics, the implementation is specified by four groups of parameters: system parameters such as the site energies $\omega_i$, dipole factors $\mu_i$, coupling scale $J$, and static-disorder width $\Delta_{\mathrm{inh}}$; pulse parameters such as the carrier frequency $\omega_L$, pulse width $\tau_p$, amplitudes $A_k$, and phases $\phi_k$; bath parameters such as the temperature $T$, cutoff frequency $\omega_c$, coupling strength $\alpha$, and Ohmic exponent $s$; and numerical propagation parameters such as the output spacing $dt$, the adaptive step bound \texttt{max\_step}, the number of phase steps $n_{\phi}$, and the chosen open-system approximation. This separation is important because the same physical model can then be propagated with different open-system approximations without changing the signal-construction pipeline.
 
+\subsection{Internal Units}
 
-The workflow consists of three main execution phases: simulation (\texttt{calc\_datas.py}), post-processing (\texttt{process\_datas.py}), and visualization (\texttt{plot\_datas.py}). The simulation stage generates individual artifacts for each combination of coherence time and inhomogeneous realization, the processing stage stacks these one-dimensional outputs into 2D datasets and averages over disorder realizations, and the plotting stage produces the final spectra and figures. This separation enables computationally expensive simulations to be performed once, followed by rapid exploration of different analysis and visualization options.
-
-\section{Third-Order Polarisation and Phase Cycling}
-\label{app:sec:third_order_polarisation}
-
-
-In the numerical implementation, the electric field for multiple pulses is modeled following the formalism established in~\autoref{chapter:spctr_spectroscopy}. The total electric field is expressed as
-\begin{equation*}
-	\boldsymbol{E}(\boldsymbol{r},t) = \sum_{m=1}^{3} \boldsymbol{E}_m(\boldsymbol{r},t) + \mathrm{c.c.},
-\end{equation*}
-where c.c. denotes the complex conjugate, and
-\begin{equation*}
-	\boldsymbol{E}_m(\boldsymbol{r},t) = \boldsymbol{\chi}_m E'_m(t - \tau_m) \exp(-i (\omega_m t + \varphi_m)),
-\end{equation*}
-with frequency $\omega_m = 2\pi \nu_m$, wavevector $\boldsymbol{k}_m$, and electric field amplitude $\boldsymbol{\chi}_m$. The envelope $E'_m(t - \tau_m)$, centered at $\tau_m$, is assumed to be Gaussian with FWHM $\tau_p$
-\begin{equation*}
-	E'_m(t - \tau_m) = \exp\left( -\frac{4 \ln 2 (t - \tau_m)^2}{\tau_p^2} \right).
-\end{equation*}
-For numerical efficiency, each Gaussian pulse is represented with finite support over a precomputed active window $t \in [\tau_m-1.823\,\tau_p,\tau_m+1.823\,\tau_p]$. Within this window the Gaussian envelope is evaluated explicitly and shifted by its boundary value so that it vanishes smoothly at the cutoff. Outside, where $|E'_m(t)|^2$ falls below $10^{-4}$, the pulse contribution is set to zero. As a result, away from the pulse windows the dynamics reduce to the field-free evolution generated by $H_0$ together with the dissipative terms.
-The core spectroscopic calculation implements phase-cycled third-order polarisation measurement following the established four-wave mixing protocols detailed in~\autoref{chapter:spctr_spectroscopy}, \autoref{sec:spctr_phase_cycling}~\cite{mukamel1995principlesnonlinearoptical, greenetal2024vibrationalcoherenceshalfbroadband}.
-
-This thesis uses a microscopic, non-perturbative (NP) approach: the full time-dependent equation of motion is solved with the pulses included and the induced polarisation is computed via \autoref{eq:spctr_P_def_spectroscopy}. For each phase setting, the code evaluates one run with all pulses present and three auxiliary runs in which only a single pulse is active; subtracting these auxiliary signals removes the leading lower-order contributions from the full signal. In the weak-field regime and for centrosymmetric media (where $\chi^{(2)}$ vanishes), this yields a background-free polarisation that is dominated by the desired third-order response,
+The transition frequencies are specified in cm$^{-1}$, but the dynamics are propagated in angular-frequency units of fs$^{-1}$. Internally the conversion is
 \begin{equation}
-	\boldsymbol{P}^{(3)}(t)
-	\approx
-	\boldsymbol{P}_{\mathrm{total}}(t)
-	-
-	\sum_{m=1}^{3} \boldsymbol{P}_{(m)}(t),
-	\label{eq:third_order_signal_numerical}
+\omega_{\mathrm{fs}^{-1}}
+= 2 \pi c \cdot 10^{-5}\,\omega_{\mathrm{cm}^{-1}},
 \end{equation}
-where $\boldsymbol{P}_{\mathrm{total}}(t)$ is obtained with all three pulses present and $\boldsymbol{P}_{(m)}(t)$ denotes the polarisation obtained when only pulse $m$ is applied. In practice, the emitted complex polarisation is extracted in the energy eigenbasis from the radiating part of the dipole operator, so that both amplitude and phase are retained for the later phase-cycling step. The emitted field $E_{\mathrm{S}}(t) \propto iP^{(3)}(t)$ is then formed according to \autoref{eq:spctr_signal_field_from_polarisation}.
+with the same convention used consistently for site energies, couplings, pulse carrier frequencies, and all bath frequencies. In the code, $\hbar$ is set to unity, so Hamiltonian matrix elements are numerically expressed in the same fs$^{-1}$ units.
 
-To isolate the rephasing and nonrephasing contributions, the third-order polarisation is evaluated on the discrete phase grid $\phi_1,\phi_2 \in \{0,\pi/2,\pi,3\pi/2\}$, while the third pulse phase is kept fixed at zero. The required phase combinations are distributed over worker processes, and the desired components are extracted by the discrete Fourier projection of \autoref{eq:spctr_phase_cycling_projection}, using the sign pairs $(l,m)=(-1,+1)$ for the rephasing signal and $(l,m)=(+1,-1)$ for the nonrephasing signal.
+The bath sector is treated slightly differently. In the numerical workflow the natural control parameters are the dimensionless ratios $T/\bar{\omega}_0$, $\omega_c/\bar{\omega}_0$, and $\alpha/\bar{\omega}_0$, where
+\begin{equation}
+\bar{\omega}_0 = \frac{1}{N}\sum_{i=1}^{N}\omega_i.
+\end{equation}
+The code therefore reconstructs, for example,
+\begin{equation}
+T = \left(\frac{T}{\bar{\omega}_0}\right)\bar{\omega}_0,
+\qquad
+\omega_c = \left(\frac{\omega_c}{\bar{\omega}_0}\right)\bar{\omega}_0,
+\end{equation}
+before constructing the QuTiP environment. This is the same normalization used in the results chapter, where bath parameters are quoted as ratios relative to a characteristic optical scale.
+
+\subsection{Time Grids and Pulse Timing}
+
+The public detection and coherence axes always begin at zero, but the actual solver grid starts earlier because the first pulse must already be present when the propagation begins. For a three-pulse sequence with coherence time $t_{\mathrm{coh}}$ and waiting time $T$, the pulse peaks are placed at
+\begin{equation}
+t_1 = -(t_{\mathrm{coh}} + T),
+\qquad
+t_2 = -T,
+\qquad
+t_3 = 0.
+\end{equation}
+The solver-local initial time is then chosen to lie before the first pulse window. For Gaussian pulses, the code uses
+\begin{equation}
+t_0 = -\Bigl(t_{\mathrm{coh}} + T + 1.823\,\tau_p\Bigr),
+\end{equation}
+rounded down to the nearest multiple of the output spacing \texttt{dt}. The factor $1.823$ is the active half-width used in the laser module; at this cutoff the Gaussian intensity has already dropped below $10^{-4}$ of its peak value.
+
+The same \texttt{dt} sets the spacing of the stored time axis, but not necessarily the adaptive solver's internal step size. Internally the adaptive upper bound \texttt{max\_step} is chosen so that the pulse envelope is sufficiently resolved when the rotating-wave approximation is used and the optical carrier is sufficiently resolved when the full laboratory-frame dynamics are propagated. In addition, the workflow removes coherence-time points with $t_{\mathrm{coh}} < dt$ so that the first two pulses never overlap numerically.
+
+\section{Implementation of the Truncated Excitonic Model}
+\label{app:sec:model_systems}
+
+\subsection{Basis Construction}
+
+The Hilbert space is constructed explicitly from excitation manifolds. If only the single-excitation sector is retained, the basis contains the ground state and the $N$ single-excitation states,
+\begin{equation}
+\mathcal{B}_{1\mathrm{ex}} = \left\{ \ket{g}, \ket{1}, \ldots, \ket{N} \right\},
+\end{equation}
+so that the dimension is $1+N$. If the double-excitation manifold is also retained, the basis is enlarged to
+\begin{equation}
+\mathcal{B}_{2\mathrm{ex}} = \left\{ \ket{g}, \ket{1}, \ldots, \ket{N}, \ket{12}, \ket{13}, \ldots \right\},
+\end{equation}
+and the total dimension becomes
+\begin{equation}
+\dim \mathcal{H} = 1 + N + \binom{N}{2}.
+\end{equation}
+The pair states are ordered deterministically, so the mapping from a site pair $(i,j)$ to the basis index of $\ket{ij}$ is fixed across runs.
+
+\subsection{Hamiltonian in the Site Basis}
+
+In this truncated basis the field-free Hamiltonian is assembled term by term in the site basis. The code first adds the diagonal single-excitation energies,
+\begin{equation}
+\sum_{i=1}^{N} \omega_i \ket{i}\!\bra{i},
+\end{equation}
+then, when the double-excitation manifold is present, the diagonal energies
+\begin{equation}
+\sum_{i<j} (\omega_i + \omega_j)\ket{ij}\!\bra{ij},
+\end{equation}
+and finally the off-diagonal excitonic couplings. For the one-excitation manifold this gives
+\begin{equation}
+H_{\mathrm{1ex}}
+=
+\sum_i \omega_i \ket{i}\!\bra{i}
++ \sum_{i<j} J_{ij}\Bigl(\ket{i}\!\bra{j} + \ket{j}\!\bra{i}\Bigr),
+\end{equation}
+while in the two-excitation manifold the same pairwise couplings are reused to connect states such as $\ket{ij}$ and $\ket{ik}$ whenever the two basis states differ by moving one excitation from site $j$ to site $k$. In this way the double-excitation block is not inserted phenomenologically afterwards; it is constructed from the same site-level couplings that define the single-excitation exciton Hamiltonian.
+
+\subsection{Geometry and Couplings}
+
+For dimers the coupling is simply the chosen matrix element $J$. For larger systems the code builds actual spatial coordinates. If only one chain is present, the sites are placed on a linear chain. Otherwise the sites are arranged on a cylindrical lattice with a chosen number of sites per ring and with rings stacked along the cylinder axis. The distance-dependent couplings are then generated as
+\begin{equation}
+J_{ij} = J_0 \frac{\mu_i \mu_j}{r_{ij}^3},
+\end{equation}
+where $J_0$ is the base coupling scale and $\mu_i$ are the site dipole prefactors. This is precisely how the microtubule-inspired extended systems are encoded: the geometry is not only descriptive metadata, but directly determines the Hamiltonian matrix elements.
+
+\subsection{Dipole Operator and Basis Transformations}
+
+The lowering part of the dipole operator is constructed explicitly as
+\begin{equation}
+\hat{\mu}^{(-)}
+=
+\sum_{i=1}^{N} \mu_i \ket{g}\!\bra{i}
++ \sum_{i<j}
+\Bigl(
+\mu_i \ket{j}\!\bra{ij}
++ \mu_j \ket{i}\!\bra{ij}
+\Bigr),
+\end{equation}
+and the full dipole operator is $\hat{\mu} = \hat{\mu}^{(-)} + \hat{\mu}^{(+)}$ with $\hat{\mu}^{(+)} = (\hat{\mu}^{(-)})^{\dagger}$. The first sum drives transitions between the ground and one-excitation manifolds, while the second sum provides the excited-state absorption pathways between the one- and two-excitation manifolds.
+
+After assembling the Hamiltonian, the code diagonalises it and constructs the unitary transformation matrix $U$ from the resulting eigenvectors. All solver-side operators are then transformed as
+\begin{equation}
+\hat{O}_{\mathrm{eig}} = U^{\dagger}\hat{O}_{\mathrm{site}}U.
+\end{equation}
+This basis change is central to the implementation. Propagation, observable evaluation, and the custom paper-equation Liouvillians are all written in the energy eigenbasis. The eigenvectors are additionally phase-fixed numerically so that the first nonzero component of each eigenvector is real and positive, which makes stored eigenbasis quantities reproducible across runs.
+
+\section{Laser Pulses and Light-Matter Interaction}
+\label{app:sec:laser_field}
+
+The pulse model stores three pulses with amplitudes $A_k$, phases $\phi_k$, common carrier frequency $\omega_L$, a chosen envelope type, and FWHM $\tau_p$. Two envelope types are implemented: Gaussian and $\cos^2$. For the Gaussian case the code evaluates
+\begin{equation}
+s_k(t)
+=
+\exp\!\left[
+-\frac{(t-t_k)^2}{2\sigma^2}
+\right],
+\qquad
+\sigma = \frac{\tau_p}{2\sqrt{2\ln 2}},
+\end{equation}
+only inside the active time window $[t_k-1.823\tau_p,\, t_k+1.823\tau_p]$. Inside that window the boundary value is subtracted,
+\begin{equation}
+s_k^{\mathrm{num}}(t) = \max\!\bigl(s_k(t)-s_k(t_k \pm 1.823\tau_p),0\bigr),
+\end{equation}
+so that the pulse envelope vanishes continuously at the numerical cutoff. Outside the active window the field is set exactly to zero.
+
+The code distinguishes carefully between the full laboratory-frame positive-frequency field and its slowly varying envelope. In the notation used internally,
+\begin{equation}
+\varepsilon^{(+)}(t) = e^{-i\omega_L t} E(t),
+\qquad
+E(t) = \sum_{k=1}^{3} A_k s_k(t)e^{-i\phi_k},
+\end{equation}
+where $\omega_L$ is the common carrier frequency and $\phi_k$ are the phase-cycling phases. The non-RWA implementation uses the full field $\varepsilon^{(+)}(t)$ and the full dipole operator,
+\begin{equation}
+H_{\mathrm{int}}(t)
+=
+-\hat{\mu}\Bigl(\varepsilon^{(+)}(t)+\varepsilon^{(-)}(t)\Bigr),
+\end{equation}
+whereas the RWA implementation uses the slowly varying envelope,
+\begin{equation}
+H_{\mathrm{int}}^{\mathrm{RWA}}(t)
+=
+-\Bigl(\hat{\mu}^{(-)}E^{*}(t)+\hat{\mu}^{(+)}E(t)\Bigr).
+\end{equation}
+This is exactly the convention used both by the generic Hamiltonian propagation and by the custom \texttt{paper\_eqs} Liouvillian.
 
 \section{Open Quantum System Evolution}
 \label{app:sec:oqs_evolution}
 
+\subsection{Generic Propagation Layer}
 
-The quantum system evolution is handled by the \texttt{SimulationModuleOQS} class, which provides a unified interface for the solver backends implementing the open quantum system dynamics developed in~\autoref{chapter:oqs_open_quantum_systems}. The implementation supports Lindblad master-equation evolution via QuTiP's \texttt{mesolve}, Bloch-Redfield dynamics via \texttt{brmesolve}, and a custom \texttt{paper\_eqs} Liouvillian used for the monomer and dimer benchmark calculations. The initial state is taken as the ground-state density matrix by default. Every operator is transformed to the energy eigenbasis before propagation.
-
-
-For time-dependent pulse sequences, the total Hamiltonian takes the form established in the spectroscopy theory (\autoref{chapter:spctr_spectroscopy}):
+The propagation layer collects the system, laser, bath, and numerical settings in one solver-facing object. The initial state is the ground-state density matrix by default. For finite-temperature Redfield calculations, the code can also construct a Boltzmann state in the energy eigenbasis,
 \begin{equation}
-	\label{eq:time_dependent_hamiltonian}
-	H(t) = H_0 + \sum_{i} H_{\mathrm{int},i}(t),
+\rho_{\mathrm{th}}
+=
+\frac{1}{Z}\sum_{a} e^{-E_a/T}\ket{a}\!\bra{a},
 \end{equation}
-where $H_0$ is the bare system Hamiltonian and $H_{\mathrm{int},i}(t)$ represents the interaction with pulse $i$, following the light-matter interaction formalism detailed in~\autoref{chapter:spctr_spectroscopy}. In the RWA implementation, the code constructs the slowly varying positive-frequency field, propagates the density matrix in the rotating frame, and transforms the resulting states back to the laboratory frame before evaluating the emitted polarisation. Dissipative terms are supplied either as Lindblad collapse operators or as Bloch-Redfield system-bath coupling operators derived from the same underlying system model.
+but this option is intentionally restricted to Redfield runs, because that is the only backend for which the code treats finite-temperature equilibration consistently.
 
-\section{Inhomogeneous Broadening and Statistical Averaging}
+If the rotating-wave approximation is used, the rotating frame is defined by
+\begin{equation}
+U(t) = e^{i\omega_L \hat{N} t},
+\end{equation}
+with $\hat{N}$ the excitation-number operator. The field-free Hamiltonian used by the solver is therefore
+\begin{equation}
+H_{\mathrm{RWA}} = H_0 - \omega_L \hat{N},
+\end{equation}
+which matches the pulse convention described above. If instead the full laboratory-frame dynamics are propagated, the time evolution is carried out with the full carrier oscillation retained explicitly. The two implementations therefore differ only in the representation of the light-matter coupling, not in the underlying physical system.
+
+\subsection{Lindblad Backend}
+
+In the Lindblad implementation, dissipation is encoded by collapse operators produced from the same site-resolved model. For each site $i$ the code first builds the projector-like operator
+\begin{equation}
+A_i = \ket{i}\!\bra{i} + \sum_{j\neq i}\ket{ij}\!\bra{ij},
+\end{equation}
+which means that the local bath associated with site $i$ acts not only on the corresponding one-excitation state but also on every double-excitation state that contains site $i$. The pure-dephasing collapse operator is then
+\begin{equation}
+L_i^{(\varphi)} = \sqrt{2\gamma_{\varphi}}\,U^{\dagger}A_iU.
+\end{equation}
+The factor of $2$ is inserted explicitly so that the implemented pure-dephasing rate coincides with the phenomenological $\gamma_{\varphi}$ used in the analytical paper equations.
+
+For the monomer the code also includes explicit population relaxation operators,
+\begin{equation}
+L_{\downarrow} = \sqrt{\gamma_{\downarrow}}\,\ket{g}\!\bra{e},
+\qquad
+L_{\uparrow} = \sqrt{\gamma_{\uparrow}}\,\ket{e}\!\bra{g},
+\end{equation}
+again transformed into the eigenbasis before propagation. For dimers the Lindblad implementation intentionally omits separate ground-state up/down channels so that the structure stays parallel to the benchmark paper models used elsewhere in the thesis.
+
+\subsection{Bloch--Redfield Backend}
+
+In the Bloch--Redfield implementation, the code builds a QuTiP bosonic environment and couples it to the same operators $A_i$. The supported bath families are Ohmic and Drude--Lorentz, parameterized by the bath temperature $T$, coupling strength $\alpha$, cutoff frequency $\omega_c$, and, for the Ohmic family, the low-frequency exponent $s$. Variants with an additional Lorentzian peak are also implemented. In that case the extra contribution is written explicitly as
+\begin{equation}
+J_{\mathrm{peak}}(\omega)
+=
+\eta\,\omega\,
+\frac{\gamma^2}{(\omega-\omega_0)^2 + \gamma^2},
+\qquad \omega > 0,
+\end{equation}
+and then added to the base spectral density before the environment is passed to QuTiP.
+
+The Redfield coupling Hamiltonian is therefore of the form
+\begin{equation}
+H_{\mathrm{SB}} = \sum_i F_i A_i,
+\end{equation}
+with one independent local bath for each site. In other words, the code assumes uncorrelated local environments. The operators are transformed to the eigenbasis before they are passed to the Redfield solver, so the system-bath coupling is expressed in the basis in which the coherent part of the Hamiltonian is diagonal.
+
+\subsection{Custom Paper-Equation Liouvillian}
+\label{app:sec:paper_eqs_explicit_eoms}
+
+The third propagation option is not a generic master-equation construction but a hard-coded implementation of the analytical equations used in the benchmark papers. It uses the same rotating-frame field convention as the generic RWA propagation,
+\begin{equation}
+\mathcal{L}(t) = L_0 + E(t)L_{+} + E^{*}(t)L_{-}.
+\end{equation}
+For the monomer, the code assembles the full $2\times 2$ Liouvillian in Liouville space directly from the detuning, dephasing rate, and relaxation rates. For the dimer, it writes the full $16\times 16$ Liouville-space matrix associated with the eigenbasis density-matrix elements \(\rho_{ab}\) of the four-level structure \(\{\ket{0},\ket{1},\ket{2},\ket{3}\}\equiv\{\ket{g},\ket{e_1},\ket{e_2},\ket{f}\}\). The coefficients entering \(L_0\) are not inserted as ad hoc constants. They are computed from the actual bath power spectrum together with the dimer mixing angle
+\begin{equation}
+\theta = \frac{1}{2}\arctan\!\left(\frac{2J}{\omega_1-\omega_2}\right),
+\end{equation}
+which the code uses to evaluate the paper rates $\gamma_{ab}$ and $\Gamma_{ab}$.
+
+\subsubsection{Monomer Equations}
+
+Using the rotating-frame ansatz
+\begin{equation}
+\rho_{eg}(t)=\sigma_{eg}(t)\,\mathrm{e}^{-\mathrm{i}\omega_L t},
+\qquad
+\rho_{ge}(t)=\sigma_{ge}(t)\,\mathrm{e}^{+\mathrm{i}\omega_L t},
+\end{equation}
+the implemented monomer equations are
+\begin{align}
+\dot{\sigma}_{eg}
+&=
+-\bigl(\Gamma + i\Delta_{L}\bigr)\sigma_{eg}
++ i\,\mu_{eg} E(t)\,\bigl(\rho_{gg}-\rho_{ee}\bigr),
+\\
+\dot{\rho}_{ee}
+&=
+-\gamma_{\downarrow}\rho_{ee}
++ \gamma_{\uparrow}\rho_{gg}
++ i\,\mu_{eg}E(t)\sigma_{ge}
+- i\,\mu_{eg}E^{*}(t)\sigma_{eg},
+\\
+\dot{\rho}_{gg}
+&=
+-\gamma_{\uparrow}\rho_{gg}
++ \gamma_{\downarrow}\rho_{ee}
+- i\,\mu_{eg}E(t)\sigma_{ge}
++ i\,\mu_{eg}E^{*}(t)\sigma_{eg},
+\end{align}
+with
+\begin{equation}
+\Gamma = \gamma_{\varphi} + \frac{\gamma_{\downarrow}+\gamma_{\uparrow}}{2},
+\qquad
+\Delta_{L}=\omega_{eg}-\omega_L.
+\end{equation}
+For the benchmark monomer runs of this thesis, \(\gamma_{\uparrow}=0\), so the equations reduce to the familiar Paper-I form quoted in the discussion chapter.
+
+\subsubsection{Dimer Equations}
+
+For the dimer backend, the relevant dipole matrix elements are the eigenbasis couplings \(\mu_{10},\mu_{20},\mu_{31},\mu_{32}\). The transition frequencies are \(\omega_{ab}=E_a-E_b\). The rotating-frame ansatz is
+\begin{equation}
+\rho_{10}=\sigma_{10}\mathrm{e}^{-\mathrm{i}\omega_L t},
+\quad
+\rho_{20}=\sigma_{20}\mathrm{e}^{-\mathrm{i}\omega_L t},
+\quad
+\rho_{30}=\sigma_{30}\mathrm{e}^{-2\mathrm{i}\omega_L t},
+\quad
+\rho_{31}=\sigma_{31}\mathrm{e}^{-\mathrm{i}\omega_L t},
+\quad
+\rho_{32}=\sigma_{32}\mathrm{e}^{-\mathrm{i}\omega_L t},
+\end{equation}
+while the intraband coherence \(\rho_{12}\) and the populations \(\rho_{aa}\) are left unchanged. In this notation the implemented equations read
+\begin{align}
+\dot{\sigma}_{10}
+&=
+-\bigl[i(\omega_{10}-\omega_L)+\Gamma_{10}\bigr]\sigma_{10}
++ iE(t)\bigl[\mu_{10}(\rho_{00}-\rho_{11})-\mu_{20}\rho_{12}\bigr]
++ iE^{*}(t)\mu_{31}\sigma_{30},
+\\
+\dot{\sigma}_{20}
+&=
+-\bigl[i(\omega_{20}-\omega_L)+\Gamma_{20}\bigr]\sigma_{20}
++ iE(t)\bigl[\mu_{20}(\rho_{00}-\rho_{22})-\mu_{10}\rho_{21}\bigr]
++ iE^{*}(t)\mu_{32}\sigma_{30},
+\\
+\dot{\sigma}_{30}
+&=
+-\bigl[i(\omega_{30}-2\omega_L)+\Gamma_{30}\bigr]\sigma_{30}
++ iE(t)\bigl[\mu_{31}\sigma_{10}+\mu_{32}\sigma_{20}
+- \mu_{10}\sigma_{31}-\mu_{20}\sigma_{32}\bigr],
+\end{align}
+\begin{align}
+\dot{\sigma}_{31}
+&=
+-\bigl[i(\omega_{31}-\omega_L)+\Gamma_{31}\bigr]\sigma_{31}
++ iE(t)\bigl[\mu_{31}(\rho_{11}-\rho_{33})+\mu_{32}\rho_{21}\bigr]
+- iE^{*}(t)\mu_{10}\sigma_{30},
+\\
+\dot{\sigma}_{32}
+&=
+-\bigl[i(\omega_{32}-\omega_L)+\Gamma_{32}\bigr]\sigma_{32}
++ iE(t)\bigl[\mu_{32}(\rho_{22}-\rho_{33})+\mu_{31}\rho_{12}\bigr]
+- iE^{*}(t)\mu_{20}\sigma_{30},
+\\
+\dot{\rho}_{12}
+&=
+-\bigl(i\omega_{12}+\Gamma_{12}\bigr)\rho_{12}
++ iE(t)\bigl[\mu_{10}\sigma_{02}-\mu_{32}\sigma_{13}\bigr]
++ iE^{*}(t)\bigl[\mu_{31}\sigma_{32}-\mu_{20}\sigma_{10}\bigr],
+\end{align}
+\begin{align}
+\dot{\rho}_{11}
+&=
+-\Gamma_{11}\rho_{11}
++ \gamma_{12}\rho_{22}
++ iE(t)\bigl[\mu_{10}\sigma_{01}-\mu_{31}\sigma_{13}\bigr]
++ iE^{*}(t)\bigl[\mu_{31}\sigma_{31}-\mu_{10}\sigma_{10}\bigr],
+\\
+\dot{\rho}_{22}
+&=
+-\Gamma_{22}\rho_{22}
++ \gamma_{21}\rho_{11}
++ iE(t)\bigl[\mu_{20}\sigma_{02}-\mu_{32}\sigma_{23}\bigr]
++ iE^{*}(t)\bigl[\mu_{32}\sigma_{32}-\mu_{20}\sigma_{20}\bigr],
+\\
+\dot{\rho}_{00}
+&=
+-iE(t)\bigl[\mu_{10}\sigma_{01}+\mu_{20}\sigma_{02}\bigr]
++ iE^{*}(t)\bigl[\mu_{10}\sigma_{10}+\mu_{20}\sigma_{20}\bigr].
+\end{align}
+The remaining equations are fixed by Hermiticity and normalization:
+\begin{equation}
+\rho_{21}=\rho_{12}^{*},
+\qquad
+\sigma_{01}=\sigma_{10}^{*},
+\qquad
+\sigma_{02}=\sigma_{20}^{*},
+\qquad
+\sigma_{13}=\sigma_{31}^{*},
+\qquad
+\sigma_{23}=\sigma_{32}^{*},
+\qquad
+\dot{\rho}_{33}=-\dot{\rho}_{00}-\dot{\rho}_{11}-\dot{\rho}_{22}.
+\end{equation}
+
+This explicit $16\times 16$ construction also clarifies an important detail about Paper~II. Appendix~D of that paper prints only the subset of equations labelled (D1)--(D6) and then states that the elements involving the second one-exciton state are obtained by the substitution \(1\leftrightarrow 2\). However, when the full RWA commutator is reconstructed in Liouville space, the coherences \(\sigma_{31}\) and \(\sigma_{32}\) also contain terms proportional to the upper-manifold population \(\rho_{33}\). In other words, the full commutator structure yields the combinations
+\begin{equation}
+iE(t)\bigl[\mu_{31}(\rho_{11}-\rho_{33})+\mu_{32}\rho_{21}\bigr],
+\qquad
+iE(t)\bigl[\mu_{32}(\rho_{22}-\rho_{33})+\mu_{31}\rho_{12}\bigr],
+\end{equation}
+not only the lower-state pieces proportional to \(\mu_{31}\rho_{11}\) and \(\mu_{32}\rho_{22}\). These \(\rho_{33}\)-terms are not written explicitly in the printed appendix of Paper~II, but they are required by the same commutator that generates the rest of the Liouvillian and by consistency with the trace-preserving population equation. The implementation therefore keeps the completed form of the dimer equations rather than a literal transcription of the shortened printed list.
+
+This backend is therefore best understood as a reference implementation that reproduces the published equations within the same software framework as the more generic Lindblad and Redfield solvers, while at the same time making the full Liouvillian structure explicit.
+
+\subsection{Solver Diagnostics and Time Cutoff}
+
+Before a parameter sweep is launched, the workflow runs a dedicated solver diagnostic on the base simulation object. The code propagates one full trajectory and checks at every stored time point whether the density matrix remains Hermitian, trace preserving, and positive semidefinite. The first time at which these conditions fail defines a numerical cutoff time $t_{\mathrm{cut}}$. During signal construction the emitted field is then multiplied by a mask that sets the signal to zero for $t_{\mathrm{det}} > t_{\mathrm{cut}}$. This is an important safeguard in the thesis workflow: unphysical late-time tails are removed systematically instead of being allowed to contaminate the Fourier transform.
+
+\section{Construction of the Third-Order Signal}
+\label{app:sec:third_order_polarisation}
+
+\subsection{Positive-Frequency Polarisation}
+
+After propagation, the emitted signal is extracted from the density matrix through the positive-frequency part of the dipole operator,
+\begin{equation}
+P^{(+)}(t) = \mathrm{Tr}\!\left[\hat{\mu}^{(+)}\rho(t)\right].
+\end{equation}
+In the actual implementation, $\hat{\mu}^{(+)}$ is obtained by taking the strictly lower-triangular part of the dipole matrix in the ordered eigenbasis. This keeps only the radiating transitions from lower to higher excitation sectors in the convention adopted by the code. The result is a complex signal, so both amplitude and phase are retained explicitly throughout the pipeline.
+
+The solver-local trajectory is generally longer than the public detection window. The code therefore computes the full propagated polarisation and then slices it back onto the public detection axis $t_{\mathrm{det}} \in [0,T_{\mathrm{det}}]$. This keeps the pulse action and the subsequent free evolution on one continuous internal grid while ensuring that all saved artefacts use the same detection axis.
+
+\subsection{One-Pulse Subtraction}
+
+The thesis implementation uses a non-perturbative three-pulse propagation, but the desired observable is still the third-order response. To isolate it numerically, the code evaluates, for every phase setting, one run with all three pulses present and three auxiliary runs in which only a single pulse is active. The background-subtracted signal is then
+\begin{equation}
+P^{(3)}(t)
+\approx
+P_{\mathrm{total}}(t)
+- P_{(1)}(t)
+- P_{(2)}(t)
+- P_{(3)}(t),
+\label{eq:third_order_signal_numerical}
+\end{equation}
+which is the implemented form of third-order isolation in the weak-field regime. In the benchmark calculations of this thesis, the pulse amplitudes are chosen weak enough that higher-order contamination remains numerically negligible.
+
+\subsection{Discrete Phase Cycling}
+
+For a given coherence time and a given disorder realisation, the code evaluates the phase grid
+\begin{equation}
+\phi_1,\phi_2 \in \left\{0,\frac{\pi}{2},\pi,\frac{3\pi}{2}\right\},
+\qquad
+\phi_3 = 0,
+\end{equation}
+which corresponds to the $n_{\phi}=4$ phase-cycling grid used in the benchmark calculations. For each pair $(\phi_1,\phi_2)$ the one-pulse-subtracted signal is projected onto the desired phase-matching component through
+\begin{equation}
+P_{l,m}(t)
+=
+\left(\frac{\Delta\phi}{2\pi}\right)^2
+\sum_{\phi_1,\phi_2}
+e^{-i(l\phi_1 + m\phi_2)}
+\Bigl[
+P_{\mathrm{total}}(t;\phi_1,\phi_2)
+- P_{(1)}(t;\phi_1)
+- P_{(2)}(t;\phi_2)
+- P_{(3)}(t)
+\Bigr].
+\end{equation}
+The implementation uses $(l,m)=(-1,+1)$ for the rephasing contribution and $(l,m)=(+1,-1)$ for the nonrephasing contribution. Finally, the emitted field is assembled as
+\begin{equation}
+E_{\mathrm{sig}}(t) \propto -i\,P_{l,m}(t).
+\end{equation}
+
+From a computational point of view, one complete phase-cycling evaluation for fixed $(t_{\mathrm{coh}},n)$ therefore requires
+\begin{equation}
+n_{\phi}^2 + 2n_{\phi} + 1
+\end{equation}
+separate propagations: $n_{\phi}^2$ full three-pulse runs, $n_{\phi}$ single-pulse-$1$ runs, $n_{\phi}$ single-pulse-$2$ runs, and one single-pulse-$3$ run. These propagations are mutually independent and can therefore be parallelised directly.
+
+\section{Inhomogeneous Broadening and Ensemble Averaging}
 \label{app:sec:inhomogeneous_broadening}
 
-
-Real molecular systems exhibit inhomogeneous broadening due to environmental variations, as discussed in the spectroscopy fundamentals (\autoref{chapter:spctr_spectroscopy}). The implementation models this through Gaussian-distributed transition frequencies following the theoretical treatment:
+The code models inhomogeneous broadening by sampling site energies from Gaussian distributions around the mean frequencies. The broadening is specified through the FWHM $\Delta_{\mathrm{inh}}$, and the code converts this to the corresponding standard deviation,
 \begin{equation}
-	\label{eq:gaussian_broadening}
-	p(\omega) = \frac{1}{\sigma\sqrt{2\pi}} \exp\left(-\frac{(\omega-\omega_0)^2}{2\sigma^2}\right),
+\sigma_i = \frac{\Delta_{\mathrm{inh},i}}{2\sqrt{2\ln 2}}.
 \end{equation}
-where $\sigma = \Delta/(2\sqrt{2\ln 2})$ relates the standard deviation to the experimentally relevant full width at half maximum, consistent with the broadening models established in~\autoref{chapter:spctr_spectroscopy}. In the implementation, the Gaussian samples are generated by vectorized rejection sampling and truncated to the interval $[\omega_0-10\Delta,\omega_0+10\Delta]$. Each accepted frequency vector is then written back into the \texttt{AtomicSystem} before the corresponding propagation is launched.
-
-\section{Parallel Processing and Scalable Execution}
-\label{app:sec:parallel_processing}
-
-
-The framework supports both local execution for testing and HPC cluster deployment for large parameter studies. The local workflow (\texttt{calc\_datas.py}) generates the full Cartesian product of coherence times and inhomogeneous realizations and stores each combination as an individual artifact. For every such combination, the internal phase-cycling loop is parallelized with \texttt{ProcessPoolExecutor} over the discrete $(\phi_1,\phi_2)$ grid. The HPC workflow dispatches batches of these parameter combinations to separate SLURM jobs.
-
-
-For each combination of parameters, the averaged response is calculated following the inhomogeneous averaging procedure established in the spectroscopy theory (\autoref{chapter:spctr_spectroscopy}):
+The resulting scalar or site-resolved Gaussians are then sampled independently, so the implemented distribution is
 \begin{equation}
-	\label{eq:averaged_response}
-	\langle E_{\mathrm{S}}(t_{\mathrm{coh}}, t_{\mathrm{det}}) \rangle = \frac{1}{N_{\mathrm{inhom}}} \sum_{i=1}^{N_{\mathrm{inhom}}} E_{\mathrm{S}}^{(i)}(t_{\mathrm{coh}}, t_{\mathrm{det}}),
+\label{eq:gaussian_broadening}
+p(\omega_i)
+=
+\frac{1}{\sigma_i\sqrt{2\pi}}
+\exp\!\left[
+-\frac{(\omega_i-\omega_{i,0})^2}{2\sigma_i^2}
+\right].
 \end{equation}
-where $N_{\mathrm{inhom}}$ represents the number of inhomogeneous samples as defined in the broadening treatment (\autoref{chapter:spctr_spectroscopy}). In the post-processing stage, runs are first grouped by disorder sample, stacked along the coherence-time axis, duplicate coherence-time entries are merged if necessary, and only then is the average over samples computed.
 
-\section{Post-Processing and Spectral Analysis}
+Numerically, the Gaussian ensemble is sampled independently for each site, with the tails truncated far from the mean at $\omega_{i,0} \pm 10\Delta_{\mathrm{inh},i}$. If $\Delta_{\mathrm{inh},i}=0$ for all sites, the deterministic mean vector is used instead. Each accepted disorder realisation replaces the current site-frequency vector, after which the Hamiltonian and operator data are rebuilt before propagation.
+
+For the final averaged response the workflow computes
+\begin{equation}
+\label{eq:averaged_response}
+\left\langle E_{\mathrm{sig}}(t_{\mathrm{coh}},t_{\mathrm{det}})\right\rangle
+=
+\frac{1}{N_{\mathrm{inhom}}}
+\sum_{n=1}^{N_{\mathrm{inhom}}}
+E_{\mathrm{sig}}^{(n)}(t_{\mathrm{coh}},t_{\mathrm{det}}).
+\end{equation}
+The reduction stage is intentionally strict: it stores per-signal sums and explicit counts for every coherence-time index and refuses to form the final average unless every expected disorder realisation completed successfully. This prevents partially missing disorder runs from silently biasing the spectra.
+
+\section{Fourier-Domain Post-Processing}
 \label{app:sec:post_processing}
 
+The processing stage keeps the time-domain data and the spectral transformation conceptually separate. The averaged response stores the complex rephasing and nonrephasing fields on the public $(t_{\mathrm{coh}},t_{\mathrm{det}})$ grid, and the Fourier transformation is applied only afterwards.
 
-The post-processing pipeline (\texttt{process\_datas.py}) converts the phase-selected time-domain signals into 2D spectra by double Fourier transformation with respect to $t_{\mathrm{coh}}$ and $t_{\mathrm{det}}$ (see~\autoref{eq:SR_def,eq:SNR_def}).
+Along the detection axis the code always uses the convention
+\begin{equation}
+S(\omega_{\mathrm{det}})
+\sim
+\int dt_{\mathrm{det}}\,
+E_{\mathrm{sig}}(t_{\mathrm{det}})
+e^{-i\omega_{\mathrm{det}} t_{\mathrm{det}}}.
+\end{equation}
+For 2D spectra the coherence axis is treated differently for the two signal classes:
+\begin{align}
+S_{\mathrm{R}}(\omega_{\mathrm{coh}},\omega_{\mathrm{det}})
+&\sim
+\int dt_{\mathrm{coh}}\,
+E_{\mathrm{R}}(t_{\mathrm{coh}},t_{\mathrm{det}})
+e^{+i\omega_{\mathrm{coh}} t_{\mathrm{coh}}},
+\\
+S_{\mathrm{NR}}(\omega_{\mathrm{coh}},\omega_{\mathrm{det}})
+&\sim
+\int dt_{\mathrm{coh}}\,
+E_{\mathrm{NR}}(t_{\mathrm{coh}},t_{\mathrm{det}})
+e^{-i\omega_{\mathrm{coh}} t_{\mathrm{coh}}}.
+\end{align}
+This is implemented numerically by using an inverse FFT along the coherence axis for the rephasing branch and a forward FFT for the nonrephasing branch. The rephasing branch is multiplied by the FFT length afterwards to undo NumPy's built-in $1/N$ normalisation of the inverse transform, so that both branches remain on the same absolute scale.
 
-The frequency axes are expressed in wavenumber units ($10^4$ cm$^{-1}$) for direct comparison with experimental literature.
+If both rephasing and nonrephasing data are present, the code additionally forms the absorptive spectrum as
+\begin{equation}
+S_{\mathrm{abs}} = \mathrm{Re}\!\left(S_{\mathrm{R}} + S_{\mathrm{NR}}\right).
+\end{equation}
+The returned frequency axes are expressed in units of $10^4$ cm$^{-1}$. In RWA runs the raw FFT axes are detuning axes measured relative to the carrier frequency. The plotting layer therefore adds the carrier back afterwards so that the displayed axes correspond to laboratory-frame optical frequencies. The post-processing code also supports optional zero padding, optional apodization windows (Hann, Hamming, or Blackman), and optional sparse cropping to a region of interest before plotting.
 
-\section{Model System Implementation}
-\label{app:sec:model_systems}
+\subsection{Apodization Windows}
 
+Before the Fourier transform, the code can multiply the finite time-domain signal by a discrete window function. In the implementation this is done directly by the post-processing layer through the NumPy functions \texttt{np.hanning(N)}, \texttt{np.hamming(N)}, and \texttt{np.blackman(N)}. For a one-dimensional transform this window is applied along the detection axis,
+\begin{equation}
+\tilde{E}_{n}^{(\mathrm{det})}
+=
+w_n E_{n}^{(\mathrm{det})},
+\qquad
+n=0,\dots,N_{\mathrm{det}}-1.
+\end{equation}
+For a two-dimensional spectrum the same window type is applied independently along the coherence and detection axes, so that effectively
+\begin{equation}
+\tilde{E}_{mn}
+=
+w_m^{(\mathrm{coh})} w_n^{(\mathrm{det})} E_{mn}.
+\end{equation}
 
-The \texttt{AtomicSystem} class provides flexible construction of multi-atom quantum systems with configurable geometries. The Hilbert space is built explicitly from the ground state, the single-excitation manifold, and, when requested, the double-excitation manifold, giving a total dimension $1+N+\binom{N}{2}$ for a system with $N$ sites and \texttt{max\_excitation = 2}. For the microtubule-inspired models central to this thesis, the implementation supports \textbf{cylindrical arrangements} where atoms are positioned on cylindrical surfaces specified by the numbers of chains and rings. The system Hamiltonian contains site energies together with isotropic dipole-dipole couplings that scale as $1/r^3$ on this geometry, and the framework incorporates \textbf{inhomogeneous disorder} through site-specific frequency variations sampled for each realization.
+With $N$ sample points and $n=0,\dots,N-1$, the currently implemented windows are therefore
+\begin{align}
+w_n^{\mathrm{Hann}}
+&=
+\frac{1}{2}\left[
+1-\cos\!\left(\frac{2\pi n}{N-1}\right)
+\right],
+\\
+w_n^{\mathrm{Hamming}}
+&=
+0.54-0.46\cos\!\left(\frac{2\pi n}{N-1}\right),
+\\
+w_n^{\mathrm{Blackman}}
+&=
+0.42-0.50\cos\!\left(\frac{2\pi n}{N-1}\right)
++0.08\cos\!\left(\frac{4\pi n}{N-1}\right).
+\end{align}
+If no apodization is chosen, the calculation reduces to the implicit rectangular window defined by the finite simulated time interval itself.
 
+The practical role of apodization is to soften the artificial cutoff at the beginning and end of the sampled signal before the FFT is taken. Without such tapering, the finite time window acts like a sharp truncation and therefore introduces stronger spectral leakage, oscillatory side lobes, and ringing in the frequency-domain plots. Applying a smooth window suppresses these edge discontinuities and usually produces cleaner-looking spectra, especially when the time-domain signal has not fully decayed at the edge of the sampled interval.
 
-The system construction automatically handles basis transformations between the site basis and the Hamiltonian eigenbasis, enabling propagation and observable evaluation in the diagonal basis while maintaining access to the underlying site-resolved structure of the model.
-
-
+This improvement comes with the usual trade-off: stronger apodization reduces leakage, but it also broadens spectral features and slightly changes relative peak amplitudes. In that sense the window is not a purely cosmetic choice; it changes how the finite observation time is converted into a spectrum. For the final figure set it is therefore best to choose one apodization prescription and keep it fixed across all reported frequency-domain results, so that linewidths and line-shape comparisons remain internally consistent.

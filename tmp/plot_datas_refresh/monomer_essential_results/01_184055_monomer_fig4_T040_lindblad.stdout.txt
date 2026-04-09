@@ -1,0 +1,89 @@
+
+plot_datas
+----------
+  Input artifact:
+    C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\01_184055_monomer_fig4_T040_lindblad\data\2d_inhom_averaged.npz
+
+Loaded Data
+-----------
+  signals                ['rephasing', 'nonrephasing']
+  signal shapes          rephasing: (301, 301), nonrephasing: (301, 301)
+  t_det shape            (301,)
+  t_coh shape            (301,)
+  carrier frequency      16000.00 cm^-1
+  load time              256.3 ms
+
+Plot Settings
+-------------
+  config stem            monomer_fig4_T040_lindblad
+  components             ['real', 'imag', 'abs']
+  pad factor             50.0
+  apodization            None
+  time transparent       False
+  freq transparent       False
+  Figures folder:
+    C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\01_184055_monomer_fig4_T040_lindblad\figures
+
+Time Domain
+-----------
+  [time] rephasing
+    raw peak |S|           7.339795e-04
+    normalisation          7.339795e-04
+    normalised |S|max      1.000
+    normalised |Re|max     1.000
+    normalised |Im|max     0.057
+    signed display         [-1.000, 1.000]
+
+  [time] nonrephasing
+    raw peak |S|           7.329083e-04
+    normalisation          7.339795e-04
+    normalised |S|max      0.999
+    normalised |Re|max     0.998
+    normalised |Im|max     0.058
+    signed display         [-0.998, 0.998]
+
+  Building combined time-domain figure...
+
+  Saved files:
+    [SVG] C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\01_184055_monomer_fig4_T040_lindblad\figures\time_all_signals_real_imag_abs_monomer_fig4_T040_lindblad_01.svg
+    [PNG] C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\01_184055_monomer_fig4_T040_lindblad\figures\time_all_signals_real_imag_abs_monomer_fig4_T040_lindblad_01.png
+
+Frequency Domain
+----------------
+  transform time         1m 58.0s
+
+  [freq] rephasing
+    raw peak |S|           1.911146e+00
+    normalisation          2.498868e+00
+    normalised |S|max      0.765
+    normalised |Re|max     0.765
+    normalised |Im|max     0.470
+    signed display         [-0.765, 0.765]
+
+  [freq] nonrephasing
+    raw peak |S|           6.321570e-01
+    normalisation          2.498868e+00
+    normalised |S|max      0.253
+    normalised |Re|max     0.240
+    normalised |Im|max     0.220
+    signed display         [-0.240, 0.240]
+
+  [freq] absorptive
+    raw peak |S|           2.498868e+00
+    normalisation          2.498868e+00
+    normalised |S|max      1.000
+    normalised |Re|max     1.000
+    normalised |Im|max     0.000
+    signed display         [-1.000, 1.000]
+
+  Building combined freq-domain figure...
+
+  Saved files:
+    [SVG] C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\01_184055_monomer_fig4_T040_lindblad\figures\freq_all_signals_real_imag_abs_monomer_fig4_T040_lindblad_01.svg
+    [PNG] C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\01_184055_monomer_fig4_T040_lindblad\figures\freq_all_signals_real_imag_abs_monomer_fig4_T040_lindblad_01.png
+
+Done
+----
+  Figures folder:
+    C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\01_184055_monomer_fig4_T040_lindblad\figures
+  total time             3m 01.3s

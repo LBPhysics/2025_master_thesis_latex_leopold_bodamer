@@ -1,0 +1,89 @@
+
+plot_datas
+----------
+  Input artifact:
+    C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\08_120126_monomer_fig2_inhomogeneous_paper_eqs_n1000\data\1d_inhom_averaged.npz
+
+Loaded Data
+-----------
+  signals                ['rephasing', 'nonrephasing']
+  signal shapes          rephasing: (301,), nonrephasing: (301,)
+  t_det shape            (301,)
+  t_coh shape            None
+  carrier frequency      16000.00 cm^-1
+  load time              18.6 ms
+
+Plot Settings
+-------------
+  config stem            monomer_fig2_inhomogeneous_paper_eqs_n1000
+  components             ['real', 'imag', 'abs']
+  pad factor             50.0
+  apodization            None
+  time transparent       False
+  freq transparent       False
+  Figures folder:
+    C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\08_120126_monomer_fig2_inhomogeneous_paper_eqs_n1000\figures
+
+Time Domain
+-----------
+  [time] rephasing
+    raw peak |S|           2.644081e-09
+    normalisation          2.644081e-09
+    normalised |S|max      1.000
+    normalised |Re|max     0.999
+    normalised |Im|max     0.396
+    signed display         [-0.999, 0.999]
+
+  [time] nonrephasing
+    raw peak |S|           1.788807e-09
+    normalisation          2.644081e-09
+    normalised |S|max      0.677
+    normalised |Re|max     0.651
+    normalised |Im|max     0.244
+    signed display         [-0.651, 0.651]
+
+  Building combined time-domain figure...
+
+  Saved files:
+    [SVG] C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\08_120126_monomer_fig2_inhomogeneous_paper_eqs_n1000\figures\time_all_signals_real_imag_abs_monomer_fig2_inhomogeneous_paper_eqs_n1000_02.svg
+    [PNG] C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\08_120126_monomer_fig2_inhomogeneous_paper_eqs_n1000\figures\time_all_signals_real_imag_abs_monomer_fig2_inhomogeneous_paper_eqs_n1000_02.png
+
+Frequency Domain
+----------------
+  transform time         11.8 ms
+
+  [freq] rephasing
+    raw peak |S|           2.225160e-07
+    normalisation          2.637242e-07
+    normalised |S|max      0.844
+    normalised |Re|max     0.757
+    normalised |Im|max     0.837
+    signed display         [-0.837, 0.837]
+
+  [freq] nonrephasing
+    raw peak |S|           8.647544e-08
+    normalisation          2.637242e-07
+    normalised |S|max      0.328
+    normalised |Re|max     0.269
+    normalised |Im|max     0.311
+    signed display         [-0.311, 0.311]
+
+  [freq] absorptive
+    raw peak |S|           2.637242e-07
+    normalisation          2.637242e-07
+    normalised |S|max      1.000
+    normalised |Re|max     1.000
+    normalised |Im|max     0.000
+    signed display         [-1.000, 1.000]
+
+  Building combined freq-domain figure...
+
+  Saved files:
+    [SVG] C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\08_120126_monomer_fig2_inhomogeneous_paper_eqs_n1000\figures\freq_all_signals_real_imag_abs_monomer_fig2_inhomogeneous_paper_eqs_n1000_02.svg
+    [PNG] C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\08_120126_monomer_fig2_inhomogeneous_paper_eqs_n1000\figures\freq_all_signals_real_imag_abs_monomer_fig2_inhomogeneous_paper_eqs_n1000_02.png
+
+Done
+----
+  Figures folder:
+    C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\08_120126_monomer_fig2_inhomogeneous_paper_eqs_n1000\figures
+  total time             11.78 s

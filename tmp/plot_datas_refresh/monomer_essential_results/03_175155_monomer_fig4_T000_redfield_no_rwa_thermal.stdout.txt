@@ -1,0 +1,89 @@
+
+plot_datas
+----------
+  Input artifact:
+    C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\03_175155_monomer_fig4_T000_redfield_no_rwa_thermal\data\2d_inhom_averaged.npz
+
+Loaded Data
+-----------
+  signals                ['rephasing', 'nonrephasing']
+  signal shapes          rephasing: (300, 301), nonrephasing: (300, 301)
+  t_det shape            (301,)
+  t_coh shape            (300,)
+  carrier frequency      16000.00 cm^-1
+  load time              141.9 ms
+
+Plot Settings
+-------------
+  config stem            monomer_fig4_T000_redfield_no_rwa_thermal
+  components             ['real', 'imag', 'abs']
+  pad factor             50.0
+  apodization            None
+  time transparent       False
+  freq transparent       False
+  Figures folder:
+    C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\03_175155_monomer_fig4_T000_redfield_no_rwa_thermal\figures
+
+Time Domain
+-----------
+  [time] rephasing
+    raw peak |S|           5.212873e-04
+    normalisation          5.212873e-04
+    normalised |S|max      1.000
+    normalised |Re|max     0.995
+    normalised |Im|max     0.995
+    signed display         [-0.995, 0.995]
+
+  [time] nonrephasing
+    raw peak |S|           3.750720e-04
+    normalisation          5.212873e-04
+    normalised |S|max      0.720
+    normalised |Re|max     0.704
+    normalised |Im|max     0.706
+    signed display         [-0.706, 0.706]
+
+  Building combined time-domain figure...
+
+  Saved files:
+    [SVG] C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\03_175155_monomer_fig4_T000_redfield_no_rwa_thermal\figures\time_all_signals_real_imag_abs_monomer_fig4_T000_redfield_no_rwa_thermal_01.svg
+    [PNG] C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\03_175155_monomer_fig4_T000_redfield_no_rwa_thermal\figures\time_all_signals_real_imag_abs_monomer_fig4_T000_redfield_no_rwa_thermal_01.png
+
+Frequency Domain
+----------------
+  transform time         2m 01.4s
+
+  [freq] rephasing
+    raw peak |S|           1.116860e+01
+    normalisation          1.116860e+01
+    normalised |S|max      1.000
+    normalised |Re|max     0.758
+    normalised |Im|max     1.000
+    signed display         [-1.000, 1.000]
+
+  [freq] nonrephasing
+    raw peak |S|           2.882033e+00
+    normalisation          1.116860e+01
+    normalised |S|max      0.258
+    normalised |Re|max     0.198
+    normalised |Im|max     0.258
+    signed display         [-0.258, 0.258]
+
+  [freq] absorptive
+    raw peak |S|           9.036965e+00
+    normalisation          1.116860e+01
+    normalised |S|max      0.809
+    normalised |Re|max     0.809
+    normalised |Im|max     0.000
+    signed display         [-0.809, 0.809]
+
+  Building combined freq-domain figure...
+
+  Saved files:
+    [SVG] C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\03_175155_monomer_fig4_T000_redfield_no_rwa_thermal\figures\freq_all_signals_real_imag_abs_monomer_fig4_T000_redfield_no_rwa_thermal_01.svg
+    [PNG] C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\03_175155_monomer_fig4_T000_redfield_no_rwa_thermal\figures\freq_all_signals_real_imag_abs_monomer_fig4_T000_redfield_no_rwa_thermal_01.png
+
+Done
+----
+  Figures folder:
+    C:\Users\leopo\.vscode\thesis_python\jobs\monomer\essential_results\03_175155_monomer_fig4_T000_redfield_no_rwa_thermal\figures
+  total time             3m 00.9s

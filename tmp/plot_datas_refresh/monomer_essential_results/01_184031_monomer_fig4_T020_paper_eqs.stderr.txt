@@ -1,0 +1,2 @@
+C:\Users\leopo\anaconda3\envs\m_env\Lib\site-packages\matplotlib\axis.py:1540: RuntimeWarning: One of rtol or atol is not valid, atol: inf, rtol: 0
+  mask = np.isclose(tr_minor_locs[:, None], tr_major_locs[None, :],
