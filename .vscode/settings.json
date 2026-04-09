@@ -27,6 +27,8 @@
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
+                "-halt-on-error",
+                "-recorder",
                 "%DOC%"
             ]
         },
@@ -46,6 +48,7 @@
                 "-interaction=nonstopmode",
                 "-file-line-error",
                 "-halt-on-error",
+                "-outdir=%OUTDIR%",
                 "%DOC%"
             ]
         },
@@ -70,6 +73,8 @@
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
+                "-halt-on-error",
+                "-recorder",
                 "%DOC%"
             ],
             "env": {}
@@ -86,9 +91,14 @@
     // ---- LaTeX PDF Viewer and SyncTeX Configuration ----
     // Auto-build and compilation settings
     "latex-workshop.latex.recipe.default": "latexmk (LuaLaTeX + Biber)",
+    "latex-workshop.latex.build.enableMagicComments": true,
     "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": true,
     "latex-workshop.latex.autoClean.run": "never",
     "latex-workshop.latex.build.clearLog.everyRecipeStep.enabled": false,
+    "latex-workshop.latex.search.rootFiles.include": [
+        "latex/main.tex"
+    ],
     // ---- Language-Specific Formatting Rules for Consistency ----
     "[latex]": {
         "editor.wordWrap": "wordWrapColumn",

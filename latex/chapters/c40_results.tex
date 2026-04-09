@@ -3,8 +3,8 @@
 \label{chapter:model_results}
 
 \providecommand{\safeplaceholdergraphic}[2][0.92\linewidth]{%
-  \IfFileExists{#2.pdf}{\includegraphics[width=#1]{#2.pdf}}{%
-    \IfFileExists{#2.png}{\includegraphics[width=#1]{#2.png}}{%
+  \IfFileExists{#2.png}{\includegraphics[width=#1]{#2.png}}{%
+    \IfFileExists{#2.pdf}{\includegraphics[width=#1]{#2.pdf}}{%
       \IfFileExists{#2.jpg}{\includegraphics[width=#1]{#2.jpg}}{%
         \fbox{\parbox[c][0.24\textheight][c]{0.84\linewidth}{\centering Placeholder for figure\\[0.4em]\texttt{\detokenize{#2}}}}%
       }%
@@ -13,10 +13,10 @@
 }
 
 \providecommand{\safefallbackgraphic}[3][0.92\linewidth]{%
-  \IfFileExists{#2.pdf}{\includegraphics[width=#1]{#2.pdf}}{%
-    \IfFileExists{#3.pdf}{\includegraphics[width=#1]{#3.pdf}}{%
-      \IfFileExists{#2.png}{\includegraphics[width=#1]{#2.png}}{%
-        \IfFileExists{#3.png}{\includegraphics[width=#1]{#3.png}}{%
+  \IfFileExists{#2.png}{\includegraphics[width=#1]{#2.png}}{%
+    \IfFileExists{#3.png}{\includegraphics[width=#1]{#3.png}}{%
+      \IfFileExists{#2.pdf}{\includegraphics[width=#1]{#2.pdf}}{%
+        \IfFileExists{#3.pdf}{\includegraphics[width=#1]{#3.pdf}}{%
           \IfFileExists{#2.jpg}{\includegraphics[width=#1]{#2.jpg}}{%
             \IfFileExists{#3.jpg}{\includegraphics[width=#1]{#3.jpg}}{%
               \fbox{\parbox[c][0.24\textheight][c]{0.84\linewidth}{\centering Placeholder for figure\\[0.4em]\texttt{\detokenize{#2}}\\[0.4em]\texttt{\detokenize{#3}}}}%
@@ -88,13 +88,35 @@
 \providecommand{\monomerLegacyFigFourTZeroRedfieldTimePath}{\detokenize{figures/svgs/monomer_essential_results/03_175155_monomer_fig4_T000_redfield_no_rwa_thermal/time_all_signals_real_imag_abs_monomer_fig4_T000_redfield_no_rwa_thermal}}
 \providecommand{\monomerLegacyFigFourTZeroRedfieldFreqPath}{\detokenize{figures/svgs/monomer_essential_results/03_175155_monomer_fig4_T000_redfield_no_rwa_thermal/freq_all_signals_real_imag_abs_monomer_fig4_T000_redfield_no_rwa_thermal}}
 
-\providecommand{\dimerFigThreeUncoupledPaperPath}{\detokenize{C:/Users/leopo/.vscode/thesis_python/jobs/dimer/dimer_fig3/01_232832_dimer_fig3a_uncoupled_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig3a_uncoupled_paper_eqs}}
-\providecommand{\dimerFigThreeCoupledPaperPath}{\detokenize{C:/Users/leopo/.vscode/thesis_python/jobs/dimer/dimer_fig3/01_232845_dimer_fig3b_coupled_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig3b_coupled_paper_eqs_04}}
-\providecommand{\dimerFigThreeUncoupledRedfieldRwaPath}{\detokenize{C:/Users/leopo/.vscode/thesis_python/jobs/dimer/dimer_fig3/01_232838_dimer_fig3a_uncoupled_redfield_rwa_thermal/figures/freq_all_signals_real_imag_abs_dimer_fig3a_uncoupled_redfield_rwa_thermal}}
-\providecommand{\dimerFigThreeCoupledRedfieldRwaPath}{\detokenize{C:/Users/leopo/.vscode/thesis_python/jobs/dimer/dimer_fig3/01_232850_dimer_fig3b_coupled_redfield_rwa_thermal/figures/freq_all_signals_real_imag_abs_dimer_fig3b_coupled_redfield_rwa_thermal}}
-\providecommand{\dimerFigFourWaitFortySixPaperPath}{\detokenize{C:/Users/leopo/.vscode/thesis_python/jobs/dimer/dimer_fig4/03_092148_dimer_fig4_T046_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig4_T046_paper_eqs}}
-\providecommand{\dimerFigFourWaitThreeTenPaperPath}{\detokenize{C:/Users/leopo/.vscode/thesis_python/jobs/dimer/dimer_fig4/03_092213_dimer_fig4_T310_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig4_T310_paper_eqs}}
-\providecommand{\dimerFigSixWaitSixtyTwoPaperPath}{\detokenize{C:/Users/leopo/.vscode/thesis_python/jobs/dimer/dimer_fig6/02_172531_dimer_fig6_T062_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig6_T062_paper_eqs}}
+\providecommand{\dimerFigThreeUncoupledPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/09_103455_dimer_fig3a_uncoupled_paper_eqs/time_all_signals_real_imag_abs_dimer_fig3a_uncoupled_paper_eqs}}
+\providecommand{\dimerFigThreeUncoupledPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_103455_dimer_fig3a_uncoupled_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig3a_uncoupled_paper_eqs}}
+\providecommand{\dimerFigThreeCoupledPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/09_103502_dimer_fig3b_coupled_paper_eqs/time_all_signals_real_imag_abs_dimer_fig3b_coupled_paper_eqs}}
+\providecommand{\dimerFigThreeCoupledPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_103502_dimer_fig3b_coupled_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig3b_coupled_paper_eqs}}
+\providecommand{\dimerFigThreeUncoupledRedfieldRwaPath}{\detokenize{figures/svgs/dimer_essential_results/01_232838_dimer_fig3a_uncoupled_redfield_rwa_thermal/freq_all_signals_real_imag_abs_dimer_fig3a_uncoupled_redfield_rwa_thermal}}
+\providecommand{\dimerFigThreeCoupledRedfieldRwaPath}{\detokenize{figures/svgs/dimer_essential_results/01_232850_dimer_fig3b_coupled_redfield_rwa_thermal/freq_all_signals_real_imag_abs_dimer_fig3b_coupled_redfield_rwa_thermal}}
+\providecommand{\dimerFigFourWaitZeroPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/09_125738_dimer_fig4_T000_paper_eqs/time_all_signals_real_imag_abs_dimer_fig4_T000_paper_eqs}}
+\providecommand{\dimerFigFourWaitZeroPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_125738_dimer_fig4_T000_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig4_T000_paper_eqs}}
+\providecommand{\dimerFigFourWaitSixteenPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/09_125745_dimer_fig4_T016_paper_eqs/time_all_signals_real_imag_abs_dimer_fig4_T016_paper_eqs}}
+\providecommand{\dimerFigFourWaitSixteenPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_125745_dimer_fig4_T016_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig4_T016_paper_eqs}}
+\providecommand{\dimerFigFourWaitThirtyPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/09_125751_dimer_fig4_T030_paper_eqs/time_all_signals_real_imag_abs_dimer_fig4_T030_paper_eqs}}
+\providecommand{\dimerFigFourWaitThirtyPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_125751_dimer_fig4_T030_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig4_T030_paper_eqs}}
+\providecommand{\dimerFigFourWaitFortySixPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/09_125756_dimer_fig4_T046_paper_eqs/time_all_signals_real_imag_abs_dimer_fig4_T046_paper_eqs}}
+\providecommand{\dimerFigFourWaitFortySixPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_125756_dimer_fig4_T046_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig4_T046_paper_eqs}}
+\providecommand{\dimerFigFourWaitFortySixPaperApodHammingPath}{\detokenize{figures/svgs/dimer_essential_results/09_125756_dimer_fig4_T046_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig4_T046_paper_eqs_apod_hamming}}
+\providecommand{\dimerFigFourWaitFortySixPaperApodHannPath}{\detokenize{figures/svgs/dimer_essential_results/09_125756_dimer_fig4_T046_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig4_T046_paper_eqs_apod_hann}}
+\providecommand{\dimerFigFourWaitSixtyTwoPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/09_125802_dimer_fig4_T062_paper_eqs/time_all_signals_real_imag_abs_dimer_fig4_T062_paper_eqs}}
+\providecommand{\dimerFigFourWaitSixtyTwoPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_125802_dimer_fig4_T062_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig4_T062_paper_eqs}}
+\providecommand{\dimerFigFourWaitOneOhEightPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/09_125807_dimer_fig4_T108_paper_eqs/time_all_signals_real_imag_abs_dimer_fig4_T108_paper_eqs}}
+\providecommand{\dimerFigFourWaitOneOhEightPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_125807_dimer_fig4_T108_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig4_T108_paper_eqs}}
+\providecommand{\dimerFigFourWaitOneFortyPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/09_125813_dimer_fig4_T140_paper_eqs/time_all_signals_real_imag_abs_dimer_fig4_T140_paper_eqs}}
+\providecommand{\dimerFigFourWaitOneFortyPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_125813_dimer_fig4_T140_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig4_T140_paper_eqs}}
+\providecommand{\dimerFigFourWaitThreeTenPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/09_125819_dimer_fig4_T310_paper_eqs/time_all_signals_real_imag_abs_dimer_fig4_T310_paper_eqs}}
+\providecommand{\dimerFigFourWaitThreeTenPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_125819_dimer_fig4_T310_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig4_T310_paper_eqs}}
+\providecommand{\dimerFigSixWaitFortySixPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/09_125825_dimer_fig6_T046_paper_eqs/time_all_signals_real_imag_abs_dimer_fig6_T046_paper_eqs}}
+\providecommand{\dimerFigSixWaitFortySixPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_125825_dimer_fig6_T046_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig6_T046_paper_eqs}}
+\providecommand{\dimerFigSixWaitSixtyTwoPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/09_125830_dimer_fig6_T062_paper_eqs/time_all_signals_real_imag_abs_dimer_fig6_T062_paper_eqs}}
+\providecommand{\dimerFigSixWaitSixtyTwoPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_125830_dimer_fig6_T062_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig6_T062_paper_eqs}}
+\providecommand{\dimerBasisMapPath}{\detokenize{figures/rslts_dimer_site_vs_exciton_basis}}
 \providecommand{\dimerFigThreeUncoupledLindbladPath}{\detokenize{figures/generated/dimer_fig3a_uncoupled_lindblad}}
 \providecommand{\dimerFigThreeCoupledLindbladPath}{\detokenize{figures/generated/dimer_fig3b_coupled_lindblad}}
 \providecommand{\dimerFigFourWaitFortySixLindbladPath}{\detokenize{figures/generated/dimer_fig4_T046_lindblad}}
@@ -107,12 +129,10 @@ This chapter combines the open-system framework of~\autoref{chapter:oqs_open_qua
 \section{Monomer}
 \label{sec:results_monomer}
 
-The discussion starts with the monomer because it is the simplest system in which the complete workflow can be inspected.
+The discussion starts with the monomer because it is the simplest system in which the complete spectroscopy workflow can be read almost without ambiguity. In the strict two-level limit, the third-order signal contains only ground-state bleach and stimulated-emission contributions. Excited-state absorption is absent because no higher excited manifold is available, as discussed in~\autoref{sec:spctr_two_level_system_linear_response} and~\autoref{sec:spctr_two_level_third_order_pathways}. This makes the monomer the natural place to organize the results in the same order in which the signal is constructed in~\autoref{sec:spctr_2D_construction_formal}: first the time-domain response, then its Fourier transform, then the full $(t_{\mathrm{coh}},t_{\mathrm{det}})$ maps, and finally the 2D spectra in $(\omega_{\mathrm{coh}},\omega_{\mathrm{det}})$ space.
 
 \subsection{Model and equations of motion}
 \label{subsec:results_monomer_model_eom}
-
-In the strict two-level limit, the third-order signal contains only ground-state bleach and stimulated-emission contributions; excited-state absorption is absent because no higher excited manifold is available, as discussed in~\autoref{sec:spctr_two_level_system_linear_response} and~\autoref{sec:spctr_two_level_third_order_pathways}.
 
 The monomer is the simplest case in which the full three-pulse workflow can be inspected. Its field-free Hamiltonian is, cf.~\cref{eq:spctr_tls_hamiltonian,eq:spctr_tls_dipole},
 \begin{equation*}
@@ -122,7 +142,7 @@ and the dipole operator is
 \begin{equation*}
 \hat{\mu}^{(\mathrm{mon})}=\mu_{ge}\ket{g}\!\bra{e}+\mu_{eg}\ket{e}\!\bra{g}.
 \end{equation*}
-The published phenomenology of Paper~I is characterised by a population decay rate \(\gamma\) and a pure dephasing rate \(\gamma_{\varphi}\), with \(T_1=\gamma^{-1}\) and \(T_2^{-1}=\gamma/2+\gamma_{\varphi}\). In the QuTiP implementation used here, the same phenomenology is written in Lindblad form with
+The published phenomenology of Paper~I is characterised by a population decay rate $\gamma$ and a pure dephasing rate $\gamma_{\varphi}$, with $T_1=\gamma^{-1}$ and $T_2^{-1}=\gamma/2+\gamma_{\varphi}$. In the QuTiP implementation used here, the same phenomenology is written in Lindblad form with
 \begin{equation*}
 \hat{L}_{\varphi}=\sqrt{2\gamma_{\varphi}}\ket{e}\!\bra{e},
 \qquad
@@ -130,21 +150,56 @@ The published phenomenology of Paper~I is characterised by a population decay ra
 \qquad
 \hat{L}_{\uparrow}=\sqrt{\gamma_{\uparrow}}\ket{e}\!\bra{g}.
 \end{equation*}
-The identification with the notation of Paper~I is therefore \(\gamma_{\downarrow}\equiv\gamma\). The printed paper phenomenology does not introduce an upward thermal excitation channel, so in the strict calibration against the paper one sets \(\gamma_{\uparrow}=0\). Physically this corresponds to the zero-temperature limit of the phenomenological bath, where detailed balance suppresses upward transitions and only relaxation from \(\ket{e}\) to \(\ket{g}\) remains. Keeping \(\gamma_{\uparrow}\) explicit is nevertheless useful because it makes clear how the phenomenological two-level model would be extended to a finite-temperature bath even before switching to a microscopic Redfield description.
-The explicit rotating-wave equations used by the phenomenological calibration backend are collected in~\autoref{app:sec:paper_eqs_explicit_eoms}. They are not repeated in full in the main text, because their thesis role is only to define the calibration reference against which the QuTiP Lindblad and Redfield formulations are compared.
+The identification with the notation of Paper~I is therefore $\gamma_{\downarrow}\equiv\gamma$. The printed paper phenomenology does not introduce an upward thermal excitation channel, so in the strict calibration against the paper one sets $\gamma_{\uparrow}=0$. Physically this corresponds to the zero-temperature limit of the phenomenological bath, where detailed balance suppresses upward transitions and only relaxation from $\ket{e}$ to $\ket{g}$ remains. Keeping $\gamma_{\uparrow}$ explicit is nevertheless useful because it shows how the phenomenological two-level model would be extended to a finite-temperature bath even before switching to a microscopic Redfield description. The explicit rotating-wave equations used by the phenomenological calibration backend are collected in~\autoref{app:sec:paper_eqs_explicit_eoms}; in the main text they serve as the reference against which the QuTiP implementations are judged.
 
-For real samples, the measured response reflects an ensemble of local environments rather than a single perfectly identical monomer, so the spectra are evaluated over many static-disorder realisations, see~\autoref{spctr:sec:macroscopic_polarisation}. The transition frequency is sampled from the Gaussian distribution introduced in~\autoref{eq:gaussian_broadening}. The spectra are then obtained from the disorder-averaged signal defined in~\autoref{eq:averaged_response}. The parameter \(\Delta_{\mathrm{inh}}\) denotes the corresponding full width at half maximum of the distribution. Two situations are considered. In the homogeneous case, \(\Delta_{\mathrm{inh}}=0\), all realisations share the same transition frequency and the linewidth is determined by dynamical dephasing and relaxation.
+For real samples, the measured response reflects an ensemble of local environments rather than a single perfectly identical monomer, so the spectra are evaluated over many static-disorder realisations, see~\autoref{spctr:sec:macroscopic_polarisation}. The transition frequency is sampled from the Gaussian distribution introduced in~\autoref{eq:gaussian_broadening}. The spectra are then obtained from the disorder-averaged signal defined in~\autoref{eq:averaged_response}. The parameter $\Delta_{\mathrm{inh}}$ denotes the corresponding full width at half maximum of the distribution. In the homogeneous case, $\Delta_{\mathrm{inh}}=0$, all realisations share the same transition frequency and the linewidth is determined by dynamical dephasing and relaxation. In the inhomogeneous case, static disorder adds a spread of transition frequencies across the ensemble, exactly the distinction emphasized already in~\autoref{sec:spctr_spectroscopy_motivation}.
 
-All monomer runs discussed in the main text use \(\tilde{\nu}_{eg}=\SI{16000}{\per\centi\metre}\), \(\mu_{ge}=1\), resonant excitation, and pulse amplitudes \((0.002,0.002,0.002)\). In units with \(\hbar=1\), the quantity \(\mu_{eg}E(t)\) has units of inverse time and corresponds to the instantaneous Rabi frequency, while the choice \(\mu_{ge}=1\) fixes the field-amplitude scale used throughout this section. For the phenomenological benchmark, the fitted rates are \(\gamma_{\varphi}=0.01~\si{\per\femto\second}\), \(\gamma_{\downarrow}=1/300~\si{\per\femto\second}\), and \(\gamma_{\uparrow}=0\). Static disorder, when included, uses \(\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}\). The appendix additionally documents a supplementary Fig.~4 sensitivity set with stronger pulses \((0.005,0.005,0.005)\). The first task of the monomer section is a staged comparison between the explicit paper equations and the phenomenological QuTiP Lindblad implementation with the same rates. This calibration fixes the solver baseline used for the subsequent Lindblad interpretation and for the Redfield extension.
+All monomer runs discussed in the main text use $\tilde{\nu}_{eg}=\SI{16000}{\per\centi\metre}$, $\mu_{ge}=1$, resonant excitation, and pulse amplitudes $(0.002,0.002,0.002)$. In units with $\hbar=1$, the quantity $\mu_{eg}E(t)$ has units of inverse time and corresponds to the instantaneous Rabi frequency, while the choice $\mu_{ge}=1$ fixes the field-amplitude scale used throughout this section. For the phenomenological benchmark, the fitted rates are $\gamma_{\varphi}=0.01~\si{\per\femto\second}$, $\gamma_{\downarrow}=1/300~\si{\per\femto\second}$, and $\gamma_{\uparrow}=0$. Static disorder, when included, uses $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$. The appendix additionally documents a supplementary Fig.~4 sensitivity set with stronger pulses $(0.005,0.005,0.005)$.
 
-\subsection{Calibration: explicit paper equations versus QuTiP Lindblad}
-\label{subsec:results_monomer_calibration}
+\subsection{1D time-domain response}
+\label{subsec:results_monomer_1d_time}
 
-The calibration is organized in five steps. First, the basic homogeneous-versus-inhomogeneous line-shape logic of Paper~I is checked in the frequency domain. Second, the inhomogeneous branch is tested for convergence with respect to the number of disorder realizations. Only after these two validation steps is it useful to compare the fully converged \(N_{\mathrm{inhom}}=1000\) signals directly in the time and frequency domains and then carry the comparison to one representative 2D panel.
+At fixed coherence and waiting times, the measured quantity is a slice through the phase-selected time-domain signals $E_{\mathrm{R/NR}}(t_{\mathrm{coh}},t_{\mathrm{wait}},t_{\mathrm{det}})$ introduced in~\autoref{eq:time_domain_signal}. This is the first direct place to see the difference between the rephasing and nonrephasing branches discussed in~\autoref{subsec:spctr_rephasing_nonrephasing}. The main chapter keeps only the simplest direct solver comparison in this representation, while the remaining \texttt{paper\_eqs} mirrors are deferred to~\autoref{app:paper_eqs_reference_atlas}. The QuTiP implementation shows excellent agreement with Paper I.
 
-\begin{figure}[p]
+\begin{figure}[htbp]
     \centering
-    {\small Homogeneous branch: \(\Delta_{\mathrm{inh}}=0\), \(N_{\mathrm{inhom}}=1\)}\\[0.2em]
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoHomTimePaperPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoHomTimeLindbladPath}
+    \end{minipage}
+    \caption[Monomer time-domain calibration in the homogeneous limit]{Direct monomer time-domain calibration in the simplest homogeneous setting at fixed $t_{\mathrm{coh}}=\SI{300}{\femto\second}$, $t_{\mathrm{wait}}=\SI{1000}{\femto\second}$, and $\Delta_{\mathrm{inh}}=0$. Left: \texttt{paper\_eqs} reference. Right: Lindblad propagation with the same fitted rates. This is the cleanest branch-by-branch comparison before static disorder is introduced.}
+    \label{fig:results_monomer_1d_time_calibration}
+\end{figure}
+
+In~\autoref{fig:results_monomer_1d_time_calibration}, the agreement is essentially exact: in the homogeneous limit both branches have the same peak magnitude, because there is no static disorder that the rephasing pathway could refocus. This homogeneous match is therefore the minimal solver calibration retained in the main text. The converged inhomogeneous paper-equation counterpart is documented in~\autoref{app:paper_eqs_reference_atlas}.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoHomTimeLindbladPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoTimeLindbladPath}
+    \end{minipage}
+    \caption{Monomer 1D time-domain Lindblad traces at fixed $t_{\mathrm{coh}}=\SI{300}{\femto\second}$ and $t_{\mathrm{wait}}=\SI{1000}{\femto\second}$. Left: homogeneous branch, $\Delta_{\mathrm{inh}}=0$. Right: inhomogeneous branch, $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$ with a converged disorder average $N_{\mathrm{inhom}}=1000$.}
+    \label{fig:results_monomer_1d_time_hom_inhom}
+\end{figure}
+
+The physical message of~\autoref{fig:results_monomer_1d_time_hom_inhom} is the classic photon-echo logic. In the homogeneous ensemble, all monomers oscillate at the same transition frequency, so there is no ensemble dephasing that could later be refocused. Consequently, the rephasing trace decays away from the prompt response and does not show a delayed maximum near $t_{\mathrm{det}}\approx t_{\mathrm{coh}}$. Once static disorder is introduced, the rephasing signal develops exactly such a delayed peak: the phase reversal of the rephasing branch refocuses the ensemble frequency spread and creates the photon echo. The nonrephasing branch does not refocus disorder and therefore stays concentrated at short detection times, in agreement with~\autoref{subsec:spctr_rephasing_nonrephasing}. The raw exported peak ratio changes from $R/NR=1.00$ in the homogeneous slice to $1.45$ in the inhomogeneous one, so the rephasing branch already becomes the larger of the two before any Fourier transformation is applied.
+
+\subsection{1D frequency-domain response}
+\label{subsec:results_monomer_1d_freq}
+
+The next step is to Fourier transform the detection-time signal while keeping $t_{\mathrm{coh}}$ and $t_{\mathrm{wait}}$ fixed. This 1D frequency view is not yet the full 2D spectrum, but it already anticipates the frequency-domain construction of~\cref{eq:SR_def,eq:SNR_def} and separates the basic homogeneous and inhomogeneous line-shape logic before the two-dimensional interpretation is introduced.
+
+\begin{figure}[htbp]
+    \centering
     \begin{minipage}[t]{0.49\linewidth}
         \centering
         \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoHomFreqPaperPath}
@@ -153,133 +208,121 @@ The calibration is organized in five steps. First, the basic homogeneous-versus-
         \centering
         \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoHomFreqLindbladPath}
     \end{minipage}
-
-    \vspace{0.6em}
-    {\small Inhomogeneous branch: \(\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}\), \(N_{\mathrm{inhom}}=1000\)}\\[0.2em]
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqPaperPath}
-    \end{minipage}\hfill
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqLindbladPath}
-    \end{minipage}
-    \caption{Frequency-domain monomer validation of the basic Fig.~2 line-shape logic. The top row is the homogeneous branch and the bottom row the inhomogeneous branch. In each row, the left panel is the \texttt{paper\_eqs} result and the right panel the corresponding Lindblad propagation with the same phenomenological rates.}
-    \label{fig:results_monomer_fig2_hom_inhom_validation}
-\end{figure}
-
-\begin{figure}[p]
-    \centering
-    {\small \(N_{\mathrm{inhom}}=10\)}\\[0.2em]
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqPaperNTenPath}
-    \end{minipage}\hfill
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqLindbladNTenPath}
-    \end{minipage}
-
-    \vspace{0.6em}
-    {\small \(N_{\mathrm{inhom}}=100\)}\\[0.2em]
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqPaperNHundredPath}
-    \end{minipage}\hfill
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqLindbladNHundredPath}
-    \end{minipage}
-
-    \vspace{0.6em}
-    {\small \(N_{\mathrm{inhom}}=1000\)}\\[0.2em]
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqPaperPath}
-    \end{minipage}\hfill
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqLindbladPath}
-    \end{minipage}
-    \caption{Frequency-domain convergence check of the inhomogeneous monomer branch. The disorder width is fixed at \(\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}\), while the number of realizations increases from \(N_{\mathrm{inhom}}=10\) to \(1000\). The left column shows the \texttt{paper\_eqs} panels and the right column the corresponding Lindblad runs.}
-    \label{fig:results_monomer_fig2_ninhom_validation}
-\end{figure}
-
-\begin{figure}[htbp]
-    \centering
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoTimePaperPath}
-    \end{minipage}\hfill
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoTimeLindbladPath}
-    \end{minipage}
-    \caption[Monomer time-domain calibration]{Direct monomer time-domain calibration at fixed \(t_{\mathrm{coh}}=\SI{300}{\femto\second}\), \(t_{\mathrm{wait}}=\SI{1000}{\femto\second}\), \(N_{\mathrm{inhom}}=1000\), and \(\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}\). Left: \texttt{paper\_eqs} reference. Right: Lindblad propagation with the same fitted rates. The remaining deviations are confined to the earliest detection times.}
-    \label{fig:results_monomer_1d_time_calibration}
-\end{figure}
-
-\begin{figure}[htbp]
-    \centering
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqPaperPath}
-    \end{minipage}\hfill
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqLindbladPath}
-    \end{minipage}
-    \caption[Monomer 1D frequency-domain calibration]{Direct monomer 1D frequency-domain calibration for the same converged inhomogeneous setting as in~\cref{fig:results_monomer_1d_time_calibration}. This is the cleanest like-for-like solver comparison before the 2D spectra. The full validation atlas, including the homogeneous branch and the complete \(N_{\mathrm{inhom}}\) sweep, is collected in~\autoref{app:paper_eqs_reference_atlas}.}
+    \caption[Monomer 1D frequency-domain calibration in the homogeneous limit]{Direct monomer 1D frequency-domain calibration for the same homogeneous setting as in~\autoref{fig:results_monomer_1d_time_calibration}. Left: \texttt{paper\_eqs} reference. Right: Lindblad propagation with the same fitted rates.}
     \label{fig:results_monomer_1d_freq_calibration}
 \end{figure}
 
+The same calibration carries over after Fourier transformation. In~\autoref{fig:results_monomer_1d_freq_calibration}, the Lindblad spectrum reproduces the Paper~I reference in the homogeneous limit, including the equal branch weights and the absorptive line centered at $\tilde{\nu}_{eg}=\SI{16000}{\per\centi\metre}$.
+
 \begin{figure}[htbp]
     \centering
     \begin{minipage}[t]{0.49\linewidth}
         \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigFourTFortyPaperPath}
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoHomFreqLindbladPath}
     \end{minipage}\hfill
     \begin{minipage}[t]{0.49\linewidth}
         \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigFourTFortyLindbladPath}
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqLindbladPath}
     \end{minipage}
-    \caption[Monomer 2D calibration at \(T=\SI{40}{\femto\second}\)]{Representative 2D monomer comparison at \(T=\SI{40}{\femto\second}\) in the inhomogeneous setting. The full frequency-domain panels are shown so that the \texttt{paper\_eqs} reference can be compared directly to the Lindblad reproduction within the same plotting workflow.}
-    \label{fig:results_monomer_2d_calibration}
+    \caption{Monomer 1D frequency-domain Lindblad traces at fixed $t_{\mathrm{coh}}=\SI{300}{\femto\second}$ and $t_{\mathrm{wait}}=\SI{1000}{\femto\second}$. Left: homogeneous branch, $\Delta_{\mathrm{inh}}=0$. Right: inhomogeneous branch, $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$ with $N_{\mathrm{inhom}}=1000$.}
+    \label{fig:results_monomer_1d_freq_hom_inhom}
 \end{figure}
 
-Taken together, these five comparisons fix the thesis logic for the monomer. They show that the QuTiP Lindblad implementation reproduces the homogeneous-versus-inhomogeneous line-shape contrast of Paper~I, that the disorder average has stabilized by \(N_{\mathrm{inhom}}=1000\), and that the direct solver-to-solver agreement remains good when the comparison is carried from 1D time traces to 1D spectra and finally to a representative 2D panel. This is the point after which the main text can switch from phenomenological reference equations to QuTiP-native Lindblad and Redfield calculations.
+In the homogeneous branch, the spectral weight stays concentrated in one compact resonance around $\tilde{\nu}_{eg}=\SI{16000}{\per\centi\metre}$, together with the expected dispersive partner in the imaginary part. In the inhomogeneous branch, the envelope broadens around the same central transition frequency because the ensemble average collects many slightly shifted single-molecule responses, exactly the mechanism discussed in~\autoref{sec:spctr_spectroscopy_motivation}. The branch balance also changes more strongly than in the raw time trace: the exported peak ratio rises from $R/NR=1.00$ in the homogeneous slice to $2.52$ in the inhomogeneous one. This makes physical sense because the rephasing echo, once Fourier transformed, produces a more concentrated spectral maximum, whereas the nonrephasing branch retains the broader free-induction-decay character discussed in~\autoref{subsec:spctr_rephasing_nonrephasing}. The full $N_{\mathrm{inhom}}$ convergence sweep and the remaining paper-equation comparisons are collected in~\autoref{app:paper_eqs_reference_atlas}.
 
-\subsection{Lindblad monomer results}
-\label{subsec:results_monomer_lindblad}
+\subsection{2D time-domain response}
+\label{subsec:results_monomer_2d_time}
+
+With the 1D calibration in place, the full time-domain signal $E_{\mathrm{R/NR}}(t_{\mathrm{coh}},t_{\mathrm{wait}},t_{\mathrm{det}})$ makes visible which structures are already present before the double Fourier transform. This representation is especially instructive for the monomer because it shows directly how the echo ridge appears in the rephasing channel and why it is absent from the nonrephasing channel. The appendix contains the matching \texttt{paper\_eqs} exports; the main text now focuses on the calibrated Lindblad series.
 
 \begin{figure}[p]
     \centering
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigThreeTZeroLindbladPath}
+    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigThreeTZeroLindbladTimePath}
     \vspace{0.8em}
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigThreeTTwentyLindbladPath}
+    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigThreeTTwentyLindbladTimePath}
     \vspace{0.8em}
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigThreeTFortyLindbladPath}
-    \caption{Homogeneous monomer waiting-time series obtained with the calibrated Lindblad model at \(T=\SI{0}{\femto\second}\), \SI{20}{\femto\second}, and \SI{40}{\femto\second}. The common parameters are \(\Delta_{\mathrm{inh}}=0\), \(N_{\mathrm{inhom}}=1\), \(\gamma_{\varphi}=0.01~\si{\per\femto\second}\), \(\gamma_{\downarrow}=1/300~\si{\per\femto\second}\), and pulse amplitudes \((0.002,0.002,0.002)\).}
+    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigThreeTFortyLindbladTimePath}
+    \caption{Homogeneous monomer 2D time-domain waiting-time series obtained with the calibrated Lindblad model at $T=\SI{0}{\femto\second}$, $\SI{20}{\femto\second}$, and $\SI{40}{\femto\second}$. With $\Delta_{\mathrm{inh}}=0$, the signal remains concentrated near the origin of the $(t_{\mathrm{coh}},t_{\mathrm{det}})$ plane and does not develop a pronounced echo ridge.}
+    \label{fig:results_monomer_2d_time_hom}
+\end{figure}
+
+For the homogeneous monomer in~\autoref{fig:results_monomer_2d_time_hom}, both rephasing and nonrephasing intensity remain concentrated near the origin and decay with increasing $t_{\mathrm{coh}}$ and $t_{\mathrm{det}}$. The absence of a pronounced ridge along $t_{\mathrm{det}}\approx t_{\mathrm{coh}}$ is the time-domain counterpart of the missing photon echo already seen in~\autoref{fig:results_monomer_1d_time_hom_inhom}. The main waiting-time dependence is not a new internal monomer dynamics, but the finite-pulse regime itself: $T=\SI{0}{\femto\second}$ and $T=\SI{20}{\femto\second}$ are still affected by pulse overlap, while by $T=\SI{40}{\femto\second}$ the shape has essentially settled. The branch ratios listed later in~\autoref{tab:results_monomer_branch_ratios} return to essentially unity by $T=\SI{20}{\femto\second}$ and $T=\SI{40}{\femto\second}$, showing that the small excess at $T=\SI{0}{\femto\second}$ is a finite-pulse effect rather than a persistent physical asymmetry.
+
+\begin{figure}[p]
+    \centering
+    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigFourTZeroLindbladTimePath}
+    \vspace{0.8em}
+    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigFourTTwentyLindbladTimePath}
+    \vspace{0.8em}
+    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigFourTFortyLindbladTimePath}
+    \caption{Inhomogeneous monomer 2D time-domain waiting-time series obtained with the same Lindblad workflow at $T=\SI{0}{\femto\second}$, $\SI{20}{\femto\second}$, and $\SI{40}{\femto\second}$. Here $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$, and the rephasing branch develops the echo-like elongated structure that is absent in the homogeneous case.}
+    \label{fig:results_monomer_2d_time_inhom}
+\end{figure}
+
+The inhomogeneous case in~\autoref{fig:results_monomer_2d_time_inhom} changes specifically in the rephasing branch. There the signal acquires an elongated structure roughly following $t_{\mathrm{det}}\sim t_{\mathrm{coh}}$, which is the 2D time-domain precursor of both the delayed photon echo and the diagonal elongation seen after Fourier transformation. The nonrephasing branch stays more localized and does not show comparable refocusing, exactly as expected from the pathway discussion in~\autoref{subsec:spctr_rephasing_nonrephasing}. Once again, the visible $T$-dependence is weak once the pulse-overlap regime has been left, already foreshadowing that the monomer has no genuine waiting-time redistribution dynamics in this static model. The later peak-ratio summary makes an important limitation explicit: after $T=\SI{20}{\femto\second}$, the 2D time-domain maxima of the two branches are already very close, even though the rephasing ridge remains visibly much more structured. %\todoimp{In this representation, the key physics is therefore more geometric than purely peak-amplitude based. -> satz ist komisch}
+
+\subsection{2D frequency-domain response}
+\label{subsec:results_monomer_2d_freq}
+
+The double Fourier transform of the time-domain maps produces the rephasing and nonrephasing spectra of~\cref{eq:SR_def,eq:SNR_def}. Their absorptive combination, defined in~\autoref{eq:Sab_def}, is the cleanest representation for physical interpretation because it suppresses the dispersive distortions present in the individual branches. The corresponding \texttt{paper\_eqs} panels are collected in~\autoref{app:paper_eqs_reference_atlas}, so the main chapter now focuses on the Lindblad spectra that carry the physical interpretation.
+
+\begin{figure}[p]
+    \centering
+    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigThreeTZeroLindbladPath}
+    \vspace{0.8em}
+    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigThreeTTwentyLindbladPath}
+    \vspace{0.8em}
+    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigThreeTFortyLindbladPath}
+    \caption{Homogeneous monomer 2D frequency-domain waiting-time series obtained with the calibrated Lindblad model at $T=\SI{0}{\femto\second}$, \SI{20}{\femto\second}, and \SI{40}{\femto\second}. The common parameters are $\Delta_{\mathrm{inh}}=0$, $N_{\mathrm{inhom}}=1$, $\gamma_{\varphi}=0.01~\si{\per\femto\second}$, $\gamma_{\downarrow}=1/300~\si{\per\femto\second}$, and pulse amplitudes $(0.002,0.002,0.002)$.}
     \label{fig:results_monomer_2d_hom_lindblad}
 \end{figure}
 
+The homogeneous series in~\autoref{fig:results_monomer_2d_hom_lindblad} reproduces the compact, nearly symmetric star-like monomer profile emphasized in Paper~I. Because only a single transition contributes, there are no cross peaks, no excited-state-absorption features, and no population transfer signatures during $t_{\mathrm{wait}}$. The short-$T$ distortions are therefore best understood as finite-pulse overlap effects of the same type discussed in Paper~I: $T=\SI{0}{\femto\second}$ shows the strongest phase-twist behaviour, $T=\SI{20}{\femto\second}$ is intermediate, and by $T=\SI{40}{\femto\second}$ the line shape has essentially reached the final homogeneous profile. The corresponding frequency-domain branch ratios likewise collapse back to unity once the pulse-overlap regime has passed.
+
 \begin{figure}[p]
     \centering
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigFourTZeroLindbladPath}
+    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigFourTZeroLindbladPath}
     \vspace{0.8em}
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigFourTTwentyLindbladPath}
+    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigFourTTwentyLindbladPath}
     \vspace{0.8em}
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigFourTFortyLindbladPath}
-    \caption{Inhomogeneous monomer waiting-time series obtained with the same Lindblad model at \(T=\SI{0}{\femto\second}\), \SI{20}{\femto\second}, and \SI{40}{\femto\second}. Here \(\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}\) and \(N_{\mathrm{inhom}}=100\).}
+    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigFourTFortyLindbladPath}
+    \caption{Inhomogeneous monomer 2D frequency-domain waiting-time series obtained with the same Lindblad model at $T=\SI{0}{\femto\second}$, \SI{20}{\femto\second}, and \SI{40}{\femto\second}. Here $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$.}
     \label{fig:results_monomer_2d_inhom_lindblad}
 \end{figure}
 
-The homogeneous Lindblad series reproduces the compact axis-aligned monomer reference profile, whereas the inhomogeneous series develops the expected diagonal elongation. Because the monomer is too simple to support nontrivial population-time dynamics, no strong genuine waiting-time dependence is expected once the pulse-overlap region has been left. The main visible \(T\)-dependence is therefore the finite pulse-duration effect itself: at \(T=\SI{20}{\femto\second}\) the spectra still sit in an intermediate overlap regime, while by \(T=\SI{40}{\femto\second}\) they have essentially reached their final shape outside the overlap region. The appendix mirrors these Lindblad figures with the corresponding \texttt{paper\_eqs} waiting-time series, the 1D validation atlas, and the supplementary stronger-field Fig.~4 sensitivity runs.
+The inhomogeneous series in~\autoref{fig:results_monomer_2d_inhom_lindblad} develops the diagonal elongation that is the central 2D signature of static disorder. This is precisely the type of homogeneous-versus-inhomogeneous separation described in~\autoref{sec:spctr_spectroscopy_motivation}: the spectrum can be understood as a superposition of many homogeneous spectra shifted along the diagonal by realization-dependent transition frequencies. The diagonal width therefore grows with disorder, whereas the antidiagonal width continues to reflect the homogeneous dephasing. No cross peaks appear because the monomer has neither a second excited transition nor a transfer channel. As in the homogeneous case, the visible waiting-time evolution is largely confined to the pulse-overlap regime; once that has passed, the line shape changes little and mainly loses amplitude. Unlike in the 2D time-domain maps, however, the frequency-domain peak ratios remain clearly above unity even after pulse overlap, so the rephasing branch stays visibly dominant in the inhomogeneous spectra.
 
-\todoidea{Build a matched inhomogeneous 2D Redfield rerun at the standardized monomer parameter set so that Fig.~4 also has a like-for-like microscopic bath counterpart.}
+Taken together, the 2D time- and frequency-domain views show the same physics in complementary representations: the echo ridge in the rephasing time-domain signal becomes the diagonal elongation of the inhomogeneous absorptive spectrum after double Fourier transformation.
+
+To map these visual impressions onto a quantitative summary,~\autoref{tab:results_monomer_branch_ratios} lists the ratios of the raw exported branch maxima for the Lindblad figures discussed above. The 1D rows refer to~\autoref{fig:results_monomer_1d_time_hom_inhom} and~\autoref{fig:results_monomer_1d_freq_hom_inhom}; the 2D rows follow the waiting-time panels in~\autoref{fig:results_monomer_2d_time_hom}, \autoref{fig:results_monomer_2d_time_inhom}, \autoref{fig:results_monomer_2d_hom_lindblad}, and~\autoref{fig:results_monomer_2d_inhom_lindblad}. Because the table uses ratios of raw rephasing and nonrephasing peaks, it is insensitive to the plotting normalization applied within each figure. Two conclusions follow immediately. First, static disorder never makes the nonrephasing branch dominant in the displayed monomer results: whenever the two branches differ appreciably, the rephasing branch is larger. Second, the usefulness of a peak-ratio diagnostic depends on representation. In 1D traces and especially in 2D frequency space, the ratios track the disorder physics clearly. In the 2D time domain, by contrast, the decisive difference lies more in the extended shape of the rephasing ridge than in a much larger single maximum.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Peak-amplitude balance of the Lindblad monomer branches. The ratios are $\max|S_{\mathrm{R}}|/\max|S_{\mathrm{NR}}|$ extracted from the raw plot logs for the figures discussed in the main text.}
+    \label{tab:results_monomer_branch_ratios}
+    \begin{tabular}{@{}lccc@{}}
+        \toprule
+        Setting & $T$ / fs & $R/NR$ time & $R/NR$ freq \\
+        \midrule
+        1D homogeneous   & -- & 1.00 & 1.00 \\
+        1D inhomogeneous & -- & 1.45 & 2.52 \\
+        2D homogeneous   & 0  & 1.46 & 1.94 \\
+        2D homogeneous   & 20 & 1.01 & 1.01 \\
+        2D homogeneous   & 40 & 1.00 & 1.00 \\
+        2D inhomogeneous & 0  & 1.47 & 4.77 \\
+        2D inhomogeneous & 20 & 1.02 & 2.76 \\
+        2D inhomogeneous & 40 & 1.01 & 2.74 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+For the question of which branch contributes more strongly to the total monomer signal, peak heights are therefore a useful compact diagnostic but not a complete answer. They work well for the 1D slices and especially for the 2D frequency-domain spectra, where the echo-induced refocusing becomes a concentrated spectral maximum. In the 2D time domain, however, a true total-weight comparison would be better based on an integral or norm over the full branch map. Among the branch maxima reported here, the numerically largest raw value is the homogeneous 2D frequency-domain rephasing peak at $T=\SI{0}{\femto\second}$, $\max|\tilde{S}_{\mathrm{R}}|=1.17\times10^{-1}$. This should still not be compared directly to the time-domain maxima, because the Fourier transformation changes both the units and the way the signal weight is distributed.
 
 \subsection{Microscopic monomer extension}
 \label{subsec:results_monomer_redfield}
+
+After the phenomenological Lindblad baseline has been calibrated and interpreted across all four representations, the next step is to replace fitted rates by an explicit bath model. The monomer is again the cleanest place to do this, because the microscopic change in the open-system description can be separated from any complications due to multilevel spectral structure.
 
 \begin{figure}[htbp]
     \centering
@@ -291,20 +334,20 @@ The homogeneous Lindblad series reproduces the compact axis-aligned monomer refe
         \centering
         \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoHomFreqRedfieldPath}
     \end{minipage}
-    \caption{Homogeneous monomer Redfield extension for the same single-transition setting used in the 1D validation runs. Left: time-domain signal. Right: frequency-domain spectrum. The Ohmic bath parameters are \(T/\omega_0=0.0033443363446838082\) (about \SI{77}{\kelvin}), \(\omega_c/\omega_0=100\), \(\alpha/\omega_0=0.0267\), and \(s=1\). Additional exploratory inhomogeneous Redfield panels are collected in~\autoref{app:paper_eqs_reference_atlas}.}
+    \caption{Homogeneous monomer Redfield extension for the same single-transition setting used in the 1D validation runs. Left: time-domain signal. Right: frequency-domain spectrum. The Ohmic bath parameters are $T/\omega_0=0.0033443363446838082$ (about \SI{77}{\kelvin}), $\omega_c/\omega_0=100$, $\alpha/\omega_0=0.0267$, and $s=1$. Additional exploratory inhomogeneous Redfield panels are collected in~\autoref{app:paper_eqs_reference_atlas}.}
     \label{fig:results_monomer_redfield_examples}
 \end{figure}
 
 These Redfield panels extend the calibrated Lindblad baseline by replacing phenomenological rates with an explicit bath model. For the monomer, the homogeneous 1D Redfield run provides a clean microscopic continuation of the same signal-construction workflow and stays aligned with the amplitude convention used throughout the validation atlas.
 
-In that sense, the Redfield monomer is the more physical extension of the Paper-I benchmark. Instead of parameterizing the environment only by \(\gamma\) and \(\gamma_{\varphi}\), the bath is specified by a concrete spectral density and temperature, here through \(T\), \(\omega_c\), \(\alpha\), and \(s\). This makes thermal occupation and finite-temperature relaxation a dynamical consequence of the bath model rather than an external phenomenological choice. The appendix includes an additional inhomogeneous 2D Redfield export as exploratory supporting material.
-
-\todoidea{If the final thesis needs a cleaner solver-by-solver discussion of rephasing versus nonrephasing contributions, prepare dedicated composite figures from the copied exports instead of relying only on the combined all-signals panels.}
+In that sense, the Redfield monomer is the more physical extension of the Paper~I benchmark. Instead of parameterizing the environment only by $\gamma$ and $\gamma_{\varphi}$, the bath is specified by a concrete spectral density and temperature, here through $T$, $\omega_c$, $\alpha$, and $s$. Thermal occupation and finite-temperature relaxation then become dynamical consequences of the bath model rather than external phenomenological choices. The appendix includes an additional inhomogeneous 2D Redfield export as exploratory supporting material.
 
 \subsection{Monomer summary}
 \label{subsec:results_monomer_summary}
 
-The monomer section calibrates the QuTiP workflow in a structured way: first through the homogeneous-versus-inhomogeneous line-shape contrast, then through the \(N_{\mathrm{inhom}}\) convergence test, and finally through direct 1D and representative 2D solver comparisons. After that calibration, Lindblad provides the thesis baseline for reproducing the published line-shape logic, while Redfield extends the workflow to a microscopic bath model. Because the monomer has no rich internal waiting-time dynamics, the 2D series is interpreted mainly as a pulse-overlap diagnostic together with the expected homogeneous-versus-inhomogeneous contrast, with the full comparison atlas kept in the appendix.
+The monomer results are deliberately organized in the same order as the signal construction itself. The main text keeps only the simplest homogeneous paper-vs-Lindblad calibration in 1D time and 1D frequency space; all further \texttt{paper\_eqs} mirrors are deferred to~\autoref{app:paper_eqs_reference_atlas}. Within the Lindblad results, the 1D time-domain traces show the basic photon-echo logic: no delayed echo in the homogeneous case, but a clear rephasing echo once static disorder is introduced. The 1D frequency-domain traces then show the corresponding line-shape contrast, while the 2D time-domain maps make the echo ridge visible before Fourier transformation and the 2D frequency-domain spectra turn this into the compact homogeneous peak and the diagonally elongated inhomogeneous peak familiar from Paper~I.
+
+The branch-ratio summary sharpens that picture. Static disorder makes the rephasing contribution systematically stronger than the nonrephasing one, but the clarity of that statement depends on representation. Peak heights are already useful in 1D and become especially informative in 2D frequency space, where the inhomogeneous rephasing branch remains about $2.7$ times larger than the nonrephasing branch after pulse overlap. In 2D time space, by contrast, the decisive signature is the geometry of the echo ridge, not a much larger peak amplitude. Because the monomer has no cross peaks and no genuine waiting-time redistribution dynamics, it serves as the clean calibration case in which broadening physics can be separated from pulse-overlap effects before moving to more structured systems.
 
 \section{Dimer}
 \label{sec:results_dimer}
@@ -312,21 +355,28 @@ The monomer section calibrates the QuTiP workflow in a structured way: first thr
 \subsection{Model and calibration strategy}
 \label{subsec:results_dimer_model_eom}
 
-The dimer is the minimal model in which cross peaks, waiting-time beats, and adjacent-manifold transitions appear together. In the truncated manifold \(\{\ket{g},\ket{1},\ket{2},\ket{f}\}\), the field-free Hamiltonian is
+The dimer is the minimal model in which cross peaks, waiting-time beats, and adjacent-manifold transitions appear together. In the localized site basis $\{\ket{g},\ket{A},\ket{B},\ket{f}\equiv\ket{AB}\}$, consistent with the dimer conventions used throughout this thesis, the field-free Hamiltonian is
 \begin{equation*}
 \hat{H}_{0}^{(\mathrm{dim})}
 =
-\omega_{1}\ket{1}\!\bra{1}
+\omega_{A}\ket{A}\!\bra{A}
 +
-\omega_{2}\ket{2}\!\bra{2}
+\omega_{B}\ket{B}\!\bra{B}
 +
-J\bigl(\ket{1}\!\bra{2}+\ket{2}\!\bra{1}\bigr)
+J\bigl(\ket{A}\!\bra{B}+\ket{B}\!\bra{A}\bigr)
 +
-(\omega_{1}+\omega_{2})\ket{f}\!\bra{f},
+(\omega_{A}+\omega_{B})\ket{f}\!\bra{f},
 \end{equation*}
-and the dipole operator connects adjacent manifolds. The main phenomenological dimer parameters follow Paper~II~\cite{pisliakovetal2006twodimensionalopticalthreepulse}: a \(T=0\) uncoupled-versus-coupled comparison and a waiting-time series for the coupled dimer with pulse amplitudes again fixed to \((0.005,0.005,0.005)\).
+Diagonalizing only the single-exciton block gives the exciton representation used in Paper~II and in the regenerated \texttt{paper\_eqs} backend: \(\ket{0}=\ket{g}\), \(\ket{3}=\ket{AB}\), and the states \(\ket{1}\) and \(\ket{2}\) are the two \(J\)-mixed superpositions of \(\ket{A}\) and \(\ket{B}\). \autoref{fig:results_dimer_basis_map} summarizes that notation bridge so that the localized Hamiltonian and the numbered Paper-II equations can be read as the same model in two bases. The dipole operator then connects adjacent manifolds in either representation. The regenerated dimer archive used in this thesis follows the same basic Paper-II control logic~\cite{pisliakovetal2006twodimensionalopticalthreepulse}: a $T=0$ uncoupled-versus-coupled comparison and a waiting-time series for the coupled dimer. In the refreshed run set mirrored here, the pulse amplitudes are $(0.002,0.002,0.002)$. The inhomogeneous Fig.~4 sequence uses $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$ with $N_{\mathrm{inhom}}=10$, while the Fig.~6 companion sequence is homogeneous with $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=1$.
 
-As in the monomer case, the thesis logic is to use paper equations as a calibration reference. For the dimer, the QuTiP calibration developed here is the rotating-wave Redfield implementation at \(T=0\), because the uncoupled and coupled control calculations already exist in directly comparable form. The appendix collects the corresponding paper-equation waiting-time panels together with supplementary comparison material.
+\begin{figure}[tbp]
+    \centering
+    \safeplaceholdergraphic[0.96\linewidth]{\dimerBasisMapPath}
+    \caption{Relation between the localized site basis and the exciton basis used for the dimer discussion. The Hamiltonian is written in the site basis \(\{\ket{g},\ket{A},\ket{B},\ket{AB}\}\), while Paper~II labels the diagonalized basis as \(\{\ket{0},\ket{1},\ket{2},\ket{3}\}\). The ground and two-exciton states are unchanged, \(\ket{0}=\ket{g}\) and \(\ket{3}=\ket{AB}\), whereas \(\ket{1}\) and \(\ket{2}\) are the \(J\)-mixed one-exciton superpositions of \(\ket{A}\) and \(\ket{B}\).}
+    \label{fig:results_dimer_basis_map}
+\end{figure}
+
+As in the monomer case, the thesis logic is to use paper equations as a calibration reference. For the dimer, the QuTiP calibration developed here is the rotating-wave Redfield implementation at $T=0$, because the uncoupled and coupled control calculations already exist in directly comparable form. The appendix collects the regenerated combined paper-equation controls and waiting-time panels in both the time and frequency domains, together with one explicit apodization comparison.
 The corresponding eigenbasis equations used by the calibration backend are likewise collected in~\autoref{app:sec:paper_eqs_explicit_eoms}. That appendix also makes explicit where the implemented dimer Liouvillian slightly completes the printed Appendix-D equation list of Paper~II by retaining terms required by the full commutator structure.
 
 \subsection{Calibration against Paper~II}
@@ -353,34 +403,68 @@ The corresponding eigenbasis equations used by the calibration backend are likew
         \centering
         \safeplaceholdergraphic[0.98\linewidth]{\dimerFigThreeCoupledRedfieldRwaPath}
     \end{minipage}
-    \caption{Direct dimer calibration at \(T=0\) using the uncoupled and coupled control calculations. Top row: paper-equation reference. Bottom row: the corresponding QuTiP Redfield calculations in the rotating-wave setting. The intended qualitative checks are the suppression of cross peaks in the uncoupled control and their appearance once the dimer coupling is activated.}
+    \caption{Direct dimer calibration at $T=0$ using the uncoupled and coupled control calculations. Top row: paper-equation reference. Bottom row: the corresponding QuTiP Redfield calculations in the rotating-wave setting. The intended qualitative checks are the suppression of cross peaks in the uncoupled control and their appearance once the dimer coupling is activated.}
     \label{fig:results_dimer_calibration}
 \end{figure}
 
-This subsection plays the same role as the monomer calibration, but with a different solver emphasis: it establishes the direct bridge from the Paper-II equations to the microscopic QuTiP Redfield implementation.
+This subsection plays the same role as the monomer calibration, but with a different solver emphasis: it establishes the direct bridge from the Paper-II equations to the microscopic QuTiP Redfield implementation. Because the top-row reference panels are regenerated with the thesis plotting pipeline rather than copied from the published artwork, they should be read as qualitative calibration figures rather than pixel-identical reproductions of Paper~II. Small visual differences in smoothness, line sharpness, and relative color balance can arise from the modern normalization, windowing, and presentation choices, and from whether finite apodization is applied before plotting. The physically relevant check is unchanged, however: in the uncoupled control the cross peaks are suppressed, while in the coupled control they appear once the interaction $J$ mixes the two single-exciton states. That structural change is reproduced in both the regenerated \texttt{paper\_eqs} controls and the QuTiP Redfield panels of~\autoref{fig:results_dimer_calibration}. The full regenerated waiting-time archive, including the time-domain companions and one direct no-apodization/Hamming/Hann comparison, is collected in~\autoref{app:paper_eqs_reference_atlas}.
+
+\subsection{Amplitude balance in the regenerated dimer archive}
+\label{subsec:results_dimer_amplitudes}
+
+The regenerated dimer plot logs allow the same raw branch-max comparison used above for the monomer, but the interpretation is less straightforward. For the current Fig.~3 control pair in~\autoref{fig:results_dimer_calibration}, the thesis therefore keeps the discussion qualitative and structural. The quantitative amplitude summary below is instead based on the refreshed waiting-time archive in~\autoref{app:paper_eqs_reference_atlas}, because those runs export standardized raw maxima directly in the plotting logs. As in the monomer case, the ratios are insensitive to the per-figure plotting normalization. Unlike in the monomer, however, the largest local maximum is no longer tied to one simple echo-versus-no-echo contrast. In the coupled dimer, diagonal peaks, cross peaks, and doubly excited-manifold contributions can all compete for the dominant maximum.
+
+To make that point explicit,~\autoref{tab:results_dimer_branch_ratios} lists the no-apodization ratios extracted from the raw dimer plot logs. The Fig.~4 rows follow the left/right appendix panels in \autoref{fig:app_dimer_fig4_time_t0_t16} and \autoref{fig:app_dimer_fig4_freq_t0_t16}, then \autoref{fig:app_dimer_fig4_time_t30_t46} and \autoref{fig:app_dimer_fig4_freq_t30_t46}, then \autoref{fig:app_dimer_fig4_time_t62_t108} and \autoref{fig:app_dimer_fig4_freq_t62_t108}, and finally \autoref{fig:app_dimer_fig4_time_t140_t310} and \autoref{fig:app_dimer_fig4_freq_t140_t310}. The Fig.~6 rows likewise follow the left/right panels of \autoref{fig:app_dimer_fig6_time} and \autoref{fig:app_dimer_fig6_freq}. Three trends stand out. First, the inhomogeneous Fig.~4 series keeps the frequency-domain rephasing branch larger for all displayed waiting times, with \(R/NR\) values between \(1.29\) and \(4.83\). This is still qualitatively consistent with the refocusing logic familiar from the monomer: static disorder gives the rephasing branch a more concentrated spectral maximum. Second, the time-domain ratios of the same Fig.~4 series are often much closer to unity, except at \(T=\SI{16}{\femto\second}\) and \(T=\SI{46}{\femto\second}\). As in the monomer, this suggests that peak-height comparisons are more informative in frequency space than in the full \((t_{\mathrm{coh}},t_{\mathrm{det}})\) maps. Third, the homogeneous Fig.~6 companion sequence shows a genuine difference from the monomer: at \(T=\SI{62}{\femto\second}\), the nonrephasing branch becomes the larger one in both domains, with \(R/NR=0.97\) in time space and \(0.64\) in frequency space.
+
+A plausible reason for this difference is that the dimer has no single branch-defining peak. Once two excitonic resonances, cross peaks, and transitions into the doubly excited manifold contribute, the largest local maximum is set by interference between several Liouville pathways rather than only by echo refocusing. In the disordered Fig.~4 series, refocusing still biases the frequency-domain maxima toward the rephasing branch. In the homogeneous Fig.~6 series, by contrast, that disorder-refocusing advantage disappears, so waiting-time phase evolution and pathway interference can shift the largest maximum into the nonrephasing branch instead. This interpretation is therefore an inference from the logged amplitudes together with the displayed line shapes, not a separate pathway decomposition.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Peak-amplitude balance of the regenerated dimer waiting-time archive without apodization. The ratios are $\max|S_{\mathrm{R}}|/\max|S_{\mathrm{NR}}|$ extracted from the raw plot logs.}
+    \label{tab:results_dimer_branch_ratios}
+    \begin{tabular}{@{}lccccc@{}}
+        \toprule
+        Series & Panel & $T$ / fs & $R/NR$ time & $R/NR$ freq & $\max|\tilde{S}_{\mathrm{abs}}|$ \\
+        \midrule
+        Fig.~4 & L & 0   & 0.989 & 1.510 & \(2.84\times10^{-2}\) \\
+        Fig.~4 & R & 16  & 3.646 & 4.831 & \(2.08\times10^{-2}\) \\
+        Fig.~4 & L & 30  & 1.073 & 1.291 & \(3.08\times10^{-2}\) \\
+        Fig.~4 & R & 46  & 1.938 & 3.480 & \(2.17\times10^{-2}\) \\
+        Fig.~4 & L & 62  & 1.044 & 1.353 & \(3.03\times10^{-2}\) \\
+        Fig.~4 & R & 108 & 1.032 & 2.476 & \(2.35\times10^{-2}\) \\
+        Fig.~4 & L & 140 & 1.001 & 2.402 & \(2.38\times10^{-2}\) \\
+        Fig.~4 & R & 310 & 1.002 & 2.118 & \(2.54\times10^{-2}\) \\
+        Fig.~6 & L & 46  & 1.261 & 1.778 & \(7.00\times10^{-2}\) \\
+        Fig.~6 & R & 62  & 0.971 & 0.642 & \(9.42\times10^{-2}\) \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The absolute maxima reinforce that interpretation. Among the no-apodization panels in~\autoref{tab:results_dimer_branch_ratios}, the largest absorptive frequency-domain peak occurs in the homogeneous Fig.~6 panel at \(T=\SI{62}{\femto\second}\), with \(\max|\tilde{S}_{\mathrm{abs}}|=9.42\times10^{-2}\). The inhomogeneous Fig.~4 panels, by contrast, stay in the \(2\text{--}3\times10^{-2}\) range. This makes physical sense: static disorder spreads the dimer signal over a broader diagonal envelope, whereas the homogeneous spectrum keeps the weight concentrated. The explicit apodization comparison in~\autoref{fig:app_dimer_fig4_t46_apodization} shows that windowing changes these absolute heights much more than it changes branch ordering. For \(T=\SI{46}{\femto\second}\), the frequency-domain ratio changes only from \(R/NR=3.48\) without apodization to \(3.79\) with Hamming and \(3.86\) with Hann, even though the absorptive maximum itself drops from \(2.17\times10^{-2}\) to \(7.25\times10^{-3}\) and \(6.49\times10^{-3}\). For cross-figure comparisons, the no-apodization ratios are therefore the cleaner quantity, while the apodized panels are best read as presentation variants.
 
 \subsection{Current Redfield status for the dimer}
 \label{subsec:results_dimer_redfield}
 
-The dimer discussion is therefore centered on the \(T=0\) control comparison inside QuTiP. This establishes the microscopic bath-based propagation for the uncoupled-versus-coupled control and defines the basis for extending the same treatment to the Fig.~4 and Fig.~6 waiting-time sequences.
+The dimer discussion is therefore centered on the $T=0$ control comparison inside QuTiP. This establishes the microscopic bath-based propagation for the uncoupled-versus-coupled control and defines the basis for extending the same treatment to the Fig.~4 and Fig.~6 waiting-time sequences.
 
-\todoidea{Complete the dimer Redfield waiting-time atlas and extend the QuTiP Redfield figure set to the representative points \(T=\SI{46}{\femto\second}\), \(T=\SI{62}{\femto\second}\), and \(T=\SI{310}{\femto\second}\), and ideally to the full Fig.~4/Fig.~6 series.}
+\todoidea{Complete the dimer Redfield waiting-time atlas and extend the QuTiP Redfield figure set to the representative points $T=\SI{46}{\femto\second}$, $T=\SI{62}{\femto\second}$, and $T=\SI{310}{\femto\second}$, and ideally to the full Fig.~4/Fig.~6 series.}
 
-When these runs are available, the same normalized bath notation already used for the monomer and for the current dimer \(T=0\) controls should be kept: \(T/\omega_0=0.0033443363446838082\) (about \SI{77}{\kelvin}), \(\omega_c/\omega_0=100\), \(\alpha/\omega_0=0.0267\), \(s=1\), and a very small secular threshold quoted as \(\omega_{\mathrm{sec}}/\omega_0\).
+When these runs are available, the same normalized bath notation already used for the monomer and for the current dimer $T=0$ controls should be kept: $T/\omega_0 \approx 0.003$ (about \SI{77}{\kelvin}), $\omega_c/\omega_0=100$, $\alpha/\omega_0=0.0267$, $s=1$, and a very small secular threshold quoted as $\omega_{\mathrm{sec}}/\omega_0$.
 
 \subsection{Dimer summary}
 \label{subsec:results_dimer_summary}
 
-The dimer section uses a direct bridge to the QuTiP workflow: the paper equations are compared immediately against the rotating-wave Redfield implementation for the uncoupled and coupled \(T=0\) controls, while the waiting-time Redfield atlas is identified as the next concrete extension of the same program.
+The dimer section uses a direct bridge to the QuTiP workflow: the regenerated paper-equation controls are compared immediately against the rotating-wave Redfield implementation for the uncoupled and coupled $T=0$ spectra, while the full paper-equation waiting-time archive is organized in the appendix in matched time- and frequency-domain blocks. The accompanying amplitude summary shows that, unlike in the monomer, branch dominance cannot be reduced to one universal rephasing-over-nonrephasing rule once coupled-dimer pathway interference becomes relevant.
 
 \section{Towards the general \texorpdfstring{$N$}{N}-site extension}
 \label{sec:results_nsite_extension}
 
-The numerical workflow developed in this chapter is not restricted to the monomer and dimer. At the level of the implementation described in~\autoref{app:numerical_implementation}, the same sequence remains available for a general \(N\)-site excitonic model: construct the Hamiltonian and dipole operators in the truncated excitation manifolds, propagate under the three-pulse field, isolate the desired phase-matched contribution by phase cycling, average over static disorder, and Fourier transform the resulting signal into \((\omega_{\mathrm{coh}},\omega_{\mathrm{det}})\) space.
+The numerical workflow developed in this chapter is not restricted to the monomer and dimer. At the level of the implementation described in~\autoref{app:numerical_implementation}, the same sequence remains available for a general $N$-site excitonic model: construct the Hamiltonian and dipole operators in the truncated excitation manifolds, propagate under the three-pulse field, isolate the desired phase-matched contribution by phase cycling, average over static disorder, and Fourier transform the resulting signal into $(\omega_{\mathrm{coh}},\omega_{\mathrm{det}})$ space.
 
 What remains unfinished in the present thesis is not the basic simulation machinery, but the final production of a larger, fully interpreted figure set. A trimer remains the natural next benchmark because it would test the same pipeline in the first system where multiple cross-peak families compete simultaneously while the spectrum is still interpretable by hand.
 
 \section{Chapter summary}
 \label{sec:results_summary}
 
-This chapter is organised around one consistent rule: use paper equations as calibration references and interpret the results through the QuTiP workflow. For the monomer, this appears as a Lindblad-based reproduction followed by a Redfield extension. For the dimer, the same logic is realized through the direct paper-equations-versus-Redfield comparison at \(T=0\), while the complete paper-equation waiting-time atlas is collected in~\autoref{app:paper_eqs_reference_atlas}.
+This chapter is organised around one consistent rule: use paper equations as calibration references and interpret the results through the QuTiP workflow. For the monomer, this appears as a Lindblad-based reproduction followed by a Redfield extension. For the dimer, the same logic is realized through the direct paper-equations-versus-Redfield comparison at $T=0$, while the complete paper-equation waiting-time atlas is collected in~\autoref{app:paper_eqs_reference_atlas}.

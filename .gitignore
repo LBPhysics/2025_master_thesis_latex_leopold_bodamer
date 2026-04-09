@@ -56,3 +56,10 @@ _minted*
 figures/**/.DS_Store
 figures/**/*~
 figures/**/.idea/
+
+# Local rerun / audit artifacts
+tmp/plot_datas_refresh/dimer_thesis_relevant_existing/
+tmp/plot_datas_refresh/**/*.log
+tmp/plot_datas_refresh/**/*.stdout.txt
+tmp/plot_datas_refresh/**/*.stderr.txt
+tmp/dimer_config_audit/
