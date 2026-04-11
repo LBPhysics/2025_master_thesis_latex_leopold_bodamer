@@ -87,15 +87,15 @@ The qubit is examined under two broadening scenarios:
 
 To illustrate the meaning of rephasing and the difference between homogeneous and inhomogeneous broadening, (i) a representative time-domain rephasing trace and (ii) sequences of TLS 2D spectra at different waiting times $T$ are included. The figures are inserted below as placeholders. If the image files are not present yet, compilation will fall back to a framed box.
 
-To validate the numerical workflow, a simpler phenomenological Lindblad-type evolution is first reproduced using the standard RWA equations of motion for the density-matrix elements. With the ansatz $\rho_{eg}=\sigma_{eg}e^{-i\Omega t}$, the resulting equations are
+To validate the numerical workflow, a simpler phenomenological Lindblad-type evolution is first reproduced using the standard RWA equations of motion for the density-matrix elements. With the ansatz $\rho_{eg}=\sigma_{eg}e^{-i\omega_L t}$, the resulting equations are
 \begin{align}
-\dot{\sigma}_{eg} &= -\bigl(\Gamma + i\Delta\bigr)\,\sigma_{eg} + i\,\mu_{eg} E(t)\,(\rho_{gg}-\rho_{ee}),
+\dot{\sigma}_{eg} &= -\bigl(\Gamma + i\Delta_L\bigr)\,\sigma_{eg} + i\,\mu_{eg} E(t)\,(\rho_{gg}-\rho_{ee}),
 \label{eq:model_tls_eom_rhoeg}\\
 \dot{\rho}_{ee} &= -\gamma\,\rho_{ee} + i\,\mu_{eg} E(t)\,\sigma_{ge} - i\,\mu_{eg} E^{*}(t)\,\sigma_{eg},\notag\\
 \dot{\rho}_{gg} &= - i\,\mu_{eg} E(t)\,\sigma_{ge} + i\,\mu_{eg} E^{*}(t)\,\sigma_{eg}.
 \label{eq:model_tls_eom_rhogg}
 \end{align}
-with detuning $\Delta=\omega_{eg}-\Omega$. This is for a resonant coupling to the field ($\Delta=0$) exactly the optical Bloch equations as presented in~\cite{mancaletal2006twodimensionalopticalthreepulse}. It uses phenomenological decay rates $\Gamma$ and $\gamma$ for the coherence and population, respectively. By choosing $\Gamma=\gamma/2 + 1/T_2^{*}$, the pure-dephasing contribution $T_2^{*}$ can be separated from the population-relaxation contribution $\gamma/2$ to the total dephasing rate.
+with laser detuning $\Delta_L=\omega_{eg}-\omega_L$. This is for a resonant coupling to the field ($\Delta_L=0$) exactly the optical Bloch equations as presented in~\cite{mancaletal2006twodimensionalopticalthreepulse}. It uses phenomenological decay rates $\Gamma$ and $\gamma$ for the coherence and population, respectively. By choosing $\Gamma=\gamma/2 + 1/T_2^{*}$, the pure-dephasing contribution $T_2^{*}$ can be separated from the population-relaxation contribution $\gamma/2$ to the total dephasing rate.
 In the reproduction shown in~\autoref{fig:model_tls_hom_rephasing_time_trace}, the parameters match the paper and the polarisation is sampled every $2\,\mathrm{fs}$ for $\tau$ and $t$ in $[0,600]$ fs. The field intensity is chosen so that the excited-state population remains below 1\% ($E_0=0.05$), ensuring higher-order nonlinearities remain negligible.
 \begin{figure}[htbp]
 	\centering
@@ -106,7 +106,7 @@ In the reproduction shown in~\autoref{fig:model_tls_hom_rephasing_time_trace}, t
 				Placeholder: 1D rephasing time trace for a qubit.\\
 				Put the file at \texttt{latex/figures/tls\_rephasing\_time\_trace.pdf}.\vspace{2mm}}}%
 	}
-	\caption{Time-domain three-pulse photon-echo (rephasing) signal of a two-level system computed from the RWA equations of motion, \autoref{eq:model_tls_eom_rhoeg}--\autoref{eq:model_tls_eom_rhogg}, with the paper parameters ($\tau=300\,\mathrm{fs}$, $T=1000\,\mathrm{fs}$, $\gamma^{-1}=300\,\mathrm{fs}$, $T_2^{*}=100\,\mathrm{fs}$, $\tau_{\mathrm{pulse}}=15\,\mathrm{fs}$, $\omega_{eg}=16000\,\mathrm{cm}^{-1}$, and inhomogeneous FWHM $\Delta=200\,\mathrm{cm}^{-1}$) at resonance $\omega_{L}=\omega_{eg}$. This reproduces the reference result of \cite{mancaletal2006twodimensionalopticalthreepulse}.}
+	\caption{Time-domain three-pulse photon-echo (rephasing) signal of a two-level system computed from the RWA equations of motion, \autoref{eq:model_tls_eom_rhoeg}--\autoref{eq:model_tls_eom_rhogg}, with the paper parameters ($\tau=300\,\mathrm{fs}$, $T=1000\,\mathrm{fs}$, $\gamma^{-1}=300\,\mathrm{fs}$, $T_2^{*}=100\,\mathrm{fs}$, $\tau_{\mathrm{pulse}}=15\,\mathrm{fs}$, $\omega_{eg}=16000\,\mathrm{cm}^{-1}$, and inhomogeneous FWHM $\Delta_{\mathrm{inh}}=200\,\mathrm{cm}^{-1}$) at resonance $\omega_{L}=\omega_{eg}$. This reproduces the reference result of \cite{mancaletal2006twodimensionalopticalthreepulse}.}
 	\label{fig:model_tls_hom_rephasing_time_trace}
 \end{figure}
 

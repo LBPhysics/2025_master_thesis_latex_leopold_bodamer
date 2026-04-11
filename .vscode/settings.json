@@ -92,8 +92,9 @@
     // Auto-build and compilation settings
     "latex-workshop.latex.recipe.default": "latexmk (LuaLaTeX + Biber)",
     "latex-workshop.latex.build.enableMagicComments": true,
-    "latex-workshop.latex.autoBuild.run": "onSave",
-    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": true,
+    // Avoid overlapping build/clean cycles on Windows that can lock main.* files.
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
     "latex-workshop.latex.autoClean.run": "never",
     "latex-workshop.latex.build.clearLog.everyRecipeStep.enabled": false,
     "latex-workshop.latex.search.rootFiles.include": [

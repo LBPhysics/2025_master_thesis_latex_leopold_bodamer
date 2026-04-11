@@ -57,6 +57,21 @@ figures/**/.DS_Store
 figures/**/*~
 figures/**/.idea/
 
+# Generated spectroscopy job/result artifacts
+latex/figures/svgs/dimer_essential_results/**/batch_*.json
+latex/figures/svgs/dimer_essential_results/**/job_metadata.json
+latex/figures/svgs/dimer_essential_results/**/*.slurm
+latex/figures/svgs/dimer_essential_results/**/*.yaml
+latex/figures/svgs/dimer_essential_results/**/*.yml
+latex/figures/svgs/dimer_essential_results/**/*.npy
+latex/figures/svgs/dimer_essential_results/**/*.npz
+latex/figures/svgs/dimer_essential_results/**/*.pkl
+latex/figures/svgs/dimer_essential_results/**/*.err
+latex/figures/svgs/dimer_essential_results/**/*.out
+latex/figures/svgs/dimer_essential_results/**/data/
+latex/figures/svgs/dimer_essential_results/**/logs/
+latex/figures/svgs/dimer_essential_results/**/figures/
+
 # Local rerun / audit artifacts
 tmp/plot_datas_refresh/dimer_thesis_relevant_existing/
 tmp/plot_datas_refresh/**/*.log

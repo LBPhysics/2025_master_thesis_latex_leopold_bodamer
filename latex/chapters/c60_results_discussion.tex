@@ -3,36 +3,44 @@
 \label{chap:results_discussion}
 
 \providecommand{\safeplaceholdergraphic}[2][0.92\linewidth]{%
-  \IfFileExists{#2.png}{\includegraphics[width=#1]{#2.png}}{%
-    \IfFileExists{#2.pdf}{\includegraphics[width=#1]{#2.pdf}}{%
-      \IfFileExists{#2.jpg}{\includegraphics[width=#1]{#2.jpg}}{%
-        \fbox{%
-          \parbox[c][0.24\textheight][c]{0.84\linewidth}{%
-            \centering
-            Placeholder for figure\\[0.4em]
-            \texttt{\detokenize{#2}}
+  \ifthesisfastpreview
+    \thesispreviewgraphicbox[#1]{#2}%
+  \else
+    \IfFileExists{#2.png}{\includegraphics[width=#1]{#2.png}}{%
+      \IfFileExists{#2.pdf}{\includegraphics[width=#1]{#2.pdf}}{%
+        \IfFileExists{#2.jpg}{\includegraphics[width=#1]{#2.jpg}}{%
+          \fbox{%
+            \parbox[c][0.24\textheight][c]{0.84\linewidth}{%
+              \centering
+              Placeholder for figure\\[0.4em]
+              \texttt{\detokenize{#2}}
+            }%
           }%
         }%
       }%
     }%
-  }%
+  \fi
 }
 
 \providecommand{\safefallbackgraphic}[3][0.92\linewidth]{%
-  \IfFileExists{#2.png}{\includegraphics[width=#1]{#2.png}}{%
-    \IfFileExists{#3.png}{\includegraphics[width=#1]{#3.png}}{%
-      \IfFileExists{#2.pdf}{\includegraphics[width=#1]{#2.pdf}}{%
-        \IfFileExists{#3.pdf}{\includegraphics[width=#1]{#3.pdf}}{%
-          \IfFileExists{#2.jpg}{\includegraphics[width=#1]{#2.jpg}}{%
-            \IfFileExists{#3.jpg}{\includegraphics[width=#1]{#3.jpg}}{%
-              \fbox{%
-                \parbox[c][0.24\textheight][c]{0.84\linewidth}{%
-                  \centering
-                  Placeholder for figure\\[0.4em]
-                  Preferred safe name:\\
-                  \texttt{\detokenize{#2}}\\[0.4em]
-                  Fallback name:\\
-                  \texttt{\detokenize{#3}}
+  \ifthesisfastpreview
+    \thesispreviewfallbackgraphicbox[#1]{#2}{#3}%
+  \else
+    \IfFileExists{#2.png}{\includegraphics[width=#1]{#2.png}}{%
+      \IfFileExists{#3.png}{\includegraphics[width=#1]{#3.png}}{%
+        \IfFileExists{#2.pdf}{\includegraphics[width=#1]{#2.pdf}}{%
+          \IfFileExists{#3.pdf}{\includegraphics[width=#1]{#3.pdf}}{%
+            \IfFileExists{#2.jpg}{\includegraphics[width=#1]{#2.jpg}}{%
+              \IfFileExists{#3.jpg}{\includegraphics[width=#1]{#3.jpg}}{%
+                \fbox{%
+                  \parbox[c][0.24\textheight][c]{0.84\linewidth}{%
+                    \centering
+                    Placeholder for figure\\[0.4em]
+                    Preferred safe name:\\
+                    \texttt{\detokenize{#2}}\\[0.4em]
+                    Fallback name:\\
+                    \texttt{\detokenize{#3}}
+                  }%
                 }%
               }%
             }%
@@ -40,7 +48,7 @@
         }%
       }%
     }%
-  }%
+  \fi
 }
 
 \section{Results}

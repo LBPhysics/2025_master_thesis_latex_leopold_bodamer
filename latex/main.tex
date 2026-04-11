@@ -53,6 +53,34 @@ toctotoc, 		      % add table of contents to the table of contents
 %\usepackage{mathpazo} % TODO Use the Palatino font by default, % ONLY WORKS WITH OLD PDFLATEX VERSION?
 
 %-------------------------------------------------------------------------------
+%   Fast preview mode for thesis drafting
+%-------------------------------------------------------------------------------
+
+\newif\ifthesisfastpreview
+\thesisfastpreviewfalse % Set to \thesisfastpreviewtrue for faster preview builds.
+
+\newcommand{\thesispreviewgraphicbox}[2][0.92\linewidth]{%
+    \fbox{%
+        \parbox[c][0.24\textheight][c]{\dimexpr #1 - 2\fboxsep - 2\fboxrule\relax}{%
+            \centering
+            Preview placeholder for figure\\[0.4em]
+            \texttt{\detokenize{#2}}%
+        }%
+    }%
+}
+
+\newcommand{\thesispreviewfallbackgraphicbox}[3][0.92\linewidth]{%
+    \fbox{%
+        \parbox[c][0.24\textheight][c]{\dimexpr #1 - 2\fboxsep - 2\fboxrule\relax}{%
+            \centering
+            Preview placeholder for figure\\[0.4em]
+            Preferred: \texttt{\detokenize{#2}}\\[0.2em]
+            Fallback: \texttt{\detokenize{#3}}%
+        }%
+    }%
+}
+
+%-------------------------------------------------------------------------------
 %	THESIS INFORMATION
 %-------------------------------------------------------------------------------
 

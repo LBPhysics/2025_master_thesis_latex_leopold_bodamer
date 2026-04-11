@@ -16,62 +16,69 @@ This phenomenon is fundamental in quantum mechanics and quantum optics.
 Consider a two-level system with states \(\ket{g}\) (ground state) and \(\ket{e}\) (excited state).
 The energy separation between the two states is given by:
 \begin{equation}
-	\omega_0 = E_e - E_g,
 	\label{eq:EnergySeparation}
 \end{equation}
 where \(E_e\) and \(E_g\) are the energies of the excited and ground states, respectively.
 
 \subsubsection{Atomic Hamiltonian}
-The free atomic Hamiltonian is expressed as:
+In the convention used in Paper~I and in the implementation, the ground-state energy is set to zero and the free Hamiltonian is written as
 \begin{equation}
-	H_0 = \frac{\omega_0}{2} \sigma_z, \qquad \sigma_z = \ket{e}\bra{e} - \ket{g}\bra{g}
+	H_0 = \omega_{eg}\hat{N}, \qquad \hat{N} = \ket{e}\bra{e} = \sigma_+\sigma_-.
 	\label{eq:AtomicHamiltonian}
 \end{equation}
+This differs from the centered form \(H_0 = \omega_{eg}\sigma_z/2\) only by an additive multiple of the identity and therefore leads to the same equations of motion.
 
 
 \subsubsection{Electric Field}
-The electric field is given analogously to \autoref{eq:electric_field_three_pulses} by:
+The code distinguishes between the laboratory-frame positive-frequency field \(\varepsilon^{(+)}(t)\) and its slowly varying envelope \(E(t)\):
 \begin{equation}
-	\mathcal{E}(t) = E_0 e^{i\phi} e^{-i\omega_{L} t}, \qquad
-	E_{\mathrm{phys}}(t) = \mathcal{E}(t) + \mathcal{E}^*(t)
+	\varepsilon^{(+)}(t) = e^{-i\omega_{L} t} E(t), \qquad
+	E(t) = E_0 e^{-i\phi}, \qquad
+	E_{\mathrm{phys}}(t) = \varepsilon^{(+)}(t) + \varepsilon^{(-)}(t).
 	\label{eq:ElectricFieldComplex}
 \end{equation}
-where \(E_0\) is the field amplitude, \(\phi\) is the phase, and \(\omega_{L}\) is the laser frequency.
+Here \(E_0\) is the field amplitude, \(\phi\) is the pulse phase, and \(\omega_{L}\) is the laser carrier frequency.
+This sign convention matches Paper~I and the codebase.
 
 \subsubsection{Interaction Hamiltonian}
-Using the electric dipole interaction with raising and lowering operators \(\sigma_\pm = (\sigma_x \pm i\sigma_y)/2\):
+Using the electric dipole interaction with raising and lowering operators \(\sigma_\pm = (\sigma_x \pm i\sigma_y)/2\), the dipole operator can be written as
 \begin{equation}
-	H_{\mathrm{int}}(t) = -\mu \left( \mathcal{E}(t) \sigma_+ + \mathcal{E}^*(t) \sigma_- \right)
+	\hat{\mu} = \mu_{eg}\sigma_+ + \mu_{eg}\sigma_-,
 	\label{eq:InteractionHamiltonianDipole}
 \end{equation}
-where \(\mu\) is the dipole matrix element.
+where, for a two-level system, the phase of the basis states can be chosen such that \(\mu_{eg}\) is real.
+
+The full laboratory-frame interaction Hamiltonian is then
 \begin{equation}
-	V(t) = -\hat{\mu} \left( E(t) \sigma_+ + E^*(t) \sigma_- \right)
+	H_{\mathrm{int}}(t) = -\hat{\mu}\left(\varepsilon^{(+)}(t) + \varepsilon^{(-)}(t)\right).
 	\label{eq:asdasdasd}
 \end{equation}
-where \(\mu\) is the dipole matrix element.
+Applying the rotating-wave approximation in the laboratory frame keeps only the resonant terms,
+\begin{equation}
+	H_{\mathrm{int}}^{\mathrm{RWA}}(t) = -\mu_{eg}\left(\varepsilon^{(+)}(t)\sigma_+ + \varepsilon^{(-)}(t)\sigma_-\right).
+\end{equation}
 
 \subsubsection{Total Hamiltonian}
 The total Hamiltonian of the system is:
 \begin{equation}
-	H(t) = H_0 + H_{\mathrm{int}}(t)
+	H(t) = H_0 + H_{\mathrm{int}}(t).
 	\label{eq:TotalHamiltonian}
 \end{equation}
-The time evolution of the system is governed by the time-dependent Schrödinger equation \autoref{eq:oqs_schroedinger_equation}
+The time evolution of the system is governed by the time-dependent Schr\"odinger equation \autoref{eq:oqs_schroedinger_equation}.
 
 \subsection{Transform to the Rotating Frame}
 
-Define the unitary transformation:
+Define the rotating-frame unitary using the excitation-number operator:
 \begin{equation}
-	U(t) = \exp\left(i \omega_{L} t \frac{\sigma_z}{2}\right)
+	U(t) = \exp\left(i\omega_{L} t \hat{N}\right).
 	\label{eq:UnitaryRotatingFrame}
 \end{equation}
-Transform operators as \(\tilde{X} = U X U^\dagger\), and the density matrix as \(\tilde{\rho} = U \rho U^\dagger\).
+Transform operators as \(\tilde{X} = UXU^\dagger\), and the density matrix as \(\tilde{\rho} = U\rho U^\dagger\).
 
-Useful identities for the transformation:
+Useful identities for the transformation are
 \begin{equation}
-	U \sigma_\pm U^\dagger = e^{\pm i \omega_{L} t} \sigma_\pm, \qquad
-	U \sigma_z U^\dagger = \sigma_z
+	U\sigma_\pm U^\dagger = e^{\pm i\omega_{L} t}\sigma_\pm, \qquad
+	U\hat{N}U^\dagger = \hat{N}.
 	\label{eq:TransformationIdentities}
 \end{equation}
 
@@ -80,21 +87,26 @@ Useful identities for the transformation:
 \begin{itemize}
 	\item \textbf{Free Hamiltonian:}
 	      \begin{equation}
-		      \tilde{H}_0 = \frac{(\omega_0 - \omega_{L})}{2} \sigma_z = \frac{\Delta}{2} \sigma_z
+		      \tilde{H}_0 = (\omega_{eg} - \omega_{L})\hat{N} = \Delta_L \hat{N},
 		      \label{eq:TransformedFreeHamiltonian}
 	      \end{equation}
-	      where \(\Delta = \omega_0 - \omega_{L}\) is the detuning.
+	      where \(\Delta_L = \omega_{eg} - \omega_{L}\) is the laser detuning.
 
 	\item \textbf{Transformed interaction Hamiltonian:}
 	      \begin{equation}
-		      \tilde{H}_{\mathrm{int}} = -\mu \left( E_0 e^{i\phi} \sigma_+ + E_0 e^{-i\phi} \sigma_- \right)
+		      \tilde{H}_{\mathrm{int}} = -\mu_{eg}\left(E(t)\sigma_+ + E^*(t)\sigma_-\right).
 		      \label{eq:TransformedInteractionHamiltonian}
 	      \end{equation}
 
-	\item Defining the Rabi frequency \(\Omega = \mu E_0\), the total rotating-frame Hamiltonian becomes:
+	\item Defining the complex drive amplitude
+	      \begin{equation}
+		      \Omega_c(t) = \mu_{eg}E(t),
+		      \label{eq:TimeDepRabiFreq}
+	      \end{equation}
+	      the total rotating-frame Hamiltonian becomes
 	      \begin{equation}
 		      \boxed{
-			      ilde{H} = \frac{\Delta}{2} \sigma_z - \Omega \left( e^{i\phi} \sigma_+ + e^{-i\phi} \sigma_- \right)
+			      \tilde{H} = \Delta_L \hat{N} - \Omega_c(t)\sigma_+ - \Omega_c^*(t)\sigma_-
 		      }
 		      \label{eq:RotatingFrameHamiltonian}
 	      \end{equation}
@@ -102,109 +114,159 @@ Useful identities for the transformation:
 
 \subsection{Master Equation in the Rotating Frame (with RWA)}
 
-The master equation in the rotating frame is:
+From here on, \(\rho\) denotes the rotating-frame density matrix.
+The master equation is
 \begin{equation}
-	\frac{\mathrm{d}}{\mathrm{d}t}\rho = -i[\tilde{H}, \rho] + \mathcal{D}(\rho)
+	\frac{\mathrm{d}}{\mathrm{d}t}\rho = -i[\tilde{H}, \rho] + \mathcal{D}(\rho),
 	\label{eq:MasterEquationRotatingFrame}
 \end{equation}
-The dissipator includes spontaneous emission and pure dephasing:
+with dissipator
 \begin{equation}
 	\mathcal{D}(\rho) =
-	\gamma_0 \left( \sigma_- \rho \sigma_+ - \frac{1}{2} \{ \sigma_+ \sigma_-, \rho \} \right)
-	+ \frac{\gamma_\varphi}{2} \left( \sigma_z \rho \sigma_z - \rho \right)
+	\gamma_{\downarrow}\left(\sigma_-\rho\sigma_+ - \frac{1}{2}\{\sigma_+\sigma_-, \rho\}\right)
+	+ \gamma_{\uparrow}\left(\sigma_+\rho\sigma_- - \frac{1}{2}\{\sigma_-\sigma_+, \rho\}\right)
+	+ \frac{\gamma_\varphi}{2}\left(\sigma_z \rho \sigma_z - \rho\right).
 	\label{eq:DissipatorOperator}
 \end{equation}
 Define the total decoherence rate:
 \begin{equation}
-	\Gamma = \frac{\gamma_0}{2} + \gamma_\varphi
+	\Gamma = \frac{\gamma_{\downarrow} + \gamma_{\uparrow}}{2} + \gamma_\varphi.
 	\label{eq:TotalDecoherenceRate}
 \end{equation}
+For the Paper-I benchmark one sets \(\gamma_{\uparrow} = 0\).
 
 \subsection{Equations of Motion}
 
-Write the density matrix as:
+Write the density matrix as
 \begin{equation}
-	\rho = \begin{pmatrix}
+	\rho =
+	\begin{pmatrix}
 		\rho_{gg} & \rho_{ge} \\
 		\rho_{eg} & \rho_{ee}
-	\end{pmatrix}, \qquad \rho_{ge} = \rho_{eg}^*
+	\end{pmatrix},
+	\qquad
+	\rho_{ge} = \rho_{eg}^*.
 	\label{eq:oqs_DensityMatrixElements}
 \end{equation}
-Let \(\Omega_c = \Omega e^{i\phi}\). The equations of motion are:
+Following Paper~I, it is convenient to write the laboratory-frame optical coherences as
+\begin{equation}
+	\rho_{eg}^{\mathrm{lab}}(t) = \sigma_{eg}(t)e^{-i\omega_L t}, \qquad
+	\rho_{ge}^{\mathrm{lab}}(t) = \sigma_{ge}(t)e^{+i\omega_L t}.
+\end{equation}
+In the rotating frame used above, \(\sigma_{eg} = \rho_{eg}\) and \(\sigma_{ge} = \rho_{ge}\).
+The resulting equations of motion are
 \begin{equation}
 	\boxed{
 		\begin{aligned}
-			\frac{\mathrm{d}}{\mathrm{d}t}\rho_{ee} & = i \Omega_c \rho_{ge} - i \Omega_c^* \rho_{eg} - \gamma_0 \rho_{ee}            \\[6pt]
-			\frac{\mathrm{d}}{\mathrm{d}t}\rho_{gg} & = -i \Omega_c \rho_{ge} + i \Omega_c^* \rho_{eg} + \gamma_0 \rho_{ee}           \\[6pt]
-			\frac{\mathrm{d}}{\mathrm{d}t}\rho_{eg} & = i \Delta \rho_{eg} + i \Omega_c (\rho_{gg} - \rho_{ee}) - \Gamma \rho_{eg}    \\[6pt]
-			\frac{\mathrm{d}}{\mathrm{d}t}\rho_{ge} & = -i \Delta \rho_{ge} - i \Omega_c^* (\rho_{gg} - \rho_{ee}) - \Gamma \rho_{ge}
+			\frac{\mathrm{d}}{\mathrm{d}t}\sigma_{eg} & = -(\Gamma + i\Delta_L)\sigma_{eg}
+			+ i\Omega_c(t)(\rho_{gg} - \rho_{ee}) \\[6pt]
+			\frac{\mathrm{d}}{\mathrm{d}t}\sigma_{ge} & = -(\Gamma - i\Delta_L)\sigma_{ge}
+			- i\Omega_c^*(t)(\rho_{gg} - \rho_{ee}) \\[6pt]
+			\frac{\mathrm{d}}{\mathrm{d}t}\rho_{ee} & = -\gamma_{\downarrow}\rho_{ee}
+			+ \gamma_{\uparrow}\rho_{gg}
+			+ i\Omega_c(t)\sigma_{ge}
+			- i\Omega_c^*(t)\sigma_{eg} \\[6pt]
+			\frac{\mathrm{d}}{\mathrm{d}t}\rho_{gg} & = -\gamma_{\uparrow}\rho_{gg}
+			+ \gamma_{\downarrow}\rho_{ee}
+			- i\Omega_c(t)\sigma_{ge}
+			+ i\Omega_c^*(t)\sigma_{eg}
 		\end{aligned}
 	}
 	\label{eq:BlochEquations}
 \end{equation}
-On resonance (\(\Delta = 0\)), these reduce to the form implemented in the Liouvillian matrix in numerical calculations.
+For \(\gamma_{\uparrow} = 0\), these reduce to the Paper-I equations, with the detuning term added explicitly.
 
 \subsection{Liouvillian Matrix Form}
 
-Flatten the density matrix into a column vector:
-\todoidea{
-	use the column stacking version like qutip uses!
-}
+The custom implementation uses QuTiP's column-stacking convention.
+In the basis \(\{\ket{g}, \ket{e}\}\), this means
 \begin{equation}
 	\boldsymbol{\rho} =
 	\begin{pmatrix}
 		\rho_{gg} \\
-		\rho_{ge} \\
-		\rho_{eg} \\
+		\sigma_{eg} \\
+		\sigma_{ge} \\
 		\rho_{ee}
-	\end{pmatrix}
+	\end{pmatrix}.
 	\label{eq:oqs_DensityMatrixVector}
 \end{equation}
-Then the master equation becomes:
+Then the master equation becomes
 \begin{equation}
-	\dot{\boldsymbol{\rho}} = L(t) \boldsymbol{\rho}
+	\dot{\boldsymbol{\rho}} = \left(L_0 + E(t)L_+ + E^*(t)L_-\right)\boldsymbol{\rho},
 	\label{eq:LiouvillianMatrixForm}
 \end{equation}
-Where \(L(t)\) is the time-dependent Liouvillian matrix, using:
+with
 \begin{equation}
-	\Omega_c(t) = \mu E(t), \quad \text{with } E(t) = E_0 e^{i\phi}
-	\label{eq:TimeDepRabiFreq}
-\end{equation}
-This matrix form is equivalent to the operator master equation above, and is suitable for numerical integration.
-
-
-\subsection{Rabi Frequency and Dynamics}
-The Rabi frequency \(\Omega_R\) determines the oscillation rate between the two levels:
-\begin{equation}
-	\Omega_R = \sqrt{\Delta^2 + \Omega^2}
-	\label{eq:RabiFrequency}
-\end{equation}
-The phase \(\phi\) does not change the \textbf{Rabi frequency}, but it \textbf{rotates the axis of Rabi oscillations} in the Bloch sphere — i.e., it changes the \textbf{initial direction} of the drive.
-
-In matrix form, in the basis \(\{ \ket{e}, \ket{g} \}\), the RWA Hamiltonian is:
-\begin{equation}
-	\tilde{H}_{\mathrm{RWA}} = \frac{1}{2}
+	L_0 =
 	\begin{pmatrix}
-		\Delta             & -\Omega e^{i\phi} \\
-		-\Omega e^{-i\phi} & -\Delta
-	\end{pmatrix}
+		-\gamma_{\uparrow} & 0 & 0 & \gamma_{\downarrow} \\
+		0 & -(\Gamma + i\Delta_L) & 0 & 0 \\
+		0 & 0 & -(\Gamma - i\Delta_L) & 0 \\
+		\gamma_{\uparrow} & 0 & 0 & -\gamma_{\downarrow}
+	\end{pmatrix},
+	\qquad
+	L_+ =
+	\begin{pmatrix}
+		0 & 0 & -i\mu_{eg} & 0 \\
+		i\mu_{eg} & 0 & 0 & -i\mu_{eg} \\
+		0 & 0 & 0 & 0 \\
+		0 & 0 & i\mu_{eg} & 0
+	\end{pmatrix},
+\end{equation}
+\begin{equation}
+	L_- =
+	\begin{pmatrix}
+		0 & i\mu_{eg} & 0 & 0 \\
+		0 & 0 & 0 & 0 \\
+		-i\mu_{eg} & 0 & 0 & i\mu_{eg} \\
+		0 & -i\mu_{eg} & 0 & 0
+	\end{pmatrix}.
+\end{equation}
+This is exactly the \(L_0 + E(t)L_+ + E^*(t)L_-\) structure used in the \texttt{paper\_eqs} implementation.
+
+
+\subsection{Constant-Drive Limit}
+For a constant envelope \(E(t) = E_0 e^{-i\phi}\), the complex drive amplitude \(\Omega_c = \mu_{eg}E_0 e^{-i\phi}\) is time independent.
+In the basis \(\{\ket{g}, \ket{e}\}\), the rotating-frame Hamiltonian is then
+\begin{equation}
+	\tilde{H}_{\mathrm{RWA}} =
+	\begin{pmatrix}
+		0 & -\Omega_c^* \\
+		-\Omega_c & \Delta_L
+	\end{pmatrix}.
 	\label{eq:RWAHamiltonianMatrix}
 \end{equation}
+Subtracting \((\Delta_L/2)\mathbb{1}\) gives the equivalent centered form
+\begin{equation}
+	\tilde{H}_{\mathrm{RWA}} - \frac{\Delta_L}{2}\mathbb{1}
+	=
+	\frac{1}{2}
+	\begin{pmatrix}
+		-\Delta_L & -2\Omega_c^* \\
+		-2\Omega_c & \Delta_L
+	\end{pmatrix}.
+\end{equation}
+If one defines the spectroscopic Rabi frequency by \(\Omega = 2|\Omega_c| = 2\mu_{eg}E_0\), the generalized Rabi frequency is
+\begin{equation}
+	\Omega_R = \sqrt{\Delta_L^2 + \Omega^2}.
+	\label{eq:RabiFrequency}
+\end{equation}
+The phase \(\phi\) does not change \(\Omega_R\), but it rotates the drive axis in the Bloch sphere and therefore changes the phase of the oscillation.
 
 
 \subsection{Recovery of Laboratory Frame Density Matrix}
 
-To recover the entries of the original density matrix \(\rho(t)\) from the evolved density matrix in the rotating frame \(\tilde{\rho}(t)\), the inverse transformation is used:
+To recover the laboratory-frame density matrix from the evolved rotating-frame density matrix, use
 \begin{equation}
-	\rho(t) = U^\dagger(t) \tilde{\rho}(t) U(t)
+	\rho^{\mathrm{lab}}(t) = U^\dagger(t)\rho(t)U(t).
 	\label{eq:RecoverOriginalDensityMatrix}
 \end{equation}
-The entries of the original density matrix \(\rho(t)\) are related to the entries of the density matrix in the rotating frame \(\tilde{\rho}(t)\) by:
+The matrix elements are related by
 \begin{align}
-	\rho_{gg}(t) & = \tilde{\rho}_{gg}(t) \label{eq:RecoveryGG}                  \\
-	\rho_{ee}(t) & = \tilde{\rho}_{ee}(t) \label{eq:RecoveryEE}                  \\
-	\rho_{ge}(t) & = e^{i\omega_{L} t} \tilde{\rho}_{ge}(t) \label{eq:RecoveryGE}  \\
-	\rho_{eg}(t) & = e^{-i\omega_{L} t} \tilde{\rho}_{eg}(t) \label{eq:RecoveryEG}
+	\rho_{gg}^{\mathrm{lab}}(t) & = \rho_{gg}(t) \label{eq:RecoveryGG} \\
+	\rho_{ee}^{\mathrm{lab}}(t) & = \rho_{ee}(t) \label{eq:RecoveryEE} \\
+	\rho_{ge}^{\mathrm{lab}}(t) & = e^{i\omega_{L} t}\sigma_{ge}(t) \label{eq:RecoveryGE} \\
+	\rho_{eg}^{\mathrm{lab}}(t) & = e^{-i\omega_{L} t}\sigma_{eg}(t). \label{eq:RecoveryEG}
 \end{align}
 
 %----------------------------------------------------------------------------------------
@@ -216,8 +278,7 @@ The entries of the original density matrix \(\rho(t)\) are related to the entrie
 Rabi oscillations and the associated theoretical tools, such as the RWA and density matrix formalism, have wide-ranging applications:
 \begin{itemize}
 	\item \textbf{Quantum Computing:} Rabi oscillations are used to implement quantum gates by precisely controlling the population of qubits.
-	\item \textbf{Spectroscopy:} The Rabi frequency provides information about the interaction strength between light and matter.
+	\item \textbf{Spectroscopy:} The driven two-level model provides the basic reference for interpreting coherent optical signals.
 	\item \textbf{Atomic Physics:} Understanding Rabi oscillations is essential for manipulating atomic states in experiments.
 \end{itemize}
 These concepts form the foundation for advanced topics in quantum mechanics and quantum technologies.
-
