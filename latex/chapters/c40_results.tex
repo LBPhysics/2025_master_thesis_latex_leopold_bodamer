@@ -133,12 +133,12 @@
 \providecommand{\dimerFigSixWaitSixtyTwoLindbladPath}{\detokenize{figures/generated/dimer_fig6_T062_lindblad}}
 \providecommand{\dimerFigFourWaitFortySixRedfieldRwaPath}{\detokenize{figures/generated/dimer_fig4_T046_redfield_rwa_thermal}}
 
-This chapter combines the open-system framework of~\autoref{chapter:oqs_open_quantum_systems} with the spectroscopy workflow of~\autoref{chapter:spctr_spectroscopy}. Its central aim is to reproduce selected spectra from Papers~I and II inside one consistent QuTiP-based workflow~\cite{mancaletal2006twodimensionalopticalthreepulse,pisliakovetal2006twodimensionalopticalthreepulse}. This reformulation is motivated by generality: once the spectroscopy pipeline is written in terms of QuTiP Hamiltonians, operators, and solver backends, the same numerical machinery can be extended from the paper-specific monomer and dimer equations to more general Hamiltonians, larger systems, and microscopic bath models without relying on explicit analytical equations of motion. In this chapter, the explicit paper equations define the calibration reference. The monomer is then interpreted through a Lindblad baseline and a Redfield bath extension, while the dimer is calibrated directly against the QuTiP Redfield implementation. The complete paper-equation comparison atlas is collected in~\autoref{app:paper_eqs_reference_atlas}.
+This chapter combines the open-system framework of~\autoref{chapter:oqs_open_quantum_systems} with the spectroscopy workflow of~\autoref{chapter:spctr_spectroscopy}. Its central aim is to reproduce selected spectra from Papers~I and II inside one consistent QuTiP-based workflow~\cite{mancaletal2006twodimensionalopticalthreepulse,pisliakovetal2006twodimensionalopticalthreepulse}. This reformulation is motivated by generality: once the spectroscopy pipeline is written in terms of QuTiP Hamiltonians, operators, and solver backends, the same numerical machinery can be extended from the paper-specific monomer and dimer equations to more general Hamiltonians, larger systems, and microscopic bath models without relying on explicit analytical equations of motion. In this chapter, the explicit paper equations define the calibration reference. For both the monomer and dimer cases, the spectra from Papers I and II are first reconstructed using the explicit paper equations and then reproduced within the QuTiP framework to validate the Hamiltonian-based implementation against the paper reference. Once this agreement is established, the QuTiP workflow is used as the central analysis tool, since it is defined directly in terms of Hamiltonians and bath models and can therefore be extended more systematically beyond the original paper formulations. In the monomer case, this enables an additional Redfield treatment that is not included in the reference papers. The complete paper-equation comparison atlas is collected in~\autoref{app:paper_eqs_reference_atlas}.
 
 \section{Monomer}
 \label{sec:results_monomer}
 
-The discussion starts with the monomer because it is the simplest system in which the complete spectroscopy workflow can be read almost without ambiguity. In the strict two-level limit, the third-order signal contains only ground-state bleach and stimulated-emission contributions. Excited-state absorption is absent because no higher excited manifold is available, as discussed in~\autoref{sec:spctr_two_level_system_linear_response} and~\autoref{sec:spctr_two_level_third_order_pathways}. This makes the monomer the natural place to organize the results in the same order in which the signal is constructed in~\autoref{sec:spctr_2D_construction_formal}: first the time-domain response, then its Fourier transform, then the full $(t_{\mathrm{coh}},t_{\mathrm{det}})$ maps, and finally the 2D spectra in $(\omega_{\mathrm{coh}},\omega_{\mathrm{det}})$ space.
+A generic monomer in principle has an infinite ladder of excited states. Here the strict limit considered reduces it to a two-level system and therefore to the simplest possible case in which the complete spectroscopy workflow can be validated. The monomer results are presented first in the 1D time-domain ($t_{\mathrm{det}}$), then its Fourier transform, then the full $(t_{\mathrm{coh}},t_{\mathrm{det}})$ maps, and finally the 2D spectra in $(\omega_{\mathrm{coh}},\omega_{\mathrm{det}})$ space.
 
 \subsection{Model and equations of motion}
 \label{subsec:results_monomer_model_eom}
@@ -168,23 +168,7 @@ All monomer runs discussed in the main text use $\tilde{\nu}_{eg}=\SI{16000}{\pe
 \subsection{1D time-domain response}
 \label{subsec:results_monomer_1d_time}
 
-At fixed coherence and waiting times, the measured quantity is a slice through the phase-selected time-domain signals $E_{\mathrm{R/NR}}(t_{\mathrm{coh}},t_{\mathrm{wait}},t_{\mathrm{det}})$ introduced in~\autoref{eq:time_domain_signal}. This is the first direct place to see the difference between the rephasing and nonrephasing branches discussed in~\autoref{subsec:spctr_rephasing_nonrephasing}. The main chapter keeps only the simplest direct solver comparison in this representation, while the remaining \texttt{paper\_eqs} mirrors are deferred to~\autoref{app:paper_eqs_reference_atlas}. The QuTiP implementation shows excellent agreement with Paper I.
-
-\begin{figure}[htbp]
-    \centering
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoHomTimePaperPath}
-    \end{minipage}\hfill
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoHomTimeLindbladPath}
-    \end{minipage}
-    \caption[Monomer time-domain calibration in the homogeneous limit]{Direct monomer time-domain calibration in the simplest homogeneous setting at fixed $t_{\mathrm{coh}}=\SI{300}{\femto\second}$, $t_{\mathrm{wait}}=\SI{1000}{\femto\second}$, and $\Delta_{\mathrm{inh}}=0$. Left: \texttt{paper\_eqs} reference. Right: Lindblad propagation with the same fitted rates. This is the cleanest branch-by-branch comparison before static disorder is introduced.}
-    \label{fig:results_monomer_1d_time_calibration}
-\end{figure}
-
-In~\autoref{fig:results_monomer_1d_time_calibration}, the agreement is essentially exact: in the homogeneous limit both branches have the same peak magnitude, because there is no static disorder that the rephasing pathway could refocus. This homogeneous match is therefore the minimal solver calibration retained in the main text. The converged inhomogeneous paper-equation counterpart is documented in~\autoref{app:paper_eqs_reference_atlas}.
+At fixed coherence and waiting times, the measured quantity is a slice through the phase-selected time-domain signals $E_{\mathrm{R/NR}}(t_{\mathrm{coh}},t_{\mathrm{wait}},t_{\mathrm{det}})$ introduced in~\autoref{eq:time_domain_signal}. The difference between the rephasing and nonrephasing branches discussed in~\autoref{subsec:spctr_rephasing_nonrephasing} can be seen in the upper vs lower panels of \autoref{fig:results_monomer_1d_time_hom_inhom}.
 
 \begin{figure}[htbp]
     \centering
@@ -200,28 +184,12 @@ In~\autoref{fig:results_monomer_1d_time_calibration}, the agreement is essential
     \label{fig:results_monomer_1d_time_hom_inhom}
 \end{figure}
 
-The physical message of~\autoref{fig:results_monomer_1d_time_hom_inhom} is the classic photon-echo logic. In the homogeneous ensemble, all monomers oscillate at the same transition frequency, so there is no ensemble dephasing that could later be refocused. Consequently, the rephasing trace decays away from the prompt response and does not show a delayed maximum near $t_{\mathrm{det}}\approx t_{\mathrm{coh}}$. Once static disorder is introduced, the rephasing signal develops exactly such a delayed peak: the phase reversal of the rephasing branch refocuses the ensemble frequency spread and creates the photon echo. The nonrephasing branch does not refocus disorder and therefore stays concentrated at short detection times, in agreement with~\autoref{subsec:spctr_rephasing_nonrephasing}. The raw exported peak ratio changes from $R/NR=1.00$ in the homogeneous slice to $1.45$ in the inhomogeneous one, so the rephasing branch already becomes the larger of the two before any Fourier transformation is applied.
+The \autoref{fig:results_monomer_1d_time_hom_inhom} shows the appearance of the photon-echo in the inhomogeneous rephasing case. In the homogeneous ensemble (linke panels), all monomers oscillate at the same transition frequency. Consequently, the rephasing response decays away directly. Once static disorder is introduced (right panels), the rephasing signal shows a delayed maximum near $t_{\mathrm{det}}\approx t_{\mathrm{coh}}$ (oben rechts): the phase reversal of the rephasing branch refocuses the ensemble frequency spread and creates the photon echo. The nonrephasing branch however does not refocus disorder and therefore stays concentrated at short detection times, in agreement with~\autoref{subsec:spctr_rephasing_nonrephasing}. The raw exported peak ratio changes from $R/NR=1.00$ in the homogeneous slice to $1.45$ in the inhomogeneous one, so the rephasing signal dominates the total signal.
 
 \subsection{1D frequency-domain response}
 \label{subsec:results_monomer_1d_freq}
 
-The next step is to Fourier transform the detection-time signal while keeping $t_{\mathrm{coh}}$ and $t_{\mathrm{wait}}$ fixed. This 1D frequency view is not yet the full 2D spectrum, but it already anticipates the frequency-domain construction of~\cref{eq:SR_def,eq:SNR_def} and separates the basic homogeneous and inhomogeneous line-shape logic before the two-dimensional interpretation is introduced.
-
-\begin{figure}[htbp]
-    \centering
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoHomFreqPaperPath}
-    \end{minipage}\hfill
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoHomFreqLindbladPath}
-    \end{minipage}
-    \caption[Monomer 1D frequency-domain calibration in the homogeneous limit]{Direct monomer 1D frequency-domain calibration for the same homogeneous setting as in~\autoref{fig:results_monomer_1d_time_calibration}. Left: \texttt{paper\_eqs} reference. Right: Lindblad propagation with the same fitted rates.}
-    \label{fig:results_monomer_1d_freq_calibration}
-\end{figure}
-
-The same calibration carries over after Fourier transformation. In~\autoref{fig:results_monomer_1d_freq_calibration}, the Lindblad spectrum reproduces the Paper~I reference in the homogeneous limit, including the equal branch weights and the absorptive line centered at $\tilde{\nu}_{eg}=\SI{16000}{\per\centi\metre}$.
+The next step is to Fourier transform the detection-time signal while keeping $t_{\mathrm{coh}}$ and $t_{\mathrm{wait}}$ fixed. This 1D frequency view already anticipates the frequency-domain construction of~\cref{eq:SR_def,eq:SNR_def} and separates the basic homogeneous and inhomogeneous line-shape logic before the two-dimensional interpretation is introduced. The same explicit homogeneous cross-check was also carried through after Fourier transformation and again gave exact agreement with the corresponding \texttt{paper\_eqs} benchmark, so the argument can now proceed directly with the calibrated Lindblad version retained in the main text.
 
 \begin{figure}[htbp]
     \centering
@@ -246,29 +214,54 @@ With the 1D calibration in place, the full time-domain signal $E_{\mathrm{R/NR}}
 
 \begin{figure}[p]
     \centering
-    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigThreeTZeroLindbladTimePath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigThreeTTwentyLindbladTimePath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigThreeTFortyLindbladTimePath}
-    \caption{Homogeneous monomer 2D time-domain waiting-time series obtained with the calibrated Lindblad model at $T=\SI{0}{\femto\second}$, $\SI{20}{\femto\second}$, and $\SI{40}{\femto\second}$. With $\Delta_{\mathrm{inh}}=0$, the signal remains concentrated near the origin of the $(t_{\mathrm{coh}},t_{\mathrm{det}})$ plane and does not develop a pronounced echo ridge.}
-    \label{fig:results_monomer_2d_time_hom}
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        {\small Homogeneous, $\Delta_{\mathrm{inh}}=0$}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        {\small Inhomogeneous, $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$}
+    \end{minipage}
+
+    \vspace{0.4em}
+    {\small $T=\SI{0}{\femto\second}$}\\[0.2em]
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigThreeTZeroLindbladTimePath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigFourTZeroLindbladTimePath}
+    \end{minipage}
+
+    \vspace{0.5em}
+    {\small $T=\SI{20}{\femto\second}$}\\[0.2em]
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigThreeTTwentyLindbladTimePath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigFourTTwentyLindbladTimePath}
+    \end{minipage}
+
+    \vspace{0.5em}
+    {\small $T=\SI{40}{\femto\second}$}\\[0.2em]
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigThreeTFortyLindbladTimePath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigFourTFortyLindbladTimePath}
+    \end{minipage}
+    \caption{Monomer 2D time-domain waiting-time series obtained with the calibrated Lindblad workflow at $T=\SI{0}{\femto\second}$, $\SI{20}{\femto\second}$, and $\SI{40}{\femto\second}$. Left column: homogeneous case with $\Delta_{\mathrm{inh}}=0$. Right column: inhomogeneous case with $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$. Static disorder introduces the echo-like elongated rephasing structure that is absent in the homogeneous case.}
+    \label{fig:results_monomer_2d_time_hom_inhom}
 \end{figure}
 
-For the homogeneous monomer in~\autoref{fig:results_monomer_2d_time_hom}, both rephasing and nonrephasing intensity remain concentrated near the origin and decay with increasing $t_{\mathrm{coh}}$ and $t_{\mathrm{det}}$. The absence of a pronounced ridge along $t_{\mathrm{det}}\approx t_{\mathrm{coh}}$ is the time-domain counterpart of the missing photon echo already seen in~\autoref{fig:results_monomer_1d_time_hom_inhom}. The main waiting-time dependence is not a new internal monomer dynamics, but the finite-pulse regime itself: $T=\SI{0}{\femto\second}$ and $T=\SI{20}{\femto\second}$ are still affected by pulse overlap, while by $T=\SI{40}{\femto\second}$ the shape has essentially settled. The branch ratios listed later in~\autoref{tab:results_monomer_branch_ratios} return to essentially unity by $T=\SI{20}{\femto\second}$ and $T=\SI{40}{\femto\second}$, showing that the small excess at $T=\SI{0}{\femto\second}$ is a finite-pulse effect rather than a persistent physical asymmetry.
+For the homogeneous monomer in the left column of~\autoref{fig:results_monomer_2d_time_hom_inhom}, both rephasing and nonrephasing intensity remain concentrated near the origin and decay with increasing $t_{\mathrm{coh}}$ and $t_{\mathrm{det}}$. The absence of a pronounced ridge along $t_{\mathrm{det}}\approx t_{\mathrm{coh}}$ is the time-domain counterpart of the missing photon echo already seen in~\autoref{fig:results_monomer_1d_time_hom_inhom}. The main waiting-time dependence is not a new internal monomer dynamics, but the finite-pulse regime itself: $T=\SI{0}{\femto\second}$ and $T=\SI{20}{\femto\second}$ are still affected by pulse overlap, while by $T=\SI{40}{\femto\second}$ the shape has essentially settled. The branch ratios listed later in~\autoref{tab:results_monomer_branch_ratios} return to essentially unity by $T=\SI{20}{\femto\second}$ and $T=\SI{40}{\femto\second}$, showing that the small excess at $T=\SI{0}{\femto\second}$ is a finite-pulse effect rather than a persistent physical asymmetry.
 
-\begin{figure}[p]
-    \centering
-    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigFourTZeroLindbladTimePath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigFourTTwentyLindbladTimePath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigFourTFortyLindbladTimePath}
-    \caption{Inhomogeneous monomer 2D time-domain waiting-time series obtained with the same Lindblad workflow at $T=\SI{0}{\femto\second}$, $\SI{20}{\femto\second}$, and $\SI{40}{\femto\second}$. Here $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$, and the rephasing branch develops the echo-like elongated structure that is absent in the homogeneous case.}
-    \label{fig:results_monomer_2d_time_inhom}
-\end{figure}
-
-The inhomogeneous case in~\autoref{fig:results_monomer_2d_time_inhom} changes specifically in the rephasing branch. There the signal acquires an elongated structure roughly following $t_{\mathrm{det}}\sim t_{\mathrm{coh}}$, which is the 2D time-domain precursor of both the delayed photon echo and the diagonal elongation seen after Fourier transformation. The nonrephasing branch stays more localized and does not show comparable refocusing, exactly as expected from the pathway discussion in~\autoref{subsec:spctr_rephasing_nonrephasing}. Once again, the visible $T$-dependence is weak once the pulse-overlap regime has been left, already foreshadowing that the monomer has no genuine waiting-time redistribution dynamics in this static model. The later peak-ratio summary makes an important limitation explicit: after $T=\SI{20}{\femto\second}$, the 2D time-domain maxima of the two branches are already very close, even though the rephasing ridge remains visibly much more structured. %\todoimp{In this representation, the key physics is therefore more geometric than purely peak-amplitude based. -> satz ist komisch}
+The inhomogeneous case in the right column of~\autoref{fig:results_monomer_2d_time_hom_inhom} changes specifically in the rephasing branch. There the signal acquires an elongated structure roughly following $t_{\mathrm{det}}\sim t_{\mathrm{coh}}$, which is the 2D time-domain precursor of both the delayed photon echo and the diagonal elongation seen after Fourier transformation. The nonrephasing branch stays more localized and does not show comparable refocusing, exactly as expected from the pathway discussion in~\autoref{subsec:spctr_rephasing_nonrephasing}. Once again, the visible $T$-dependence is weak once the pulse-overlap regime has been left, already foreshadowing that the monomer has no genuine waiting-time redistribution dynamics in this static model. The later peak-ratio summary makes an important limitation explicit: after $T=\SI{20}{\femto\second}$, the 2D time-domain maxima of the two branches are already very close, even though the rephasing ridge remains visibly much more structured. %\todoimp{In this representation, the key physics is therefore more geometric than purely peak-amplitude based. -> satz ist komisch}
 
 \subsection{2D frequency-domain response}
 \label{subsec:results_monomer_2d_freq}
@@ -277,33 +270,58 @@ The double Fourier transform of the time-domain maps produces the rephasing and 
 
 \begin{figure}[p]
     \centering
-    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigThreeTZeroLindbladPath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigThreeTTwentyLindbladPath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigThreeTFortyLindbladPath}
-    \caption{Homogeneous monomer 2D frequency-domain waiting-time series obtained with the calibrated Lindblad model at $T=\SI{0}{\femto\second}$, \SI{20}{\femto\second}, and \SI{40}{\femto\second}. The common parameters are $\Delta_{\mathrm{inh}}=0$, $N_{\mathrm{inhom}}=1$, $\gamma_{\varphi}=0.01~\si{\per\femto\second}$, $\gamma_{\downarrow}=1/300~\si{\per\femto\second}$, and pulse amplitudes $(0.002,0.002,0.002)$.}
-    \label{fig:results_monomer_2d_hom_lindblad}
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        {\small Homogeneous, $\Delta_{\mathrm{inh}}=0$}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        {\small Inhomogeneous, $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$}
+    \end{minipage}
+
+    \vspace{0.4em}
+    {\small $T=\SI{0}{\femto\second}$}\\[0.2em]
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigThreeTZeroLindbladPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigFourTZeroLindbladPath}
+    \end{minipage}
+
+    \vspace{0.5em}
+    {\small $T=\SI{20}{\femto\second}$}\\[0.2em]
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigThreeTTwentyLindbladPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigFourTTwentyLindbladPath}
+    \end{minipage}
+
+    \vspace{0.5em}
+    {\small $T=\SI{40}{\femto\second}$}\\[0.2em]
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigThreeTFortyLindbladPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigFourTFortyLindbladPath}
+    \end{minipage}
+    \caption{Monomer 2D frequency-domain waiting-time series obtained with the calibrated Lindblad model at $T=\SI{0}{\femto\second}$, \SI{20}{\femto\second}, and \SI{40}{\femto\second}. Left column: homogeneous case with $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=1$. Right column: inhomogeneous case with $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$. The common phenomenological rates are $\gamma_{\varphi}=0.01~\si{\per\femto\second}$ and $\gamma_{\downarrow}=1/300~\si{\per\femto\second}$, with pulse amplitudes $(0.002,0.002,0.002)$.}
+    \label{fig:results_monomer_2d_freq_hom_inhom}
 \end{figure}
 
-The homogeneous series in~\autoref{fig:results_monomer_2d_hom_lindblad} reproduces the compact, nearly symmetric star-like monomer profile emphasized in Paper~I. Because only a single transition contributes, there are no cross peaks, no excited-state-absorption features, and no population transfer signatures during $t_{\mathrm{wait}}$. The short-$T$ distortions are therefore best understood as finite-pulse overlap effects of the same type discussed in Paper~I: $T=\SI{0}{\femto\second}$ shows the strongest phase-twist behaviour, $T=\SI{20}{\femto\second}$ is intermediate, and by $T=\SI{40}{\femto\second}$ the line shape has essentially reached the final homogeneous profile. The corresponding frequency-domain branch ratios likewise collapse back to unity once the pulse-overlap regime has passed.
+The homogeneous series in the left column of~\autoref{fig:results_monomer_2d_freq_hom_inhom} reproduces the compact, nearly symmetric star-like monomer profile emphasized in Paper~I. Because only a single transition contributes, there are no cross peaks, no excited-state-absorption features, and no population transfer signatures during $t_{\mathrm{wait}}$. The short-$T$ distortions are therefore best understood as finite-pulse overlap effects of the same type discussed in Paper~I: $T=\SI{0}{\femto\second}$ shows the strongest phase-twist behaviour, $T=\SI{20}{\femto\second}$ is intermediate, and by $T=\SI{40}{\femto\second}$ the line shape has essentially reached the final homogeneous profile. The corresponding frequency-domain branch ratios likewise collapse back to unity once the pulse-overlap regime has passed.
 
-\begin{figure}[p]
-    \centering
-    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigFourTZeroLindbladPath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigFourTTwentyLindbladPath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.650\linewidth]{\monomerFigFourTFortyLindbladPath}
-    \caption{Inhomogeneous monomer 2D frequency-domain waiting-time series obtained with the same Lindblad model at $T=\SI{0}{\femto\second}$, \SI{20}{\femto\second}, and \SI{40}{\femto\second}. Here $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$.}
-    \label{fig:results_monomer_2d_inhom_lindblad}
-\end{figure}
-
-The inhomogeneous series in~\autoref{fig:results_monomer_2d_inhom_lindblad} develops the diagonal elongation that is the central 2D signature of static disorder. This is precisely the type of homogeneous-versus-inhomogeneous separation described in~\autoref{sec:spctr_spectroscopy_motivation}: the spectrum can be understood as a superposition of many homogeneous spectra shifted along the diagonal by realization-dependent transition frequencies. The diagonal width therefore grows with disorder, whereas the antidiagonal width continues to reflect the homogeneous dephasing. No cross peaks appear because the monomer has neither a second excited transition nor a transfer channel. As in the homogeneous case, the visible waiting-time evolution is largely confined to the pulse-overlap regime; once that has passed, the line shape changes little and mainly loses amplitude. Unlike in the 2D time-domain maps, however, the frequency-domain peak ratios remain clearly above unity even after pulse overlap, so the rephasing branch stays visibly dominant in the inhomogeneous spectra.
+The inhomogeneous series in the right column of~\autoref{fig:results_monomer_2d_freq_hom_inhom} develops the diagonal elongation that is the central 2D signature of static disorder. This is precisely the type of homogeneous-versus-inhomogeneous separation described in~\autoref{sec:spctr_spectroscopy_motivation}: the spectrum can be understood as a superposition of many homogeneous spectra shifted along the diagonal by realization-dependent transition frequencies. The diagonal width therefore grows with disorder, whereas the antidiagonal width continues to reflect the homogeneous dephasing. No cross peaks appear because the monomer has neither a second excited transition nor a transfer channel. As in the homogeneous case, the visible waiting-time evolution is largely confined to the pulse-overlap regime; once that has passed, the line shape changes little and mainly loses amplitude. Unlike in the 2D time-domain maps, however, the frequency-domain peak ratios remain clearly above unity even after pulse overlap, so the rephasing branch stays visibly dominant in the inhomogeneous spectra.
 
 Taken together, the 2D time- and frequency-domain views show the same physics in complementary representations: the echo ridge in the rephasing time-domain signal becomes the diagonal elongation of the inhomogeneous absorptive spectrum after double Fourier transformation.
 
-To map these visual impressions onto a quantitative summary,~\autoref{tab:results_monomer_branch_ratios} lists the ratios of the raw exported branch maxima for the Lindblad figures discussed above. The 1D rows refer to~\autoref{fig:results_monomer_1d_time_hom_inhom} and~\autoref{fig:results_monomer_1d_freq_hom_inhom}; the 2D rows follow the waiting-time panels in~\autoref{fig:results_monomer_2d_time_hom}, \autoref{fig:results_monomer_2d_time_inhom}, \autoref{fig:results_monomer_2d_hom_lindblad}, and~\autoref{fig:results_monomer_2d_inhom_lindblad}. Because the table uses ratios of raw rephasing and nonrephasing peaks, it is insensitive to the plotting normalization applied within each figure. Two conclusions follow immediately. First, static disorder never makes the nonrephasing branch dominant in the displayed monomer results: whenever the two branches differ appreciably, the rephasing branch is larger. Second, the usefulness of a peak-ratio diagnostic depends on representation. In 1D traces and especially in 2D frequency space, the ratios track the disorder physics clearly. In the 2D time domain, by contrast, the decisive difference lies more in the extended shape of the rephasing ridge than in a much larger single maximum.
+To map these visual impressions onto a quantitative summary,~\autoref{tab:results_monomer_branch_ratios} lists the ratios of the raw exported branch maxima for the Lindblad figures discussed above. The 1D rows refer to~\autoref{fig:results_monomer_1d_time_hom_inhom} and~\autoref{fig:results_monomer_1d_freq_hom_inhom}; the 2D rows follow the waiting-time panels collected in~\autoref{fig:results_monomer_2d_time_hom_inhom} and~\autoref{fig:results_monomer_2d_freq_hom_inhom}. Because the table uses ratios of raw rephasing and nonrephasing peaks, it is insensitive to the plotting normalization applied within each figure. Two conclusions follow immediately. First, static disorder never makes the nonrephasing branch dominant in the displayed monomer results: whenever the two branches differ appreciably, the rephasing branch is larger. Second, the usefulness of a peak-ratio diagnostic depends on representation. In 1D traces and especially in 2D frequency space, the ratios track the disorder physics clearly. In the 2D time domain, by contrast, the decisive difference lies more in the extended shape of the rephasing ridge than in a much larger single maximum.
 
 \begin{table}[htbp]
     \centering
@@ -354,7 +372,7 @@ In that sense, the Redfield monomer is the more physical extension of the Paper~
 \subsection{Monomer summary}
 \label{subsec:results_monomer_summary}
 
-The monomer results are deliberately organized in the same order as the signal construction itself. The main text keeps only the simplest homogeneous paper-vs-Lindblad calibration in 1D time and 1D frequency space; all further \texttt{paper\_eqs} mirrors are deferred to~\autoref{app:paper_eqs_reference_atlas}. Within the Lindblad results, the 1D time-domain traces show the basic photon-echo logic: no delayed echo in the homogeneous case, but a clear rephasing echo once static disorder is introduced. The 1D frequency-domain traces then show the corresponding line-shape contrast, while the 2D time-domain maps make the echo ridge visible before Fourier transformation and the 2D frequency-domain spectra turn this into the compact homogeneous peak and the diagonally elongated inhomogeneous peak familiar from Paper~I.
+The monomer results are deliberately organized in the same order as the signal construction itself. The explicit homogeneous paper-vs-Lindblad checks were carried out once and found exact agreement, so the main text keeps only the calibrated Lindblad monomer figures while the duplicate \texttt{paper\_eqs} mirrors are deferred to~\autoref{app:paper_eqs_reference_atlas}. Within the Lindblad results, the 1D time-domain traces show the basic photon-echo logic: no delayed echo in the homogeneous case, but a clear rephasing echo once static disorder is introduced. The 1D frequency-domain traces then show the corresponding line-shape contrast, while the 2D time-domain maps make the echo ridge visible before Fourier transformation and the 2D frequency-domain spectra turn this into the compact homogeneous peak and the diagonally elongated inhomogeneous peak familiar from Paper~I.
 
 The branch-ratio summary sharpens that picture. Static disorder makes the rephasing contribution systematically stronger than the nonrephasing one, but the clarity of that statement depends on representation. Peak heights are already useful in 1D and become especially informative in 2D frequency space, where the inhomogeneous rephasing branch remains about $2.7$ times larger than the nonrephasing branch after pulse overlap. In 2D time space, by contrast, the decisive signature is the geometry of the echo ridge, not a much larger peak amplitude. Because the monomer has no cross peaks and no genuine waiting-time redistribution dynamics, it serves as the clean calibration case in which broadening physics can be separated from pulse-overlap effects before moving to more structured systems.
 
@@ -364,7 +382,7 @@ The branch-ratio summary sharpens that picture. Static disorder makes the rephas
 \subsection{Model and calibration strategy}
 \label{subsec:results_dimer_model_eom}
 
-The dimer is the minimal model in which cross peaks, waiting-time beats, and adjacent-manifold transitions appear together. In the localized site basis $\{\ket{g},\ket{A},\ket{B},\ket{f}\equiv\ket{AB}\}$, consistent with the dimer conventions used throughout this thesis, the field-free Hamiltonian is
+The dimer is the minimal model of two coupled monomers. It is also the simplest case in which cross peaks, waiting-time beats, and adjacent-manifold transitions appear together. In the localized site basis $\{\ket{g},\ket{A},\ket{B},\ket{f}\equiv\ket{AB}\}$, consistent with the dimer conventions used throughout this thesis, the field-free Hamiltonian is
 \begin{equation*}
 \hat{H}_{0}^{(\mathrm{dim})}
 =

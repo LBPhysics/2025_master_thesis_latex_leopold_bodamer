@@ -57,7 +57,7 @@ toctotoc, 		      % add table of contents to the table of contents
 %-------------------------------------------------------------------------------
 
 \newif\ifthesisfastpreview
-\thesisfastpreviewfalse % Set to \thesisfastpreviewtrue for faster preview builds.
+\thesisfastpreviewfalse % Set to \thesisfastpreviewtrue for faster preview builds, especially with \includeonly below.
 
 \newcommand{\thesispreviewgraphicbox}[2][0.92\linewidth]{%
     \fbox{%
@@ -108,7 +108,10 @@ toctotoc, 		      % add table of contents to the table of contents
 %	MAIN DOCUMENT
 %-------------------------------------------------------------------------------
 
-%\includeonly{chapters/c10_introduction} % Place this BEFORE \begin{document} to only compile specific chapter
+% Local draft helper for LaTeX Workshop:
+% Uncomment exactly one \includeonly line while drafting, then comment it out again for full-thesis builds.
+%\includeonly{chapters/c10_introduction}
+%\includeonly{chapters/c40_results}
 
 \begin{document}
 

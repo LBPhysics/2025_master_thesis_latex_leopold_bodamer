@@ -126,3 +126,7 @@ Use for bulky items required for full reproducibility but unsuitable for the the
 - Keep line lengths reasonable.
 - Prefer small, local changes over reflowing entire files.
 - Do not change notation/style conventions unless explicitly requested.
+
+
+
+Safely compile my LaTeX thesis project. Before building, check for and stop any running `latexmk`, `lualatex`, `biber`, or `perl` processes in this repo so there are no overlapping builds. Never run clean and compile in parallel. If stale or corrupted generated files block the build, delete only generated artifacts (`latex/main.*`, chapter/appendix `.aux`, `.bcf`, `.bbl`, `.blg`, `.toc`, `.out`, `.synctex*`, `.fls`, `.fdb_latexmk`, `.run.xml`) and never touch source `.tex` files or figure assets. Then compile from `latex/` with `latexmk -g -lualatex -interaction=nonstopmode -file-line-error -halt-on-error main.tex`, wait for it to finish, and report the real remaining errors or warnings briefly.

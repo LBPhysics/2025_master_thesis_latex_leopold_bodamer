@@ -2,265 +2,130 @@
 \chapter{Phenomenological Reference Atlas}
 \label{app:paper_eqs_reference_atlas}
 
-This appendix collects the paper-equation reference figures and supplementary exploratory material that support the solver calibration developed in the main chapter. It provides the complete comparison atlas for the monomer and dimer and documents additional sensitivity studies that help interpret the selected figure set.
+This appendix collects the streamlined phenomenological reference figures and supplementary exploratory material that support the solver calibration developed in the main chapter. For the monomer, the QuTiP implementation is only shown in the thesis. While the analytical equations of motion results were checked \todoimp{for now, this is only the case for the monomer (paperI)}. The dimer archive below still preserves the regenerated paper-equation reference panels because they remain part of the active comparison set.
 
-For the monomer, the validation atlas is built directly from the copied \texttt{essential\_results} run set. The standardized calibration and waiting-time runs use pulse amplitudes $(0.002,0.002,0.002)$ across the selected \texttt{paper\_eqs}, Lindblad, and homogeneous Redfield jobs. A supplementary Fig.~4 sensitivity set with stronger pulses $(0.005,0.005,0.005)$ is collected later in this appendix.
+For the monomer, the retained atlas is built directly from the copied \texttt{essential\_results} run set. The standardized calibration and waiting-time runs use pulse amplitudes $(0.002,0.002,0.002)$ across the selected Lindblad and homogeneous Redfield jobs. A supplementary Fig.~4 sensitivity set with stronger pulses $(0.005,0.005,0.005)$ is collected later in this appendix.
 
 \section{Monomer Archive}
 \label{app:sec:paper_eqs_monomer}
 
 \subsection{Validation Atlas}
 
-\begin{figure}[p]
-    \centering
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoHomTimePaperPath}
-    \end{minipage}\hfill
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoHomTimeLindbladPath}
-    \end{minipage}
-    \caption{Homogeneous monomer Fig.~2 time-domain validation pair from the monomer atlas. Left: \texttt{paper\_eqs}. Right: Lindblad reproduction.}
-    \label{fig:app_monomer_fig2_hom_time}
-\end{figure}
+The removed monomer \texttt{paper\_eqs} panels were checked during calibration but are omitted here whenever they share exactly the same parameter set as a Lindblad panel and differ only by solver backend. The retained figures therefore document the compact thesis-side Lindblad atlas.
 
 \begin{figure}[p]
     \centering
     \begin{minipage}[t]{0.49\linewidth}
         \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoHomFreqPaperPath}
+        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoHomTimeLindbladPath}
     \end{minipage}\hfill
     \begin{minipage}[t]{0.49\linewidth}
         \centering
         \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoHomFreqLindbladPath}
     \end{minipage}
-    \caption{Homogeneous monomer Fig.~2 frequency-domain validation pair from the monomer atlas. This is the homogeneous counterpart of the inhomogeneous convergence figures below.}
-    \label{fig:app_monomer_fig2_hom_freq}
+    \caption{Homogeneous monomer Fig.~2 Lindblad validation panels in the time and frequency domains. The exact same-parameter \texttt{paper\_eqs} counterparts were verified during calibration and are omitted here to avoid solver-only duplication.}
+    \label{fig:app_monomer_fig2_hom_lindblad}
 \end{figure}
 
-\begin{figure}[p]
+ \begin{figure}[p]
     \centering
-    {\small $N_{\mathrm{inhom}}=10$}\\[0.2em]
-    \begin{minipage}[t]{0.49\linewidth}
+    \begin{minipage}[t]{0.32\linewidth}
         \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoTimePaperNTenPath}
-    \end{minipage}\hfill
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
+        {\small $N_{\mathrm{inhom}}=10$\\[0.2em]}
         \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoTimeLindbladNTenPath}
-    \end{minipage}
-
-    \vspace{0.6em}
-    {\small $N_{\mathrm{inhom}}=100$}\\[0.2em]
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoTimePaperNHundredPath}
     \end{minipage}\hfill
-    \begin{minipage}[t]{0.49\linewidth}
+    \begin{minipage}[t]{0.32\linewidth}
         \centering
+        {\small $N_{\mathrm{inhom}}=100$\\[0.2em]}
         \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoTimeLindbladNHundredPath}
     \end{minipage}
-
-    \vspace{0.6em}
-    {\small $N_{\mathrm{inhom}}=1000$}\\[0.2em]
-    \begin{minipage}[t]{0.49\linewidth}
+    \begin{minipage}[t]{0.32\linewidth}
         \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoTimePaperPath}
-    \end{minipage}\hfill
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
+        {\small $N_{\mathrm{inhom}}=1000$\\[0.2em]}
         \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoTimeLindbladPath}
     \end{minipage}
-    \caption{Monomer 1D inhomogeneous time-domain convergence atlas from the essential-results run set. In every row, the left panel is the \texttt{paper\_eqs} result and the right panel the corresponding Lindblad run.}
+    \caption{Monomer 1D inhomogeneous time-domain convergence atlas from the essential-results run set, shown only for the retained Lindblad solver at $N_{\mathrm{inhom}}=10$, $100$, and $1000$. The corresponding \texttt{paper\_eqs} mirrors used the same parameters and were removed from the thesis.}
     \label{fig:app_paper_eqs_monomer_fig2_time}
 \end{figure}
 
 \begin{figure}[p]
     \centering
-    {\small $N_{\mathrm{inhom}}=10$}\\[0.2em]
-    \begin{minipage}[t]{0.49\linewidth}
+    \begin{minipage}[t]{0.32\linewidth}
         \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqPaperNTenPath}
-    \end{minipage}\hfill
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
+        {\small $N_{\mathrm{inhom}}=10$\\[0.2em]}
         \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqLindbladNTenPath}
-    \end{minipage}
-
-    \vspace{0.6em}
-    {\small $N_{\mathrm{inhom}}=100$}\\[0.2em]
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqPaperNHundredPath}
     \end{minipage}\hfill
-    \begin{minipage}[t]{0.49\linewidth}
+    \begin{minipage}[t]{0.32\linewidth}
         \centering
+        {\small $N_{\mathrm{inhom}}=100$\\[0.2em]}
         \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqLindbladNHundredPath}
     \end{minipage}
-
-    \vspace{0.6em}
-    {\small $N_{\mathrm{inhom}}=1000$}\\[0.2em]
-    \begin{minipage}[t]{0.49\linewidth}
+    \begin{minipage}[t]{0.32\linewidth}
         \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqPaperPath}
-    \end{minipage}\hfill
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
+        {\small $N_{\mathrm{inhom}}=1000$\\[0.2em]}
         \safeplaceholdergraphic[0.98\linewidth]{\monomerFigTwoFreqLindbladPath}
     \end{minipage}
-    \caption{Monomer 1D inhomogeneous frequency-domain convergence atlas from the essential-results run set. As in~\cref{fig:app_paper_eqs_monomer_fig2_time}, the left column contains the \texttt{paper\_eqs} panels and the right column the corresponding Lindblad results.}
+    \caption{Monomer 1D inhomogeneous frequency-domain convergence atlas from the essential-results run set. As in~\cref{fig:app_paper_eqs_monomer_fig2_time}, only the retained Lindblad solver is shown, while the same-parameter \texttt{paper\_eqs} counterparts are omitted.}
     \label{fig:app_paper_eqs_monomer_fig2_freq}
 \end{figure}
 
 \subsection{Waiting-Time Archives}
 
-\begin{figure}[p]
-    \centering
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigThreeTZeroLindbladTimePath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigThreeTTwentyLindbladTimePath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigThreeTFortyLindbladTimePath}
-    \caption{Time-domain companion panels for the homogeneous Lindblad waiting-time series shown in the main text at $T=\SI{0}{\femto\second}$, \SI{20}{\femto\second}, and \SI{40}{\femto\second}.}
-    \label{fig:app_monomer_fig3_lindblad_time}
-\end{figure}
-
-\begin{figure}[p]
-    \centering
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigThreeTZeroPaperTimePath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigThreeTTwentyPaperTimePath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigThreeTFortyPaperTimePath}
-    \caption{Archived \texttt{paper\_eqs} time-domain counterpart of the homogeneous monomer waiting-time series at $T=\SI{0}{\femto\second}$, \SI{20}{\femto\second}, and \SI{40}{\femto\second}.}
-    \label{fig:app_paper_eqs_monomer_fig3_time}
-\end{figure}
-
-\begin{figure}[p]
-    \centering
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigThreeTZeroPaperPath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigThreeTTwentyPaperPath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigThreeTFortyPaperPath}
-    \caption{Monomer Fig.~3 homogeneous 2D spectra from the phenomenological solver at $T=\SI{0}{\femto\second}$, \SI{20}{\femto\second}, and \SI{40}{\femto\second}. This is the direct \texttt{paper\_eqs} counterpart of the main-text Lindblad waiting-time series.}
-    \label{fig:app_paper_eqs_monomer_fig3}
-\end{figure}
-
-\begin{figure}[p]
-    \centering
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigFourTZeroLindbladTimePath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigFourTTwentyLindbladTimePath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigFourTFortyLindbladTimePath}
-    \caption{Time-domain companion panels for the inhomogeneous Lindblad waiting-time series shown in the main text at $T=\SI{0}{\femto\second}$, \SI{20}{\femto\second}, and \SI{40}{\femto\second}.}
-    \label{fig:app_monomer_fig4_lindblad_time}
-\end{figure}
-
-\begin{figure}[p]
-    \centering
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigFourTZeroPaperTimePath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigFourTTwentyPaperTimePath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigFourTFortyPaperTimePath}
-    \caption{\texttt{paper\_eqs} time-domain counterpart of the inhomogeneous monomer waiting-time series at $T=\SI{0}{\femto\second}$, \SI{20}{\femto\second}, and \SI{40}{\femto\second}.}
-    \label{fig:app_paper_eqs_monomer_fig4_time}
-\end{figure}
-
-\begin{figure}[p]
-    \centering
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigFourTZeroPaperPath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigFourTTwentyPaperPath}
-    \vspace{0.8em}
-    \safeplaceholdergraphic[0.95\linewidth]{\monomerFigFourTFortyPaperPath}
-    \caption{Monomer Fig.~4 inhomogeneous 2D spectra from the phenomenological solver at $T=\SI{0}{\femto\second}$, \SI{20}{\femto\second}, and \SI{40}{\femto\second}. This is the \texttt{paper\_eqs} counterpart of the main-text Lindblad inhomogeneous series.}
-    \label{fig:app_paper_eqs_monomer_fig4}
-\end{figure}
+The monomer waiting-time interpretation is now carried entirely by the Lindblad figures in the main chapter. The corresponding monomer \texttt{paper\_eqs} waiting-time mirrors were explicitly checked during calibration, but because they use the same parameters and differ only by solver backend, they are no longer reproduced in the thesis appendix.
 
 \subsection{Sensitivity and Exploratory Runs}
 
 \begin{figure}[p]
     \centering
-    {\small Supplementary $T=\SI{0}{\femto\second}$, $N_{\mathrm{inhom}}=10$, amplitudes $(0.005,0.005,0.005)$, time domain}\\[0.2em]
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerLegacyFigFourTZeroPaperNTenTimePath}
-    \end{minipage}\hfill
+    {\small Supplementary higher-field Lindblad panels at $T=\SI{0}{\femto\second}$, amplitudes $(0.005,0.005,0.005)$, time domain}\\[0.2em]
     \begin{minipage}[t]{0.49\linewidth}
         \centering
         \safeplaceholdergraphic[0.98\linewidth]{\monomerLegacyFigFourTZeroLindbladNTenTimePath}
-    \end{minipage}
-
-    \vspace{0.6em}
-    {\small Supplementary $T=\SI{0}{\femto\second}$, $N_{\mathrm{inhom}}=100$, amplitudes $(0.005,0.005,0.005)$, time domain}\\[0.2em]
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerLegacyFigFourTZeroPaperNHundredTimePath}
     \end{minipage}\hfill
     \begin{minipage}[t]{0.49\linewidth}
         \centering
         \safeplaceholdergraphic[0.98\linewidth]{\monomerLegacyFigFourTZeroLindbladNHundredTimePath}
     \end{minipage}
-    \caption{Higher-field time-domain Fig.~4 sensitivity study at $T=\SI{0}{\femto\second}$. These runs document the effect of stronger driving and different disorder sampling.}
+
+    \vspace{0.6em}
+    {\small Retained Lindblad panels shown for $N_{\mathrm{inhom}}=10$ (left) and $100$ (right)}\\[0.2em]
+    \caption{Higher-field time-domain Fig.~4 sensitivity study at $T=\SI{0}{\femto\second}$. Only the Lindblad panels are retained here; the same-parameter \texttt{paper\_eqs} mirrors were removed from the appendix together with the other solver-only duplicates.}
     \label{fig:app_monomer_legacy_fig4_t0_time}
 \end{figure}
 
 \begin{figure}[p]
     \centering
-    {\small Supplementary $T=\SI{0}{\femto\second}$, $N_{\mathrm{inhom}}=10$, amplitudes $(0.005,0.005,0.005)$, frequency domain}\\[0.2em]
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerLegacyFigFourTZeroPaperNTenFreqPath}
-    \end{minipage}\hfill
+    {\small Supplementary higher-field Lindblad panels at $T=\SI{0}{\femto\second}$, amplitudes $(0.005,0.005,0.005)$, frequency domain}\\[0.2em]
     \begin{minipage}[t]{0.49\linewidth}
         \centering
         \safeplaceholdergraphic[0.98\linewidth]{\monomerLegacyFigFourTZeroLindbladNTenFreqPath}
-    \end{minipage}
-
-    \vspace{0.6em}
-    {\small Supplementary $T=\SI{0}{\femto\second}$, $N_{\mathrm{inhom}}=100$, amplitudes $(0.005,0.005,0.005)$, frequency domain}\\[0.2em]
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerLegacyFigFourTZeroPaperNHundredFreqPath}
     \end{minipage}\hfill
     \begin{minipage}[t]{0.49\linewidth}
         \centering
         \safeplaceholdergraphic[0.98\linewidth]{\monomerLegacyFigFourTZeroLindbladNHundredFreqPath}
     \end{minipage}
-    \caption{Higher-field frequency-domain Fig.~4 sensitivity study at $T=\SI{0}{\femto\second}$. Together with~\cref{fig:app_monomer_legacy_fig4_t0_time}, these panels show the spectral effect of the stronger-field parameter choice.}
+
+    \vspace{0.6em}
+    {\small Retained Lindblad panels shown for $N_{\mathrm{inhom}}=10$ (left) and $100$ (right)}\\[0.2em]
+    \caption{Higher-field frequency-domain Fig.~4 sensitivity study at $T=\SI{0}{\femto\second}$. Together with~\cref{fig:app_monomer_legacy_fig4_t0_time}, these retained Lindblad panels show the spectral effect of the stronger-field parameter choice.}
     \label{fig:app_monomer_legacy_fig4_t0_freq}
 \end{figure}
 
 \begin{figure}[p]
     \centering
-    {\small Supplementary $T=\SI{20}{\femto\second}$, $N_{\mathrm{inhom}}=100$, amplitudes $(0.005,0.005,0.005)$, time domain}\\[0.2em]
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerLegacyFigFourTTwentyPaperNHundredTimePath}
-    \end{minipage}\hfill
+    {\small Supplementary higher-field Lindblad panels at $T=\SI{20}{\femto\second}$, $N_{\mathrm{inhom}}=100$, amplitudes $(0.005,0.005,0.005)$}\\[0.2em]
     \begin{minipage}[t]{0.49\linewidth}
         \centering
         \safeplaceholdergraphic[0.98\linewidth]{\monomerLegacyFigFourTTwentyLindbladNHundredTimePath}
-    \end{minipage}
-
-    \vspace{0.6em}
-    {\small Supplementary $T=\SI{20}{\femto\second}$, $N_{\mathrm{inhom}}=100$, amplitudes $(0.005,0.005,0.005)$, frequency domain}\\[0.2em]
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \safeplaceholdergraphic[0.98\linewidth]{\monomerLegacyFigFourTTwentyPaperNHundredFreqPath}
     \end{minipage}\hfill
     \begin{minipage}[t]{0.49\linewidth}
         \centering
         \safeplaceholdergraphic[0.98\linewidth]{\monomerLegacyFigFourTTwentyLindbladNHundredFreqPath}
     \end{minipage}
-    \caption{Higher-field inhomogeneous Fig.~4 continuation at $T=\SI{20}{\femto\second}$. These runs document how the stronger-field setting propagates into both the time- and frequency-domain views.}
+    \caption{Higher-field inhomogeneous Fig.~4 continuation at $T=\SI{20}{\femto\second}$, shown here only for the retained Lindblad time-domain (left) and frequency-domain (right) panels.}
     \label{fig:app_monomer_legacy_fig4_t20}
 \end{figure}
-These higher-field monomer legacy panels predate the standardized atlas settings and are preserved only as a historical sensitivity check. They are not used for quantitative conclusions in the main chapter.
+These higher-field monomer legacy panels predate the standardized atlas settings and are preserved only as historical Lindblad sensitivity checks. They are not used for quantitative conclusions in the main chapter.
 
 \begin{figure}[p]
     \centering
@@ -286,7 +151,7 @@ These higher-field monomer legacy panels predate the standardized atlas settings
         \centering
         \safeplaceholdergraphic[0.98\linewidth]{\monomerLegacyFigFourTZeroRedfieldFreqPath}
     \end{minipage}
-    \caption{Exploratory inhomogeneous 2D Redfield run at $T=\SI{0}{\femto\second}\). This calculation uses a different amplitude and sampling setup from the standardized monomer atlas and is included as supporting material for the Redfield extension.}
+    \caption{Exploratory inhomogeneous 2D Redfield run at $T=\SI{0}{\femto\second}$. This calculation uses a different amplitude and sampling setup from the standardized monomer atlas and is included as supporting material for the Redfield extension.}
     \label{fig:app_monomer_legacy_redfield}
 \end{figure}
 \todoimp{muss nochmal gemacht werden}
