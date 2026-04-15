@@ -680,9 +680,10 @@ The Redfield equation can also be connected to classical phenomenological models
 	J(\omega) \propto \gamma \omega,
 \end{equation*}
 where \( \gamma \) is the damping constant. This corresponds to a classical friction-like dissipation. To ensure physical behaviour, a cutoff is introduced
-\begin{equation*}
+\begin{equation}
 	J(\omega) = \alpha \frac{\omega^s}{\omega_c^{s-1}} e^{-\omega / \omega_c},
-\end{equation*}
+	\label{eq:general_ohmic_bath}
+\end{equation}
 which enforces convergence of integrals such as \autoref{eq:oqs_ho_correlator_final}. Here \( \alpha \) is a dimensionless coupling constant, \( \omega_c \) is the cutoff frequency, and \( s \) controls the low-frequency behaviour of the bath, thereby affecting the timescale of the environment. The parameter $s$ classifies the spectral density into three regimes: Ohmic (\( s = 1 \)), \emph{sub-Ohmic} (\( s < 1 \)), and \emph{super-Ohmic} (\( s > 1 \)) \cite{weiss2012quantumdissipativesystems, lambertetal2026qutip5quantum}. Sub-Ohmic baths exhibit slower fluctuations and longer memory, while super-Ohmic baths suppress low-frequency noise and emphasise fast, high-frequency modes. To make this separation explicit in the numerical illustrations below, it is convenient to measure all frequencies in units of a characteristic system scale $\omega_0$ and to express bath parameters as dimensionless ratios ($\omega_c/\omega_0$, $T/\omega_0$, $\alpha/\omega_0$). As shown in~\autoref{fig:oqs_bath_comparison_sub_super_ohmic}, the sub-Ohmic correlation function remains nonzero for longer times than the Ohmic and super-Ohmic cases.
 \begin{figure}[htbp]
 	\centering

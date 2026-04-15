@@ -143,6 +143,7 @@ This basis change is central to the implementation. Propagation, observable eval
 
 The pulse model stores three pulses with amplitudes $A_k$, phases $\phi_k$, common carrier frequency $\omega_L$, a chosen envelope type, and FWHM $\tau_p$. Two envelope types are implemented: Gaussian and $\cos^2$. For the Gaussian case the code evaluates
 \begin{equation}
+\label{eq:laser_envelope}
 s_k(t)
 =
 \exp\!\left[
@@ -377,6 +378,7 @@ The remaining equations are fixed by Hermiticity and normalization:
 \end{equation}
 
 This explicit $16\times 16$ construction also clarifies an important detail about Paper~II. Appendix~D of that paper prints only the subset of equations labelled (D1)--(D6) and then states that the elements involving the second one-exciton state are obtained by the substitution \(1\leftrightarrow 2\). However, when the full RWA commutator is reconstructed in Liouville space, the coherences \(\sigma_{31}\) and \(\sigma_{32}\) also contain terms proportional to the upper-manifold population \(\rho_{33}\). In other words, the full commutator structure yields the combinations
+\todoimp{nochmal überprüfen, ob die $\rho_{33}$-terms wirklich in beiden $\sigma_{3a}$-Gleichungen auftauchen}
 \begin{equation}
 iE(t)\bigl[\mu_{31}(\rho_{11}-\rho_{33})+\mu_{32}\rho_{21}\bigr],
 \qquad

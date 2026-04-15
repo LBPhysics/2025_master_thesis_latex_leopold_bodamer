@@ -1,7 +1,6 @@
 % !TEX root = ../main.tex
 \chapter{Models and Results}
 \label{chapter:model_results}
-\todoimp{Es muss in jeder Figur klar sein welche Parameter verwendet wurden. Genaue abweichende Parmeter müssen in der caption erwähnt werden. Allgemeines, was über mehrere Figuren hinweg gilt, kann in den Haupttext! Die kann helfen physikalische aussagen zu tätigen! Finde alle parameter, die in den Figuren verwendet werden, und überlege, ob sie in die caption oder den Haupttext gehören.}
 \todoimp{add motivation for the rates used!}
 \providecommand{\safeplaceholdergraphic}[2][0.92\linewidth]{%
   \makebox[\linewidth][c]{%
@@ -53,12 +52,12 @@
 \providecommand{\dimerFigFourWaitOneFortyPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_204534_dimer_fig4_T140_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig4_T140_paper_eqs}}
 \providecommand{\dimerFigFourWaitThreeTenPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/09_204539_dimer_fig4_T310_paper_eqs/time_all_signals_real_imag_abs_dimer_fig4_T310_paper_eqs}}
 \providecommand{\dimerFigFourWaitThreeTenPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_204539_dimer_fig4_T310_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig4_T310_paper_eqs}}
-\providecommand{\dimerFigSixWaitFortySixPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/09_125825_dimer_fig6_T046_paper_eqs/time_all_signals_real_imag_abs_dimer_fig6_T046_paper_eqs}}
-\providecommand{\dimerFigSixWaitFortySixPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_125825_dimer_fig6_T046_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig6_T046_paper_eqs}}
+\providecommand{\dimerFigSixWaitFortySixPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/09_204544_dimer_fig6_T046_paper_eqs/time_all_signals_real_imag_abs_dimer_fig6_T046_paper_eqs}}
+\providecommand{\dimerFigSixWaitFortySixPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_204544_dimer_fig6_T046_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig6_T046_paper_eqs}}
 \providecommand{\dimerFigSixWaitSixtyTwoPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/09_204549_dimer_fig6_T062_paper_eqs/time_all_signals_real_imag_abs_dimer_fig6_T062_paper_eqs}}
 \providecommand{\dimerFigSixWaitSixtyTwoPaperPath}{\detokenize{figures/svgs/dimer_essential_results/09_204549_dimer_fig6_T062_paper_eqs/freq_all_signals_real_imag_abs_dimer_fig6_T062_paper_eqs}}
-\providecommand{\dimerFigThreeUncoupledRedfieldRwaTimePath}{\detokenize{figures/svgs/dimer_essential_results/01_232838_dimer_fig3a_uncoupled_redfield_rwa_thermal/time_all_signals_real_imag_abs_dimer_fig3a_uncoupled_redfield_rwa_thermal}}
-\providecommand{\dimerFigThreeCoupledRedfieldRwaTimePath}{\detokenize{figures/svgs/dimer_essential_results/01_232850_dimer_fig3b_coupled_redfield_rwa_thermal/time_all_signals_real_imag_abs_dimer_fig3b_coupled_redfield_rwa_thermal}}
+\providecommand{\dimerFigThreeUncoupledRedfieldRwaTimePath}{\detokenize{figures/svgs/dimer_essential_results/12_082936_dimer_fig3a_uncoupled_redfield_rwa_thermal/time_all_signals_real_imag_abs_dimer_fig3a_uncoupled_redfield_rwa_thermal}}
+\providecommand{\dimerFigThreeCoupledRedfieldRwaTimePath}{\detokenize{figures/svgs/dimer_essential_results/12_082929_dimer_fig3b_coupled_redfield_rwa_thermal/time_all_signals_real_imag_abs_dimer_fig3b_coupled_redfield_rwa_thermal}}
 
 
 This chapter combines the open-system framework of~\autoref{chapter:oqs_open_quantum_systems} with the spectroscopy workflow of~\autoref{chapter:spctr_spectroscopy}. Its central aim is to reproduce selected spectra from Papers~I and II~\cite{mancaletal2006twodimensionalopticalthreepulse,pisliakovetal2006twodimensionalopticalthreepulse} within one consistent QuTiP-based workflow. For both the monomer and dimer, the spectra were first reconstructed with the explicit paper equations (see~\autoref{app:sec:paper_eqs_explicit_eoms}) and then reproduced within the QuTiP framework to validate the Hamiltonian-based implementation against the paper reference. The QuTiP workflow is used as the main analysis tool, because it is defined directly in terms of Hamiltonians and bath models and can therefore be extended more systematically beyond the original paper formulations. In the monomer case, this additionally enables a Redfield treatment that is not included in the reference papers. The complete paper-equation comparison atlas is collected in~\autoref{app:paper_eqs_reference_atlas}.
@@ -87,11 +86,13 @@ The published phenomenology of Paper~I is characterised by a population decay ra
 \qquad
 \hat{L}_{\uparrow}=\sqrt{\gamma_{\uparrow}}\ket{e}\!\bra{g}.
 \end{equation*}
-The identification with the notation of Paper~I is therefore $\gamma_{\downarrow}\equiv\gamma$. The printed paper phenomenology does not introduce an upward thermal excitation channel, so in the strict calibration against the paper one sets $\gamma_{\uparrow}=0$. Physically, this corresponds to the zero-temperature limit of the phenomenological bath, where detailed balance suppresses upward transitions and only relaxation from $\ket{e}$ to $\ket{g}$ remains. Keeping $\gamma_{\uparrow}$ explicit is nevertheless useful because it shows how the phenomenological two-level model would be extended to a finite-temperature bath even before switching to a microscopic Redfield description. The explicit rotating-wave equations used by the phenomenological calibration backend are collected in~\autoref{app:sec:paper_eqs_explicit_eoms}. \todoimp{das stimmt nicht mehr ->} In the main text, they serve as the reference against which the QuTiP implementations are judged.
+The identification with the notation of Paper~I is therefore $\gamma_{\downarrow}\equiv\gamma$. The printed paper phenomenology does not introduce an upward thermal excitation channel, so in the strict calibration against the paper one sets $\gamma_{\uparrow}=0$. Physically, this corresponds to the zero-temperature limit of the phenomenological bath, where detailed balance suppresses upward transitions and only relaxation from $\ket{e}$ to $\ket{g}$ remains. Keeping $\gamma_{\uparrow}$ explicit is nevertheless useful because it shows how the phenomenological two-level model would be extended to a finite-temperature bath even before switching to a microscopic Redfield description. The explicit rotating-wave equations used by the phenomenological calibration backend are collected in~\autoref{app:sec:paper_eqs_explicit_eoms}. In the main text, they serve as the reference against which the QuTiP implementations are judged.
 
 For real samples, the measured response reflects an ensemble of local environments rather than a single perfectly identical monomer, so the spectra are evaluated over many static-disorder realisations, see~\autoref{spctr:sec:macroscopic_polarisation}. The transition frequency is sampled from the Gaussian distribution introduced in~\autoref{eq:gaussian_broadening}. The spectra are then obtained from the disorder-averaged signal defined in~\autoref{eq:averaged_response}. The parameter $\Delta_{\mathrm{inh}}$ denotes the corresponding full width at half maximum of the distribution. In the homogeneous case, $\Delta_{\mathrm{inh}}=0$, all realisations share the same transition frequency and the linewidth is determined by dynamical dephasing and relaxation. In the inhomogeneous case, static disorder adds a spread of transition frequencies across the ensemble, exactly the distinction emphasised already in~\autoref{sec:spctr_spectroscopy_motivation}.
 
-All monomer runs discussed in the main text use $\tilde{\nu}_{eg}=\SI{16000}{\per\centi\metre}$, $\mu_{ge}=1$, resonant excitation, and pulse amplitudes $(0.002,0.002,0.002)$. In units with $\hbar=1$, the quantity $\mu_{eg}E(t)$ has units of inverse time and corresponds to the instantaneous Rabi frequency, while the choice $\mu_{ge}=1$ fixes the field-amplitude scale used throughout this section. For the phenomenological benchmark, the fitted rates are $\gamma_{\varphi}=0.01~\si{\per\femto\second}$, $\gamma_{\downarrow}=1/300~\si{\per\femto\second}$, and $\gamma_{\uparrow}=0$. Static disorder, when included, uses $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$.  \todoimp{das stimmt nicht mehr ->}The appendix additionally documents a supplementary Fig.~4 sensitivity set with stronger pulses $(0.005,0.005,0.005)$.
+For all monomer figures in the main text (\autoref{fig:results_monomer_1d_time_hom_inhom}--\autoref{fig:results_monomer_2d_freq_hom_inhom}), the system is a single optical transition with $\omega_{eg}=\SI{16000}{\per\centi\metre}$, dipole strength $\mu_{ge}=1$, and resonant excitation $\omega_L=\omega_{eg}$. The laser is modeled by three Gaussian pulses with $\tau_p = \SI{15}{\femto\second}$ FWHM and amplitudes $(0.002,0.002,0.002)$ (see ~\autoref{app:sec:laser_field}). The environmental coupling is phenomenological in these panels, parameterized by $\gamma_{\varphi}=0.01~\si{\per\femto\second}$, $\gamma_{\downarrow}=1/300~\si{\per\femto\second}$, and $\gamma_{\uparrow}=0$. The 1D runs use $t_{\mathrm{coh}}=\SI{300}{\femto\second}$, $t_{\mathrm{wait}}=\SI{1000}{\femto\second}$, $t_{\mathrm{det}}\in[0,\SI{600}{\femto\second}]$, and $\Delta t=\SI{2}{\femto\second}$; the 2D runs use $t_{\mathrm{coh}},t_{\mathrm{det}}\in[0,\SI{600}{\femto\second}]$, $\Delta t=\SI{2}{\femto\second}$, and $t_{\mathrm{wait}}=\SI{0}{\femto\second},\SI{20}{\femto\second},\SI{40}{\femto\second}$. Figure-specific disorder settings are stated in the corresponding captions.
+
+In units with $\hbar=1$, the quantity $\mu_{eg}E(t)$ has units of inverse time and corresponds to the instantaneous Rabi frequency, while the choice $\mu_{ge}=1$ fixes the field-amplitude scale used throughout this section.
 
 \subsection{1D time-domain response}
 \label{subsec:results_monomer_1d_time}
@@ -103,18 +104,19 @@ $E_{\mathrm{R/NR}}(t_{\mathrm{coh}},t_{\mathrm{wait}},t_{\mathrm{det}})$ introdu
 \begin{figure}[htbp]
     \centering
     \safeplaceholdergraphic[1.2\linewidth]{figures/results_monomer_1d_time_hom_inhom}
-    \caption{Monomer 1D time-domain traces at fixed $t_{\mathrm{coh}}=\SI{300}{\femto\second}$ and $t_{\mathrm{wait}}=\SI{1000}{\femto\second}$.
+  \caption{Monomer 1D time-domain traces at fixed $t_{\mathrm{coh}}=\SI{300}{\femto\second}$ and $t_{\mathrm{wait}}=\SI{1000}{\femto\second}$.
+  Shared settings are listed in~\autoref{subsec:results_monomer_model_eom}.
     The traces were obtained both from the explicit paper equations of motion and from the calibrated QuTiP workflow. Since the two methods yield visually equivalent plots, only one representative set is shown.
     The columns show the real, imaginary, and absolute signal components as functions of $t_{\mathrm{det}}$.
     The upper row shows the rephasing signal and the lower row the nonrephasing signal.
-    Left: homogeneous ensemble, $\Delta_{\mathrm{inh}}=0$.
+  Left: homogeneous ensemble, $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=1$.
     Right: inhomogeneous ensemble, $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$, averaged over $N_{\mathrm{inhom}}=10000$ disorder realisations.}
     \label{fig:results_monomer_1d_time_hom_inhom}
 \end{figure}
 
 In the homogeneous case, all monomers share the same transition frequency. The rephasing and nonrephasing traces are equivalent. In both rows, the real part decays smoothly with detection time, and the imaginary part remains zero for the chosen phase convention. The signal shows the expected free-induction decay.
 
-The right-hand part shows the inhomogeneous ensemble with $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$. Here, the difference between the two phase-matching branches becomes explicit. In the rephasing case, shown in the upper row, the signal is initially suppressed and then develops a pronounced delayed maximum near $t_{\mathrm{det}}\approx t_{\mathrm{coh}}$.\footnote{The short-time part of the inhomogeneous rephasing trace is not in perfect point-by-point agreement with the corresponding panel in Paper~I. This is not a concern: even $N_{\mathrm{inhom}}=10000$ still represents a finite ensemble rather than a truly macroscopic limit, and the paper does not report the exact value of $N_{\mathrm{inhom}}$. The dependence on this sampling parameter is shown explicitly in~\autoref{fig:app_paper_eqs_monomer_fig2_time}. Already at $N_{\mathrm{inhom}}=100$ the photon echo is clearly resolved, which is why $N_{\mathrm{inhom}}=100$ is used as a practical default in the inhomogeneous reruns from now on.}
+The right-hand part shows the inhomogeneous ensemble with $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$. Here, the difference between the two phase-matching branches becomes explicit. In the rephasing case, shown in the upper row, the signal is initially suppressed and then develops a pronounced delayed maximum near $t_{\mathrm{det}}\approx t_{\mathrm{coh}}$.\footnote{The short-time part of the inhomogeneous rephasing trace is not in perfect point-by-point agreement with the corresponding panel in Paper~I. This is not a concern: even $N_{\mathrm{inhom}}=10000$ still represents a finite ensemble rather than a truly macroscopic limit, and the paper does not report the exact value of $N_{\mathrm{inhom}}$. The dependence on this sampling parameter is shown explicitly in~\autoref{fig:app_paper_eqs_monomer_fig2_time_n_dep}. Already at $N_{\mathrm{inhom}}=100$ the photon echo is clearly resolved, which is why $N_{\mathrm{inhom}}=100$ is used as a practical default in the inhomogeneous reruns from now on.}
 This is the characteristic photon echo: the phase reversal of the rephasing branch compensates the static frequency spread and refocuses the ensemble. In the nonrephasing case, shown in the lower row, no such refocusing occurs. The signal remains concentrated at short detection times and subsequently decays, in agreement with the theory.
 
 The peak ratio $\mathrm{R}/\mathrm{NR}$ quantifies the difference between homogeneous and inhomogeneous behaviour: it remains $1.0$ in the homogeneous case and increases to $1.45$ in the inhomogeneous case. This shows how the photon-echo refocusing in the rephasing branch becomes dominant once static disorder is introduced. Both 1D benchmarks were also reproduced with the explicit equations of motion alongside the QuTiP implementation used in this work. Their agreement validates the QuTiP formulation for the monomer. All subsequent results are therefore generated with the QuTiP-based implementation because it can be extended straightforwardly to larger molecular systems.
@@ -127,11 +129,11 @@ This section takes the time-domain signals shown in~\autoref{fig:results_monomer
 \begin{figure}[htbp]
     \centering
     \safeplaceholdergraphic[1.2\linewidth]{figures/results_monomer_1d_freq_hom_inhom}
-    \caption{Monomer 1D frequency-domain at fixed $t_{\mathrm{coh}}=\SI{300}{\femto\second}$ and $t_{\mathrm{wait}}=\SI{1000}{\femto\second}$. The columns show the real, imaginary, and absolute spectral components. The first two rows show the rephasing and nonrephasing spectra. The third row shows the absorptive combination. Left: homogeneous ensemble, $\Delta_{\mathrm{inh}}=0$. Right: inhomogeneous ensemble, $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$, averaged over $N_{\mathrm{inhom}}=10000$ disorder realisations.}
+  \caption{Monomer 1D frequency-domain at fixed $t_{\mathrm{coh}}=\SI{300}{\femto\second}$ and $t_{\mathrm{wait}}=\SI{1000}{\femto\second}$. Shared Lindblad settings are listed in~\autoref{subsec:results_monomer_model_eom}. The columns show the real, imaginary, and absolute spectral components. The first two rows show the rephasing and nonrephasing spectra. The third row shows the absorptive combination. Left: homogeneous ensemble, $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=1$. Right: inhomogeneous ensemble, $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$, averaged over $N_{\mathrm{inhom}}=10000$ disorder realisations.}
     \label{fig:results_monomer_1d_freq_hom_inhom}
 \end{figure}
 
-Similar to the time domain, the influence of $N_{\mathrm{inhom}}$ is collected in the appendix in~\autoref{fig:app_paper_eqs_monomer_fig2_freq}. In the homogeneous case, all monomers oscillate at the same transition frequency, so the spectral weight remains concentrated in a single compact resonance around $\tilde{\nu}_{eg}=\SI{16000}{\per\centi\metre}$. Rephasing and nonrephasing are then identical, and the absorptive signal shows a more sharply defined lineshape. The imaginary component shows a node at the central frequency, resembling a typical dispersive spectrum.
+Similar to the time domain, the influence of $N_{\mathrm{inhom}}$ is collected in the appendix in~\autoref{fig:app_paper_eqs_monomer_fig2_freq_n_dep}. In the homogeneous case, all monomers oscillate at the same transition frequency, so the spectral weight remains concentrated in a single compact resonance around $\tilde{\nu}_{eg}=\SI{16000}{\per\centi\metre}$. Rephasing and nonrephasing are then identical, and the absorptive signal shows a more sharply defined lineshape. The imaginary component shows a node at the central frequency, resembling a typical dispersive spectrum.
 
 In the inhomogeneous case, the same central transition is broadened because the ensemble average collects many slightly shifted single-molecule responses, exactly the mechanism discussed in~\autoref{sec:spctr_spectroscopy_motivation}. At the same time, the rephasing spectrum remains visibly narrower and higher than the nonrephasing one. This is the spectral view of the delayed photon echo in~\autoref{fig:results_monomer_1d_time_hom_inhom}: refocusing compresses the rephasing weight into a more concentrated spectral maximum, whereas the nonrephasing branch retains the broader free-induction-decay character discussed in~\autoref{subsec:spctr_rephasing_nonrephasing}. The branch balance changes more strongly than in the time trace, with the peak ratio rising from $\mathrm{R}/\mathrm{NR}=1.00$ in the homogeneous slice to $2.52$ in the inhomogeneous one.
 
@@ -145,9 +147,9 @@ at fixed waiting time $t_{\mathrm{wait}}$.
 \begin{figure}[htbp]
     \centering
     \safeplaceholdergraphic[1.2\linewidth]{figures/results_monomer_2d_time_hom_inhom}
-    \caption{Monomer 2D time-domain traces at $t_{\mathrm{wait}}=\SI{0}{\femto\second}$, $\SI{20}{\femto\second}$, and $\SI{40}{\femto\second}$.
-    Left column: homogeneous case, $\Delta_{\mathrm{inh}}=0$.
-    Right column: inhomogeneous case, $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$.}
+  \caption{Monomer 2D time-domain traces at $t_{\mathrm{wait}}=\SI{0}{\femto\second}$, $\SI{20}{\femto\second}$, and $\SI{40}{\femto\second}$, with $t_{\mathrm{coh}},t_{\mathrm{det}}\in[0,\SI{600}{\femto\second}]$ and $\Delta t=\SI{2}{\femto\second}$. Shared Lindblad settings are listed in~\autoref{subsec:results_monomer_model_eom}.
+  Left column: homogeneous case, $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=1$.
+  Right column: inhomogeneous case, $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$ and $N_{\mathrm{inhom}}=100$.}
     \label{fig:results_monomer_2d_time_hom_inhom}
 \end{figure}
 
@@ -165,7 +167,7 @@ The monomer does not show waiting-time dynamics in this model, as the signals ap
 \begin{figure}[htbp]
     \centering
     \safeplaceholdergraphic[1.2\linewidth]{figures/results_monomer_2d_freq_hom_inhom}
-    \caption{Monomer 2D frequency-domain waiting-time series obtained at $t_{\mathrm{wait}}=\SI{0}{\femto\second}$, \SI{20}{\femto\second}, and \SI{40}{\femto\second}. Left column: homogeneous case with $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=1$. Right column: inhomogeneous case with $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$. Pulse amplitudes $(0.002,0.002,0.002)$ are used.}
+  \caption{Monomer 2D frequency-domain waiting-time series obtained at $t_{\mathrm{wait}}=\SI{0}{\femto\second},\SI{20}{\femto\second},\SI{40}{\femto\second}$, with $t_{\mathrm{coh}},t_{\mathrm{det}}\in[0,\SI{600}{\femto\second}]$ and $\Delta t=\SI{2}{\femto\second}$. Shared Lindblad settings are listed in~\autoref{subsec:results_monomer_model_eom}. Left column: homogeneous case with $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=1$. Right column: inhomogeneous case with $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$ and $N_{\mathrm{inhom}}=100$.}
     \label{fig:results_monomer_2d_freq_hom_inhom}
 \end{figure}
 
@@ -200,22 +202,6 @@ To complement the discussion, the relative peak amplitudes of the rephasing and 
 \end{table}
 
 To quantify these observations, \autoref{tab:results_monomer_branch_ratios} lists the peak-amplitude ratios for the Lindblad figures discussed above. The 1D rows correspond to \autoref{fig:results_monomer_1d_time_hom_inhom} and \autoref{fig:results_monomer_1d_freq_hom_inhom}, while the 2D rows follow the panels in \autoref{fig:results_monomer_2d_time_hom_inhom} and \autoref{fig:results_monomer_2d_freq_hom_inhom}. Two key observations emerge. First, static disorder consistently enhances the rephasing branch relative to the nonrephasing branch in the monomer results. Second, the diagnostic utility of peak-ratio measurements depends strongly on the representation. In 1D traces, and especially in 2D frequency space, the ratios clearly distinguish disorder effects. In 2D time domain, however, the primary difference lies in the extended shape of the rephasing feature rather than in peak amplitude alone.
-
-\subsection{Microscopic monomer extension}
-\label{subsec:results_monomer_redfield}
-
-After the phenomenological Lindblad baseline has been calibrated and interpreted across all four representations, the next step is to replace fitted rates by an explicit bath model. The monomer is again the cleanest place to do this, because the microscopic change in the open-system description can be separated from any complications due to multilevel spectral structure.
-
-\begin{figure}[htbp]
-    \centering
-    \safeplaceholdergraphic[0.98\linewidth]{figures/results_monomer_redfield_examples}
-    \caption{Homogeneous monomer Redfield extension for the same single-transition setting used in the 1D validation runs. Left: time-domain signal. Right: frequency-domain spectrum. The Ohmic bath parameters are $T/\omega_0=0.0033443363446838082$ (about \SI{77}{\kelvin}), $\omega_c/\omega_0=100$, $\alpha/\omega_0=0.0267$, and $s=1$. Additional exploratory inhomogeneous Redfield panels are provided in~\autoref{app:paper_eqs_reference_atlas}. \todoimp{extend the figure to account for the localized baths and also explain that mu couples transitions induced by a laser interaction while the bath is responsible for the relaxation from 2 to 1 and dephasing of the coherences}}
-    \label{fig:results_monomer_redfield_examples}
-\end{figure}
-
-These Redfield panels extend the calibrated Lindblad baseline by replacing phenomenological rates with an explicit bath model. For the monomer, the homogeneous 1D Redfield run provides a clean microscopic continuation of the same signal-construction workflow and stays aligned with the amplitude convention used throughout the validation atlas.
-
-In that sense, the Redfield monomer provides a microscopic extension of the benchmark problem. Instead of parameterising the environment only by $\gamma$ and $\gamma_{\varphi}$, the bath is specified by a concrete spectral density and temperature, here through $T$, $\omega_c$, $\alpha$, and $s$. Thermal occupation and finite-temperature relaxation then become dynamical consequences of the bath model rather than external phenomenological choices. The appendix includes an additional inhomogeneous 2D Redfield export as exploratory supporting material.
 
 \subsection{Monomer summary}
 \label{subsec:results_monomer_summary}
@@ -258,17 +244,23 @@ where $\omega_{A}$ and $\omega_{B}$ are the site energies of the two monomers an
 \autoref{fig:results_dimer_basis_map} shows the two bases on an energy scale. In the site basis, the dipole operator allows transitions between the ground state and the two local excited states, with dipole moments $\mu_A$ and $\mu_B$. In the exciton basis, this becomes coupling between adjacent manifolds through the transitions $\mu_{10}$, $\mu_{20}$, $\mu_{31}$, and $\mu_{32}$. The direct transition between the double-exciton state and the ground state remains dipole-forbidden.
 
 
-The parameters quoted in this subsection are used in the entire dimer analysis. The pulse duration is \SI{5}{\femto\second}. In this setting, the positive- and negative-frequency parts remain separated by $\omega=0$, so the rotating-wave approximation is expected to hold. The pulse-carrier frequency is $\omega_L=\SI{16000}{\per\centi\metre}$, at the centre of the one-exciton manifold. For the dimer, the coupling is set so that the diagonal-peak separation matches the uncoupled transition difference. The later waiting-time panels follow the regenerated Paper-II atlas settings and are discussed separately in the corresponding subsection.
-
+In the dimer section, the center of the site-basis transition frequencies is denoted by
+\begin{equation*}
+\omega_{\mathrm{mean}}\equiv\frac{\omega_A+\omega_B}{2},
+\end{equation*}
+and all dimer panels shown here use $\omega_{\mathrm{mean}}=\SI{16000}{\per\centi\metre}$. The laser is modeled by three Gaussian pulses with 
+$\tau_p = \SI{5}{\femto\second}$ FWHM and amplitudes $(0.002,0.002,0.002)$ (see ~\autoref{app:sec:laser_field}). A global carrier frequency is  $\omega_L=\omega_{\mathrm{mean}}$. For the waiting-time sequence in (\todoimp{add reference for fig 6 }\autoref{subsec:results_dimer_waiting_time}), the coupled two-site parameters are $(\tilde{\nu}_A,\tilde{\nu}_B)=(\SI{16200}{\per\centi\metre},\SI{15800}{\per\centi\metre})$, anti-parallel dipole oreintations with strengths $(\mu_A,\mu_B)=(1.0,-0.15)$, and $J=\SI{500}{\per\centi\metre}$. The inhomogeneous sequence uses $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$ and $N_{\mathrm{inhom}}=1000$. The homogeneous companion uses $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=1000$.
+The dimer runs are treated with the Redfield equation (see~\autoref{sec:oqs_Redfield_eq}). Relaxation and dephasing are determined by the Redfield tensor generated from the microscopic Ohmic bath model from~\autoref{subsec:oqs_ohmic_spectral_density}, with spectral density~\autoref{eq:general_ohmic_bath} ($s=1$) and parameters $T=(77/23042)\,\omega_{\mathrm{mean}}$ (about \SI{77}{\kelvin}), $\omega_c=(3/67)\,\omega_{\mathrm{mean}}$, and $\alpha=(7/109)\,\omega_{\mathrm{mean}}$.
+\todoimp{actually note, what this results in ($\Gamma \dots$)!}
 \subsection{Coupled case, new features arise}
-\label{subsec:results_monomer_2d_time}
+\label{subsec:results_dimer_coupled_case}
 The first comparison considers the inhomogeneous case at $t_{\mathrm{wait}}=0$, first in the time domain and then in the frequency domain. Unlike in the monomer, the main question here is how the two-transition pattern changes once coupling is switched on.
 
 \subsubsection{2D time-domain response}
 \begin{figure}[htbp]
     \centering
   \safeplaceholdergraphic[1.0\linewidth]{figures/results_dimer_2d_time_un_coupled}
-    \caption{Dimer 2D time-domain inhomogeneous signals at $t_{\mathrm{wait}}=0$. Left: uncoupled case. Right: coupled case.}
+    \caption{Dimer 2D time-domain inhomogeneous signals at $t_{\mathrm{wait}}=0$ for two site-basis parameter sets under the same microscopic Redfield bath model. The bath is Ohmic~\autoref{eq:general_ohmic_bath} (see~\autoref{subsec:oqs_ohmic_spectral_density}) with $s=1$, $T=(77/23042)\,\omega_{\mathrm{mean}}$, $\omega_c=(3/67)\,\omega_{\mathrm{mean}}$, and $\alpha=(7/109)\,\omega_{\mathrm{mean}}$. Both panels use $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$, $N_{\mathrm{inhom}}=200$, and $t_{\mathrm{coh}},t_{\mathrm{det}}\in[0,\SI{600}{\femto\second}]$ with $\Delta t=\SI{2}{\femto\second}$. Left (uncoupled): $(\tilde{\nu}_A,\tilde{\nu}_B)=(\SI{16360}{\per\centi\metre},\SI{15640}{\per\centi\metre})$, $(\mu_A,\mu_B)=(1.0,1.0)$, $J=0$. Right (coupled): $(\tilde{\nu}_A,\tilde{\nu}_B)=(\SI{15800}{\per\centi\metre},\SI{16200}{\per\centi\metre})$, $(\mu_A,\mu_B)=(-0.23,1.0)$, $J=\SI{300}{\per\centi\metre}$.}
     \label{fig:results_dimer_2d_time_un_coupled}
 \end{figure}
 
@@ -289,7 +281,7 @@ To determine which of these changes survive the Fourier transform, the same sign
 \begin{figure}[htbp]
     \centering
   \safeplaceholdergraphic[1.0\linewidth]{figures/results_dimer_2d_freq_un_coupled}
-    \caption{Dimer 2D frequency-domain spectra of the same inhomogeneous $t_{\mathrm{wait}}=0$ signal. Left: uncoupled case. Right: coupled case.}
+    \caption{Dimer 2D frequency-domain spectra of the same inhomogeneous $t_{\mathrm{wait}}=0$ systems as in~\autoref{fig:results_dimer_2d_time_un_coupled}, i.e. with the same uncoupled/coupled site parameters and the same microscopic Ohmic Redfield bath parameters.}
     \label{fig:results_dimer_2d_freq_un_coupled}
 \end{figure}
 
@@ -305,17 +297,19 @@ In the coupled case, the spectra show cross peaks in addition to the diagonal pe
 \begin{figure}[htbp]
   \centering
   \safeplaceholdergraphic[1.0\linewidth]{figures/results_dimer_fig4_paper_eqs_waiting_time_rephasing}
-  \caption{waiting-time sequence for the dimer (rephasing branch). Only for an inhomogeneous ensemble. \todoimp{An explicit discussion of the nonrephasing and absorptive components are shown aswell as the time domain data is presented in the extra material in~\autoref{app:paper_eqs_reference_atlas}.}}
+  \caption{Waiting-time sequence for the coupled dimer (rephasing branch). From top-left to bottom-right, the waiting times are $t_{\mathrm{wait}}=\SI{0}{\femto\second},\SI{16}{\femto\second},\SI{30}{\femto\second},\SI{46}{\femto\second},\SI{62}{\femto\second},\SI{108}{\femto\second},\SI{140}{\femto\second},\SI{310}{\femto\second}$. The system parameters are $(\tilde{\nu}_A,\tilde{\nu}_B)=(\SI{16200}{\per\centi\metre},\SI{15800}{\per\centi\metre})$, $(\mu_A,\mu_B)=(1.0,-0.15)$, $J=\SI{500}{\per\centi\metre}$. The figure is adapted from Paper~II; nonrephasing, absorptive, and time-domain companions are collected in~\autoref{app:paper_eqs_reference_atlas}.}
   \label{fig:results_dimer_fig4_waiting_time_rephasing}
 \end{figure}
 
+\autoref{fig:results_dimer_fig4_waiting_time_rephasing} shows the waiting-time sequence for the dimer, adapted from Paper~II. The panels show the rephasing branch of the inhomogeneous spectra at different waiting times. The full waiting-time series for the nonrephasing and absorptive components, aswell as time domain data, is collected in~\autoref{app:paper_eqs_reference_atlas}.
+
+The panel at $t_{\mathrm{wait}}=\SI{0}{\femto\second}$ it is still in the pulse-overlap regime.
+It can be observed, that over the waiting time series, the diagonal peaks show a intensity modulation. At $t_{\mathrm{wait}}=\SI{16}{\femto\second}$, \SI{46}{\femto\second}, \SI{108}{\femto\second}, and \SI{140}{\femto\second} the peaks are minimal. On the other hand, at $t_{\mathrm{wait}}=\SI{30}{\femto\second}$ and \SI{62}{\femto\second} they are brightest.
+
+This period is directly linked to the coupling strength of the one-exciton states. The coupling $J$ determines the energy splitting between the exciton states $\ket{1}$ and $\ket{2}$, which in turn sets the period of coherent beat modulation in the waiting-time domain. These times are consistent with the \SI{31}{\femto\second} exciton-beat period discussed in Paper~II.
 
 \textbf{Facts}
 \begin{itemize}
-    \item In the Fig.~4 series, $t_{\mathrm{wait}}=\SI{16}{\femto\second}$, \SI{46}{\femto\second}, \SI{108}{\femto\second}, and \SI{140}{\femto\second} are modulation minima.
-    \item In the Fig.~4 series, $t_{\mathrm{wait}}=\SI{30}{\femto\second}$ and \SI{62}{\femto\second} are modulation maxima.
-    \item These times are consistent with the \SI{31}{\femto\second} exciton-beat period discussed in Paper~II.
-    \item The panel at $t_{\mathrm{wait}}=\SI{0}{\femto\second}$ it is still in the pulse-overlap regime.
     \item At short waiting times, the main visible change is alternating enhancement and suppression of the cross peaks, together with smaller changes in the diagonal peaks.
     \item At $t_{\mathrm{wait}}=\SI{310}{\femto\second}$, the oscillatory part is mostly damped. The spectrum is then dominated by redistribution from peak 22 toward peak 21.
     \item In the homogeneous Fig.~6 pair, the panel at \SI{46}{\femto\second} is more anisotropic, while the panel at \SI{62}{\femto\second} is more symmetric and concentrated.
@@ -331,8 +325,8 @@ In the coupled case, the spectra show cross peaks in addition to the diagonal pe
 
 \textbf{Facts}
 \begin{itemize}
-    \item In the Fig.~4 mirror, the pulse amplitudes are $(0.002,0.002,0.002)$, the inhomogeneous width is $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$, and the rerun archive uses $N_{\mathrm{inhom}}=100$.
-    \item The Fig.~6 companion sequence is homogeneous, with $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=1$.
+    \item In the Fig.~4 mirror, the pulse amplitudes are $(0.002,0.002,0.002)$, the inhomogeneous width is $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$, and the ensemble average uses $N_{\mathrm{inhom}}=100$.
+  \item The Fig.~6 companion sequence is homogeneous, with $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=100$.
 \end{itemize}
 
 
@@ -390,7 +384,7 @@ In the coupled case, the spectra show cross peaks in addition to the diagonal pe
 \textbf{Facts}
 \begin{itemize}
     \item A diagnostic example is given in~\autoref{app:numerical_implementation}.
-    \item the bath used the parameters: stay $T/\omega_0 \approx 0.003$ (about \SI{77}{\kelvin}), $\omega_c/\omega_0=100$, $\alpha/\omega_0=0.0267$, and $s=1$.
+  \item The completed Redfield $t_{\mathrm{wait}}=0$ controls use the microscopic Ohmic bath model from~\autoref{subsec:oqs_ohmic_spectral_density} with spectral density~\autoref{eq:general_ohmic_bath} and exact parameters $T=(77/23042)\,\omega_{\mathrm{mean}}$ (about \SI{77}{\kelvin}), $\omega_c=(3/67)\,\omega_{\mathrm{mean}}$, $\alpha=(7/109)\,\omega_{\mathrm{mean}}$, and $s=1$.
 \end{itemize}
 
 \textbf{Interpretation}
