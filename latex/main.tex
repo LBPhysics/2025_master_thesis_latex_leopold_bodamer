@@ -50,36 +50,6 @@ toctotoc, 		      % add table of contents to the table of contents
 
 \hyphenation{time-scales pa-ra-me-trised spec-tro-scopy} % To prevent ugly overfull hboxes
 
-%\usepackage{mathpazo} % TODO Use the Palatino font by default, % ONLY WORKS WITH OLD PDFLATEX VERSION?
-
-%-------------------------------------------------------------------------------
-%   Fast preview mode for thesis drafting
-%-------------------------------------------------------------------------------
-
-\newif\ifthesisfastpreview
-\thesisfastpreviewfalse % Set to \thesisfastpreviewtrue for faster preview builds, especially with \includeonly below.
-
-\newcommand{\thesispreviewgraphicbox}[2][0.92\linewidth]{%
-    \fbox{%
-        \parbox[c][0.24\textheight][c]{\dimexpr #1 - 2\fboxsep - 2\fboxrule\relax}{%
-            \centering
-            Preview placeholder for figure\\[0.4em]
-            \texttt{\detokenize{#2}}%
-        }%
-    }%
-}
-
-\newcommand{\thesispreviewfallbackgraphicbox}[3][0.92\linewidth]{%
-    \fbox{%
-        \parbox[c][0.24\textheight][c]{\dimexpr #1 - 2\fboxsep - 2\fboxrule\relax}{%
-            \centering
-            Preview placeholder for figure\\[0.4em]
-            Preferred: \texttt{\detokenize{#2}}\\[0.2em]
-            Fallback: \texttt{\detokenize{#3}}%
-        }%
-    }%
-}
-
 %-------------------------------------------------------------------------------
 %	THESIS INFORMATION
 %-------------------------------------------------------------------------------
@@ -110,8 +80,7 @@ toctotoc, 		      % add table of contents to the table of contents
 
 % Local draft helper for LaTeX Workshop:
 % Uncomment exactly one \includeonly line while drafting, then comment it out again for full-thesis builds.
-%\includeonly{chapters/c10_introduction}
-%\includeonly{chapters/c40_results}
+%\includeonly{chapters/c40_results, appendices/a06_paper_eqs_reference_atlas}
 
 \begin{document}
 
@@ -138,7 +107,7 @@ toctotoc, 		      % add table of contents to the table of contents
 \pagestyle{thesis}
 
 %\include{chapters/_template_chapter}
-%\include{chapters/c10_introduction}
+\include{chapters/c10_introduction}
 \include{chapters/c20_open_quantum_systems}
 \include{chapters/c30_spectroscopy}
 \include{chapters/c40_results}
@@ -160,7 +129,7 @@ toctotoc, 		      % add table of contents to the table of contents
 \include{appendices/a03_response_function_derivation}
 \include{appendices/a02_2dfts_maxwell_derivation}
 \include{appendices/a05_phase_kick_intuition}
-\include{appendices/a06_paper_eqs_reference_atlas}
+%\include{appendices/a06_paper_eqs_reference_atlas}
 
 %-------------------------------------------------------------------------------
 %	BIBLIOGRAPHY

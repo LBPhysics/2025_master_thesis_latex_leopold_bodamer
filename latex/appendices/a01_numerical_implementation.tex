@@ -2,6 +2,10 @@
 \chapter{Numerical Implementation}
 \label{app:numerical_implementation}
 
+\todoimp{In the numerical workflow, each configuration is checked at the largest configured coherence time. The checks are Hermiticity, trace preservation, and positive semidefiniteness. $\leftarrow$ create a figure}
+\todoimp{The positivity threshold is $\lambda_{\min}\ge -10^{-3}$. The first failing time would be stored as $t_{\mathrm{cut}}$.
+}
+\todoimp{show, that scular cutoff does not change the evolution -> at which point would it do that?}
 This appendix documents how the theoretical model developed in the main text is translated into the Python code used for the numerical results of this thesis. The implementation is built around the \texttt{qspectro2d} package and uses \texttt{QuTiP} for the time propagation of open quantum systems~\cite{lambertetal2026qutip5quantum}. The central design choice is deliberately microscopic: instead of evaluating the third-order response analytically from pre-derived pathway expressions, the code propagates the density matrix under the full time-dependent pulse sequence, extracts the emitted positive-frequency polarisation, and applies phase cycling numerically afterwards. The discussion below therefore focuses on how the physics itself is encoded in the codebase.
 
 The use of QuTiP is not only a matter of software convenience. It is the step that turns the thesis workflow from a paper-specific implementation into a reusable spectroscopy framework. Once the model is encoded in terms of Hamiltonians, operators, and propagation backends, the same signal-construction pipeline can be reused for general finite-dimensional systems, different bath models, and larger excitonic aggregates. In that sense, the explicit paper-equation backend serves as a calibration reference, while the generic Lindblad and Redfield backends provide the extensible formulation.
@@ -384,7 +388,13 @@ This backend is therefore best understood as a reference implementation that rep
 
 \subsection{Solver Diagnostics and Time Cutoff}
 
-Before a parameter sweep is launched, the workflow runs a dedicated solver diagnostic on the base simulation object. The code propagates one full trajectory and checks at every stored time point whether the density matrix remains Hermitian, trace preserving, and positive semidefinite. The first time at which these conditions fail defines a numerical cutoff time $t_{\mathrm{cut}}$. During signal construction the emitted field is then multiplied by a mask that sets the signal to zero for $t_{\mathrm{det}} > t_{\mathrm{cut}}$. This is an important safeguard in the thesis workflow: unphysical late-time tails are removed systematically instead of being allowed to contaminate the Fourier transform.
+Before a parameter sweep is launched, the workflow runs a dedicated solver diagnostic on the base simulation object. The code uses the maximal configured coherence time \(t_{\mathrm{coh,max}}\), fixes the three pulse phases to \((\phi_1,\phi_2,\phi_3)=(0,0,0)\), propagates one full trajectory, and checks at every stored time point whether the density matrix remains Hermitian, trace preserving, and positive semidefinite. The positivity test is not performed with exact arithmetic, but with the explicit numerical threshold
+\begin{equation}
+\lambda_{\min}(\rho(t)) \ge -10^{-3},
+\end{equation}
+where \(\lambda_{\min}\) denotes the smallest eigenvalue of the propagated density matrix. The first time at which Hermiticity, positivity, or trace preservation fails defines a numerical cutoff time \(t_{\mathrm{cut}}\). During signal construction the emitted field is then multiplied by a mask that sets the signal to zero for \(t_{\mathrm{det}} > t_{\mathrm{cut}}\). This is an important safeguard in the thesis workflow: unphysical late-time tails are removed systematically instead of being allowed to contaminate the Fourier transform.
+
+The role of this check is best understood as a worst-case preflight test for the whole batch, not as a diagnostic repeated independently for every phase-cycling combination. Once a configuration has passed at \(t_{\mathrm{coh,max}}\), the resulting \(t_{\mathrm{cut}}\) is stored in the job metadata and reused during the full signal-construction workflow. For the regenerated dimer paper-equation atlas promoted into the main text, the stored metadata give \(t_{\mathrm{cut}}=\infty\), so the published thesis figures are not additionally truncated by this safeguard. If the diagnostic were to fail, however, the cutoff would be enforced automatically in the emitted-field construction before the Fourier transform is taken.
 
 \section{Construction of the Third-Order Signal}
 \label{app:sec:third_order_polarisation}
@@ -465,6 +475,14 @@ p(\omega_i)
 \end{equation}
 
 Numerically, the Gaussian ensemble is sampled independently for each site, with the tails truncated far from the mean at $\omega_{i,0} \pm 10\Delta_{\mathrm{inh},i}$. If $\Delta_{\mathrm{inh},i}=0$ for all sites, the deterministic mean vector is used instead. Each accepted disorder realisation replaces the current site-frequency vector, after which the Hamiltonian and operator data are rebuilt before propagation.
+
+More explicitly, each disorder realisation $n$ is a full sampled vector
+\begin{equation}
+\boldsymbol{\omega}^{(n)} = \bigl(\omega_1^{(n)},\omega_2^{(n)},\ldots,\omega_N^{(n)}\bigr),
+\end{equation}
+and the propagation for realisation $n$ uses only that vector. Thus, for a dimer, $\omega_A^{(n)}$ is paired with $\omega_B^{(n)}$ in the same run, while cross-pairings such as $\omega_A^{(n)}$ with $\omega_B^{(m)}$ for $n\neq m$ are never formed.
+
+\todoidea{Add a schematic figure showing the inhomogeneous Gaussian sampling in the energy landscape: site-resolved Gaussian distributions around $\omega_{i,0}$, one sampled multi-site realisation vector $\boldsymbol{\omega}^{(n)}$, and the ensemble average over many realisations.}
 
 For the final averaged response the workflow computes
 \begin{equation}

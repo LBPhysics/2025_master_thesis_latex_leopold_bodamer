@@ -1,0 +1,4052 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="1507.3271"
+   height="496.69449"
+   viewBox="0 0 1507.3272 496.69449"
+   id="svg469"
+   sodipodi:docname="results_monomer_1d_time_hom_inhom.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   inkscape:export-filename="..\results_monomer_1d_time_hom_inhom.pdf"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs470">
+    <defs
+       id="defs1">
+      <style
+         type="text/css"
+         id="style1">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+    </defs>
+    <defs
+       id="defs226">
+      <clipPath
+         id="results_monomer_1d_time_hom_inhom_r1c1_pd4f2996f00">
+        <rect
+           x="99.185875"
+           y="61.200001"
+           width="187.2"
+           height="187.2"
+           id="rect221" />
+      </clipPath>
+      <clipPath
+         id="results_monomer_1d_time_hom_inhom_r1c1_pfedf3d7863">
+        <rect
+           x="293.58588"
+           y="61.200001"
+           width="187.2"
+           height="187.2"
+           id="rect222" />
+      </clipPath>
+      <clipPath
+         id="results_monomer_1d_time_hom_inhom_r1c1_paf25062480">
+        <rect
+           x="487.98587"
+           y="61.200001"
+           width="187.2"
+           height="187.2"
+           id="rect223" />
+      </clipPath>
+      <clipPath
+         id="results_monomer_1d_time_hom_inhom_r1c1_p33fa7ceced">
+        <rect
+           x="99.185875"
+           y="255.60001"
+           width="187.2"
+           height="187.2"
+           id="rect224" />
+      </clipPath>
+      <clipPath
+         id="results_monomer_1d_time_hom_inhom_r1c1_p11818869ec">
+        <rect
+           x="293.58588"
+           y="255.60001"
+           width="187.2"
+           height="187.2"
+           id="rect225" />
+      </clipPath>
+      <clipPath
+         id="results_monomer_1d_time_hom_inhom_r1c1_p598d9f3b9d">
+        <rect
+           x="487.98587"
+           y="255.60001"
+           width="187.2"
+           height="187.2"
+           id="rect226" />
+      </clipPath>
+    </defs>
+    <defs
+       id="defs227">
+      <style
+         type="text/css"
+         id="style226">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+    </defs>
+    <defs
+       id="defs469">
+      <clipPath
+         id="results_monomer_1d_time_hom_inhom_r1c2_p89bee40ded">
+        <rect
+           x="111.0654"
+           y="61.200001"
+           width="187.2"
+           height="187.2"
+           id="rect464" />
+      </clipPath>
+      <clipPath
+         id="results_monomer_1d_time_hom_inhom_r1c2_pf7f7d1901d">
+        <rect
+           x="305.46539"
+           y="61.200001"
+           width="187.2"
+           height="187.2"
+           id="rect465" />
+      </clipPath>
+      <clipPath
+         id="results_monomer_1d_time_hom_inhom_r1c2_p53465a8d46">
+        <rect
+           x="499.86539"
+           y="61.200001"
+           width="187.2"
+           height="187.2"
+           id="rect466" />
+      </clipPath>
+      <clipPath
+         id="results_monomer_1d_time_hom_inhom_r1c2_pd96032605b">
+        <rect
+           x="111.0654"
+           y="255.60001"
+           width="187.2"
+           height="187.2"
+           id="rect467" />
+      </clipPath>
+      <clipPath
+         id="results_monomer_1d_time_hom_inhom_r1c2_p3caa66a9f7">
+        <rect
+           x="305.46539"
+           y="255.60001"
+           width="187.2"
+           height="187.2"
+           id="rect468" />
+      </clipPath>
+      <clipPath
+         id="results_monomer_1d_time_hom_inhom_r1c2_pcc4ddf3b02">
+        <rect
+           x="499.86539"
+           y="255.60001"
+           width="187.2"
+           height="187.2"
+           id="rect469" />
+      </clipPath>
+    </defs>
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect688"
+       is_visible="true"
+       lpeversion="1" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview469"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.1118985"
+     inkscape:cx="897.56394"
+     inkscape:cy="205.05469"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg469" />
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_2"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="M 99.185877,248.4 H 286.38588 V 61.2 H 99.185877 Z"
+       style="fill:#ffffff"
+       id="path2" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_matplotlib.axis_1"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_xtick_1">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_line2d_1">
+        <defs
+           id="defs2">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c1_md4daae8882"
+             d="M 0,0 V 3.5"
+             style="stroke:#000000;stroke-width:0.8" />
+        </defs>
+        <g
+           id="g2">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_md4daae8882"
+             x="107.69497"
+             y="248.39999"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use2" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_xtick_2">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_line2d_2">
+        <g
+           id="g3">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_md4daae8882"
+             x="249.51315"
+             y="248.39999"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use3" />
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_line2d_3"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <defs
+       id="defs3">
+      <path
+         id="results_monomer_1d_time_hom_inhom_r1c1_m6d2ad0f170"
+         d="M 0,0 H -3.5"
+         style="stroke:#000000;stroke-width:0.8" />
+    </defs>
+    <g
+       id="g4">
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_m6d2ad0f170"
+         x="99.185875"
+         y="246.11707"
+         style="stroke:#000000;stroke-width:0.8"
+         id="use4" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_text_1"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-42.842369)">
+    <g
+       transform="matrix(0.26,0,0,-0.26,41.234823,255.11112)"
+       id="g8">
+      <defs
+         id="defs4">
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMSY10-0"
+           d="m 4218,1472 c 108,0 224,0 224,128 0,128 -116,128 -224,128 H 755 c -109,0 -224,0 -224,-128 0,-128 115,-128 224,-128 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-31"
+           d="m 1702,4083 c 0,134 -6,141 -96,141 -249,-297 -627,-391 -985,-404 -19,0 -51,0 -58,-12 -6,-13 -6,-26 -6,-160 198,0 531,38 787,191 V 467 C 1344,243 1331,166 781,166 H 589 V 0 c 307,6 627,12 934,12 307,0 627,-6 935,-12 v 166 h -192 c -551,0 -564,70 -564,301 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           d="M 1178,307 C 1178,492 1024,620 870,620 685,620 557,467 557,313 557,128 710,0 864,0 c 186,0 314,153 314,307 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           d="m 2688,2038 c 0,392 -6,1061 -275,1575 -237,450 -615,611 -947,611 -308,0 -698,-142 -941,-604 C 269,3137 243,2539 243,2038 c 0,-367 7,-926 205,-1415 275,-662 768,-751 1018,-751 294,0 742,121 1004,732 192,444 218,964 218,1434 z M 1466,-26 c -410,0 -653,354 -743,842 -70,380 -70,933 -70,1293 0,495 0,906 83,1298 122,547 480,714 730,714 262,0 601,-174 723,-701 83,-366 89,-797 89,-1311 0,-418 0,-933 -76,-1312 C 2067,96 1690,-26 1466,-26 Z"
+           transform="scale(0.015625)" />
+      </defs>
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMSY10-0"
+         transform="scale(0.996264)"
+         id="use5" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-31"
+         transform="matrix(0.996264,0,0,0.996264,77.487468,0)"
+         id="use6" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+         transform="matrix(0.996264,0,0,0.996264,123.17794,0)"
+         id="use7" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+         transform="matrix(0.996264,0,0,0.996264,150.27512,0)"
+         id="use8" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_2"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_4">
+      <g
+         id="g9">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_m6d2ad0f170"
+           x="99.185875"
+           y="200.45854"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use9" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_2">
+      <g
+         transform="matrix(0.26,0,0,-0.26,41.234823,209.45259)"
+         id="g13">
+        <defs
+           id="defs9">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-35"
+             d="m 730,3750 c 64,-26 326,-109 595,-109 595,0 921,320 1107,499 0,51 0,84 -38,84 -7,0 -20,0 -71,-26 -224,-96 -486,-166 -806,-166 -192,0 -480,23 -794,159 -70,33 -83,33 -89,33 -32,0 -39,-7 -39,-134 V 2231 c 0,-118 0,-151 64,-151 32,0 45,13 77,59 205,296 486,421 806,421 224,0 704,-145 704,-1267 0,-206 0,-577 -192,-871 C 1894,159 1645,25 1370,25 947,25 518,319 403,812 c 26,-6 77,-19 103,-19 83,0 243,45 243,243 0,173 -122,244 -243,244 -148,0 -244,-90 -244,-269 0,-557 442,-1139 1120,-1139 660,0 1287,569 1287,1395 0,787 -499,1395 -1120,1395 -327,0 -602,-122 -819,-358 z"
+             transform="scale(0.015625)" />
+        </defs>
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMSY10-0"
+           transform="scale(0.996264)"
+           id="use10" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,77.487468,0)"
+           id="use11" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,123.17794,0)"
+           id="use12" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-35"
+           transform="matrix(0.996264,0,0,0.996264,150.27512,0)"
+           id="use13" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_3"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_5">
+      <g
+         id="g14">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_m6d2ad0f170"
+           x="99.185875"
+           y="154.8"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use14" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_3">
+      <g
+         transform="matrix(0.26,0,0,-0.26,61.381563,163.79405)"
+         id="g17">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="scale(0.996264)"
+           id="use15" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use16" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use17" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_4"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_6">
+      <g
+         id="g18">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_m6d2ad0f170"
+           x="99.185875"
+           y="109.14146"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use18" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_4">
+      <g
+         transform="matrix(0.26,0,0,-0.26,61.381563,118.13551)"
+         id="g21">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="scale(0.996264)"
+           id="use19" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use20" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-35"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use21" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_5"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_7">
+      <g
+         id="g22">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_m6d2ad0f170"
+           x="99.185875"
+           y="63.482925"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use22" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_5">
+      <g
+         transform="matrix(0.26,0,0,-0.26,61.381563,72.476978)"
+         id="g25">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-31"
+           transform="scale(0.996264)"
+           id="use23" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use24" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use25" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_line2d_8"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="m 107.69497,109.15705 1.70182,-40.798503 0.56727,-4.87562 0.56727,0.254112 1.13455,4.138105 0.56727,0.948572 0.56727,0.512259 0.56727,0.78037 0.56728,1.337729 1.13454,3.741498 0.56728,4.37827 0.56727,1.713912 0.56727,-0.540822 1.13455,3.681442 2.26909,6.271005 2.26909,5.712019 2.26909,5.203022 2.26909,4.73937 2.26909,4.31705 2.26909,3.93236 2.83637,4.4264 2.83636,3.93897 2.83636,3.50522 2.83637,3.11924 2.83636,2.77574 2.83636,2.47009 2.83637,2.19809 2.83636,1.95603 3.40364,2.06506 3.40363,1.79527 3.40364,1.56074 3.97091,1.56508 3.97091,1.32923 4.53818,1.27568 5.10545,1.1774 5.10546,0.95438 6.24,0.92455 6.80727,0.77163 7.94182,0.66548 9.64364,0.56403 11.34545,0.43201 14.74909,0.33043 20.98909,0.22901 13.04728,0.0694 v 0"
+       clip-path="url(#results_monomer_1d_time_hom_inhom_r1c1_pd4f2996f00)"
+       style="fill:none;stroke:#ff7f0e;stroke-width:4;stroke-dasharray:14.8, 6.4;stroke-dashoffset:0"
+       id="path25" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_3"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="M 99.185877,248.4 V 61.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path26" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_4"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="M 286.38588,248.4 V 61.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path27" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_5"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="M 99.185877,248.4 H 286.38588"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path28" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_6"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="M 99.185877,61.2 H 286.38588"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path29" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_text_6"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,121.15763)">
+    <g
+       transform="matrix(0.26,0,0,-0.26,102.92988,90.420102)"
+       id="g37">
+      <defs
+         id="defs29">
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-52"
+           d="m 2509,2156 c 608,122 1120,533 1120,1047 0,603 -679,1149 -1575,1149 H 333 v -167 c 441,0 512,0 512,-289 V 428 C 845,140 774,140 333,140 V -26 c 185,13 518,13 717,13 198,0 531,0 716,-13 v 166 c -441,0 -512,0 -512,288 v 1684 h 749 c 365,0 570,-148 659,-231 256,-249 256,-422 256,-857 0,-429 0,-647 192,-864 244,-263 570,-288 711,-288 473,0 544,531 544,640 0,38 0,83 -58,83 -51,0 -57,-39 -57,-64 -32,-416 -218,-557 -416,-557 -352,0 -391,403 -429,794 -19,134 -32,230 -45,371 -38,320 -90,787 -851,1017 z m -525,58 h -730 v 1721 c 0,218 13,250 269,250 h 467 c 532,0 1152,-186 1152,-982 0,-829 -678,-989 -1158,-989 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-65"
+           d="m 2438,1503 c 26,26 26,39 26,103 0,645 -346,1210 -1075,1210 C 710,2816 173,2175 173,1394 173,554 781,-64 1459,-64 c 717,0 999,683 999,819 0,45 -39,45 -52,45 -44,0 -51,-13 -76,-91 C 2189,270 1837,51 1504,51 1229,51 954,206 781,490 582,819 582,1200 582,1503 Z m -1849,97 c 45,911 537,1113 793,1113 436,0 730,-405 736,-1113 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-70"
+           d="m 1408,-1114 c -410,0 -435,26 -435,280 V 380 c 185,-271 454,-444 793,-444 640,0 1287,567 1287,1446 0,814 -557,1434 -1216,1434 -384,0 -698,-213 -877,-471 v 471 l -762,-71 v -168 c 378,0 436,-38 436,-349 V -834 c 0,-247 -26,-280 -436,-280 v -166 c 154,12 436,12 602,12 166,0 454,0 608,-12 z M 973,2015 c 0,91 0,226 249,466 32,25 250,219 570,219 467,0 851,-588 851,-1324 C 2643,639 2234,38 1728,38 1498,38 1248,148 1056,451 973,594 973,632 973,736 Z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-68"
+           d="m 2656,1954 c 0,328 -64,862 -819,862 -525,0 -781,-424 -858,-637 h -6 v 2237 l -762,-71 v -166 c 378,0 435,-38 435,-336 V 443 C 646,198 621,166 211,166 V 0 c 154,12 435,12 602,12 166,0 454,0 608,-12 v 166 c -410,0 -435,26 -435,277 v 1235 c 0,591 358,1035 806,1035 474,0 525,-424 525,-733 V 443 c 0,-245 -26,-277 -435,-277 V 0 c 153,12 435,12 601,12 167,0 455,0 608,-12 v 166 c -409,0 -435,26 -435,277 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-61"
+           d="m 2304,1656 c 0,392 0,619 -269,878 -237,217 -512,282 -729,282 -506,0 -871,-408 -871,-839 0,-237 192,-249 231,-249 83,0 230,51 230,230 0,160 -122,230 -230,230 -26,0 -58,-6 -77,-12 134,418 480,537 704,537 320,0 672,-292 672,-838 V 1632 C 1587,1619 1133,1568 774,1373 371,1147 256,822 256,576 256,77 832,-64 1171,-64 c 352,0 679,199 819,569 13,-286 192,-544 474,-544 134,0 474,90 474,602 V 926 H 2822 V 557 c 0,-396 -172,-448 -256,-448 -262,0 -262,337 -262,623 z M 1965,887 C 1965,323 1568,38 1216,38 896,38 646,278 646,576 c 0,195 84,538 455,746 307,175 659,201 864,214 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-73"
+           d="m 1978,2688 c 0,115 -7,121 -45,121 -26,0 -32,-6 -109,-102 -19,-26 -77,-90 -96,-115 -205,217 -493,224 -602,224 -710,0 -966,-372 -966,-743 0,-576 653,-710 838,-749 404,-83 544,-108 679,-224 83,-76 224,-217 224,-448 0,-268 -154,-614 -743,-614 -556,0 -755,422 -870,986 -19,89 -19,96 -70,96 -52,0 -58,-7 -58,-135 V 64 c 0,-116 6,-122 45,-122 32,0 38,6 70,58 39,57 135,211 173,275 128,-173 352,-339 710,-339 634,0 973,345 973,844 0,327 -173,500 -256,576 -192,199 -416,244 -685,295 -352,77 -800,166 -800,557 0,166 90,518 736,518 685,0 724,-640 736,-845 7,-32 39,-38 58,-38 58,0 58,19 58,128 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-69"
+           d="m 992,3961 c 0,141 -115,263 -262,263 -141,0 -263,-116 -263,-263 0,-141 115,-262 263,-262 140,0 262,115 262,262 z M 243,2745 v -166 c 359,0 410,-39 410,-348 V 443 C 653,198 627,166 218,166 V 0 c 153,12 428,12 588,12 154,0 416,0 564,-12 v 166 c -378,0 -391,39 -391,270 v 2380 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-6e"
+           d="m 2656,1954 c 0,328 -64,862 -819,862 -506,0 -768,-392 -864,-650 h -7 v 650 l -755,-71 v -167 c 378,0 435,-38 435,-347 V 443 C 646,198 621,166 211,166 V 0 c 154,12 435,12 602,12 166,0 454,0 608,-12 v 166 c -410,0 -435,26 -435,277 v 1235 c 0,591 358,1035 806,1035 474,0 525,-424 525,-733 V 443 c 0,-245 -26,-277 -435,-277 V 0 c 153,12 435,12 601,12 167,0 455,0 608,-12 v 166 c -409,0 -435,26 -435,277 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-67"
+           d="m 710,1165 c 122,-97 333,-205 589,-205 506,0 941,399 941,935 0,168 -51,426 -243,626 179,192 441,256 589,256 25,0 64,0 96,-19 -26,-7 -84,-32 -84,-135 0,-83 58,-140 141,-140 96,0 147,64 147,147 0,121 -96,250 -300,250 -256,0 -480,-122 -660,-289 -192,173 -422,237 -627,237 -505,0 -941,-397 -941,-933 0,-368 212,-601 276,-665 C 442,1004 442,742 442,710 442,544 506,300 723,166 390,82 128,-184 128,-517 c 0,-479 608,-827 1338,-827 704,0 1337,335 1337,834 0,894 -947,894 -1440,894 -147,0 -409,0 -441,6 -199,32 -333,211 -333,435 0,58 0,199 121,340 z m 589,-97 c -563,0 -563,698 -563,827 0,129 0,824 563,824 563,0 563,-695 563,-824 0,-129 0,-827 -563,-827 z m 167,-2304 c -640,0 -1082,353 -1082,719 0,206 109,399 250,506 160,113 224,113 659,113 525,0 1254,0 1254,-619 0,-366 -441,-719 -1081,-719 z"
+           transform="scale(0.015625)" />
+      </defs>
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-52"
+         transform="scale(0.996264)"
+         id="use29" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-65"
+         transform="matrix(0.996264,0,0,0.996264,67.791102,0)"
+         id="use30" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-70"
+         transform="matrix(0.996264,0,0,0.996264,108.27676,0)"
+         id="use31" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-68"
+         transform="matrix(0.996264,0,0,0.996264,159.17213,0)"
+         id="use32" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-61"
+         transform="matrix(0.996264,0,0,0.996264,210.0675,0)"
+         id="use33" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-73"
+         transform="matrix(0.996264,0,0,0.996264,255.75798,0)"
+         id="use34" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-69"
+         transform="matrix(0.996264,0,0,0.996264,291.55932,0)"
+         id="use35" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-6e"
+         transform="matrix(0.996264,0,0,0.996264,316.43038,0)"
+         id="use36" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-67"
+         transform="matrix(0.996264,0,0,0.996264,367.32574,0)"
+         id="use37" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_text_7"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       transform="matrix(0.28,0,0,-0.28,167.74852,55.2)"
+       id="g41">
+      <defs
+         id="defs37">
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-6c"
+           d="m 979,4416 -761,-71 v -166 c 377,0 435,-38 435,-344 V 439 C 653,198 627,166 218,166 V 0 c 153,12 435,12 595,12 166,0 448,0 601,-12 v 166 c -409,0 -435,25 -435,273 z"
+           transform="scale(0.015625)" />
+      </defs>
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-52"
+         transform="scale(0.996264)"
+         id="use38" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-65"
+         transform="matrix(0.996264,0,0,0.996264,67.791102,0)"
+         id="use39" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-61"
+         transform="matrix(0.996264,0,0,0.996264,108.27676,0)"
+         id="use40" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-6c"
+         transform="matrix(0.996264,0,0,0.996264,153.96724,0)"
+         id="use41" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_axes_2"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_patch_7">
+      <path
+         d="m 293.58588,248.4 h 187.2 V 61.2 h -187.2 z"
+         style="fill:#ffffff"
+         id="path41" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_matplotlib.axis_3">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_xtick_3">
+        <g
+           id="results_monomer_1d_time_hom_inhom_r1c1_line2d_9">
+          <g
+             id="g42">
+            <use
+               xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_md4daae8882"
+               x="302.09497"
+               y="248.39999"
+               style="stroke:#000000;stroke-width:0.8"
+               id="use42" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_xtick_4">
+        <g
+           id="results_monomer_1d_time_hom_inhom_r1c1_line2d_10">
+          <g
+             id="g43">
+            <use
+               xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_md4daae8882"
+               x="443.91315"
+               y="248.39999"
+               style="stroke:#000000;stroke-width:0.8"
+               id="use43" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_matplotlib.axis_4">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_ytick_6" />
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_ytick_7" />
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_ytick_8" />
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_ytick_9" />
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_ytick_10" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_11">
+      <path
+         d="m 302.09497,154.8 h 170.18182 v 0"
+         clip-path="url(#results_monomer_1d_time_hom_inhom_r1c1_pfedf3d7863)"
+         style="fill:none;stroke:#2ca02c;stroke-width:4;stroke-dasharray:25.6, 6.4, 4, 6.4;stroke-dashoffset:0"
+         id="path43" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_patch_8">
+      <path
+         d="M 293.58588,248.4 V 61.2"
+         style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+         id="path44" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_patch_9">
+      <path
+         d="M 480.78588,248.4 V 61.2"
+         style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+         id="path45" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_patch_10">
+      <path
+         d="m 293.58588,248.4 h 187.2"
+         style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+         id="path46" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_patch_11">
+      <path
+         d="m 293.58588,61.2 h 187.2"
+         style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+         id="path47" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_8">
+      <g
+         transform="matrix(0.28,0,0,-0.28,359.05443,55.2)"
+         id="g50">
+        <defs
+           id="defs47">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-49"
+             d="m 1261,3898 c 0,287 77,287 537,287 v 167 c -204,-13 -531,-13 -748,-13 -218,0 -544,0 -749,13 v -167 c 461,0 537,0 537,-287 V 453 C 838,166 762,166 301,166 V 0 c 205,12 531,12 749,12 217,0 544,0 748,-12 v 166 c -460,0 -537,0 -537,287 z"
+             transform="scale(0.015625)" />
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-6d"
+             d="m 4326,1954 c 0,322 -57,862 -819,862 -435,0 -736,-296 -851,-643 h -6 c -77,527 -455,643 -813,643 -506,0 -768,-392 -864,-650 h -7 v 650 l -755,-71 v -167 c 378,0 435,-38 435,-347 V 443 C 646,198 621,166 211,166 V 0 c 154,12 435,12 602,12 166,0 454,0 608,-12 v 166 c -410,0 -435,26 -435,277 v 1235 c 0,591 358,1035 806,1035 474,0 525,-424 525,-733 V 443 c 0,-245 -26,-277 -435,-277 V 0 c 153,12 435,12 601,12 167,0 455,0 608,-12 v 166 c -409,0 -435,26 -435,277 v 1235 c 0,591 358,1035 806,1035 474,0 525,-424 525,-733 V 443 c 0,-245 -25,-277 -435,-277 V 0 c 154,12 435,12 602,12 166,0 454,0 608,-12 v 166 c -410,0 -436,26 -436,277 z"
+             transform="scale(0.015625)" />
+        </defs>
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-49"
+           transform="scale(0.996264)"
+           id="use47" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-6d"
+           transform="matrix(0.996264,0,0,0.996264,32.638409,0)"
+           id="use48" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-61"
+           transform="matrix(0.996264,0,0,0.996264,109.558,0)"
+           id="use49" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-67"
+           transform="matrix(0.996264,0,0,0.996264,155.24848,0)"
+           id="use50" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_12"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="m 487.98588,248.4 h 187.2 V 61.2 h -187.2 z"
+       style="fill:#ffffff"
+       id="path50" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_matplotlib.axis_5"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_xtick_5">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_line2d_12">
+        <g
+           id="g51">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_md4daae8882"
+             x="496.49496"
+             y="248.39999"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use51" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_xtick_6">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_line2d_13">
+        <g
+           id="g52">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_md4daae8882"
+             x="638.31317"
+             y="248.39999"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use52" />
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_line2d_14"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <defs
+       id="defs52">
+      <path
+         id="results_monomer_1d_time_hom_inhom_r1c1_mb6f0b1c054"
+         d="M 0,0 H 3.5"
+         style="stroke:#000000;stroke-width:0.8" />
+    </defs>
+    <g
+       id="g53">
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_mb6f0b1c054"
+         x="675.18585"
+         y="248.39999"
+         style="stroke:#000000;stroke-width:0.8"
+         id="use53" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_text_9"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-44.842369)">
+    <g
+       transform="matrix(0.26,0,0,-0.26,682.18588,257.39405)"
+       id="g56">
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+         transform="scale(0.996264)"
+         id="use54" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+         transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+         id="use55" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+         transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+         id="use56" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_12"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_15">
+      <g
+         id="g57">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_mb6f0b1c054"
+           x="675.18585"
+           y="211.87317"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use57" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_10">
+      <g
+         transform="matrix(0.26,0,0,-0.26,682.18588,220.86722)"
+         id="g60">
+        <defs
+           id="defs57">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-32"
+             d="M 2669,990 H 2554 C 2490,537 2438,460 2413,422 2381,371 1920,371 1830,371 H 602 c 230,249 678,702 1222,1225 390,370 845,804 845,1437 0,755 -602,1191 -1274,1191 -704,0 -1133,-621 -1133,-1197 0,-250 186,-282 263,-282 64,0 256,38 256,262 0,199 -167,257 -256,257 -39,0 -77,-7 -103,-20 122,544 493,813 884,813 556,0 921,-441 921,-1024 0,-556 -326,-1035 -691,-1450 L 262,147 V 0 h 2253 z"
+             transform="scale(0.015625)" />
+        </defs>
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="scale(0.996264)"
+           id="use58" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use59" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-32"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use60" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_13"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_16">
+      <g
+         id="g61">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_mb6f0b1c054"
+           x="675.18585"
+           y="175.34634"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use61" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_11">
+      <g
+         transform="matrix(0.26,0,0,-0.26,682.18588,184.34039)"
+         id="g64">
+        <defs
+           id="defs61">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-34"
+             d="m 2150,4147 c 0,134 -6,141 -121,141 L 128,1254 V 1088 H 1779 V 460 c 0,-230 -13,-294 -461,-294 H 1197 V 0 c 205,12 550,12 768,12 217,0 563,0 768,-12 v 166 h -122 c -448,0 -461,64 -461,294 v 628 h 653 v 166 H 2150 Z M 1798,3723 V 1254 H 256 Z"
+             transform="scale(0.015625)" />
+        </defs>
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="scale(0.996264)"
+           id="use62" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use63" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-34"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use64" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_14"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_17">
+      <g
+         id="g65">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_mb6f0b1c054"
+           x="675.18585"
+           y="138.81952"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use65" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_12">
+      <g
+         transform="matrix(0.26,0,0,-0.26,682.18588,147.81356)"
+         id="g68">
+        <defs
+           id="defs65">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-36"
+             d="m 678,2198 c 0,1514 717,1878 1133,1878 135,0 461,-27 589,-294 -102,0 -294,0 -294,-224 0,-173 140,-230 230,-230 58,0 230,25 230,243 0,416 -320,653 -761,653 -762,0 -1562,-813 -1562,-2213 0,-1754 723,-2139 1235,-2139 621,0 1210,559 1210,1423 0,806 -518,1393 -1171,1393 -391,0 -679,-258 -839,-709 z M 1478,25 c -787,0 -787,1187 -787,1425 0,464 218,1135 813,1135 109,0 422,0 634,-445 115,-251 115,-516 115,-838 0,-348 0,-606 -135,-864 C 1978,173 1773,25 1478,25 Z"
+             transform="scale(0.015625)" />
+        </defs>
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="scale(0.996264)"
+           id="use66" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use67" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-36"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use68" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_15"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_18">
+      <g
+         id="g69">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_mb6f0b1c054"
+           x="675.18585"
+           y="102.29269"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use69" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_13">
+      <g
+         transform="matrix(0.26,0,0,-0.26,682.18588,111.28673)"
+         id="g72">
+        <defs
+           id="defs69">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-38"
+             d="m 1741,2289 c 403,205 813,514 813,1009 0,586 -564,926 -1082,926 -582,0 -1094,-424 -1094,-1009 0,-161 38,-438 288,-682 64,-64 332,-257 505,-379 C 883,2006 211,1652 211,945 211,282 838,-128 1459,-128 c 685,0 1261,494 1261,1150 0,585 -390,855 -646,1029 z m -839,566 c -51,32 -307,231 -307,533 0,393 403,688 864,688 506,0 877,-360 877,-778 0,-598 -666,-939 -698,-939 -6,0 -12,0 -64,39 z M 2080,1536 c 96,-70 403,-283 403,-675 C 2483,385 2010,25 1472,25 890,25 448,443 448,951 c 0,508 390,933 832,1132 z"
+             transform="scale(0.015625)" />
+        </defs>
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="scale(0.996264)"
+           id="use70" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use71" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-38"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use72" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_16"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_19">
+      <g
+         id="g73">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_mb6f0b1c054"
+           x="675.18585"
+           y="65.765854"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use73" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_14">
+      <g
+         transform="matrix(0.26,0,0,-0.26,682.18588,74.759905)"
+         id="g76">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-31"
+           transform="scale(0.996264)"
+           id="use74" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use75" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use76" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_line2d_20"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="m 496.49497,157.1141 1.70182,-81.597005 0.56727,-9.751241 0.56727,0.508224 1.13455,8.27621 0.56727,1.897145 0.56727,1.024516 0.56727,1.560741 0.56728,2.675458 1.13454,7.482995 0.56728,8.75654 0.56727,3.427827 0.56727,-1.08165 1.13455,7.36289 2.26909,12.54201 2.26909,11.42404 2.26909,10.40603 2.26909,9.47876 2.26909,8.6341 2.26909,7.86471 2.26909,7.16389 2.26909,6.52551 2.2691,5.94403 2.26909,5.41435 2.26909,4.93187 2.26909,4.4924 2.26909,4.09208 2.83636,4.60618 2.83637,4.09897 2.83636,3.64759 2.83636,3.24592 2.83637,2.88849 2.83636,2.57042 2.83636,2.28736 2.83637,2.03549 3.40363,2.14893 3.40364,1.86819 3.40364,1.62413 3.97091,1.62865 3.9709,1.38322 4.53819,1.32749 4.53818,1.10145 5.10545,1.01659 5.67273,0.90536 6.80727,0.84134 7.37455,0.68125 9.07636,0.59897 10.77818,0.47394 13.61455,0.36428 18.72,0.26058 3.40364,0.0293 v 0"
+       clip-path="url(#results_monomer_1d_time_hom_inhom_r1c1_paf25062480)"
+       style="fill:none;stroke:#1f77b4;stroke-width:4;stroke-linecap:square"
+       id="path76" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_13"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="M 487.98588,248.4 V 61.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path77" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_14"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="M 675.18588,248.4 V 61.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path78" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_15"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="m 487.98588,248.4 h 187.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path79" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_16"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="m 487.98588,61.2 h 187.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path80" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_text_15"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       transform="matrix(0.28,0,0,-0.28,559.77821,55.2)"
+       id="g82">
+      <defs
+         id="defs80">
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-41"
+           d="m 2323,4441 c -32,83 -45,103 -109,103 -64,0 -76,-20 -108,-103 L 749,580 C 627,236 371,166 147,166 V 0 c 115,12 371,12 493,12 160,0 416,0 570,-12 v 166 c -301,13 -346,216 -346,293 0,57 13,89 26,127 l 339,950 H 2906 L 3290,453 c 32,-77 32,-90 32,-115 0,-172 -276,-172 -397,-172 V 0 c 185,12 518,12 717,12 166,0 486,0 640,-12 v 166 c -340,0 -455,0 -538,236 z M 2067,3924 2848,1702 H 1286 Z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-62"
+           d="m 960,4416 -762,-71 v -166 c 378,0 436,-38 436,-336 V -13 h 115 l 185,458 c 186,-304 461,-509 832,-509 640,0 1287,567 1287,1446 0,827 -576,1434 -1223,1434 -396,0 -678,-213 -870,-465 z m 13,-2394 c 0,116 0,135 89,271 250,388 608,420 730,420 192,0 851,-103 851,-1325 C 2643,109 1888,38 1734,38 c -198,0 -486,77 -691,452 -70,123 -70,136 -70,252 z"
+           transform="scale(0.015625)" />
+      </defs>
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-41"
+         transform="scale(0.996264)"
+         id="use80" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-62"
+         transform="matrix(0.996264,0,0,0.996264,69.07243,0)"
+         id="use81" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-73"
+         transform="matrix(0.996264,0,0,0.996264,119.9678,0)"
+         id="use82" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_17"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="M 99.185877,442.8 H 286.38588 V 255.6 H 99.185877 Z"
+       style="fill:#ffffff"
+       id="path82" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_matplotlib.axis_7"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_xtick_7">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_line2d_21">
+        <g
+           id="g83">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_md4daae8882"
+             x="107.69497"
+             y="442.79999"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use83" />
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_text_16">
+        <g
+           transform="matrix(0.26,0,0,-0.26,101.75521,467.7881)"
+           id="g84">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+             transform="scale(0.996264)"
+             id="use84" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_xtick_8">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_line2d_22">
+        <g
+           id="g85">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_md4daae8882"
+             x="249.51315"
+             y="442.79999"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use85" />
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_text_17">
+        <g
+           transform="matrix(0.26,0,0,-0.26,231.69386,467.7881)"
+           id="g88">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-35"
+             transform="scale(0.996264)"
+             id="use86" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+             transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+             id="use87" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+             transform="matrix(0.996264,0,0,0.996264,91.380954,0)"
+             id="use88" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_18">
+      <g
+         transform="matrix(0.28,0,0,-0.28,155.15934,497.72286)"
+         id="g96">
+        <defs
+           id="defs88">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c1_CMMI12-74"
+             d="m 1286,2566 h 589 c 122,0 186,0 186,115 0,71 -39,71 -167,71 h -563 l 237,912 c 26,88 26,100 26,144 0,102 -84,160 -167,160 -51,0 -198,-20 -249,-222 L 928,2752 H 326 c -128,0 -185,0 -185,-122 0,-64 45,-64 166,-64 H 877 L 454,881 C 403,657 384,593 384,510 384,210 595,-64 954,-64 c 646,0 992,932 992,977 0,38 -26,57 -64,57 -13,0 -39,0 -52,-26 -6,-6 -12,-12 -57,-114 C 1638,510 1344,64 973,64 781,64 768,223 768,364 c 0,6 0,127 19,204 z"
+             transform="scale(0.015625)" />
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-64"
+             d="m 1869,4345 v -166 c 377,0 435,-38 435,-336 V 2371 c -26,32 -288,445 -806,445 C 845,2816 211,2228 211,1376 211,529 806,-64 1434,-64 c 544,0 825,425 857,470 V -64 l 775,51 v 167 c -378,0 -436,39 -436,349 V 4416 Z M 2291,762 C 2291,568 2176,393 2029,264 1811,70 1594,38 1472,38 c -186,0 -851,97 -851,1331 0,1267 742,1344 909,1344 294,0 531,-168 678,-400 83,-136 83,-156 83,-272 z"
+             transform="scale(0.015625)" />
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-74"
+             d="m 966,2585 h 896 v 167 H 966 V 3968 H 851 C 838,3292 614,2700 70,2687 V 2585 H 627 V 778 c 0,-123 0,-842 743,-842 377,0 595,372 595,848 v 367 H 1850 V 790 C 1850,347 1677,51 1408,51 1222,51 966,179 966,765 Z"
+             transform="scale(0.015625)" />
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-5b"
+             d="m 1504,-1600 v 224 H 902 v 5951 h 602 v 225 H 678 v -6400 z"
+             transform="scale(0.015625)" />
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-66"
+             d="m 979,2585 h 730 v 167 H 966 v 787 c 0,537 269,838 544,838 84,0 180,-14 244,-38 -52,-13 -186,-58 -186,-218 0,-166 128,-217 218,-217 89,0 217,51 217,217 0,232 -230,359 -486,359 -365,0 -864,-269 -864,-954 V 2752 H 141 V 2585 H 653 V 441 C 653,198 627,166 218,166 V 0 c 153,12 448,12 614,12 186,0 512,0 685,-12 v 166 c -461,0 -538,0 -538,288 z"
+             transform="scale(0.015625)" />
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-5d"
+             d="M 915,4800 H 90 V 4575 H 691 V -1376 H 90 v -224 h 825 z"
+             transform="scale(0.015625)" />
+        </defs>
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-74"
+           transform="scale(0.996264)"
+           id="use89" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-64"
+           transform="matrix(0.697382,0,0,0.697382,35.22633,-14.943915)"
+           id="use90" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-65"
+           transform="matrix(0.697382,0,0,0.697382,70.852939,-14.943915)"
+           id="use91" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-74"
+           transform="matrix(0.697382,0,0,0.697382,99.19277,-14.943915)"
+           id="use92" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-5b"
+           transform="matrix(0.996264,0,0,0.996264,154.46329,0)"
+           id="use93" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-66"
+           transform="matrix(0.996264,0,0,0.996264,179.33435,0)"
+           id="use94" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-73"
+           transform="matrix(0.996264,0,0,0.996264,206.80786,0)"
+           id="use95" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-5d"
+           transform="matrix(0.996264,0,0,0.996264,242.6092,0)"
+           id="use96" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_17"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_23">
+      <g
+         id="g97">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_m6d2ad0f170"
+           x="99.185875"
+           y="440.51706"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use97" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_19">
+      <g
+         transform="matrix(0.26,0,0,-0.26,41.234823,449.51112)"
+         id="g101">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMSY10-0"
+           transform="scale(0.996264)"
+           id="use98" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-31"
+           transform="matrix(0.996264,0,0,0.996264,77.487468,0)"
+           id="use99" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,123.17794,0)"
+           id="use100" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,150.27512,0)"
+           id="use101" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_18"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_24">
+      <g
+         id="g102">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_m6d2ad0f170"
+           x="99.185875"
+           y="394.85855"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use102" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_20">
+      <g
+         transform="matrix(0.26,0,0,-0.26,41.234823,403.85259)"
+         id="g106">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMSY10-0"
+           transform="scale(0.996264)"
+           id="use103" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,77.487468,0)"
+           id="use104" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,123.17794,0)"
+           id="use105" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-35"
+           transform="matrix(0.996264,0,0,0.996264,150.27512,0)"
+           id="use106" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_19"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_25">
+      <g
+         id="g107">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_m6d2ad0f170"
+           x="99.185875"
+           y="349.20001"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use107" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_21">
+      <g
+         transform="matrix(0.26,0,0,-0.26,61.381563,358.19405)"
+         id="g110">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="scale(0.996264)"
+           id="use108" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use109" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use110" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_20"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_26">
+      <g
+         id="g111">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_m6d2ad0f170"
+           x="99.185875"
+           y="303.54147"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use111" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_22">
+      <g
+         transform="matrix(0.26,0,0,-0.26,61.381563,312.53551)"
+         id="g114">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="scale(0.996264)"
+           id="use112" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use113" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-35"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use114" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_line2d_27"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="g115">
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_m6d2ad0f170"
+         x="99.185875"
+         y="257.88293"
+         style="stroke:#000000;stroke-width:0.8"
+         id="use115" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_text_23"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-30.842369)">
+    <g
+       transform="matrix(0.26,0,0,-0.26,61.381563,266.87698)"
+       id="g118">
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-31"
+         transform="scale(0.996264)"
+         id="use116" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+         transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+         id="use117" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+         transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+         id="use118" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_text_24"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-140.84237)">
+    <g
+       transform="matrix(0,-0.28,-0.28,0,28.121544,420.8963)"
+       id="g130">
+      <defs
+         id="defs118">
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMMI12-45"
+           d="m 4448,1489 c 6,19 26,64 26,89 0,33 -26,65 -64,65 -26,0 -39,-7 -58,-26 -13,-6 -13,-19 -70,-148 C 3904,570 3629,185 2605,185 h -935 c -89,0 -102,0 -140,7 -71,6 -77,19 -77,70 0,45 13,84 25,141 l 442,1773 h 634 c 499,0 537,-110 537,-302 0,-64 0,-122 -45,-315 -12,-25 -19,-51 -19,-70 0,-45 32,-65 71,-65 57,0 64,45 89,135 l 365,1477 c 0,32 -26,63 -64,63 -58,0 -64,-25 -90,-113 -128,-486 -256,-625 -825,-625 h -608 l 397,1552 c 57,221 70,240 332,240 h 916 c 787,0 947,-208 947,-688 0,-6 0,-183 -26,-391 -6,-25 -13,-63 -13,-76 0,-50 32,-69 71,-69 45,0 70,25 83,139 l 134,1104 c 0,19 13,83 13,96 0,71 -57,71 -173,71 H 1523 c -121,0 -185,0 -185,-116 0,-70 44,-70 153,-70 397,0 397,-44 397,-114 0,-31 -6,-56 -26,-126 L 998,474 C 941,249 928,185 480,185 358,185 294,185 294,70 294,0 333,0 461,0 h 3213 c 140,0 147,6 192,108 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMMI12-6b"
+           d="m 1798,4255 c 7,26 20,64 20,96 0,65 -64,65 -77,65 -7,0 -237,-20 -352,-33 -109,-6 -205,-19 -320,-25 -154,-13 -199,-19 -199,-135 0,-64 64,-64 128,-64 327,0 327,-56 327,-119 0,-26 0,-38 -32,-152 L 378,250 C 352,153 352,141 352,102 352,-39 461,-64 525,-64 704,-64 742,76 794,275 l 300,1201 c 461,-51 736,-244 736,-552 0,-39 0,-64 -19,-161 -25,-96 -25,-173 -25,-205 0,-373 243,-622 569,-622 295,0 448,269 499,359 135,237 218,597 218,622 0,32 -26,58 -64,58 -58,0 -64,-26 -90,-128 -89,-334 -224,-783 -550,-783 -128,0 -211,64 -211,308 0,122 25,263 51,359 26,116 26,122 26,199 0,379 -340,591 -928,668 230,141 460,391 550,488 365,409 614,601 909,601 147,0 185,-32 230,-63 -237,-26 -326,-193 -326,-321 0,-153 121,-204 211,-204 173,0 326,147 326,352 0,183 -147,365 -435,365 -352,0 -640,-237 -1094,-749 -64,-78 -301,-321 -538,-411 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMMI12-53"
+           d="m 4064,4422 c 0,58 -45,58 -58,58 -25,0 -32,-7 -108,-103 -39,-45 -301,-375 -308,-381 -211,413 -633,484 -902,484 -813,0 -1549,-738 -1549,-1456 0,-477 288,-756 602,-864 70,-26 448,-127 640,-172 326,-89 409,-114 544,-254 25,-32 153,-178 153,-476 C 3078,667 2528,57 1888,57 1363,57 781,279 781,991 c 0,121 25,273 45,337 0,19 6,50 6,63 0,26 -13,57 -64,57 -58,0 -64,-12 -90,-120 L 352,25 c 0,-6 -26,-89 -26,-96 0,-57 52,-57 64,-57 26,0 32,6 109,102 l 295,382 c 153,-229 486,-484 1081,-484 826,0 1581,795 1581,1589 0,267 -64,502 -307,737 -135,133 -250,165 -839,318 -428,114 -486,133 -601,235 -109,108 -192,260 -192,476 0,534 544,1080 1152,1080 627,0 921,-381 921,-985 0,-165 -32,-336 -32,-362 0,-57 52,-57 71,-57 57,0 64,19 89,121 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3d"
+           d="m 2746,4563 c 0,6 38,102 38,115 0,77 -64,122 -115,122 -32,0 -90,0 -141,-141 L 384,-1364 c 0,-6 -38,-102 -38,-115 0,-77 64,-121 115,-121 38,0 96,6 141,140 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMSY10-6a"
+           d="m 1018,4569 c 0,115 0,231 -128,231 -128,0 -128,-116 -128,-231 v -5939 c 0,-115 0,-230 128,-230 128,0 128,115 128,230 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-78"
+           d="m 1664,1491 c 192,249 410,531 589,742 211,243 454,346 736,352 v 167 c -109,-7 -333,-13 -448,-13 -173,0 -371,0 -519,13 v -167 c 90,-13 141,-77 141,-166 0,-115 -64,-186 -96,-231 l -473,-601 -564,736 c -57,70 -57,83 -57,115 0,77 64,141 173,147 v 167 c -154,-13 -429,-13 -589,-13 -173,0 -378,0 -519,13 v -167 c 346,0 423,-25 576,-217 l 736,-954 c 13,-13 45,-51 45,-70 C 1395,1318 838,633 768,544 480,198 179,172 6,166 V 0 c 109,6 333,12 448,12 128,0 410,0 525,-12 v 166 c -38,6 -141,19 -141,166 0,116 52,186 109,263 l 531,653 557,-724 c 51,-70 128,-166 128,-211 0,-89 -77,-141 -179,-147 V 0 c 154,12 429,12 589,12 173,0 377,0 518,-12 v 166 c -320,0 -416,13 -569,211 z"
+           transform="scale(0.015625)" />
+      </defs>
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-45"
+         transform="scale(0.996264)"
+         id="use119" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-6b"
+         transform="matrix(0.697382,0,0,0.697382,72.211218,-14.943915)"
+         id="use120" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-53"
+         transform="matrix(0.498132,0,0,0.498132,107.72568,-25.404611)"
+         id="use121" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3d"
+         transform="matrix(0.996264,0,0,0.996264,141.61915,0)"
+         id="use122" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMSY10-6a"
+         transform="matrix(0.996264,0,0,0.996264,190.39407,0)"
+         id="use123" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-45"
+         transform="matrix(0.996264,0,0,0.996264,218.06815,0)"
+         id="use124" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-6b"
+         transform="matrix(0.697382,0,0,0.697382,290.27937,-14.943915)"
+         id="use125" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-53"
+         transform="matrix(0.498132,0,0,0.498132,325.79384,-25.404611)"
+         id="use126" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMSY10-6a"
+         transform="matrix(0.996264,0,0,0.996264,359.6873,0)"
+         id="use127" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-6d"
+         transform="matrix(0.697382,0,0,0.697382,387.36139,-14.943915)"
+         id="use128" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-61"
+         transform="matrix(0.697382,0,0,0.697382,441.20486,-14.943915)"
+         id="use129" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-78"
+         transform="matrix(0.697382,0,0,0.697382,473.18804,-14.943915)"
+         id="use130" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_line2d_28"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="m 107.69497,303.55705 1.70182,-40.7985 0.56727,-4.87562 0.56727,0.25411 1.13455,4.1381 0.56727,0.94858 0.56727,0.51225 0.56727,0.78037 0.56728,1.33773 1.13454,3.7415 0.56728,4.37827 0.56727,1.71391 0.56727,-0.54082 1.13455,3.68144 2.26909,6.27101 2.26909,5.71202 2.26909,5.20302 2.26909,4.73937 2.26909,4.31705 2.26909,3.93236 2.83637,4.4264 2.83636,3.93897 2.83636,3.50522 2.83637,3.11924 2.83636,2.77574 2.83636,2.47009 2.83637,2.19809 2.83636,1.95603 3.40364,2.06506 3.40363,1.79527 3.40364,1.56074 3.97091,1.56508 3.97091,1.32923 4.53818,1.27568 5.10545,1.1774 5.10546,0.95438 6.24,0.92455 6.80727,0.77163 7.94182,0.66548 9.64364,0.56403 11.34545,0.43201 14.74909,0.33043 20.98909,0.22901 13.04728,0.0694 v 0"
+       clip-path="url(#results_monomer_1d_time_hom_inhom_r1c1_p33fa7ceced)"
+       style="fill:none;stroke:#ff7f0e;stroke-width:4;stroke-dasharray:14.8, 6.4;stroke-dashoffset:0"
+       id="path130" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_18"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="M 99.185877,442.8 V 255.6"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path131" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_19"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="M 286.38588,442.8 V 255.6"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path132" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_20"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="M 99.185877,442.8 H 286.38588"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path133" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_21"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="M 99.185877,255.6 H 286.38588"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path134" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_text_25"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,121.15763)">
+    <g
+       transform="matrix(0.26,0,0,-0.26,102.92988,284.8201)"
+       id="g145">
+      <defs
+         id="defs134">
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-4e"
+           d="m 1312,4275 c -45,70 -51,77 -173,77 H 326 v -167 h 122 c 256,0 371,-32 390,-38 V 624 C 838,465 838,166 326,166 V 0 c 148,12 416,12 576,12 160,0 429,0 576,-12 V 166 C 966,166 966,465 966,624 v 3433 c 45,-38 45,-50 90,-114 L 3430,76 c 45,-76 64,-76 96,-76 64,0 64,19 64,140 v 3586 c 0,159 0,459 512,459 v 167 c -147,-13 -416,-13 -576,-13 -160,0 -428,0 -576,13 v -167 c 512,0 512,-300 512,-459 V 777 Z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-6f"
+           d="m 2758,1356 c 0,820 -595,1460 -1292,1460 C 768,2816 173,2176 173,1356 173,550 768,-64 1466,-64 c 697,0 1292,614 1292,1420 z M 1466,51 c -301,0 -557,179 -704,429 -160,288 -180,646 -180,928 0,268 13,601 180,889 128,211 377,416 704,416 288,0 531,-160 684,-384 199,-301 199,-723 199,-921 0,-250 -13,-634 -186,-941 C 1984,172 1709,51 1466,51 Z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c1_CMR17-72"
+           d="m 960,1517 c 0,617 262,1196 742,1196 45,0 90,-6 135,-26 0,0 -141,-45 -141,-212 0,-154 122,-218 218,-218 76,0 217,45 217,225 0,205 -205,334 -422,334 -487,0 -698,-476 -762,-701 h -6 v 701 l -743,-71 v -167 c 378,0 436,-38 436,-347 V 443 C 634,198 608,166 198,166 V 0 c 154,12 448,12 615,12 185,0 512,0 685,-12 v 166 c -461,0 -538,0 -538,289 z"
+           transform="scale(0.015625)" />
+      </defs>
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-4e"
+         transform="scale(0.996264)"
+         id="use134" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-6f"
+         transform="matrix(0.996264,0,0,0.996264,69.07243,0)"
+         id="use135" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-6e"
+         transform="matrix(0.996264,0,0,0.996264,114.76291,0)"
+         id="use136" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-72"
+         transform="matrix(0.996264,0,0,0.996264,165.65828,0)"
+         id="use137" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-65"
+         transform="matrix(0.996264,0,0,0.996264,200.93904,0)"
+         id="use138" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-70"
+         transform="matrix(0.996264,0,0,0.996264,241.4247,0)"
+         id="use139" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-68"
+         transform="matrix(0.996264,0,0,0.996264,292.32007,0)"
+         id="use140" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-61"
+         transform="matrix(0.996264,0,0,0.996264,343.21544,0)"
+         id="use141" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-73"
+         transform="matrix(0.996264,0,0,0.996264,388.90592,0)"
+         id="use142" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-69"
+         transform="matrix(0.996264,0,0,0.996264,424.70726,0)"
+         id="use143" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-6e"
+         transform="matrix(0.996264,0,0,0.996264,449.57832,0)"
+         id="use144" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-67"
+         transform="matrix(0.996264,0,0,0.996264,500.47369,0)"
+         id="use145" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_axes_5"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_patch_22">
+      <path
+         d="m 293.58588,442.8 h 187.2 V 255.6 h -187.2 z"
+         style="fill:#ffffff"
+         id="path145" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_matplotlib.axis_9">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_xtick_9">
+        <g
+           id="results_monomer_1d_time_hom_inhom_r1c1_line2d_29">
+          <g
+             id="g146">
+            <use
+               xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_md4daae8882"
+               x="302.09497"
+               y="442.79999"
+               style="stroke:#000000;stroke-width:0.8"
+               id="use146" />
+          </g>
+        </g>
+        <g
+           id="results_monomer_1d_time_hom_inhom_r1c1_text_26">
+          <g
+             transform="matrix(0.26,0,0,-0.26,296.15521,467.7881)"
+             id="g147">
+            <use
+               xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+               transform="scale(0.996264)"
+               id="use147" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_xtick_10">
+        <g
+           id="results_monomer_1d_time_hom_inhom_r1c1_line2d_30">
+          <g
+             id="g148">
+            <use
+               xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_md4daae8882"
+               x="443.91315"
+               y="442.79999"
+               style="stroke:#000000;stroke-width:0.8"
+               id="use148" />
+          </g>
+        </g>
+        <g
+           id="results_monomer_1d_time_hom_inhom_r1c1_text_27">
+          <g
+             transform="matrix(0.26,0,0,-0.26,426.09386,467.7881)"
+             id="g151">
+            <use
+               xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-35"
+               transform="scale(0.996264)"
+               id="use149" />
+            <use
+               xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+               transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+               id="use150" />
+            <use
+               xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+               transform="matrix(0.996264,0,0,0.996264,91.380954,0)"
+               id="use151" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_text_28">
+        <g
+           transform="matrix(0.28,0,0,-0.28,349.55934,497.72286)"
+           id="g159">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-74"
+             transform="scale(0.996264)"
+             id="use152" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-64"
+             transform="matrix(0.697382,0,0,0.697382,35.22633,-14.943915)"
+             id="use153" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-65"
+             transform="matrix(0.697382,0,0,0.697382,70.852939,-14.943915)"
+             id="use154" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-74"
+             transform="matrix(0.697382,0,0,0.697382,99.19277,-14.943915)"
+             id="use155" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-5b"
+             transform="matrix(0.996264,0,0,0.996264,154.46329,0)"
+             id="use156" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-66"
+             transform="matrix(0.996264,0,0,0.996264,179.33435,0)"
+             id="use157" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-73"
+             transform="matrix(0.996264,0,0,0.996264,206.80786,0)"
+             id="use158" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-5d"
+             transform="matrix(0.996264,0,0,0.996264,242.6092,0)"
+             id="use159" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_matplotlib.axis_10">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_ytick_22" />
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_ytick_23" />
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_ytick_24" />
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_ytick_25" />
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_ytick_26" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_31">
+      <path
+         d="m 302.09497,349.2 h 170.18182 v 0"
+         clip-path="url(#results_monomer_1d_time_hom_inhom_r1c1_p11818869ec)"
+         style="fill:none;stroke:#2ca02c;stroke-width:4;stroke-dasharray:25.6, 6.4, 4, 6.4;stroke-dashoffset:0"
+         id="path159" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_patch_23">
+      <path
+         d="M 293.58588,442.8 V 255.6"
+         style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+         id="path160" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_patch_24">
+      <path
+         d="M 480.78588,442.8 V 255.6"
+         style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+         id="path161" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_patch_25">
+      <path
+         d="m 293.58588,442.8 h 187.2"
+         style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+         id="path162" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_patch_26">
+      <path
+         d="m 293.58588,255.6 h 187.2"
+         style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+         id="path163" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_27"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="m 487.98588,442.8 h 187.2 V 255.6 h -187.2 z"
+       style="fill:#ffffff"
+       id="path164" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_matplotlib.axis_11"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_xtick_11">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_line2d_32">
+        <g
+           id="g164">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_md4daae8882"
+             x="496.49496"
+             y="442.79999"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use164" />
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_text_29">
+        <g
+           transform="matrix(0.26,0,0,-0.26,490.55521,467.7881)"
+           id="g165">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+             transform="scale(0.996264)"
+             id="use165" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_xtick_12">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_line2d_33">
+        <g
+           id="g166">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_md4daae8882"
+             x="638.31317"
+             y="442.79999"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use166" />
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c1_text_30">
+        <g
+           transform="matrix(0.26,0,0,-0.26,620.49386,467.7881)"
+           id="g169">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-35"
+             transform="scale(0.996264)"
+             id="use167" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+             transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+             id="use168" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+             transform="matrix(0.996264,0,0,0.996264,91.380954,0)"
+             id="use169" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_31">
+      <g
+         transform="matrix(0.28,0,0,-0.28,543.95934,497.72286)"
+         id="g177">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-74"
+           transform="scale(0.996264)"
+           id="use170" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-64"
+           transform="matrix(0.697382,0,0,0.697382,35.22633,-14.943915)"
+           id="use171" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-65"
+           transform="matrix(0.697382,0,0,0.697382,70.852939,-14.943915)"
+           id="use172" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-74"
+           transform="matrix(0.697382,0,0,0.697382,99.19277,-14.943915)"
+           id="use173" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-5b"
+           transform="matrix(0.996264,0,0,0.996264,154.46329,0)"
+           id="use174" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-66"
+           transform="matrix(0.996264,0,0,0.996264,179.33435,0)"
+           id="use175" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-73"
+           transform="matrix(0.996264,0,0,0.996264,206.80786,0)"
+           id="use176" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-5d"
+           transform="matrix(0.996264,0,0,0.996264,242.6092,0)"
+           id="use177" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_27"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_34">
+      <g
+         id="g178">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_mb6f0b1c054"
+           x="675.18585"
+           y="442.79999"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use178" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_32">
+      <g
+         transform="matrix(0.26,0,0,-0.26,682.18588,451.79405)"
+         id="g181">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="scale(0.996264)"
+           id="use179" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use180" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use181" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_28"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_35">
+      <g
+         id="g182">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_mb6f0b1c054"
+           x="675.18585"
+           y="406.27316"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use182" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_33">
+      <g
+         transform="matrix(0.26,0,0,-0.26,682.18588,415.26722)"
+         id="g185">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="scale(0.996264)"
+           id="use183" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use184" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-32"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use185" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_29"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_36">
+      <g
+         id="g186">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_mb6f0b1c054"
+           x="675.18585"
+           y="369.74634"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use186" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_34">
+      <g
+         transform="matrix(0.26,0,0,-0.26,682.18588,378.74039)"
+         id="g189">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="scale(0.996264)"
+           id="use187" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use188" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-34"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use189" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_30"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_37">
+      <g
+         id="g190">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_mb6f0b1c054"
+           x="675.18585"
+           y="333.21951"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use190" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_35">
+      <g
+         transform="matrix(0.26,0,0,-0.26,682.18588,342.21356)"
+         id="g193">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="scale(0.996264)"
+           id="use191" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use192" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-36"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use193" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_ytick_31"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_line2d_38">
+      <g
+         id="g194">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_mb6f0b1c054"
+           x="675.18585"
+           y="296.69269"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use194" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c1_text_36">
+      <g
+         transform="matrix(0.26,0,0,-0.26,682.18588,305.68673)"
+         id="g197">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+           transform="scale(0.996264)"
+           id="use195" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use196" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-38"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use197" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_line2d_39"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <g
+       id="g198">
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_mb6f0b1c054"
+         x="675.18585"
+         y="260.16586"
+         style="stroke:#000000;stroke-width:0.8"
+         id="use198" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_text_37"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-30.842369)">
+    <g
+       transform="matrix(0.26,0,0,-0.26,682.18588,269.1599)"
+       id="g201">
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-31"
+         transform="scale(0.996264)"
+         id="use199" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMMI12-3a"
+         transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+         id="use200" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c1_CMR17-30"
+         transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+         id="use201" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_line2d_40"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="m 496.49497,351.5141 1.70182,-81.597 0.56727,-9.75125 0.56727,0.50823 1.13455,8.27621 0.56727,1.89714 0.56727,1.02452 0.56727,1.56074 0.56728,2.67546 1.13454,7.48299 0.56728,8.75654 0.56727,3.42783 0.56727,-1.08165 1.13455,7.36289 2.26909,12.54201 2.26909,11.42404 2.26909,10.40603 2.26909,9.47876 2.26909,8.6341 2.26909,7.86471 2.26909,7.16389 2.26909,6.52551 2.2691,5.94403 2.26909,5.41435 2.26909,4.93187 2.26909,4.4924 2.26909,4.09208 2.83636,4.60618 2.83637,4.09897 2.83636,3.64759 2.83636,3.24592 2.83637,2.88849 2.83636,2.57042 2.83636,2.28736 2.83637,2.03549 3.40363,2.14893 3.40364,1.86819 3.40364,1.62413 3.97091,1.62865 3.9709,1.38322 4.53819,1.32749 4.53818,1.10145 5.10545,1.01659 5.67273,0.90536 6.80727,0.84134 7.37455,0.68125 9.07636,0.59897 10.77818,0.47394 13.61455,0.36428 18.72,0.26058 3.40364,0.0294 v 0"
+       clip-path="url(#results_monomer_1d_time_hom_inhom_r1c1_p598d9f3b9d)"
+       style="fill:none;stroke:#1f77b4;stroke-width:4;stroke-linecap:square"
+       id="path201" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_28"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="M 487.98588,442.8 V 255.6"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path202" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_29"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="M 675.18588,442.8 V 255.6"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path203" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_30"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="m 487.98588,442.8 h 187.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path204" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c1_patch_31"
+     transform="matrix(1.0494849,0,0,1.0494849,-7.5562913,-36.842369)">
+    <path
+       d="m 487.98588,255.6 h 187.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path205" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_2"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="m 111.0654,248.4 h 187.2 V 61.2 h -187.2 z"
+       style="fill:#ffffff"
+       id="path228" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_matplotlib.axis_1"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_xtick_1">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_line2d_1">
+        <defs
+           id="defs228">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c2_m10c041e829"
+             d="M 0,0 V 3.5"
+             style="stroke:#000000;stroke-width:0.8" />
+        </defs>
+        <g
+           id="g228">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m10c041e829"
+             x="119.57449"
+             y="248.39999"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use228" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_xtick_2">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_line2d_2">
+        <g
+           id="g229">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m10c041e829"
+             x="261.39267"
+             y="248.39999"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use229" />
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_matplotlib.axis_2"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_ytick_1">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_line2d_3">
+        <defs
+           id="defs229">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c2_mf19024398e"
+             d="M 0,0 H -3.5"
+             style="stroke:#000000;stroke-width:0.8" />
+        </defs>
+        <g
+           id="g230">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_mf19024398e"
+             x="111.0654"
+             y="246.11903"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use230" />
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_text_1">
+        <g
+           transform="matrix(0.26,0,0,-0.26,53.114347,255.11309)"
+           id="g234">
+          <defs
+             id="defs230">
+            <path
+               id="results_monomer_1d_time_hom_inhom_r1c2_CMSY10-0"
+               d="m 4218,1472 c 108,0 224,0 224,128 0,128 -116,128 -224,128 H 755 c -109,0 -224,0 -224,-128 0,-128 115,-128 224,-128 z"
+               transform="scale(0.015625)" />
+            <path
+               id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-31"
+               d="m 1702,4083 c 0,134 -6,141 -96,141 -249,-297 -627,-391 -985,-404 -19,0 -51,0 -58,-12 -6,-13 -6,-26 -6,-160 198,0 531,38 787,191 V 467 C 1344,243 1331,166 781,166 H 589 V 0 c 307,6 627,12 934,12 307,0 627,-6 935,-12 v 166 h -192 c -551,0 -564,70 -564,301 z"
+               transform="scale(0.015625)" />
+            <path
+               id="results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+               d="M 1178,307 C 1178,492 1024,620 870,620 685,620 557,467 557,313 557,128 710,0 864,0 c 186,0 314,153 314,307 z"
+               transform="scale(0.015625)" />
+            <path
+               id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+               d="m 2688,2038 c 0,392 -6,1061 -275,1575 -237,450 -615,611 -947,611 -308,0 -698,-142 -941,-604 C 269,3137 243,2539 243,2038 c 0,-367 7,-926 205,-1415 275,-662 768,-751 1018,-751 294,0 742,121 1004,732 192,444 218,964 218,1434 z M 1466,-26 c -410,0 -653,354 -743,842 -70,380 -70,933 -70,1293 0,495 0,906 83,1298 122,547 480,714 730,714 262,0 601,-174 723,-701 83,-366 89,-797 89,-1311 0,-418 0,-933 -76,-1312 C 2067,96 1690,-26 1466,-26 Z"
+               transform="scale(0.015625)" />
+          </defs>
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMSY10-0"
+             transform="scale(0.996264)"
+             id="use231" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-31"
+             transform="matrix(0.996264,0,0,0.996264,77.487468,0)"
+             id="use232" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+             transform="matrix(0.996264,0,0,0.996264,123.17794,0)"
+             id="use233" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+             transform="matrix(0.996264,0,0,0.996264,150.27512,0)"
+             id="use234" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_ytick_2">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_line2d_4">
+        <g
+           id="g235">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_mf19024398e"
+             x="111.0654"
+             y="200.45952"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use235" />
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_text_2">
+        <g
+           transform="matrix(0.26,0,0,-0.26,53.114347,209.45357)"
+           id="g239">
+          <defs
+             id="defs235">
+            <path
+               id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-35"
+               d="m 730,3750 c 64,-26 326,-109 595,-109 595,0 921,320 1107,499 0,51 0,84 -38,84 -7,0 -20,0 -71,-26 -224,-96 -486,-166 -806,-166 -192,0 -480,23 -794,159 -70,33 -83,33 -89,33 -32,0 -39,-7 -39,-134 V 2231 c 0,-118 0,-151 64,-151 32,0 45,13 77,59 205,296 486,421 806,421 224,0 704,-145 704,-1267 0,-206 0,-577 -192,-871 C 1894,159 1645,25 1370,25 947,25 518,319 403,812 c 26,-6 77,-19 103,-19 83,0 243,45 243,243 0,173 -122,244 -243,244 -148,0 -244,-90 -244,-269 0,-557 442,-1139 1120,-1139 660,0 1287,569 1287,1395 0,787 -499,1395 -1120,1395 -327,0 -602,-122 -819,-358 z"
+               transform="scale(0.015625)" />
+          </defs>
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMSY10-0"
+             transform="scale(0.996264)"
+             id="use236" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+             transform="matrix(0.996264,0,0,0.996264,77.487468,0)"
+             id="use237" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+             transform="matrix(0.996264,0,0,0.996264,123.17794,0)"
+             id="use238" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-35"
+             transform="matrix(0.996264,0,0,0.996264,150.27512,0)"
+             id="use239" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_ytick_3">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_line2d_5">
+        <g
+           id="g240">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_mf19024398e"
+             x="111.0654"
+             y="154.8"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use240" />
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_text_3">
+        <g
+           transform="matrix(0.26,0,0,-0.26,73.261087,163.79405)"
+           id="g243">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+             transform="scale(0.996264)"
+             id="use241" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+             transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+             id="use242" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+             transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+             id="use243" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_ytick_4">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_line2d_6">
+        <g
+           id="g244">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_mf19024398e"
+             x="111.0654"
+             y="109.14048"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use244" />
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_text_4">
+        <g
+           transform="matrix(0.26,0,0,-0.26,73.261087,118.13453)"
+           id="g247">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+             transform="scale(0.996264)"
+             id="use245" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+             transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+             id="use246" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-35"
+             transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+             id="use247" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_ytick_5">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_line2d_7">
+        <g
+           id="g248">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_mf19024398e"
+             x="111.0654"
+             y="63.480965"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use248" />
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_text_5">
+        <g
+           transform="matrix(0.26,0,0,-0.26,73.261087,72.475016)"
+           id="g251">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-31"
+             transform="scale(0.996264)"
+             id="use249" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+             transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+             id="use250" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+             transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+             id="use251" />
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_line2d_8"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="m 119.57449,163.69395 0.56728,-2.31483 0.56727,0.0767 0.56727,-0.42448 0.56727,-1.90654 0.56728,0.79031 1.13454,-2.099 0.56727,-0.40049 0.56728,0.0798 0.56727,0.3459 0.56727,-0.12295 1.13455,-1.41005 0.56727,-2.36208 0.56727,0.4847 0.56728,1.29343 0.56727,-0.34297 2.26909,-0.38182 3.40364,-0.289 6.80727,-0.43113 2.26909,-0.39684 1.70182,-0.47226 1.70182,-0.66348 1.70181,-0.89071 1.70182,-1.15296 1.70182,-1.44823 1.70182,-1.77404 1.70182,-2.12728 1.70181,-2.50356 1.70182,-2.89733 1.70182,-3.30129 1.70182,-3.7065 2.26909,-5.55403 2.26909,-6.19831 2.83636,-8.49417 4.53819,-14.554223 3.97091,-12.47809 2.26909,-6.451393 1.70181,-4.308919 1.70182,-3.738074 1.70182,-3.074452 1.13455,-1.642107 1.13454,-1.294158 1.13455,-0.931963 1.13454,-0.55985 1.13455,-0.182324 1.13454,0.19603 1.13455,0.570627 1.13454,0.937015 1.13455,1.290902 1.13455,1.628276 1.13454,1.945463 1.70182,3.46083 1.70182,4.03056 2.26909,6.084937 2.83636,8.388301 8.50909,25.799022 2.26909,6.0996 2.26909,5.52084 2.2691,4.88251 1.70181,3.22882 1.70182,2.86025 1.70182,2.50347 1.70182,2.16537 1.70182,1.85103 1.70182,1.56394 1.70181,1.30608 1.70182,1.07805 2.26909,1.13339 2.26909,0.84602 2.26909,0.61793 2.83637,0.52913 3.40363,0.38376 4.53819,0.2511 6.80727,0.11367 26.66182,0.0257 2.83636,0.005 v 0"
+       clip-path="url(#results_monomer_1d_time_hom_inhom_r1c2_p89bee40ded)"
+       style="fill:none;stroke:#ff7f0e;stroke-width:4;stroke-dasharray:14.8, 6.4;stroke-dashoffset:0"
+       id="path251" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_3"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="M 111.0654,248.4 V 61.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path252" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_4"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="M 298.2654,248.4 V 61.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path253" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_5"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="m 111.0654,248.4 h 187.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path254" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_6"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="m 111.0654,61.2 h 187.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path255" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_text_6"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,120.53985)"
+     inkscape:export-filename="..\results_monomer_1d_time_hom_inhom.pdf"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
+    <g
+       transform="matrix(0.26,0,0,-0.26,114.8094,90.420102)"
+       id="g263">
+      <defs
+         id="defs255">
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-52"
+           d="m 2509,2156 c 608,122 1120,533 1120,1047 0,603 -679,1149 -1575,1149 H 333 v -167 c 441,0 512,0 512,-289 V 428 C 845,140 774,140 333,140 V -26 c 185,13 518,13 717,13 198,0 531,0 716,-13 v 166 c -441,0 -512,0 -512,288 v 1684 h 749 c 365,0 570,-148 659,-231 256,-249 256,-422 256,-857 0,-429 0,-647 192,-864 244,-263 570,-288 711,-288 473,0 544,531 544,640 0,38 0,83 -58,83 -51,0 -57,-39 -57,-64 -32,-416 -218,-557 -416,-557 -352,0 -391,403 -429,794 -19,134 -32,230 -45,371 -38,320 -90,787 -851,1017 z m -525,58 h -730 v 1721 c 0,218 13,250 269,250 h 467 c 532,0 1152,-186 1152,-982 0,-829 -678,-989 -1158,-989 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-65"
+           d="m 2438,1503 c 26,26 26,39 26,103 0,645 -346,1210 -1075,1210 C 710,2816 173,2175 173,1394 173,554 781,-64 1459,-64 c 717,0 999,683 999,819 0,45 -39,45 -52,45 -44,0 -51,-13 -76,-91 C 2189,270 1837,51 1504,51 1229,51 954,206 781,490 582,819 582,1200 582,1503 Z m -1849,97 c 45,911 537,1113 793,1113 436,0 730,-405 736,-1113 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-70"
+           d="m 1408,-1114 c -410,0 -435,26 -435,280 V 380 c 185,-271 454,-444 793,-444 640,0 1287,567 1287,1446 0,814 -557,1434 -1216,1434 -384,0 -698,-213 -877,-471 v 471 l -762,-71 v -168 c 378,0 436,-38 436,-349 V -834 c 0,-247 -26,-280 -436,-280 v -166 c 154,12 436,12 602,12 166,0 454,0 608,-12 z M 973,2015 c 0,91 0,226 249,466 32,25 250,219 570,219 467,0 851,-588 851,-1324 C 2643,639 2234,38 1728,38 1498,38 1248,148 1056,451 973,594 973,632 973,736 Z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-68"
+           d="m 2656,1954 c 0,328 -64,862 -819,862 -525,0 -781,-424 -858,-637 h -6 v 2237 l -762,-71 v -166 c 378,0 435,-38 435,-336 V 443 C 646,198 621,166 211,166 V 0 c 154,12 435,12 602,12 166,0 454,0 608,-12 v 166 c -410,0 -435,26 -435,277 v 1235 c 0,591 358,1035 806,1035 474,0 525,-424 525,-733 V 443 c 0,-245 -26,-277 -435,-277 V 0 c 153,12 435,12 601,12 167,0 455,0 608,-12 v 166 c -409,0 -435,26 -435,277 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-61"
+           d="m 2304,1656 c 0,392 0,619 -269,878 -237,217 -512,282 -729,282 -506,0 -871,-408 -871,-839 0,-237 192,-249 231,-249 83,0 230,51 230,230 0,160 -122,230 -230,230 -26,0 -58,-6 -77,-12 134,418 480,537 704,537 320,0 672,-292 672,-838 V 1632 C 1587,1619 1133,1568 774,1373 371,1147 256,822 256,576 256,77 832,-64 1171,-64 c 352,0 679,199 819,569 13,-286 192,-544 474,-544 134,0 474,90 474,602 V 926 H 2822 V 557 c 0,-396 -172,-448 -256,-448 -262,0 -262,337 -262,623 z M 1965,887 C 1965,323 1568,38 1216,38 896,38 646,278 646,576 c 0,195 84,538 455,746 307,175 659,201 864,214 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-73"
+           d="m 1978,2688 c 0,115 -7,121 -45,121 -26,0 -32,-6 -109,-102 -19,-26 -77,-90 -96,-115 -205,217 -493,224 -602,224 -710,0 -966,-372 -966,-743 0,-576 653,-710 838,-749 404,-83 544,-108 679,-224 83,-76 224,-217 224,-448 0,-268 -154,-614 -743,-614 -556,0 -755,422 -870,986 -19,89 -19,96 -70,96 -52,0 -58,-7 -58,-135 V 64 c 0,-116 6,-122 45,-122 32,0 38,6 70,58 39,57 135,211 173,275 128,-173 352,-339 710,-339 634,0 973,345 973,844 0,327 -173,500 -256,576 -192,199 -416,244 -685,295 -352,77 -800,166 -800,557 0,166 90,518 736,518 685,0 724,-640 736,-845 7,-32 39,-38 58,-38 58,0 58,19 58,128 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-69"
+           d="m 992,3961 c 0,141 -115,263 -262,263 -141,0 -263,-116 -263,-263 0,-141 115,-262 263,-262 140,0 262,115 262,262 z M 243,2745 v -166 c 359,0 410,-39 410,-348 V 443 C 653,198 627,166 218,166 V 0 c 153,12 428,12 588,12 154,0 416,0 564,-12 v 166 c -378,0 -391,39 -391,270 v 2380 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-6e"
+           d="m 2656,1954 c 0,328 -64,862 -819,862 -506,0 -768,-392 -864,-650 h -7 v 650 l -755,-71 v -167 c 378,0 435,-38 435,-347 V 443 C 646,198 621,166 211,166 V 0 c 154,12 435,12 602,12 166,0 454,0 608,-12 v 166 c -410,0 -435,26 -435,277 v 1235 c 0,591 358,1035 806,1035 474,0 525,-424 525,-733 V 443 c 0,-245 -26,-277 -435,-277 V 0 c 153,12 435,12 601,12 167,0 455,0 608,-12 v 166 c -409,0 -435,26 -435,277 z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-67"
+           d="m 710,1165 c 122,-97 333,-205 589,-205 506,0 941,399 941,935 0,168 -51,426 -243,626 179,192 441,256 589,256 25,0 64,0 96,-19 -26,-7 -84,-32 -84,-135 0,-83 58,-140 141,-140 96,0 147,64 147,147 0,121 -96,250 -300,250 -256,0 -480,-122 -660,-289 -192,173 -422,237 -627,237 -505,0 -941,-397 -941,-933 0,-368 212,-601 276,-665 C 442,1004 442,742 442,710 442,544 506,300 723,166 390,82 128,-184 128,-517 c 0,-479 608,-827 1338,-827 704,0 1337,335 1337,834 0,894 -947,894 -1440,894 -147,0 -409,0 -441,6 -199,32 -333,211 -333,435 0,58 0,199 121,340 z m 589,-97 c -563,0 -563,698 -563,827 0,129 0,824 563,824 563,0 563,-695 563,-824 0,-129 0,-827 -563,-827 z m 167,-2304 c -640,0 -1082,353 -1082,719 0,206 109,399 250,506 160,113 224,113 659,113 525,0 1254,0 1254,-619 0,-366 -441,-719 -1081,-719 z"
+           transform="scale(0.015625)" />
+      </defs>
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-52"
+         transform="scale(0.996264)"
+         id="use255" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-65"
+         transform="matrix(0.996264,0,0,0.996264,67.791102,0)"
+         id="use256" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-70"
+         transform="matrix(0.996264,0,0,0.996264,108.27676,0)"
+         id="use257" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-68"
+         transform="matrix(0.996264,0,0,0.996264,159.17213,0)"
+         id="use258" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-61"
+         transform="matrix(0.996264,0,0,0.996264,210.0675,0)"
+         id="use259" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-73"
+         transform="matrix(0.996264,0,0,0.996264,255.75798,0)"
+         id="use260" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-69"
+         transform="matrix(0.996264,0,0,0.996264,291.55932,0)"
+         id="use261" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-6e"
+         transform="matrix(0.996264,0,0,0.996264,316.43038,0)"
+         id="use262" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-67"
+         transform="matrix(0.996264,0,0,0.996264,367.32574,0)"
+         id="use263" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_text_7"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       transform="matrix(0.28,0,0,-0.28,179.62804,55.2)"
+       id="g267">
+      <defs
+         id="defs263">
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-6c"
+           d="m 979,4416 -761,-71 v -166 c 377,0 435,-38 435,-344 V 439 C 653,198 627,166 218,166 V 0 c 153,12 435,12 595,12 166,0 448,0 601,-12 v 166 c -409,0 -435,25 -435,273 z"
+           transform="scale(0.015625)" />
+      </defs>
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-52"
+         transform="scale(0.996264)"
+         id="use264" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-65"
+         transform="matrix(0.996264,0,0,0.996264,67.791102,0)"
+         id="use265" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-61"
+         transform="matrix(0.996264,0,0,0.996264,108.27676,0)"
+         id="use266" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-6c"
+         transform="matrix(0.996264,0,0,0.996264,153.96724,0)"
+         id="use267" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_axes_2"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_patch_7">
+      <path
+         d="m 305.4654,248.4 h 187.2 V 61.2 h -187.2 z"
+         style="fill:#ffffff"
+         id="path267" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_matplotlib.axis_3">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_xtick_3">
+        <g
+           id="results_monomer_1d_time_hom_inhom_r1c2_line2d_9">
+          <g
+             id="g268">
+            <use
+               xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m10c041e829"
+               x="313.97449"
+               y="248.39999"
+               style="stroke:#000000;stroke-width:0.8"
+               id="use268" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_xtick_4">
+        <g
+           id="results_monomer_1d_time_hom_inhom_r1c2_line2d_10">
+          <g
+             id="g269">
+            <use
+               xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m10c041e829"
+               x="455.79266"
+               y="248.39999"
+               style="stroke:#000000;stroke-width:0.8"
+               id="use269" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_matplotlib.axis_4">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_ytick_6" />
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_ytick_7" />
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_ytick_8" />
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_ytick_9" />
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_ytick_10" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_11">
+      <path
+         d="m 313.97449,145.83272 0.56727,-0.94436 0.56728,-0.1211 0.56727,0.31443 0.56727,-0.33193 0.56728,-1.00677 0.56727,-0.56623 0.56727,-0.25245 0.56727,0.0877 1.13455,0.62701 1.70182,1.17809 1.13454,0.50388 0.56728,0.57066 1.13454,0.66497 2.83637,1.98188 6.80727,4.91039 2.83636,1.73968 2.26909,1.17506 2.26909,0.9644 2.26909,0.75197 2.26909,0.54951 2.83637,0.42998 2.83636,0.18704 3.40364,-0.0277 3.97091,-0.28231 5.10545,-0.60747 11.34546,-1.67327 6.80727,-0.86998 6.24,-0.56446 6.24,-0.34069 8.50909,-0.2257 13.61455,-0.11623 17.58545,0.0813 36.30545,0.19293 13.61455,-0.005 v 0"
+         clip-path="url(#results_monomer_1d_time_hom_inhom_r1c2_pf7f7d1901d)"
+         style="fill:none;stroke:#2ca02c;stroke-width:4;stroke-dasharray:25.6, 6.4, 4, 6.4;stroke-dashoffset:0"
+         id="path269" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_patch_8">
+      <path
+         d="M 305.4654,248.4 V 61.2"
+         style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+         id="path270" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_patch_9">
+      <path
+         d="M 492.6654,248.4 V 61.2"
+         style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+         id="path271" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_patch_10">
+      <path
+         d="m 305.4654,248.4 h 187.2"
+         style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+         id="path272" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_patch_11">
+      <path
+         d="m 305.4654,61.2 h 187.2"
+         style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+         id="path273" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_8">
+      <g
+         transform="matrix(0.28,0,0,-0.28,370.93396,55.2)"
+         id="g276">
+        <defs
+           id="defs273">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-49"
+             d="m 1261,3898 c 0,287 77,287 537,287 v 167 c -204,-13 -531,-13 -748,-13 -218,0 -544,0 -749,13 v -167 c 461,0 537,0 537,-287 V 453 C 838,166 762,166 301,166 V 0 c 205,12 531,12 749,12 217,0 544,0 748,-12 v 166 c -460,0 -537,0 -537,287 z"
+             transform="scale(0.015625)" />
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-6d"
+             d="m 4326,1954 c 0,322 -57,862 -819,862 -435,0 -736,-296 -851,-643 h -6 c -77,527 -455,643 -813,643 -506,0 -768,-392 -864,-650 h -7 v 650 l -755,-71 v -167 c 378,0 435,-38 435,-347 V 443 C 646,198 621,166 211,166 V 0 c 154,12 435,12 602,12 166,0 454,0 608,-12 v 166 c -410,0 -435,26 -435,277 v 1235 c 0,591 358,1035 806,1035 474,0 525,-424 525,-733 V 443 c 0,-245 -26,-277 -435,-277 V 0 c 153,12 435,12 601,12 167,0 455,0 608,-12 v 166 c -409,0 -435,26 -435,277 v 1235 c 0,591 358,1035 806,1035 474,0 525,-424 525,-733 V 443 c 0,-245 -25,-277 -435,-277 V 0 c 154,12 435,12 602,12 166,0 454,0 608,-12 v 166 c -410,0 -436,26 -436,277 z"
+             transform="scale(0.015625)" />
+        </defs>
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-49"
+           transform="scale(0.996264)"
+           id="use273" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-6d"
+           transform="matrix(0.996264,0,0,0.996264,32.638409,0)"
+           id="use274" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-61"
+           transform="matrix(0.996264,0,0,0.996264,109.558,0)"
+           id="use275" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-67"
+           transform="matrix(0.996264,0,0,0.996264,155.24848,0)"
+           id="use276" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_12"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="m 499.8654,248.4 h 187.2 V 61.2 h -187.2 z"
+       style="fill:#ffffff"
+       id="path276" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_matplotlib.axis_5"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_xtick_5">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_line2d_12">
+        <g
+           id="g277">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m10c041e829"
+             x="508.37448"
+             y="248.39999"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use277" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_xtick_6">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_line2d_13">
+        <g
+           id="g278">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m10c041e829"
+             x="650.19269"
+             y="248.39999"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use278" />
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_line2d_14"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <defs
+       id="defs278">
+      <path
+         id="results_monomer_1d_time_hom_inhom_r1c2_m67367abcf9"
+         d="M 0,0 H 3.5"
+         style="stroke:#000000;stroke-width:0.8" />
+    </defs>
+    <g
+       id="g279">
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m67367abcf9"
+         x="687.06543"
+         y="248.39999"
+         style="stroke:#000000;stroke-width:0.8"
+         id="use279" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_text_9"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-45.927091)">
+    <g
+       transform="matrix(0.26,0,0,-0.26,694.0654,257.39405)"
+       id="g282">
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+         transform="scale(0.996264)"
+         id="use280" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+         transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+         id="use281" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+         transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+         id="use282" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_ytick_12"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_15">
+      <g
+         id="g283">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m67367abcf9"
+           x="687.06543"
+           y="211.87317"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use283" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_10">
+      <g
+         transform="matrix(0.26,0,0,-0.26,694.0654,220.86722)"
+         id="g286">
+        <defs
+           id="defs283">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-32"
+             d="M 2669,990 H 2554 C 2490,537 2438,460 2413,422 2381,371 1920,371 1830,371 H 602 c 230,249 678,702 1222,1225 390,370 845,804 845,1437 0,755 -602,1191 -1274,1191 -704,0 -1133,-621 -1133,-1197 0,-250 186,-282 263,-282 64,0 256,38 256,262 0,199 -167,257 -256,257 -39,0 -77,-7 -103,-20 122,544 493,813 884,813 556,0 921,-441 921,-1024 0,-556 -326,-1035 -691,-1450 L 262,147 V 0 h 2253 z"
+             transform="scale(0.015625)" />
+        </defs>
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="scale(0.996264)"
+           id="use284" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use285" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-32"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use286" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_ytick_13"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_16">
+      <g
+         id="g287">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m67367abcf9"
+           x="687.06543"
+           y="175.34634"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use287" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_11">
+      <g
+         transform="matrix(0.26,0,0,-0.26,694.0654,184.34039)"
+         id="g290">
+        <defs
+           id="defs287">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-34"
+             d="m 2150,4147 c 0,134 -6,141 -121,141 L 128,1254 V 1088 H 1779 V 460 c 0,-230 -13,-294 -461,-294 H 1197 V 0 c 205,12 550,12 768,12 217,0 563,0 768,-12 v 166 h -122 c -448,0 -461,64 -461,294 v 628 h 653 v 166 H 2150 Z M 1798,3723 V 1254 H 256 Z"
+             transform="scale(0.015625)" />
+        </defs>
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="scale(0.996264)"
+           id="use288" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use289" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-34"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use290" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_ytick_14"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_17">
+      <g
+         id="g291">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m67367abcf9"
+           x="687.06543"
+           y="138.81952"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use291" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_12">
+      <g
+         transform="matrix(0.26,0,0,-0.26,694.0654,147.81356)"
+         id="g294">
+        <defs
+           id="defs291">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-36"
+             d="m 678,2198 c 0,1514 717,1878 1133,1878 135,0 461,-27 589,-294 -102,0 -294,0 -294,-224 0,-173 140,-230 230,-230 58,0 230,25 230,243 0,416 -320,653 -761,653 -762,0 -1562,-813 -1562,-2213 0,-1754 723,-2139 1235,-2139 621,0 1210,559 1210,1423 0,806 -518,1393 -1171,1393 -391,0 -679,-258 -839,-709 z M 1478,25 c -787,0 -787,1187 -787,1425 0,464 218,1135 813,1135 109,0 422,0 634,-445 115,-251 115,-516 115,-838 0,-348 0,-606 -135,-864 C 1978,173 1773,25 1478,25 Z"
+             transform="scale(0.015625)" />
+        </defs>
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="scale(0.996264)"
+           id="use292" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use293" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-36"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use294" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_ytick_15"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_18">
+      <g
+         id="g295">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m67367abcf9"
+           x="687.06543"
+           y="102.29269"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use295" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_13">
+      <g
+         transform="matrix(0.26,0,0,-0.26,694.0654,111.28673)"
+         id="g298">
+        <defs
+           id="defs295">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-38"
+             d="m 1741,2289 c 403,205 813,514 813,1009 0,586 -564,926 -1082,926 -582,0 -1094,-424 -1094,-1009 0,-161 38,-438 288,-682 64,-64 332,-257 505,-379 C 883,2006 211,1652 211,945 211,282 838,-128 1459,-128 c 685,0 1261,494 1261,1150 0,585 -390,855 -646,1029 z m -839,566 c -51,32 -307,231 -307,533 0,393 403,688 864,688 506,0 877,-360 877,-778 0,-598 -666,-939 -698,-939 -6,0 -12,0 -64,39 z M 2080,1536 c 96,-70 403,-283 403,-675 C 2483,385 2010,25 1472,25 890,25 448,443 448,951 c 0,508 390,933 832,1132 z"
+             transform="scale(0.015625)" />
+        </defs>
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="scale(0.996264)"
+           id="use296" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use297" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-38"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use298" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_ytick_16"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_19">
+      <g
+         id="g299">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m67367abcf9"
+           x="687.06543"
+           y="65.765854"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use299" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_14">
+      <g
+         transform="matrix(0.26,0,0,-0.26,694.0654,74.759905)"
+         id="g302">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-31"
+           transform="scale(0.996264)"
+           id="use300" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use301" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use302" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_line2d_20"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="m 508.37449,223.14073 0.56727,1.46689 0.56728,-0.28659 1.13454,2.19693 0.56728,-2.48311 0.56727,-0.22199 0.56727,0.0823 0.56727,0.35599 1.13455,1.01348 0.56727,0.82369 1.13455,2.11973 1.13454,1.21998 0.56728,1.05999 1.13454,1.40005 2.83637,3.9883 6.23999,9.02023 1.70182,2.02754 0.56728,0.41631 0.56727,0.0109 0.56727,-0.37918 1.70182,-1.73668 4.53818,-4.96992 1.70182,-2.13393 1.70182,-2.50276 1.70182,-3.02035 1.70181,-3.6651 1.70182,-4.4065 1.70182,-5.2136 1.70182,-6.05794 1.70182,-6.91337 1.70181,-7.75458 2.2691,-11.57438 2.26909,-12.82354 2.83636,-17.37772 8.50909,-53.3684 2.26909,-12.119206 1.70182,-7.867919 1.70182,-6.602162 1.13454,-3.614789 1.13455,-2.937028 1.13455,-2.226497 1.13454,-1.491628 0.56727,-0.465057 0.56728,-0.276255 0.56727,-0.08695 0.56727,0.102289 0.56727,0.290876 0.56728,0.478244 0.56727,0.663836 1.13455,1.874629 1.13454,2.58222 1.13455,3.256817 1.13454,3.891075 1.70182,6.921713 1.70182,8.061023 2.26909,12.169579 2.83636,16.77607 8.50909,51.59574 2.26909,12.19841 2.26909,11.0408 2.2691,9.76405 1.70181,6.45683 1.70182,5.71961 1.70182,5.00599 1.70182,4.32969 1.70182,3.70094 1.70181,3.12667 1.70182,2.61083 1.70182,2.15468 1.70182,1.75737 1.70182,1.41627 1.70182,1.12753 1.70181,0.88643 2.26909,0.87956 2.2691,0.61193 2.83636,0.49379 3.40364,0.3299 4.53818,0.1948 7.94182,0.0856 23.82545,0.0363 v 0"
+       clip-path="url(#results_monomer_1d_time_hom_inhom_r1c2_p53465a8d46)"
+       style="fill:none;stroke:#1f77b4;stroke-width:4;stroke-linecap:square"
+       id="path302" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_13"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="M 499.8654,248.4 V 61.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path303" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_14"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="M 687.0654,248.4 V 61.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path304" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_15"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="m 499.8654,248.4 h 187.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path305" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_16"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="m 499.8654,61.2 h 187.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path306" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_text_15"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       transform="matrix(0.28,0,0,-0.28,571.65773,55.2)"
+       id="g308">
+      <defs
+         id="defs306">
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-41"
+           d="m 2323,4441 c -32,83 -45,103 -109,103 -64,0 -76,-20 -108,-103 L 749,580 C 627,236 371,166 147,166 V 0 c 115,12 371,12 493,12 160,0 416,0 570,-12 v 166 c -301,13 -346,216 -346,293 0,57 13,89 26,127 l 339,950 H 2906 L 3290,453 c 32,-77 32,-90 32,-115 0,-172 -276,-172 -397,-172 V 0 c 185,12 518,12 717,12 166,0 486,0 640,-12 v 166 c -340,0 -455,0 -538,236 z M 2067,3924 2848,1702 H 1286 Z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-62"
+           d="m 960,4416 -762,-71 v -166 c 378,0 436,-38 436,-336 V -13 h 115 l 185,458 c 186,-304 461,-509 832,-509 640,0 1287,567 1287,1446 0,827 -576,1434 -1223,1434 -396,0 -678,-213 -870,-465 z m 13,-2394 c 0,116 0,135 89,271 250,388 608,420 730,420 192,0 851,-103 851,-1325 C 2643,109 1888,38 1734,38 c -198,0 -486,77 -691,452 -70,123 -70,136 -70,252 z"
+           transform="scale(0.015625)" />
+      </defs>
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-41"
+         transform="scale(0.996264)"
+         id="use306" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-62"
+         transform="matrix(0.996264,0,0,0.996264,69.07243,0)"
+         id="use307" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-73"
+         transform="matrix(0.996264,0,0,0.996264,119.9678,0)"
+         id="use308" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_17"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="m 111.0654,442.8 h 187.2 V 255.6 h -187.2 z"
+       style="fill:#ffffff"
+       id="path308" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_matplotlib.axis_7"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_xtick_7">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_line2d_21">
+        <g
+           id="g309">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m10c041e829"
+             x="119.57449"
+             y="442.79999"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use309" />
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_text_16">
+        <g
+           transform="matrix(0.26,0,0,-0.26,113.63473,467.7881)"
+           id="g310">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+             transform="scale(0.996264)"
+             id="use310" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_xtick_8">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_line2d_22">
+        <g
+           id="g311">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m10c041e829"
+             x="261.39267"
+             y="442.79999"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use311" />
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_text_17">
+        <g
+           transform="matrix(0.26,0,0,-0.26,243.57339,467.7881)"
+           id="g314">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-35"
+             transform="scale(0.996264)"
+             id="use312" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+             transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+             id="use313" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+             transform="matrix(0.996264,0,0,0.996264,91.380954,0)"
+             id="use314" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_18">
+      <g
+         transform="matrix(0.28,0,0,-0.28,167.03886,497.72286)"
+         id="g322">
+        <defs
+           id="defs314">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c2_CMMI12-74"
+             d="m 1286,2566 h 589 c 122,0 186,0 186,115 0,71 -39,71 -167,71 h -563 l 237,912 c 26,88 26,100 26,144 0,102 -84,160 -167,160 -51,0 -198,-20 -249,-222 L 928,2752 H 326 c -128,0 -185,0 -185,-122 0,-64 45,-64 166,-64 H 877 L 454,881 C 403,657 384,593 384,510 384,210 595,-64 954,-64 c 646,0 992,932 992,977 0,38 -26,57 -64,57 -13,0 -39,0 -52,-26 -6,-6 -12,-12 -57,-114 C 1638,510 1344,64 973,64 781,64 768,223 768,364 c 0,6 0,127 19,204 z"
+             transform="scale(0.015625)" />
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-64"
+             d="m 1869,4345 v -166 c 377,0 435,-38 435,-336 V 2371 c -26,32 -288,445 -806,445 C 845,2816 211,2228 211,1376 211,529 806,-64 1434,-64 c 544,0 825,425 857,470 V -64 l 775,51 v 167 c -378,0 -436,39 -436,349 V 4416 Z M 2291,762 C 2291,568 2176,393 2029,264 1811,70 1594,38 1472,38 c -186,0 -851,97 -851,1331 0,1267 742,1344 909,1344 294,0 531,-168 678,-400 83,-136 83,-156 83,-272 z"
+             transform="scale(0.015625)" />
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-74"
+             d="m 966,2585 h 896 v 167 H 966 V 3968 H 851 C 838,3292 614,2700 70,2687 V 2585 H 627 V 778 c 0,-123 0,-842 743,-842 377,0 595,372 595,848 v 367 H 1850 V 790 C 1850,347 1677,51 1408,51 1222,51 966,179 966,765 Z"
+             transform="scale(0.015625)" />
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-5b"
+             d="m 1504,-1600 v 224 H 902 v 5951 h 602 v 225 H 678 v -6400 z"
+             transform="scale(0.015625)" />
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-66"
+             d="m 979,2585 h 730 v 167 H 966 v 787 c 0,537 269,838 544,838 84,0 180,-14 244,-38 -52,-13 -186,-58 -186,-218 0,-166 128,-217 218,-217 89,0 217,51 217,217 0,232 -230,359 -486,359 -365,0 -864,-269 -864,-954 V 2752 H 141 V 2585 H 653 V 441 C 653,198 627,166 218,166 V 0 c 153,12 448,12 614,12 186,0 512,0 685,-12 v 166 c -461,0 -538,0 -538,288 z"
+             transform="scale(0.015625)" />
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-5d"
+             d="M 915,4800 H 90 V 4575 H 691 V -1376 H 90 v -224 h 825 z"
+             transform="scale(0.015625)" />
+        </defs>
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-74"
+           transform="scale(0.996264)"
+           id="use315" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-64"
+           transform="matrix(0.697382,0,0,0.697382,35.22633,-14.943915)"
+           id="use316" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-65"
+           transform="matrix(0.697382,0,0,0.697382,70.852939,-14.943915)"
+           id="use317" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-74"
+           transform="matrix(0.697382,0,0,0.697382,99.19277,-14.943915)"
+           id="use318" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-5b"
+           transform="matrix(0.996264,0,0,0.996264,154.46329,0)"
+           id="use319" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-66"
+           transform="matrix(0.996264,0,0,0.996264,179.33435,0)"
+           id="use320" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-73"
+           transform="matrix(0.996264,0,0,0.996264,206.80786,0)"
+           id="use321" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-5d"
+           transform="matrix(0.996264,0,0,0.996264,242.6092,0)"
+           id="use322" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_ytick_17"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_23">
+      <g
+         id="g323">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_mf19024398e"
+           x="111.0654"
+           y="419.65555"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use323" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_19">
+      <g
+         transform="matrix(0.26,0,0,-0.26,41.234823,428.64961)"
+         id="g328">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMSY10-0"
+           transform="scale(0.996264)"
+           id="use324" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,77.487468,0)"
+           id="use325" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,123.17794,0)"
+           id="use326" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-31"
+           transform="matrix(0.996264,0,0,0.996264,150.27512,0)"
+           id="use327" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,195.9656,0)"
+           id="use328" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_ytick_18"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_24">
+      <g
+         id="g329">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_mf19024398e"
+           x="111.0654"
+           y="384.4278"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use329" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_20">
+      <g
+         transform="matrix(0.26,0,0,-0.26,41.234823,393.42183)"
+         id="g334">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMSY10-0"
+           transform="scale(0.996264)"
+           id="use330" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,77.487468,0)"
+           id="use331" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,123.17794,0)"
+           id="use332" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,150.27512,0)"
+           id="use333" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-35"
+           transform="matrix(0.996264,0,0,0.996264,195.9656,0)"
+           id="use334" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_ytick_19"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_25">
+      <g
+         id="g335">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_mf19024398e"
+           x="111.0654"
+           y="349.20001"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use335" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_21">
+      <g
+         transform="matrix(0.26,0,0,-0.26,61.381563,358.19405)"
+         id="g339">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="scale(0.996264)"
+           id="use336" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use337" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use338" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,118.47813,0)"
+           id="use339" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_ytick_20"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_26">
+      <g
+         id="g340">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_mf19024398e"
+           x="111.0654"
+           y="313.97223"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use340" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_22">
+      <g
+         transform="matrix(0.26,0,0,-0.26,61.381563,322.96627)"
+         id="g344">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="scale(0.996264)"
+           id="use341" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use342" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use343" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-35"
+           transform="matrix(0.996264,0,0,0.996264,118.47813,0)"
+           id="use344" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_ytick_21"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_27">
+      <g
+         id="g345">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_mf19024398e"
+           x="111.0654"
+           y="278.74445"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use345" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_23">
+      <g
+         transform="matrix(0.26,0,0,-0.26,61.381563,287.73849)"
+         id="g349">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="scale(0.996264)"
+           id="use346" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use347" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-31"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use348" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,118.47813,0)"
+           id="use349" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_line2d_28"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="m 119.57449,406.93516 0.56728,-26.584 0.56727,-7.21098 0.56727,-1.51432 0.56727,-8.06188 0.56728,8.50607 0.56727,-11.46901 0.56727,-14.10505 0.56727,-10.04116 0.56728,-4.39708 0.56727,-0.0455 0.56727,-2.71324 1.13455,-11.69296 0.56727,-16.28251 0.56727,6.92951 0.56728,10.80776 0.56727,-1.27248 1.70182,3.15061 1.70181,3.71751 2.2691,5.65887 4.53818,11.63666 1.70182,3.84123 1.70181,3.31635 1.70182,2.70109 1.13455,1.43676 1.13454,1.14384 1.13455,0.85907 1.13454,0.59044 1.13455,0.34366 1.13454,0.12441 1.13455,-0.0632 1.70182,-0.37209 2.26909,-0.83293 5.67273,-2.29528 2.26909,-0.58816 2.26909,-0.31138 2.26909,-0.0663 3.40364,0.19065 4.53818,0.29367 2.83636,-0.0459 2.83636,-0.30826 2.83637,-0.55331 3.97091,-1.03113 5.10545,-1.31556 2.83637,-0.53472 2.83636,-0.32514 2.83636,-0.10846 3.40364,0.1167 4.53818,0.42924 10.21091,1.06767 5.10545,0.25172 5.67273,0.0352 7.94182,-0.20935 20.42182,-0.63032 12.48,-0.10465 17.01818,0.0402 v 0"
+       clip-path="url(#results_monomer_1d_time_hom_inhom_r1c2_pd96032605b)"
+       style="fill:none;stroke:#ff7f0e;stroke-width:4;stroke-dasharray:14.8, 6.4;stroke-dashoffset:0"
+       id="path361" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_18"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="M 111.0654,442.8 V 255.6"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path362" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_19"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="M 298.2654,442.8 V 255.6"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path363" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_20"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="m 111.0654,442.8 h 187.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path364" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_21"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="m 111.0654,255.6 h 187.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path365" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_text_25"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,120.53985)">
+    <g
+       transform="matrix(0.26,0,0,-0.26,114.8094,284.8201)"
+       id="g376">
+      <defs
+         id="defs365">
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-4e"
+           d="m 1312,4275 c -45,70 -51,77 -173,77 H 326 v -167 h 122 c 256,0 371,-32 390,-38 V 624 C 838,465 838,166 326,166 V 0 c 148,12 416,12 576,12 160,0 429,0 576,-12 V 166 C 966,166 966,465 966,624 v 3433 c 45,-38 45,-50 90,-114 L 3430,76 c 45,-76 64,-76 96,-76 64,0 64,19 64,140 v 3586 c 0,159 0,459 512,459 v 167 c -147,-13 -416,-13 -576,-13 -160,0 -428,0 -576,13 v -167 c 512,0 512,-300 512,-459 V 777 Z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-6f"
+           d="m 2758,1356 c 0,820 -595,1460 -1292,1460 C 768,2816 173,2176 173,1356 173,550 768,-64 1466,-64 c 697,0 1292,614 1292,1420 z M 1466,51 c -301,0 -557,179 -704,429 -160,288 -180,646 -180,928 0,268 13,601 180,889 128,211 377,416 704,416 288,0 531,-160 684,-384 199,-301 199,-723 199,-921 0,-250 -13,-634 -186,-941 C 1984,172 1709,51 1466,51 Z"
+           transform="scale(0.015625)" />
+        <path
+           id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-72"
+           d="m 960,1517 c 0,617 262,1196 742,1196 45,0 90,-6 135,-26 0,0 -141,-45 -141,-212 0,-154 122,-218 218,-218 76,0 217,45 217,225 0,205 -205,334 -422,334 -487,0 -698,-476 -762,-701 h -6 v 701 l -743,-71 v -167 c 378,0 436,-38 436,-347 V 443 C 634,198 608,166 198,166 V 0 c 154,12 448,12 615,12 185,0 512,0 685,-12 v 166 c -461,0 -538,0 -538,289 z"
+           transform="scale(0.015625)" />
+      </defs>
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-4e"
+         transform="scale(0.996264)"
+         id="use365" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-6f"
+         transform="matrix(0.996264,0,0,0.996264,69.07243,0)"
+         id="use366" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-6e"
+         transform="matrix(0.996264,0,0,0.996264,114.76291,0)"
+         id="use367" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-72"
+         transform="matrix(0.996264,0,0,0.996264,165.65828,0)"
+         id="use368" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-65"
+         transform="matrix(0.996264,0,0,0.996264,200.93904,0)"
+         id="use369" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-70"
+         transform="matrix(0.996264,0,0,0.996264,241.4247,0)"
+         id="use370" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-68"
+         transform="matrix(0.996264,0,0,0.996264,292.32007,0)"
+         id="use371" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-61"
+         transform="matrix(0.996264,0,0,0.996264,343.21544,0)"
+         id="use372" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-73"
+         transform="matrix(0.996264,0,0,0.996264,388.90592,0)"
+         id="use373" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-69"
+         transform="matrix(0.996264,0,0,0.996264,424.70726,0)"
+         id="use374" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-6e"
+         transform="matrix(0.996264,0,0,0.996264,449.57832,0)"
+         id="use375" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-67"
+         transform="matrix(0.996264,0,0,0.996264,500.47369,0)"
+         id="use376" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_axes_5"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_patch_22">
+      <path
+         d="m 305.4654,442.8 h 187.2 V 255.6 h -187.2 z"
+         style="fill:#ffffff"
+         id="path376" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_matplotlib.axis_9">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_xtick_9">
+        <g
+           id="results_monomer_1d_time_hom_inhom_r1c2_line2d_29">
+          <g
+             id="g377">
+            <use
+               xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m10c041e829"
+               x="313.97449"
+               y="442.79999"
+               style="stroke:#000000;stroke-width:0.8"
+               id="use377" />
+          </g>
+        </g>
+        <g
+           id="results_monomer_1d_time_hom_inhom_r1c2_text_26">
+          <g
+             transform="matrix(0.26,0,0,-0.26,308.03473,467.7881)"
+             id="g378">
+            <use
+               xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+               transform="scale(0.996264)"
+               id="use378" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_xtick_10">
+        <g
+           id="results_monomer_1d_time_hom_inhom_r1c2_line2d_30">
+          <g
+             id="g379">
+            <use
+               xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m10c041e829"
+               x="455.79266"
+               y="442.79999"
+               style="stroke:#000000;stroke-width:0.8"
+               id="use379" />
+          </g>
+        </g>
+        <g
+           id="results_monomer_1d_time_hom_inhom_r1c2_text_27">
+          <g
+             transform="matrix(0.26,0,0,-0.26,437.97339,467.7881)"
+             id="g382">
+            <use
+               xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-35"
+               transform="scale(0.996264)"
+               id="use380" />
+            <use
+               xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+               transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+               id="use381" />
+            <use
+               xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+               transform="matrix(0.996264,0,0,0.996264,91.380954,0)"
+               id="use382" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_text_28">
+        <g
+           transform="matrix(0.28,0,0,-0.28,361.43886,497.72286)"
+           id="g390">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-74"
+             transform="scale(0.996264)"
+             id="use383" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-64"
+             transform="matrix(0.697382,0,0,0.697382,35.22633,-14.943915)"
+             id="use384" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-65"
+             transform="matrix(0.697382,0,0,0.697382,70.852939,-14.943915)"
+             id="use385" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-74"
+             transform="matrix(0.697382,0,0,0.697382,99.19277,-14.943915)"
+             id="use386" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-5b"
+             transform="matrix(0.996264,0,0,0.996264,154.46329,0)"
+             id="use387" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-66"
+             transform="matrix(0.996264,0,0,0.996264,179.33435,0)"
+             id="use388" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-73"
+             transform="matrix(0.996264,0,0,0.996264,206.80786,0)"
+             id="use389" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-5d"
+             transform="matrix(0.996264,0,0,0.996264,242.6092,0)"
+             id="use390" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_matplotlib.axis_10">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_ytick_22" />
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_ytick_23" />
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_ytick_24" />
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_ytick_25" />
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_ytick_26" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_31">
+      <path
+         d="m 313.97449,391.54732 0.56727,4.69301 0.56728,-1.95932 0.56727,-6.21595 0.56727,-2.37069 0.56728,2.55635 0.56727,-1.08637 0.56727,-3.58027 0.56727,-6.02838 2.83637,-34.89518 1.13454,-10.15245 0.56728,-7.23932 2.83636,-23.9338 1.70182,-12.22239 1.70182,-10.27682 1.13454,-5.72026 1.13455,-4.79757 1.13454,-3.87183 1.13455,-2.95493 1.13454,-2.05722 0.56728,-0.70101 0.56727,-0.48849 0.56727,-0.28138 0.56727,-0.0801 0.56728,0.11501 0.56727,0.30306 0.56727,0.48374 1.13455,1.47801 1.13454,2.10227 1.13455,2.65564 1.13454,3.13386 1.70182,5.42879 2.26909,8.19362 7.94182,29.84046 2.26909,7.21362 1.70182,4.76499 1.70182,4.17946 1.70182,3.59396 1.70182,3.03022 1.70181,2.50429 1.70182,2.02678 1.70182,1.60339 1.70182,1.2357 1.70182,0.92212 1.70181,0.65887 1.70182,0.44093 2.26909,0.31693 2.26909,0.0797 2.83637,-0.13404 3.97091,-0.43574 6.80727,-0.79414 3.40364,-0.17653 3.40363,0.0634 3.40364,0.31263 3.97091,0.6259 6.24,1.27099 6.24,1.21003 5.10545,0.77437 6.24,0.71341 10.21091,0.91948 7.94182,0.52751 6.24,0.1996 7.37454,-0.007 19.85455,-0.23157 v 0"
+         clip-path="url(#results_monomer_1d_time_hom_inhom_r1c2_p3caa66a9f7)"
+         style="fill:none;stroke:#2ca02c;stroke-width:4;stroke-dasharray:25.6, 6.4, 4, 6.4;stroke-dashoffset:0"
+         id="path390" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_patch_23">
+      <path
+         d="M 305.4654,442.8 V 255.6"
+         style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+         id="path391" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_patch_24">
+      <path
+         d="M 492.6654,442.8 V 255.6"
+         style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+         id="path392" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_patch_25">
+      <path
+         d="m 305.4654,442.8 h 187.2"
+         style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+         id="path393" />
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_patch_26">
+      <path
+         d="m 305.4654,255.6 h 187.2"
+         style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+         id="path394" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_27"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="m 499.8654,442.8 h 187.2 V 255.6 h -187.2 z"
+       style="fill:#ffffff"
+       id="path395" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_matplotlib.axis_11"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_xtick_11">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_line2d_32">
+        <g
+           id="g395">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m10c041e829"
+             x="508.37448"
+             y="442.79999"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use395" />
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_text_29">
+        <g
+           transform="matrix(0.26,0,0,-0.26,502.43473,467.7881)"
+           id="g396">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+             transform="scale(0.996264)"
+             id="use396" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_xtick_12">
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_line2d_33">
+        <g
+           id="g397">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m10c041e829"
+             x="650.19269"
+             y="442.79999"
+             style="stroke:#000000;stroke-width:0.8"
+             id="use397" />
+        </g>
+      </g>
+      <g
+         id="results_monomer_1d_time_hom_inhom_r1c2_text_30">
+        <g
+           transform="matrix(0.26,0,0,-0.26,632.37339,467.7881)"
+           id="g400">
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-35"
+             transform="scale(0.996264)"
+             id="use398" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+             transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+             id="use399" />
+          <use
+             xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+             transform="matrix(0.996264,0,0,0.996264,91.380954,0)"
+             id="use400" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_31">
+      <g
+         transform="matrix(0.28,0,0,-0.28,555.83886,497.72286)"
+         id="g408">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-74"
+           transform="scale(0.996264)"
+           id="use401" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-64"
+           transform="matrix(0.697382,0,0,0.697382,35.22633,-14.943915)"
+           id="use402" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-65"
+           transform="matrix(0.697382,0,0,0.697382,70.852939,-14.943915)"
+           id="use403" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-74"
+           transform="matrix(0.697382,0,0,0.697382,99.19277,-14.943915)"
+           id="use404" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-5b"
+           transform="matrix(0.996264,0,0,0.996264,154.46329,0)"
+           id="use405" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-66"
+           transform="matrix(0.996264,0,0,0.996264,179.33435,0)"
+           id="use406" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-73"
+           transform="matrix(0.996264,0,0,0.996264,206.80786,0)"
+           id="use407" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-5d"
+           transform="matrix(0.996264,0,0,0.996264,242.6092,0)"
+           id="use408" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_ytick_27"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_34">
+      <g
+         id="g409">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m67367abcf9"
+           x="687.06543"
+           y="442.79999"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use409" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_32">
+      <g
+         transform="matrix(0.26,0,0,-0.26,694.0654,451.79405)"
+         id="g414">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="scale(0.996264)"
+           id="use410" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use411" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use412" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,118.47813,0)"
+           id="use413" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,164.16861,0)"
+           id="use414" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_ytick_28"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_35">
+      <g
+         id="g415">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m67367abcf9"
+           x="687.06543"
+           y="407.57224"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use415" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_33">
+      <g
+         transform="matrix(0.26,0,0,-0.26,694.0654,416.56629)"
+         id="g420">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="scale(0.996264)"
+           id="use416" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use417" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use418" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-32"
+           transform="matrix(0.996264,0,0,0.996264,118.47813,0)"
+           id="use419" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-35"
+           transform="matrix(0.996264,0,0,0.996264,164.16861,0)"
+           id="use420" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_ytick_29"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_36">
+      <g
+         id="g421">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m67367abcf9"
+           x="687.06543"
+           y="372.34448"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use421" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_34">
+      <g
+         transform="matrix(0.26,0,0,-0.26,694.0654,381.33852)"
+         id="g426">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="scale(0.996264)"
+           id="use422" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use423" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use424" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-35"
+           transform="matrix(0.996264,0,0,0.996264,118.47813,0)"
+           id="use425" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,164.16861,0)"
+           id="use426" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_ytick_30"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_37">
+      <g
+         id="g427">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m67367abcf9"
+           x="687.06543"
+           y="337.1167"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use427" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_35">
+      <g
+         transform="matrix(0.26,0,0,-0.26,694.0654,346.11076)"
+         id="g432">
+        <defs
+           id="defs427">
+          <path
+             id="results_monomer_1d_time_hom_inhom_r1c2_CMR17-37"
+             d="m 2886,3955 v 141 H 1382 c -748,0 -761,70 -787,192 H 480 L 294,3104 h 116 c 19,122 64,448 140,569 39,51 512,51 621,51 H 2579 L 1869,2670 C 1395,1961 1069,1003 1069,166 c 0,-77 0,-294 230,-294 231,0 231,217 231,300 v 294 c 0,1048 179,1738 473,2178 z"
+             transform="scale(0.015625)" />
+        </defs>
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="scale(0.996264)"
+           id="use428" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use429" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use430" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-37"
+           transform="matrix(0.996264,0,0,0.996264,118.47813,0)"
+           id="use431" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-35"
+           transform="matrix(0.996264,0,0,0.996264,164.16861,0)"
+           id="use432" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_ytick_31"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_line2d_38">
+      <g
+         id="g433">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m67367abcf9"
+           x="687.06543"
+           y="301.88895"
+           style="stroke:#000000;stroke-width:0.8"
+           id="use433" />
+      </g>
+    </g>
+    <g
+       id="results_monomer_1d_time_hom_inhom_r1c2_text_36">
+      <g
+         transform="matrix(0.26,0,0,-0.26,694.0654,310.883)"
+         id="g438">
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="scale(0.996264)"
+           id="use434" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+           transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+           id="use435" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-31"
+           transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+           id="use436" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,118.47813,0)"
+           id="use437" />
+        <use
+           xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+           transform="matrix(0.996264,0,0,0.996264,164.16861,0)"
+           id="use438" />
+      </g>
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_line2d_39"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       id="g439">
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_m67367abcf9"
+         x="687.06543"
+         y="266.66119"
+         style="stroke:#000000;stroke-width:0.8"
+         id="use439" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_text_37"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <g
+       transform="matrix(0.26,0,0,-0.26,694.0654,275.65523)"
+       id="g444">
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-30"
+         transform="scale(0.996264)"
+         id="use440" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMMI12-3a"
+         transform="matrix(0.996264,0,0,0.996264,45.690477,0)"
+         id="use441" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-31"
+         transform="matrix(0.996264,0,0,0.996264,72.787654,0)"
+         id="use442" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-32"
+         transform="matrix(0.996264,0,0,0.996264,118.47813,0)"
+         id="use443" />
+      <use
+         xlink:href="#results_monomer_1d_time_hom_inhom_r1c2_CMR17-35"
+         transform="matrix(0.996264,0,0,0.996264,164.16861,0)"
+         id="use444" />
+    </g>
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_line2d_40"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="m 508.37449,299.59889 0.56727,30.36168 1.13455,23.09735 0.56727,11.30328 0.56728,-12.07077 1.13454,21.52912 1.13455,14.59336 0.56727,10.27483 0.56727,2.19748 1.13455,-22.61253 0.56727,-34.02879 1.13455,21.5866 0.56727,-8.26672 1.70182,-18.31576 2.83636,-31.1584 1.70182,-16.04115 1.13454,-9.07157 1.13455,-7.62422 1.13454,-6.10148 1.13455,-4.54076 0.56727,-1.68163 0.56728,-1.29114 0.56727,-0.90376 0.56727,-0.52174 0.56727,-0.14632 0.56728,0.2216 0.56727,0.57971 0.56727,0.92706 0.56727,1.26245 1.13455,3.47769 1.13455,4.64903 1.13454,5.69053 1.70182,10.17736 1.70182,11.69709 2.83636,21.49371 4.53818,34.86019 2.26909,15.82264 1.70182,10.69731 1.70182,9.55275 1.70182,8.35047 1.70182,7.14299 1.70181,5.97199 1.70182,4.87059 1.13455,2.68254 1.13454,2.2719 1.13455,1.90202 1.13454,1.577 1.13455,1.29912 1.70182,1.52895 1.70182,1.14784 1.70181,0.86978 1.70182,0.64978 1.70182,0.44866 1.70182,0.24354 1.70182,0.0333 1.70182,-0.16511 2.26909,-0.46413 7.94182,-1.94527 2.26909,-0.19756 2.26909,0.0542 2.26909,0.30246 2.26909,0.52407 2.83636,0.90109 3.97091,1.53819 7.37455,2.906 3.97091,1.30823 4.53818,1.23555 5.67272,1.27986 8.5091,1.66155 5.67272,0.92084 3.97091,0.4516 2.26909,0.0647 11.34546,-0.24917 19.28727,-0.0671 v 0"
+       clip-path="url(#results_monomer_1d_time_hom_inhom_r1c2_pcc4ddf3b02)"
+       style="fill:none;stroke:#1f77b4;stroke-width:4;stroke-linecap:square"
+       id="path444" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_28"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="M 499.8654,442.8 V 255.6"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path445" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_29"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="M 687.0654,442.8 V 255.6"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path446" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_30"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="m 499.8654,442.8 h 187.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path447" />
+  </g>
+  <g
+     id="results_monomer_1d_time_hom_inhom_r1c2_patch_31"
+     transform="matrix(1.0614813,0,0,1.0583676,713.73356,-37.46015)">
+    <path
+       d="m 499.8654,255.6 h 187.2"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
+       id="path448" />
+  </g>
+  <path
+     style="fill:#000000;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers fill stroke"
+     d="M 787.44062,76.798449 V 540.55899"
+     id="path688"
+     inkscape:path-effect="#path-effect688"
+     inkscape:original-d="M 787.44062,76.798449 V 540.55899"
+     transform="translate(-36.392821,-59.014183)"
+     sodipodi:nodetypes="cc" />
+</svg>
