@@ -1,0 +1,291 @@
+% !TEX root = ../main.tex
+\chapter{Supplementary Comparison Figures}
+\label{app:supplementary_comparison_figures}
+
+This appendix collects supplementary comparison figures and exploratory material that support the spectroscopy analysis developed in the main chapter. For the monomer, it gathers the validation figures, the disorder-convergence sweeps, and the higher-field sensitivity runs. For the dimer, it collects the control panels, the waiting-time series, and the apodization study used alongside the main discussion.
+
+For the monomer, the figures are drawn directly from the copied \texttt{essential\_results} run set. The standardised validation and waiting-time runs use pulse amplitudes $(0.002,0.002,0.002)$ across the selected Lindblad and homogeneous Redfield jobs. A supplementary higher-field sensitivity set with stronger pulses $(0.005,0.005,0.005)$ is collected later in this appendix.
+
+\section{Monomer Figures}
+\label{app:sec:paper_eqs_monomer}
+
+\subsection{Validation Figures}
+
+This subsection collects the monomer validation figures used throughout the thesis. It includes the inhomogeneous convergence sweeps and the higher-field sensitivity checks.
+
+ \begin{figure}[htbp]
+    \centering
+    \safeplaceholdergraphic[0.98\linewidth]{figures/app_paper_eqs_monomer_fig2_time}
+    \caption{Monomer 1D inhomogeneous time-domain convergence figures from the essential-results run set for $N_{\mathrm{inhom}}=10$, $100$, $1000$, and $10000$.}
+    \label{fig:app_paper_eqs_monomer_fig2_time_n_dep}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \safeplaceholdergraphic[0.98\linewidth]{figures/app_paper_eqs_monomer_fig2_freq}
+    \caption{Monomer 1D inhomogeneous frequency-domain convergence figures from the essential-results run set for $N_{\mathrm{inhom}}=10$, $100$, $1000$, and $10000$.}
+    \label{fig:app_paper_eqs_monomer_fig2_freq_n_dep}
+\end{figure}
+
+\subsection{Waiting-Time Figures}
+
+The monomer waiting-time behaviour is discussed in the main chapter. This appendix complements that discussion with the convergence and sensitivity material that fixes the parameter choices used there.
+
+\subsection{Sensitivity and Exploratory Runs}
+
+\begin{figure}[htbp]
+    \centering
+    \safeplaceholdergraphic[0.98\linewidth]{figures/app_monomer_legacy_fig4_t0_time}
+    \caption{Higher-field time-domain sensitivity study at $t_{\mathrm{wait}}=\SI{0}{\femto\second}$.}
+    \label{fig:app_monomer_legacy_fig4_t0_time}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \safeplaceholdergraphic[0.98\linewidth]{figures/app_monomer_legacy_fig4_t0_freq}
+    \caption{Higher-field frequency-domain sensitivity study at $t_{\mathrm{wait}}=\SI{0}{\femto\second}$. Together with~\cref{fig:app_monomer_legacy_fig4_t0_time}, these panels show the spectral effect of the stronger-field parameter choice.}
+    \label{fig:app_monomer_legacy_fig4_t0_freq}
+\end{figure}
+\todoimp{This likely reflects how the 2D spectra depend on $N_{\mathrm{inhom}}$ and may help explain why the inhomogeneous 2D dimer spectra look somewhat irregular and jagged.}
+
+\begin{figure}[htbp]
+    \centering
+    \safeplaceholdergraphic[0.98\linewidth]{figures/app_monomer_legacy_fig4_t20}
+    \caption{Higher-field inhomogeneous continuation at $t_{\mathrm{wait}}=\SI{20}{\femto\second}$ with time-domain (left) and frequency-domain (right) panels.}
+    \label{fig:app_monomer_legacy_fig4_t20}
+\end{figure}
+These higher-field monomer panels supplement the standardised figure set by showing how the response changes under stronger driving. They are included as qualitative sensitivity checks and are not used for the quantitative conclusions in the main chapter.
+
+\begin{figure}[htbp]
+    \centering
+    \safeplaceholdergraphic[0.98\linewidth]{figures/app_monomer_legacy_fig4_t40_lindblad}
+    \caption{Higher-field inhomogeneous continuation at $t_{\mathrm{wait}}=\SI{40}{\femto\second}$. It completes the sensitivity sequence and documents the late-time response for the stronger-field parameter choice.}
+    \label{fig:app_monomer_legacy_fig4_t40_lindblad}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \safeplaceholdergraphic[0.98\linewidth]{figures/app_monomer_legacy_redfield}
+    \caption{Exploratory inhomogeneous 2D Redfield run at $t_{\mathrm{wait}}=\SI{0}{\femto\second}$. This calculation uses a different amplitude and sampling setup from the standardised monomer figure set and is included as supporting material for the Redfield extension.}
+    \label{fig:app_monomer_legacy_redfield}
+\end{figure}
+Because this exploratory Redfield export uses a different amplitude and sampling setup from the standardised monomer figure set, it is included here as supplementary supporting material.
+
+\section{Dimer Figures}
+\label{app:sec:paper_eqs_dimer}
+
+This section gathers the dimer control figures, waiting-time series, and apodization study used in the thesis discussion. The inhomogeneous control and waiting-time panels are shown for $N_{\mathrm{inhom}}=1000$, while the homogeneous companion sequence uses $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=1$.
+
+\subsection{Control Panels}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigThreeUncoupledPaperTimePath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigThreeCoupledPaperTimePath}
+    \end{minipage}
+    \caption{Dimer time-domain control panels. Left: uncoupled control. Right: coupled dimer.}
+    \label{fig:app_dimer_fig3_time}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigThreeUncoupledPaperPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigThreeCoupledPaperPath}
+    \end{minipage}
+    \caption{Dimer frequency-domain control panels. Left: uncoupled control. Right: coupled dimer.}
+    \label{fig:app_dimer_fig3_freq}
+\end{figure}
+
+\subsection{Redfield Secular-Cutoff Comparison at \texorpdfstring{$t_{\mathrm{wait}}=\SI{0}{\femto\second}$}{t_wait=0 fs}}
+
+The two runs in this comparison use the same dimer fig4 setup at $t_{\mathrm{wait}}=\SI{0}{\femto\second}$ and differ only in the Redfield secularization cutoff.
+The full Bloch-Redfield run uses \texttt{sec\_cutoff = -1.0}, while the secularized run uses \texttt{sec\_cutoff = 1.0e-5}.
+All other model, pulse, and sampling parameters are kept unchanged, so the panels isolate the spectral effect of this solver-level approximation.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitZeroRedfieldFullTimePath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitZeroRedfieldSecTimePath}
+    \end{minipage}
+    \caption{Dimer time-domain Redfield comparison at $t_{\mathrm{wait}}=\SI{0}{\femto\second}$. Left: full Bloch-Redfield (\texttt{sec\_cutoff = -1.0}). Right: secularized Redfield (\texttt{sec\_cutoff = 1.0e-5}).}
+    \label{fig:app_dimer_fig4_t0_redfield_sec_cutoff_time}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitZeroRedfieldFullPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitZeroRedfieldSecPath}
+    \end{minipage}
+    \caption{Dimer frequency-domain Redfield comparison at $t_{\mathrm{wait}}=\SI{0}{\femto\second}$ for the same two secularization settings as in~\autoref{fig:app_dimer_fig4_t0_redfield_sec_cutoff_time}.}
+    \label{fig:app_dimer_fig4_t0_redfield_sec_cutoff_freq}
+\end{figure}
+
+\subsection{Waiting-Time Figures}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitZeroPaperTimePath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitSixteenPaperTimePath}
+    \end{minipage}
+    \caption{Dimer time-domain waiting-time panels for $t_{\mathrm{wait}}=\SI{0}{\femto\second}$ (left) and $t_{\mathrm{wait}}=\SI{16}{\femto\second}$ (right).}
+    \label{fig:app_dimer_fig4_time_t0_t16}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitThirtyPaperTimePath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitFortySixPaperTimePath}
+    \end{minipage}
+    \caption{Dimer time-domain waiting-time panels for $t_{\mathrm{wait}}=\SI{30}{\femto\second}$ (left) and $t_{\mathrm{wait}}=\SI{46}{\femto\second}$ (right).}
+    \label{fig:app_dimer_fig4_time_t30_t46}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitSixtyTwoPaperTimePath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitOneOhEightPaperTimePath}
+    \end{minipage}
+    \caption{Dimer time-domain waiting-time panels for $t_{\mathrm{wait}}=\SI{62}{\femto\second}$ (left) and $t_{\mathrm{wait}}=\SI{108}{\femto\second}$ (right).}
+    \label{fig:app_dimer_fig4_time_t62_t108}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitOneFortyPaperTimePath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitThreeTenPaperTimePath}
+    \end{minipage}
+    \caption{Dimer time-domain waiting-time panels for $t_{\mathrm{wait}}=\SI{140}{\femto\second}$ (left) and $t_{\mathrm{wait}}=\SI{310}{\femto\second}$ (right).}
+    \label{fig:app_dimer_fig4_time_t140_t310}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitZeroPaperPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitSixteenPaperPath}
+    \end{minipage}
+    \caption{Dimer frequency-domain waiting-time panels for $t_{\mathrm{wait}}=\SI{0}{\femto\second}$ (left) and $t_{\mathrm{wait}}=\SI{16}{\femto\second}$ (right).}
+    \label{fig:app_dimer_fig4_freq_t0_t16}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitThirtyPaperPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitFortySixPaperPath}
+    \end{minipage}
+    \caption{Dimer frequency-domain waiting-time panels for $t_{\mathrm{wait}}=\SI{30}{\femto\second}$ (left) and $t_{\mathrm{wait}}=\SI{46}{\femto\second}$ (right).}
+    \label{fig:app_dimer_fig4_freq_t30_t46}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitSixtyTwoPaperPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitOneOhEightPaperPath}
+    \end{minipage}
+    \caption{Dimer frequency-domain waiting-time panels for $t_{\mathrm{wait}}=\SI{62}{\femto\second}$ (left) and $t_{\mathrm{wait}}=\SI{108}{\femto\second}$ (right).}
+    \label{fig:app_dimer_fig4_freq_t62_t108}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitOneFortyPaperPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitThreeTenPaperPath}
+    \end{minipage}
+    \caption{Dimer frequency-domain waiting-time panels for $t_{\mathrm{wait}}=\SI{140}{\femto\second}$ (left) and $t_{\mathrm{wait}}=\SI{310}{\femto\second}$ (right).}
+    \label{fig:app_dimer_fig4_freq_t140_t310}
+\end{figure}
+
+\subsection{Homogeneous Companion Panels}
+\todoimp{can be removed once the main figures are finalized / only include the nonrephasing / absorptive rows here}
+\begin{figure}[htbp]
+    \centering
+    \safeplaceholdergraphic[0.92\linewidth]{figures/rslts_dimer_fig6_paper_eqs_homogeneous_time_all_components}
+    \caption{Combined time-domain board for the homogeneous companion. The top panel corresponds to $t_{\mathrm{wait}}=\SI{46}{\femto\second}$ and the bottom panel to $t_{\mathrm{wait}}=\SI{62}{\femto\second}$. The complete exports are retained, so rephasing, nonrephasing, and absorptive rows remain visible.}
+    \label{fig:app_dimer_fig6_time}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \safeplaceholdergraphic[0.74\linewidth]{figures/rslts_dimer_fig6_paper_eqs_homogeneous_freq_all_components}
+    \caption{Combined frequency-domain board for the homogeneous companion. The top panel corresponds to $t_{\mathrm{wait}}=\SI{46}{\femto\second}$ and the bottom panel to $t_{\mathrm{wait}}=\SI{62}{\femto\second}$. The same full exports are used in the main text so that the rephasing row can be discussed there while the nonrephasing and absorptive rows remain available in the appendix.}
+    \label{fig:app_dimer_fig6_freq}
+\end{figure}
+
+\subsection{Apodization Comparison}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.32\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitFortySixPaperApodBaselinePath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.32\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitFortySixPaperApodHammingPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.32\linewidth}
+        \centering
+        \safeplaceholdergraphic[0.98\linewidth]{\dimerFigFourWaitFortySixPaperApodHannPath}
+    \end{minipage}
+    \caption{Apodization study for the dimer frequency-domain panel at $t_{\mathrm{wait}}=\SI{46}{\femto\second}$ without apodization (left), with Hamming apodization (center), and with Hann apodization (right). The main peak pattern is stable across the three choices, while the window mainly changes fringe suppression and apparent contour smoothness.}
+    \label{fig:app_dimer_fig4_t46_apodization}
+\end{figure}

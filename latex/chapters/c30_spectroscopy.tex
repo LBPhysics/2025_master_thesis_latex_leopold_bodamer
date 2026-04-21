@@ -226,7 +226,7 @@ The two terms correspond to interactions on the ket and on the bra, with a relat
 To make this structure explicit, consider the simplest example of a two-level system.
 This allows the general expressions to be evaluated in closed form and introduces the double-sided Feynman representation that will later be used for higher-order processes (see~\autoref{sec:spctr_third_order_response}).
 
-\subsubsection{Two-Level System}
+\subsection{Two-Level System}
 \label{sec:spctr_two_level_system_linear_response}
 Consider a system with two electronic states, $\ket{g}$ and $\ket{e}$.
 As the simplest nontrivial benchmark, this two-level limit already contains the basic spectroscopy workflow from pulse sequence to induced polarisation and rephasing/nonrephasing response.
@@ -244,6 +244,11 @@ The optical dipole operator projected onto the chosen polarisation direction is 
 	\qquad \mu_{eg}=\mu_{ge}^*.
 	\label{eq:spctr_tls_dipole}
 \end{equation}
+For the present response-function benchmark, the field-free Hamiltonian and
+dipole operator are sufficient. The carrier-rotating convention used later for
+the model and solver construction is introduced separately in
+~\autoref{eq:UnitaryRotatingFrame} and implemented explicitly in
+~\autoref{app:numerical_implementation}.
 For optical transitions with $\omega_{eg}$ corresponding to $\tilde{\nu}_{eg} \approx 16\,000\,\mathrm{cm}^{-1}$, the excited-state thermal population at room temperature is negligible.
 Therefore, the initial condition can be approximated as the electronic ground state,
 \begin{equation*}
@@ -275,7 +280,7 @@ where $\omega_{eg}=E_e-E_g$ and $\Gamma_{eg}$ is the phenomenological optical de
     \mathcal{U}_0(\tau)[\ket{g}\!\bra{e}]\approx G_{eg}^*(\tau)\,\ket{g}\!\bra{e}.
 \end{equation*}
 
-\subsubsection{Double-Sided Feynman Diagrams}
+\subsection{Double-Sided Feynman Diagrams}
 \label{sec:spctr_dsfd}
 The left/right action distinction encoded in $\mathcal{V}[\hat{A}] \equiv [\hat{\mu},\hat{A}]$ generates distinct pathways with characteristic sign patterns.
 These pathways are visualised by double-sided Feynman diagrams in~\autoref{fig:spctr_linear_response_diagrams}.
@@ -297,7 +302,7 @@ The construction rules are:
 	\label{fig:spctr_linear_response_diagrams}
 \end{figure}
 
-\subsubsection{Frequency-Domain Susceptibility and Absorption}
+\subsection{Frequency-Domain Susceptibility and Absorption}
 The linear susceptibility is the Fourier transform of the causal response kernel \autoref{eq:spctr_R1_J1_J1*},
 \begin{equation*}
 	\chi^{(1)}(\omega)
@@ -332,7 +337,7 @@ Even-order susceptibilities vanish in centrosymmetric media, so the lowest-order
 The central $\chi^{(3)}$ process for this thesis is four-wave mixing (FWM), in which three incident fields generate a signal field.
 The resulting photon-echo and free-induction-decay contributions form the basis of 2D spectroscopy.
 
-\subsubsection{Third-Order Response Function \texorpdfstring{$R^{(3)}$}{R(3)}}
+\subsection{Third-Order Response Function \texorpdfstring{$R^{(3)}$}{R(3)}}
 Inserting $n=3$ into~\autoref{eq:app_Pn_convolution_scalar} and~\autoref{eq:app_Sn_def_scalar} gives
 \begin{equation}
 \label{eq:spctr_P3_convolution_thesis}
@@ -350,7 +355,7 @@ R^{(3)}(\tau_3,\tau_2,\tau_1)
 This third-order response contains the multi-time correlations central to the present thesis.
 Reading the operator product in~\autoref{eq:spctr_S3_def_thesis} from right to left corresponds to the causal sequence: start from $\hat{\rho}_{\mathrm{eq}}$, apply a dipole interaction, evolve freely, apply another interaction, and so on, followed by the dipole readout at time $t$.
 
-\subsubsection{Two-Level System and Pathway Expansion}
+\subsection{Two-Level System and Pathway Expansion}
 \label{sec:spctr_two_level_third_order_pathways}
 To see concretely how higher-order expressions expand, consider again the two-level system from \autoref{sec:spctr_two_level_system_linear_response}.
 After the first interaction $\mathcal{V}$, $\hat{\rho}_{\mathrm{S}}$ is a linear combination of the coherences $\ket{e}\!\bra{g}$ and $\ket{g}\!\bra{e}$, followed by free evolution during $\tau_1$, which imprints phase factors $G_{eg}(\tau_1)$ and $G_{eg}^*(\tau_1)$ (see~\autoref{eq:spctr_Green_function_two_level,eq:spctr_S1_commutator_expanded}).
@@ -435,7 +440,10 @@ Populations during the second period $\tau_2$ carry no rapid oscillation.
 
 For the two-level system, the third-order response $R^{(3)}$ thus contains contributions from GSB and SE only.
 
-The extension from this pedagogical two-level limit to the multilevel manifold picture used in simulations (\,$\ket{g}$, $\{\ket{n}\}$, $\{\ket{f}\}$\,) is introduced in the simulation chapters (see~\autoref{chapter:model_results}). There, an additional excited-state absorption channel is defined.
+The extension from this pedagogical two-level limit to the multilevel manifold
+picture used in the simulations (\(\ket{g}\), \(\{\ket{n}\}\),
+\(\{\ket{f}\}\)) is introduced in~\autoref{chapter:model_systems}. There, an
+additional excited-state-absorption channel is defined.
 
 In practice, $R^{(3)}$ is computed by summing the available pathways---contributions automatically generated by the Liouvillian propagator.
 Having established the third-order response function $R^{(3)}(\tau_3,\tau_2,\tau_1)$ in~\autoref{sec:spctr_third_order_response} as the material kernel encoding the microscopic dynamics, the experimental realisation is now specified: a sequence of three controllable laser pulses.

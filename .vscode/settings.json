@@ -4,11 +4,10 @@
     // ---- LaTeX Project Configuration ----
     "latex-workshop.latex.recipes": [
         {
-            "name": "LuaLaTeX -> Biber -> LuaLaTeX x2",
+            "name": "LuaLaTeX -> Biber -> LuaLaTeX",
             "tools": [
                 "lualatex",
                 "biber",
-                "lualatex",
                 "lualatex"
             ]
         },
@@ -93,15 +92,19 @@
     "latex-workshop.latex.recipe.default": "latexmk (LuaLaTeX + Biber)",
     "latex-workshop.latex.build.enableMagicComments": true,
     // Avoid overlapping build/clean cycles on Windows that can lock main.* files.
-    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latex.autoBuild.run": "onSave",
     "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
     "latex-workshop.latex.autoClean.run": "never",
     "latex-workshop.latex.build.clearLog.everyRecipeStep.enabled": false,
+    "latex-workshop.hover.preview.enabled": true,
+    "latex-workshop.hover.command.enabled": true,
+    "latex-workshop.intellisense.includegraphics.preview.enabled": true,
     "latex-workshop.latex.search.rootFiles.include": [
         "latex/main.tex"
     ],
     // ---- Language-Specific Formatting Rules for Consistency ----
     "[latex]": {
+        "editor.hover.enabled": "on",
         "editor.wordWrap": "wordWrapColumn",
         "editor.wordWrapColumn": 100
     },

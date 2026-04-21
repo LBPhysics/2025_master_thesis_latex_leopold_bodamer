@@ -50,6 +50,68 @@ toctotoc, 		      % add table of contents to the table of contents
 
 \hyphenation{time-scales pa-ra-me-trised spec-tro-scopy} % To prevent ugly overfull hboxes
 
+\providecommand{\safeplaceholdergraphic}[2][0.92\linewidth]{%
+  \makebox[\linewidth][c]{%
+    \IfFileExists{#2.png}{\includegraphics[width=#1]{#2.png}}{%
+      \IfFileExists{#2.pdf}{\includegraphics[width=#1]{#2.pdf}}{%
+        \IfFileExists{#2.jpg}{\includegraphics[width=#1]{#2.jpg}}{%
+          \fbox{\parbox[c][0.24\textheight][c]{0.84\linewidth}{\centering Placeholder for figure\\[0.4em]\texttt{\detokenize{#2}}}}%
+        }%
+      }%
+    }%
+  }%
+}
+
+\providecommand{\safefallbackgraphic}[3][0.92\linewidth]{%
+  \makebox[\linewidth][c]{%
+    \IfFileExists{#2.png}{\includegraphics[width=#1]{#2.png}}{%
+      \IfFileExists{#3.png}{\includegraphics[width=#1]{#3.png}}{%
+        \IfFileExists{#2.pdf}{\includegraphics[width=#1]{#2.pdf}}{%
+          \IfFileExists{#3.pdf}{\includegraphics[width=#1]{#3.pdf}}{%
+            \IfFileExists{#2.jpg}{\includegraphics[width=#1]{#2.jpg}}{%
+              \IfFileExists{#3.jpg}{\includegraphics[width=#1]{#3.jpg}}{%
+                \fbox{\parbox[c][0.24\textheight][c]{0.84\linewidth}{\centering Placeholder for figure\\[0.4em]\texttt{\detokenize{#2}}\\[0.4em]\texttt{\detokenize{#3}}}}%
+              }%
+            }%
+          }%
+        }%
+      }%
+    }%
+  }%
+}
+
+\providecommand{\dimerFigFourWaitZeroPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/15_152608_dimer_fig4_T000_paper_eqs/figures/time_all_signals_real_imag_abs_dimer_fig4_T000_paper_eqs}}
+\providecommand{\dimerFigFourWaitZeroPaperPath}{\detokenize{figures/svgs/dimer_essential_results/15_152608_dimer_fig4_T000_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig4_T000_paper_eqs}}
+\providecommand{\dimerFigFourWaitSixteenPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/15_152639_dimer_fig4_T016_paper_eqs/figures/time_all_signals_real_imag_abs_dimer_fig4_T016_paper_eqs}}
+\providecommand{\dimerFigFourWaitSixteenPaperPath}{\detokenize{figures/svgs/dimer_essential_results/15_152639_dimer_fig4_T016_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig4_T016_paper_eqs}}
+\providecommand{\dimerFigFourWaitThirtyPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/15_152713_dimer_fig4_T030_paper_eqs/figures/time_all_signals_real_imag_abs_dimer_fig4_T030_paper_eqs}}
+\providecommand{\dimerFigFourWaitThirtyPaperPath}{\detokenize{figures/svgs/dimer_essential_results/15_152713_dimer_fig4_T030_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig4_T030_paper_eqs}}
+\providecommand{\dimerFigFourWaitFortySixPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/15_152741_dimer_fig4_T046_paper_eqs/figures/time_all_signals_real_imag_abs_dimer_fig4_T046_paper_eqs}}
+\providecommand{\dimerFigFourWaitFortySixPaperPath}{\detokenize{figures/svgs/dimer_essential_results/15_152741_dimer_fig4_T046_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig4_T046_paper_eqs}}
+\providecommand{\dimerFigFourWaitFortySixPaperApodBaselinePath}{\detokenize{figures/svgs/dimer_essential_results/15_152741_dimer_fig4_T046_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig4_T046_paper_eqs}}
+\providecommand{\dimerFigFourWaitFortySixPaperApodHammingPath}{\detokenize{figures/svgs/dimer_essential_results/15_152741_dimer_fig4_T046_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig4_T046_paper_eqs_apod_hamming}}
+\providecommand{\dimerFigFourWaitFortySixPaperApodHannPath}{\detokenize{figures/svgs/dimer_essential_results/15_152741_dimer_fig4_T046_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig4_T046_paper_eqs_apod_hann}}
+\providecommand{\dimerFigFourWaitSixtyTwoPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/15_152817_dimer_fig4_T062_paper_eqs/figures/time_all_signals_real_imag_abs_dimer_fig4_T062_paper_eqs}}
+\providecommand{\dimerFigFourWaitSixtyTwoPaperPath}{\detokenize{figures/svgs/dimer_essential_results/15_152817_dimer_fig4_T062_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig4_T062_paper_eqs}}
+\providecommand{\dimerFigFourWaitOneOhEightPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/15_162222_dimer_fig4_T108_paper_eqs/figures/time_all_signals_real_imag_abs_dimer_fig4_T108_paper_eqs}}
+\providecommand{\dimerFigFourWaitOneOhEightPaperPath}{\detokenize{figures/svgs/dimer_essential_results/15_162222_dimer_fig4_T108_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig4_T108_paper_eqs}}
+\providecommand{\dimerFigFourWaitOneFortyPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/15_162248_dimer_fig4_T140_paper_eqs/figures/time_all_signals_real_imag_abs_dimer_fig4_T140_paper_eqs}}
+\providecommand{\dimerFigFourWaitOneFortyPaperPath}{\detokenize{figures/svgs/dimer_essential_results/15_162248_dimer_fig4_T140_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig4_T140_paper_eqs}}
+\providecommand{\dimerFigFourWaitThreeTenPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/15_162315_dimer_fig4_T310_paper_eqs/figures/time_all_signals_real_imag_abs_dimer_fig4_T310_paper_eqs}}
+\providecommand{\dimerFigFourWaitThreeTenPaperPath}{\detokenize{figures/svgs/dimer_essential_results/15_162315_dimer_fig4_T310_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig4_T310_paper_eqs}}
+\providecommand{\dimerFigSixWaitFortySixPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/15_162341_dimer_fig6_T046_paper_eqs/figures/time_all_signals_real_imag_abs_dimer_fig6_T046_paper_eqs}}
+\providecommand{\dimerFigSixWaitFortySixPaperPath}{\detokenize{figures/svgs/dimer_essential_results/15_162341_dimer_fig6_T046_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig6_T046_paper_eqs}}
+\providecommand{\dimerFigSixWaitSixtyTwoPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/15_162408_dimer_fig6_T062_paper_eqs/figures/time_all_signals_real_imag_abs_dimer_fig6_T062_paper_eqs}}
+\providecommand{\dimerFigSixWaitSixtyTwoPaperPath}{\detokenize{figures/svgs/dimer_essential_results/15_162408_dimer_fig6_T062_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig6_T062_paper_eqs}}
+\providecommand{\dimerFigThreeUncoupledPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/19_222916_dimer_fig3a_uncoupled_paper_eqs/figures/time_all_signals_real_imag_abs_dimer_fig3a_uncoupled_paper_eqs}}
+\providecommand{\dimerFigThreeCoupledPaperTimePath}{\detokenize{figures/svgs/dimer_essential_results/17_121018_dimer_fig3b_coupled_paper_eqs/figures/time_all_signals_real_imag_abs_dimer_fig3b_coupled_paper_eqs}}
+\providecommand{\dimerFigThreeUncoupledPaperPath}{\detokenize{figures/svgs/dimer_essential_results/19_222916_dimer_fig3a_uncoupled_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig3a_uncoupled_paper_eqs}}
+\providecommand{\dimerFigThreeCoupledPaperPath}{\detokenize{figures/svgs/dimer_essential_results/17_121018_dimer_fig3b_coupled_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig3b_coupled_paper_eqs}}
+\providecommand{\dimerFigFourWaitZeroRedfieldFullTimePath}{\detokenize{figures/svgs/dimer_essential_results/16_205651_dimer_fig4_T000_redfield_rwa_thermal/figures/time_all_signals_real_imag_abs_dimer_fig4_T000_redfield_rwa_thermal}}
+\providecommand{\dimerFigFourWaitZeroRedfieldFullPath}{\detokenize{figures/svgs/dimer_essential_results/16_205651_dimer_fig4_T000_redfield_rwa_thermal/figures/freq_all_signals_real_imag_abs_dimer_fig4_T000_redfield_rwa_thermal}}
+\providecommand{\dimerFigFourWaitZeroRedfieldSecTimePath}{\detokenize{figures/svgs/dimer_essential_results/15_212148_dimer_fig4_T000_redfield_rwa_thermal/figures/time_all_signals_real_imag_abs_dimer_fig4_T000_redfield_rwa_thermal}}
+\providecommand{\dimerFigFourWaitZeroRedfieldSecPath}{\detokenize{figures/svgs/dimer_essential_results/15_212148_dimer_fig4_T000_redfield_rwa_thermal/figures/freq_all_signals_real_imag_abs_dimer_fig4_T000_redfield_rwa_thermal}}
+
 %-------------------------------------------------------------------------------
 %	THESIS INFORMATION
 %-------------------------------------------------------------------------------
@@ -80,7 +142,7 @@ toctotoc, 		      % add table of contents to the table of contents
 
 % Local draft helper for LaTeX Workshop:
 % Uncomment exactly one \includeonly line while drafting, then comment it out again for full-thesis builds.
-%\includeonly{chapters/c40_results, appendices/a06_paper_eqs_reference_atlas}
+%\includeonly{chapters/c50_results, appendices/a06_supplementary_comparison_figures}
 
 \begin{document}
 
@@ -110,8 +172,8 @@ toctotoc, 		      % add table of contents to the table of contents
 \include{chapters/c10_introduction}
 \include{chapters/c20_open_quantum_systems}
 \include{chapters/c30_spectroscopy}
-\include{chapters/c40_results}
-%\include{chapters/c50_model}
+\include{chapters/c40_model_systems}
+\include{chapters/c50_results}
 %\include{chapters/c60_results_discussion}
 %\include{chapters/todo_example}
 
@@ -129,7 +191,7 @@ toctotoc, 		      % add table of contents to the table of contents
 \include{appendices/a03_response_function_derivation}
 \include{appendices/a02_2dfts_maxwell_derivation}
 \include{appendices/a05_phase_kick_intuition}
-%\include{appendices/a06_paper_eqs_reference_atlas}
+\include{appendices/a06_supplementary_comparison_figures}
 
 %-------------------------------------------------------------------------------
 %	BIBLIOGRAPHY

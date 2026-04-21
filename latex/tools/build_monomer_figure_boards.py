@@ -101,16 +101,16 @@ FIGURE_SPECS: tuple[FigureSpec, ...] = (
         basename="results_monomer_2d_freq_hom_inhom",
         panels=(
             (
-                "monomer_essential_results/07_172218_monomer_fig3_T000_lindblad/freq_all_signals_real_imag_abs_monomer_fig3_T000_lindblad.svg",
-                "monomer_essential_results/07_172248_monomer_fig4_T000_lindblad/freq_all_signals_real_imag_abs_monomer_fig4_T000_lindblad.svg",
+                "monomer_essential_results/07_172218_monomer_fig3_T000_lindblad/freq_all_signals_real_imag_abs_monomer_fig3_T000_lindblad_02.svg",
+                "monomer_essential_results/07_172248_monomer_fig4_T000_lindblad/freq_all_signals_real_imag_abs_monomer_fig4_T000_lindblad_02.svg",
             ),
             (
-                "monomer_essential_results/07_172229_monomer_fig3_T020_lindblad/freq_all_signals_real_imag_abs_monomer_fig3_T020_lindblad.svg",
-                "monomer_essential_results/07_172302_monomer_fig4_T020_lindblad/freq_all_signals_real_imag_abs_monomer_fig4_T020_lindblad.svg",
+                "monomer_essential_results/07_172229_monomer_fig3_T020_lindblad/freq_all_signals_real_imag_abs_monomer_fig3_T020_lindblad_02.svg",
+                "monomer_essential_results/07_172302_monomer_fig4_T020_lindblad/freq_all_signals_real_imag_abs_monomer_fig4_T020_lindblad_02.svg",
             ),
             (
-                "monomer_essential_results/07_172238_monomer_fig3_T040_lindblad/freq_all_signals_real_imag_abs_monomer_fig3_T040_lindblad.svg",
-                "monomer_essential_results/07_172315_monomer_fig4_T040_lindblad/freq_all_signals_real_imag_abs_monomer_fig4_T040_lindblad.svg",
+                "monomer_essential_results/07_172238_monomer_fig3_T040_lindblad/freq_all_signals_real_imag_abs_monomer_fig3_T040_lindblad_04.svg",
+                "monomer_essential_results/07_172315_monomer_fig4_T040_lindblad/freq_all_signals_real_imag_abs_monomer_fig4_T040_lindblad_02.svg",
             ),
         ),
         column_headers=(
@@ -191,8 +191,8 @@ FIGURE_SPECS: tuple[FigureSpec, ...] = (
         basename="app_monomer_legacy_fig4_t0_freq",
         panels=(
             (
-                "monomer_essential_results/01_181835_monomer_fig4_T000_lindblad/freq_all_signals_real_imag_abs_monomer_fig4_T000_lindblad.svg",
-                "monomer_essential_results/01_184018_monomer_fig4_T000_lindblad/freq_all_signals_real_imag_abs_monomer_fig4_T000_lindblad.svg",
+                "monomer_essential_results/01_181835_monomer_fig4_T000_lindblad/freq_all_signals_real_imag_abs_monomer_fig4_T000_lindblad_02.svg",
+                "monomer_essential_results/01_184018_monomer_fig4_T000_lindblad/freq_all_signals_real_imag_abs_monomer_fig4_T000_lindblad_02.svg",
             ),
         ),
         top_lines=(
@@ -207,7 +207,7 @@ FIGURE_SPECS: tuple[FigureSpec, ...] = (
         panels=(
             (
                 "monomer_essential_results/01_184037_monomer_fig4_T020_lindblad/time_all_signals_real_imag_abs_monomer_fig4_T020_lindblad.svg",
-                "monomer_essential_results/01_184037_monomer_fig4_T020_lindblad/freq_all_signals_real_imag_abs_monomer_fig4_T020_lindblad.svg",
+                "monomer_essential_results/01_184037_monomer_fig4_T020_lindblad/freq_all_signals_real_imag_abs_monomer_fig4_T020_lindblad_02.svg",
             ),
         ),
         top_lines=(
@@ -219,7 +219,7 @@ FIGURE_SPECS: tuple[FigureSpec, ...] = (
         panels=(
             (
                 "monomer_essential_results/01_184055_monomer_fig4_T040_lindblad/time_all_signals_real_imag_abs_monomer_fig4_T040_lindblad.svg",
-                "monomer_essential_results/01_184055_monomer_fig4_T040_lindblad/freq_all_signals_real_imag_abs_monomer_fig4_T040_lindblad.svg",
+                "monomer_essential_results/01_184055_monomer_fig4_T040_lindblad/freq_all_signals_real_imag_abs_monomer_fig4_T040_lindblad_02.svg",
             ),
         ),
     ),
@@ -228,48 +228,96 @@ FIGURE_SPECS: tuple[FigureSpec, ...] = (
         panels=(
             (
                 "monomer_essential_results/03_175155_monomer_fig4_T000_redfield_no_rwa_thermal/time_all_signals_real_imag_abs_monomer_fig4_T000_redfield_no_rwa_thermal.svg",
-                "monomer_essential_results/03_175155_monomer_fig4_T000_redfield_no_rwa_thermal/freq_all_signals_real_imag_abs_monomer_fig4_T000_redfield_no_rwa_thermal.svg",
+                "monomer_essential_results/03_175155_monomer_fig4_T000_redfield_no_rwa_thermal/freq_all_signals_real_imag_abs_monomer_fig4_T000_redfield_no_rwa_thermal_02.svg",
             ),
         ),
     ),
     FigureSpec(
-        basename="results_dimer_2d_time",
+        basename="results_dimer_2d_time_un_coupled",
         panels=(
             (
-                "dimer_essential_results/12_082936_dimer_fig3a_uncoupled_redfield_rwa_thermal/figures/time_all_signals_real_imag_abs_dimer_fig3a_uncoupled_redfield_rwa_thermal.svg",
-                "dimer_essential_results/12_082929_dimer_fig3b_coupled_redfield_rwa_thermal/figures/time_all_signals_real_imag_abs_dimer_fig3b_coupled_redfield_rwa_thermal.svg",
+                "dimer_essential_results/19_222916_dimer_fig3a_uncoupled_paper_eqs/figures/time_all_signals_real_imag_abs_dimer_fig3a_uncoupled_paper_eqs.svg",
+                "dimer_essential_results/17_121018_dimer_fig3b_coupled_paper_eqs/figures/time_all_signals_real_imag_abs_dimer_fig3b_coupled_paper_eqs.svg",
             ),
         ),
         top_lines=(
-            "Dimer fig3 Redfield-RWA time-domain board (T = 0 fs)",
+            "Dimer fig3 paper_eqs time-domain board (T = 0 fs)",
         ),
         column_headers=(
             "Uncoupled (fig3a)",
             "Coupled (fig3b)",
         ),
         bottom_lines=(
-            "Source folder (left): dimer_essential_results/12_082936_dimer_fig3a_uncoupled_redfield_rwa_thermal",
-            "Source folder (right): dimer_essential_results/12_082929_dimer_fig3b_coupled_redfield_rwa_thermal",
+            "Source folder (left): dimer_essential_results/19_222916_dimer_fig3a_uncoupled_paper_eqs",
+            "Source folder (right): dimer_essential_results/17_121018_dimer_fig3b_coupled_paper_eqs",
         ),
     ),
     FigureSpec(
-        basename="results_dimer_2d_freq",
+        basename="results_dimer_2d_freq_un_coupled",
         panels=(
             (
-                "dimer_essential_results/12_082936_dimer_fig3a_uncoupled_redfield_rwa_thermal/figures/freq_all_signals_real_imag_abs_dimer_fig3a_uncoupled_redfield_rwa_thermal.svg",
-                "dimer_essential_results/12_082929_dimer_fig3b_coupled_redfield_rwa_thermal/figures/freq_all_signals_real_imag_abs_dimer_fig3b_coupled_redfield_rwa_thermal.svg",
+                "dimer_essential_results/19_222916_dimer_fig3a_uncoupled_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig3a_uncoupled_paper_eqs.svg",
+                "dimer_essential_results/17_121018_dimer_fig3b_coupled_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig3b_coupled_paper_eqs.svg",
             ),
         ),
         top_lines=(
-            "Dimer fig3 Redfield-RWA frequency-domain board (T = 0 fs)",
+            "Dimer fig3 paper_eqs frequency-domain board (T = 0 fs)",
         ),
         column_headers=(
             "Uncoupled (fig3a)",
             "Coupled (fig3b)",
         ),
         bottom_lines=(
-            "Source folder (left): dimer_essential_results/12_082936_dimer_fig3a_uncoupled_redfield_rwa_thermal",
-            "Source folder (right): dimer_essential_results/12_082929_dimer_fig3b_coupled_redfield_rwa_thermal",
+            "Source folder (left): dimer_essential_results/19_222916_dimer_fig3a_uncoupled_paper_eqs",
+            "Source folder (right): dimer_essential_results/17_121018_dimer_fig3b_coupled_paper_eqs",
+        ),
+    ),
+    FigureSpec(
+        basename="results_extension_ring_time_overview",
+        panels=(
+            (
+                "extension_results/17_224701_trimer_ring_single/figures/time_all_signals_real_imag_abs_trimer_ring_single.svg",
+                "extension_results/17_224610_trimer_ring_double/figures/time_all_signals_real_imag_abs_trimer_ring_double.svg",
+            ),
+            (
+                "extension_results/17_230632_pentamer_ring_single/figures/time_all_signals_real_imag_abs_pentamer_ring_single.svg",
+                "extension_results/19_225943_tridecamer_ring_single/figures/time_all_signals_real_imag_abs_tridecamer_ring_single.svg",
+            ),
+        ),
+        top_lines=(
+            "N-site extension preview: ring-aggregate time-domain panels (T = 0 fs)",
+        ),
+        panel_headers=(
+            ("Trimer single ring (N = 3)", "Trimer double ring (N = 6)"),
+            ("Pentamer single ring (N = 5)", "Tridecamer single ring (N = 13)"),
+        ),
+        bottom_lines=(
+            "Sources: extension_results/17_224701_trimer_ring_single and extension_results/17_224610_trimer_ring_double",
+            "Sources: extension_results/17_230632_pentamer_ring_single and extension_results/19_225943_tridecamer_ring_single",
+        ),
+    ),
+    FigureSpec(
+        basename="results_extension_ring_freq_overview",
+        panels=(
+            (
+                "extension_results/17_224701_trimer_ring_single/figures/freq_all_signals_real_imag_abs_trimer_ring_single.svg",
+                "extension_results/17_224610_trimer_ring_double/figures/freq_all_signals_real_imag_abs_trimer_ring_double.svg",
+            ),
+            (
+                "extension_results/17_230632_pentamer_ring_single/figures/freq_all_signals_real_imag_abs_pentamer_ring_single.svg",
+                "extension_results/19_225943_tridecamer_ring_single/figures/freq_all_signals_real_imag_abs_tridecamer_ring_single.svg",
+            ),
+        ),
+        top_lines=(
+            "N-site extension preview: ring-aggregate frequency-domain panels (T = 0 fs)",
+        ),
+        panel_headers=(
+            ("Trimer single ring (N = 3)", "Trimer double ring (N = 6)"),
+            ("Pentamer single ring (N = 5)", "Tridecamer single ring (N = 13)"),
+        ),
+        bottom_lines=(
+            "Sources: extension_results/17_224701_trimer_ring_single and extension_results/17_224610_trimer_ring_double",
+            "Sources: extension_results/17_230632_pentamer_ring_single and extension_results/19_225943_tridecamer_ring_single",
         ),
     ),
 )

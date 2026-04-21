@@ -79,6 +79,12 @@ Ask when any of the following is unclear:
 - Do not use italic descriptive subscripts.
 - If the meaning/choice is ambiguous, ask.
 
+### Repo-specific dimer note
+- For dimer work (`n_atoms > 1`, especially `n_atoms = 2`), ignore `deph_rate_fs`, `down_rate_fs`, and `up_rate_fs` in YAML/config files.
+- These fields are a monomer-only artefact that currently appears in shared configs for all `n_atoms`.
+- Do not present those rates as physically relevant dimer parameters in captions, summaries, or parameter lists unless the user explicitly asks about the config artefact itself.
+- For `n_atoms: 1`, these rates may still be relevant.
+
 ---
 
 ## 6) Figures & tables
@@ -126,6 +132,15 @@ Use for bulky items required for full reproducibility but unsuitable for the the
 - Keep line lengths reasonable.
 - Prefer small, local changes over reflowing entire files.
 - Do not change notation/style conventions unless explicitly requested.
+
+---
+
+## 10) Reference-framing in results chapters
+
+- If a results chapter rebuilds figures or analyses from literature, state that once in the chapter introduction.
+- Make clear there that the reproduced results are generated with the thesis' own workflow and that the later discussion may extend the published argument.
+- Do not keep repeating throughout the chapter that figures are based on, adapted from, or oriented towards the reference papers.
+- Mention the reference papers again in the running text only when the present setup, figure, numerical choice, or interpretation differs from the published version, or when a concrete paper-vs-present comparison is the point of the paragraph.
 
 
 

@@ -452,10 +452,11 @@ The oscillatory prefactors $e^{-\mathrm{i}(\omega - \omega') t}$ in~\autoref{eq:
 Keeping only terms with $\omega_{ab}=\omega_{cd}$ in~\autoref{eq:oqs_Rabcd_full} removes such fast-rotating couplings and ensures a block-diagonal structure in the Redfield tensor $R_{abcd}$.
 
 This yields the \emph{secular} Redfield equation in Lindblad form
-\begin{align*}
+\begin{align}
+	\label{eq:lindblad_master_equation}
 	\frac{\mathrm{d}}{\mathrm{d}t}\hat{\rho}_{\mathrm{S}}(t) & = -\mathrm{i} [\hat{H}_{\mathrm{S}} + \hat{H}_{\mathrm{LS}}, \hat{\rho}_{\mathrm{S}}(t)]                                                                                                                                                               \\
 	                            & + \sum_{i,i'} \sum_{\omega} \gamma_{ii'}(\omega) \Big( \hat{S}_{i'}(\omega) \hat{\rho}_{\mathrm{S}}(t) \hat{S}_i^{\dagger}(\omega) - \tfrac{1}{2} \{ \hat{S}_i^{\dagger}(\omega) \hat{S}_{i'}(\omega), \hat{\rho}_{\mathrm{S}}(t) \} \Big),
-\end{align*}
+\end{align}
 where $\gamma_{ii'}(\omega) = 2 \mathrm{Re}\,\chi_{ii'}(\omega)$. This form is guaranteed to preserve complete positivity provided the matrix $[\gamma_{ii'}(\omega)]_{i,i'}$ is positive semidefinite for each frequency $\omega$. Without the secular approximation, \autoref{eq:oqs_Redfield_Dissipator} need not generate a completely positive dynamical map, explaining the caution required when applying the full Redfield equation.
 
 For a thermal bath in equilibrium, the bath correlation functions satisfy the KMS condition.

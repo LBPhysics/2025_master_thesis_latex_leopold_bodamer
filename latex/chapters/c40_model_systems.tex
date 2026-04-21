@@ -1,0 +1,304 @@
+% !TEX root = ../main.tex
+\chapter{Model Systems}
+\label{chapter:model_systems}
+
+This chapter defines the physical models used in the numerical
+analyses of this thesis. The open-quantum-system framework was developed in
+~\autoref{chapter:oqs_open_quantum_systems}, and the spectroscopy formalism was
+developed in~\autoref{chapter:spctr_spectroscopy}. Here those ingredients are
+combined into one common model that is then specialised to the concrete
+benchmark cases used later in~\autoref{chapter:results}.
+For the monomer and dimer, the concrete parameter sets introduced below are
+chosen to match benchmark cases studied
+in~\cite{mancaletal2006twodimensionalopticalthreepulse,pisliakovetal2006twodimensionalopticalthreepulse}.
+
+The chapter introduces a general
+\(N_{\mathrm{sites}}\)-site model of which the monomer and dimer are
+concrete \(N_{\mathrm{sites}}=1\) and \(N_{\mathrm{sites}}=2\) realisations of. 
+
+\section{General N-Site Model}
+\label{sec:model_ensemble}
+
+In the general case, we consider a system of \(N_{\mathrm{sites}}\) coupled sites. Each site is
+locally truncated to a two-level system, so every site can be either in its
+ground state or singly excited.
+
+\subsection{States, Truncation, and Rotating-Frame Bookkeeping}
+
+For \(N_{\mathrm{sites}}>1\), the Hilbert space is further truncated at the double-excitation
+manifold. The resulting basis therefore has three bands:
+\begin{itemize}
+\item the ground state \(\ket{g}\),
+\item the single-excitation states \(\ket{n}\) with \(n\in\{1,\dots,N_{\mathrm{sites}}\}\),
+\item and the double-excitation states \(\ket{mn}\) with \(1\le m<n\le N_{\mathrm{sites}}\).
+\end{itemize}
+Here \(\ket{n}\) means that only site \(n\) is excited, while \(\ket{mn}\)
+means that sites \(m\) and \(n\) are excited. Since each site is itself only a
+two-level system, a given site can never be excited twice. The
+double-excitation sector therefore always consists of excitations on two
+different sites.
+
+If only the one-excitation manifold is modeled, the basis is
+\begin{equation*}
+\mathcal{B}_{1\mathrm{ex}} = \left\{ \ket{g}, \ket{1}, \ldots, \ket{N_{\mathrm{sites}}} \right\},
+\end{equation*}
+so that the Hilbert-space dimension is \(1+N_{\mathrm{sites}}\). If the two-excitation manifold
+is used as well, the basis is enlarged to
+\begin{equation*}
+\mathcal{B}_{2\mathrm{ex}} = \left\{ \ket{g}, \ket{1}, \ldots, \ket{N_{\mathrm{sites}}}, \ket{12}, \ket{13}, \ldots \right\},
+\end{equation*}
+and the Hilbert-space dimension becomes
+\begin{equation*}
+\dim \mathcal{H} = 1 + N_{\mathrm{sites}} + \binom{N_{\mathrm{sites}}}{2}.
+\end{equation*}
+
+The carrier-rotating representation used later in the numerical propagation is
+defined at model level through the excitation-number operator
+\(\hat{N}\). It assigns 0 to \(\ket{g}\), 1 to the single-excitation
+manifold \(\{\ket{n}\}\), and 2 to the double-excitation manifold
+\(\{\ket{mn}\}\). The corresponding
+rotating-frame unitary is
+\begin{equation}
+	U(t)=\exp\!\left(i\omega_{L} t \hat{N}\right).
+	\label{eq:UnitaryRotatingFrame}
+\end{equation}
+The driven model is therefore obtained by coupling the field-free Hamiltonian to
+the optical field through the dipole operator, with the rotating-frame and RWA
+conventions inherited from~\autoref{chapter:spctr_spectroscopy}.
+
+\subsection{Hamiltonian}
+
+In this truncated basis, a generic Frenkel-exciton Hamiltonian reads
+\begin{equation*}
+\hat{H}_{0}^{(N_{\mathrm{sites}})}
+=
+\sum_{n=1}^{N_{\mathrm{sites}}}\omega_{n}\,\ket{n}\!\bra{n}
++
+\sum_{m<n}^{N_{\mathrm{sites}}}J_{mn}\,\bigl(\ket{m}\!\bra{n}+\ket{n}\!\bra{m}\bigr)
++
+\sum_{m<n}^{N_{\mathrm{sites}}}(\omega_{m}+\omega_{n})\,\ket{mn}\!\bra{mn}.
+\end{equation*}
+The physical structure is therefore the same across the whole model: site
+energies on the diagonal, coherent couplings between sites.
+
+\subsection{Geometry and Couplings}
+
+The couplings \(J_{mn}\) may be chosen phenomenologically or generated from
+transition-dipole interactions. For the latter,
+\begin{equation*}
+J_{mn} \propto \frac{1}{\lVert \boldsymbol{r}_{mn} \rVert^{3}}
+\left[
+\boldsymbol{\mu}_{m}\cdot\boldsymbol{\mu}_{n}
+- 3\,
+(\boldsymbol{\mu}_{m}\cdot\hat{\boldsymbol{r}}_{mn})
+(\boldsymbol{\mu}_{n}\cdot\hat{\boldsymbol{r}}_{mn})
+\right],
+\end{equation*}
+with site positions \(\boldsymbol{r}_{n}\) and displacements
+\(\boldsymbol{r}_{mn}=\boldsymbol{r}_{m}-\boldsymbol{r}_{n}\)
+~\cite{griffiths2013introductionelectrodynamics,lehmberg1970radiationatomsystem,masters2014pathsforstersresonance}.
+
+
+\subsection{Dipole Operator}
+
+The dipole operator connects only adjacent manifolds,
+\begin{equation*}
+\hat{\mu}^{(N_{\mathrm{sites}})}
+=
+\sum_{n=1}^{N_{\mathrm{sites}}}
+\Bigl(
+\mu_{gn}\,\ket{g}\!\bra{n}
++
+\mu_{ng}\,\ket{n}\!\bra{g}
+\Bigr)
++
+\sum_{m<n}^{N_{\mathrm{sites}}}\sum_{\ell\in\{m,n\}}
+\Bigl(
+\mu_{\ell,mn}\,\ket{\ell}\!\bra{mn}
++
+\mu_{mn,\ell}\,\ket{mn}\!\bra{\ell}
+\Bigr),
+\end{equation*}
+where the second sum is only needed when the two-excitation manifold is
+used. This is the structural ingredient that allows excited-state
+absorption for the multilevel systems.
+
+\subsection{System--Bath Coupling Operators}
+
+For the microscopic open-system treatment, the system operators in the
+interaction Hamiltonian~\autoref{eq:oqs_Interaction_Hamiltonian} are chosen to
+act locally on the site \(i\) as
+\begin{equation*}
+\hat{S}_{i}
+=
+\ket{i}\!\bra{i}
++
+\sum_{\substack{m<n\\ i\in\{m,n\}}}\ket{mn}\!\bra{mn},
+\qquad i\in\{1,\dots,N_{\mathrm{sites}}\}\,,
+\end{equation*}
+where the second term is only present when the double-excitation manifold is
+retained. Thus the bath associated with site \(i\) acts not only on the
+one-excitation state \(\ket{i}\), but also on every double-excitation state
+that contains site \(i\). These are the system coupling operators used later
+for the microscopic Redfield model of the dimer and the larger
+\(N_{\mathrm{sites}}\)-site examples.
+
+\subsection{Static Disorder}
+
+Whenever inhomogeneous broadening is included, the relevant electronic energies
+are sampled over a static disorder ensemble before the signal is averaged. In
+the general \(N_{\mathrm{sites}}\)-site model these fluctuating quantities are the site energies
+\(\omega_n\). A macroscopic motivation for this construction was given
+in~\autoref{sec:spctr_spectroscopy_motivation,spctr:sec:macroscopic_polarisation}.
+These environments are modeled to be completely uncorrelated. How this is implemeted numerically is given in
+~\autoref{app:sec:inhomogeneous_broadening}.
+
+\section{Monomer as the \texorpdfstring{$N_{\mathrm{sites}}=1$}{Nsites=1} Limit}
+\label{sec:model_tls}
+
+The monomer is the minimal benchmark used throughout the thesis. It consists of only one transition. This gives
+the simplest system in which the full 2DES workflow can be validated before
+coupling, cross peaks, and multilevel pathway structure are introduced.
+
+\subsection{Hamiltonian and Dipole Operator}
+
+For \(N_{\mathrm{sites}}=1\), the field-free Hamiltonian and optical dipole operator reduce to
+the two-level expressions already introduced in
+~\cref{eq:spctr_tls_hamiltonian,eq:spctr_tls_dipole}. For later reference, they
+are repeated here:
+\begin{equation*}
+\hat{H}_{0}^{(\mathrm{TLS})} = \omega_{eg}\,\ket{e}\!\bra{e},
+\end{equation*}
+and
+\begin{equation*}
+\hat{\mu}^{(\mathrm{TLS})}
+= \mu_{ge}\,\ket{g}\!\bra{e} + \mu_{eg}\,\ket{e}\!\bra{g},
+\qquad
+\mu_{eg}=\mu_{ge}^{*}.
+\end{equation*}
+
+\subsection{Phenomenological Lindblad Bath}
+
+For the monomer calibration benchmark, the open-system treatment is kept
+phenomenological. In the notation of the general model,
+the local excitation projector reduces to
+\begin{equation*}
+\hat{S}_{e} = \ket{e}\!\bra{e}.
+\end{equation*}
+The benchmark monomer itself is then coupled to a phenomenological Lindblad
+bath through the collapse operators
+\begin{equation*}
+\hat{S}_{\downarrow} = \sqrt{\gamma_{\downarrow}}\,\ket{g}\!\bra{e},
+\qquad
+\hat{S}_{\uparrow} = \sqrt{\gamma_{\uparrow}}\,\ket{e}\!\bra{g},
+\qquad
+\hat{S}_{\varphi} = \sqrt{2\gamma_{\varphi}}\,\hat{S}_{e}.
+\end{equation*}
+Here also a relaxation channel is modelled, where \(\gamma_{\downarrow}\) and \(\gamma_{\uparrow}\) denote downward and
+upward population transfer. \(\gamma_{\varphi}\) is the pure-dephasing
+rate. In the strict comparison to the monomer benchmark literature, the
+zero-temperature limit \(\gamma_{\uparrow}=0\) is used. The corresponding
+explicit monomer equations of motion retained for the benchmark implementation
+are collected in~\autoref{app:sec:paper_eqs_explicit_eoms}, see in particular
+~\cref{eq:app_monomer_eom_sigma_eg,eq:app_monomer_eom_rho_gg}.
+
+\section{Dimer as the \texorpdfstring{$N_{\mathrm{sites}}=2$}{Nsites=2} Realisation}
+\label{sec:model_dimer}
+
+The dimer has two optically active sites and is the smallest coupled system
+with coherent excitonic mixing and one double-excitation state \(\ket{AB}\).
+This is the first system in which cross peaks and waiting-time beats appear.
+
+\subsection{Site Basis and Exciton Basis}
+
+In the site basis \(\{\ket{g},\ket{A},\ket{B},\ket{f}\equiv\ket{AB}\}\), the
+field-free Hamiltonian is
+\begin{equation*}
+\hat{H}_{0}^{(\mathrm{dim})}
+=
+\omega_{A}\ket{A}\!\bra{A}
++
+\omega_{B}\ket{B}\!\bra{B}
++
+J\bigl(\ket{A}\!\bra{B}+\ket{B}\!\bra{A}\bigr)
++
+(\omega_{A}+\omega_{B})\ket{f}\!\bra{f},
+\end{equation*}
+where \(\omega_{A}\) and \(\omega_{B}\) are the site energies and \(J\) is the
+coherent coupling.
+
+For spectral interpretation, the one-exciton block is diagonalised. The mixing
+angle is defined by
+\begin{equation}
+\tan(2\theta)=\frac{2J}{\omega_{A}-\omega_{B}},
+\label{eq:dimer_mixing_angle}
+\end{equation}
+and the one-exciton eigenenergies are
+\begin{equation}
+\omega_{2,1}
+=
+\frac{\omega_{A}+\omega_{B}}{2}
+\pm
+\frac{1}{2}\sqrt{(\omega_{A}-\omega_{B})^2+4J^2}.
+\label{eq:dimer_eigen_energies}
+\end{equation}
+Generally, the exciton basis is the one used to interpret the results because
+the Redfield tensor is evaluated in that basis. The corresponding site-basis and
+exciton-basis representation is summarised in~\autoref{fig:rslts_dimer_basis_map}.
+
+\begin{figure}[tbp]
+    \centering
+    \safeplaceholdergraphic[0.6\linewidth]{figures/rslts_dimer_site_vs_exciton_basis}
+    \caption{Basis map used for the dimer model. Left: site basis with local states $\ket{A}$ and $\ket{B}$, site dipoles $\mu_{A}$ and $\mu_{B}$, and coupling $J$. Middle: only the one-exciton block is diagonalised, so $\ket{0}=\ket{g}$ and $\ket{3}=\ket{AB}$ stay unchanged. Right: exciton basis with mixed states $\ket{1}$ and $\ket{2}$ and the adjacent-manifold transitions $\mu_{10}$, $\mu_{20}$, $\mu_{31}$, and $\mu_{32}$.}
+    \label{fig:rslts_dimer_basis_map}
+\end{figure}
+
+\subsection{Dipole Structure and Excited-State Absorption}
+
+In the exciton basis, the dipole operator becomes
+\begin{equation*}
+\hat{\mu}^{(\mathrm{dimer})}
+=
+\sum_{n=A,B}
+\Bigl(
+\mu_{gn}\,\ket{g}\!\bra{n}
++
+\mu_{ng}\,\ket{n}\!\bra{g}
+\Bigr)
++
+\sum_{n=A,B}
+\Bigl(
+\mu_{nf}\,\ket{n}\!\bra{f}
++
+\mu_{fn}\,\ket{f}\!\bra{n}
+\Bigr),
+\end{equation*}
+with \(\mu_{ng}=\mu_{gn}^{*}\) and \(\mu_{fn}=\mu_{nf}^{*}\). This is also visually represented in~\autoref{fig:rslts_dimer_basis_map}. The
+\(\ket{n}\leftrightarrow\ket{f}\) transitions are the additional dipole
+channels that distinguish the dimer from the strict monomer benchmark.
+
+Once the system has been driven into the one-exciton manifold, further
+absorption into the doubly excited state becomes possible. This is the
+excited-state-absorption channel. In the dimer, it is associated with
+coherences between \(\ket{f}\) and the one-exciton states and therefore
+contributes at detection frequencies different from the ground-to-one-exciton
+transitions.
+
+\subsection{Microscopic Bath Coupling}
+\label{sec:model_dimer_transfer_model}
+
+For \(N_{\mathrm{sites}}=2\), the site-local coupling operators reduce to
+\begin{equation*}
+\hat{S}_{A} = \ket{A}\!\bra{A} + \ket{AB}\!\bra{AB},
+\qquad
+\hat{S}_{B} = \ket{B}\!\bra{B} + \ket{AB}\!\bra{AB}.
+\end{equation*}
+These operators are inserted into the microscopic interaction Hamiltonian
+introduced in~\autoref{eq:oqs_Interaction_Hamiltonian}. In other words, the
+dimer bath model used in this thesis is the microscopic site-local bath from
+\autoref{chapter:oqs_open_quantum_systems}, specialised to the two dimer sites.
+The resulting weak-coupling dynamics is then generated within the Redfield
+framework through the tensor expression~\autoref{eq:oqs_Rabcd_full}. For
+direct comparison with the benchmark literature, the corresponding explicit
+dimer equations of motion are also
+presented in~\autoref{app:sec:paper_eqs_explicit_eoms}.

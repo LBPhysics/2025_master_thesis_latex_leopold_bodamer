@@ -1,0 +1,583 @@
+﻿% !TEX root = ../main.tex
+\chapter{Results}
+\label{chapter:results}
+
+
+This chapter presents selected numerical results for the model family defined in
+~\autoref{chapter:model_systems}. Its structure follows the same progression as
+that chapter: first the monomer benchmark as the \(N_{\mathrm{sites}}=1\) limit, then the dimer
+benchmark as the \(N_{\mathrm{sites}}=2\) realisation, and finally selected examples for larger
+\(N_{\mathrm{sites}}\).
+
+For the monomer and dimer benchmarks, the resulting spectra are used as
+validation comparisons against the corresponding literature cases. The common
+implementation details are collected in~\autoref{app:numerical_implementation}. 
+The distinction between homogeneous and inhomogeneous broadening introduced in~\autoref{sec:spctr_spectroscopy_motivation,spctr:sec:macroscopic_polarisation} will show up in the results. Its realisation is documented in~\autoref{app:sec:inhomogeneous_broadening}. 
+For the benchmark cases, the spectra were first reconstructed from the equations of motion collected in~\autoref{app:sec:paper_eqs_explicit_eoms} and then reproduced with the QuTiP calculations used throughout this thesis. Additional comparison figures are collected in~\autoref{app:supplementary_comparison_figures}.
+
+
+\section{Monomer}
+\label{sec:results_monomer}
+This first results block treats the \(N_{\mathrm{sites}}=1\) limit of the model family. The
+presentation follows the signal-construction logic: first the 1D time-domain
+response as a function of \(t_{\mathrm{det}}\), then its Fourier transform,
+then the full \((t_{\mathrm{coh}},t_{\mathrm{det}})\) signal, and finally the
+2D spectra in \((\omega_{\mathrm{coh}},\omega_{\mathrm{det}})\) space.
+
+\subsection{Setup for the Present Figures}
+\label{subsec:results_monomer_model}
+
+The monomer figures use the \(N_{\mathrm{sites}}=1\) limit of the model family, namely the
+reference two-level model defined in~\autoref{sec:model_tls}. The explicit
+calibration equations are collected in~\autoref{app:sec:paper_eqs_explicit_eoms},
+and the numerical realisation is documented in
+~\autoref{app:numerical_implementation}. The disorder model itself is not
+redefined here; this subsection records only the parameter values used in the
+displayed runs.
+
+For all monomer figures in the main text
+(\crefrange{fig:rslts_monomer_1d_time_hom_inhom}{fig:rslts_monomer_2d_freq_hom_inhom_rephasing}),
+the system is a single optical transition with
+\(\omega_{eg}=\SI{16000}{\per\centi\metre}\), dipole strength
+\(\mu_{ge}=1\), and resonant excitation \(\omega_{L}=\omega_{eg}\). The laser
+is modelled by three Gaussian pulses with
+\(\tau_{\mathrm{p}}=\SI{15}{\femto\second}\) FWHM and amplitudes
+\((0.002,0.002,0.002)\), as described in~\autoref{app:sec:laser_field}. The
+phenomenological bath rates are
+\(\gamma_{\varphi}=1/100~\si{\per\femto\second}\),
+\(\gamma_{\downarrow}=1/300~\si{\per\femto\second}\), and
+\(\gamma_{\uparrow}=0\). 
+These correspond to pure dephasing and relaxation timescales \(T_{2}^{*}=\SI{100}{\femto\second}\),  \(T_{1}=\SI{300}{\femto\second}\) respectively, and total dephasing time \(T_{2}=(1/T_{2}^{*}+1/2T_{1})^{-1}\approx\SI{85}{\femto\second}\). The inhomogeneous broadening is set to \(\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}\) when present, and the number of disorder realisations is \(N_{\mathrm{inhom}}=10000\) for the 1D runs and \(N_{\mathrm{inhom}}=100\) for the 2D runs. The latter choice is a practical compromise to keep the computational cost manageable while still clearly resolving the photon echo feature in the 2D time-domain maps.
+The 1D runs use
+\(t_{\mathrm{coh}}=\SI{300}{\femto\second}\),
+\(t_{\mathrm{wait}}=\SI{1000}{\femto\second}\),
+\(t_{\mathrm{det}}\in[0,\SI{600}{\femto\second}]\), and
+\(\Delta t=\SI{2}{\femto\second}\). The 2D runs use
+\(t_{\mathrm{coh}},t_{\mathrm{det}}\in[0,\SI{600}{\femto\second}]\),
+\(\Delta t=\SI{2}{\femto\second}\), and
+\(t_{\mathrm{wait}}=\SI{0}{\femto\second},\SI{20}{\femto\second},\SI{40}{\femto\second}\).
+Figure-specific disorder settings are stated in the corresponding captions.
+
+\subsection{1D time-domain response}
+\label{subsec:results_monomer_1d_time}
+
+At fixed coherence and waiting times, the quantity considered here is a one-dimensional slice through the phase-selected time-domain signals
+$E_{\mathrm{R/NR}}(t_{\mathrm{coh}},t_{\mathrm{wait}},t_{\mathrm{det}})$ introduced in~\autoref{eq:time_domain_signal}.
+\autoref{fig:rslts_monomer_1d_time_hom_inhom} shows the corresponding homogeneous and inhomogeneous monomer signals.
+The left panels show the homogeneous case with $\Delta_{\mathrm{inh}}=0$, and the right panels show the inhomogeneous case with $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$.
+The signal is resolved into real, imaginary, and absolute parts, and the upper and lower rows show the rephasing and nonrephasing branches, respectively. The distinction between these two branches, introduced in~\autoref{subsec:spctr_rephasing_nonrephasing}, can be read off directly from the upper and lower rows.
+
+\begin{figure}[htbp]
+    \centering
+  \safeplaceholdergraphic[1.22\linewidth]{figures/rslts_monomer_1d_time_hom_inhom}
+    \caption{Monomer 1D time-domain traces at fixed $t_{\mathrm{coh}}=\SI{300}{\femto\second}$ and $t_{\mathrm{wait}}=\SI{1000}{\femto\second}$.
+  Shared settings are listed in~\autoref{subsec:results_monomer_model}.
+  The columns show the real, imaginary, and absolute signal components as functions of $t_{\mathrm{det}}$.
+    The upper row shows the rephasing signal and the lower row the nonrephasing signal.
+  Left: homogeneous ensemble, $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=1$.
+    Right: inhomogeneous ensemble, $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$, averaged over $N_{\mathrm{inhom}}=10000$ disorder realisations.}
+    \label{fig:rslts_monomer_1d_time_hom_inhom}
+\end{figure}
+
+In the homogeneous case, all monomers share the same transition frequency.
+The rephasing and nonrephasing traces are therefore equivalent.
+In both rows, the real part decays smoothly with detection time, while the imaginary part remains zero for the chosen phase convention.
+The signal shows the expected free-induction decay and no delayed echo.
+
+The right-hand part shows the inhomogeneous ensemble with $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$.
+Here, the difference between the two phase-matching branches becomes explicit.
+In the rephasing case, shown in the upper row, the signal is initially suppressed and then develops a pronounced delayed maximum near $t_{\mathrm{det}}\approx t_{\mathrm{coh}}$.\footnote{The short-time part of the inhomogeneous rephasing trace is not in perfect point-by-point agreement with the corresponding panel in Paper~I. This is not a concern: even $N_{\mathrm{inhom}}=10000$ still represents a finite ensemble rather than a truly macroscopic limit, and Paper~I does not report the exact value of $N_{\mathrm{inhom}}$. The dependence on this sampling parameter is shown explicitly in~\autoref{fig:app_paper_eqs_monomer_fig2_time_n_dep}. Already at $N_{\mathrm{inhom}}=100$ the photon echo is clearly resolved, which is why $N_{\mathrm{inhom}}=100$ is used as a practical default in the inhomogeneous reruns from now on.}
+This is the characteristic photon echo.
+Static inhomogeneity is essential for this delayed rephasing signal to appear.
+In the nonrephasing case, shown in the lower row, no such refocusing occurs.
+The signal remains concentrated at short detection times and then decays.
+
+The peak ratio $\mathrm{R}/\mathrm{NR}$ quantifies the difference between homogeneous and inhomogeneous behaviour: it remains $1.0$ in the homogeneous case and increases to $1.45$ in the inhomogeneous case. This shows how the photon-echo refocusing in the rephasing branch becomes dominant once static disorder is introduced. Both 1D checks were also reproduced with the explicit equations of motion alongside the QuTiP implementation used in this work. Their agreement validates the QuTiP formulation for the monomer. All subsequent results are therefore generated with the QuTiP-based implementation because it can be extended straightforwardly to larger molecular systems.
+
+
+\subsection{1D frequency-domain response}
+\label{subsec:results_monomer_1d_freq}
+This section takes the time-domain signals shown in~\autoref{fig:rslts_monomer_1d_time_hom_inhom} and Fourier transforms them along the detection-time axis. This frequency-domain slice is not shown in Paper~I and is included here as a small extension of the paper analysis. The resulting spectra are shown in~\autoref{fig:rslts_monomer_1d_freq_hom_inhom}. The first two rows display the rephasing and nonrephasing spectra, while the third row shows the absorptive combination $\tilde{E}_{\mathrm{abs}}=\mathrm{Re}(\tilde{E}_{\mathrm{R}}+\tilde{E}_{\mathrm{NR}})$ (see~\autoref{eq:Sab_def}). The figure shows the basic homogeneous and inhomogeneous lineshapes in the left and right panels, respectively.
+
+\begin{figure}[htbp]
+    \centering
+  \safeplaceholdergraphic[1.22\linewidth]{figures/rslts_monomer_1d_freq_hom_inhom}
+  \caption{Monomer 1D frequency-domain at fixed $t_{\mathrm{coh}}=\SI{300}{\femto\second}$ and $t_{\mathrm{wait}}=\SI{1000}{\femto\second}$. Shared Lindblad settings are listed in~\autoref{subsec:results_monomer_model}. The columns show the real, imaginary, and absolute spectral components. The first two rows show the rephasing and nonrephasing spectra. The third row shows the absorptive combination. Left: homogeneous ensemble, $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=1$. Right: inhomogeneous ensemble, $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$, averaged over $N_{\mathrm{inhom}}=10000$ disorder realisations.}
+    \label{fig:rslts_monomer_1d_freq_hom_inhom}
+\end{figure}
+
+Similar to the time domain, the influence of $N_{\mathrm{inhom}}$ is collected in the appendix in~\autoref{fig:app_paper_eqs_monomer_fig2_freq_n_dep}. In the homogeneous case, all monomers oscillate at the same transition frequency, so the spectral weight remains concentrated in a single compact resonance around $\tilde{\nu}_{eg}=\SI{16000}{\per\centi\metre}$. Rephasing and nonrephasing are then identical, and the absorptive signal shows a more sharply defined lineshape. The imaginary component shows a node at the central frequency, resembling a typical dispersive spectrum.
+
+In the inhomogeneous case, the same central transition is broadened because the ensemble average collects many slightly shifted single-molecule responses, exactly the mechanism discussed in~\autoref{sec:spctr_spectroscopy_motivation}. At the same time, the rephasing spectrum remains visibly narrower and higher than the nonrephasing one. This is the spectral view of the delayed photon echo in~\autoref{fig:rslts_monomer_1d_time_hom_inhom}: refocusing compresses the rephasing weight into a more concentrated spectral maximum, whereas the nonrephasing branch retains the broader free-induction-decay character discussed in~\autoref{subsec:spctr_rephasing_nonrephasing}. The branch balance changes more strongly than in the time trace, with the peak ratio rising from $\mathrm{R}/\mathrm{NR}=1.00$ in the homogeneous slice to $2.52$ in the inhomogeneous one.
+
+\subsection{2D time-domain response}
+\label{subsec:results_monomer_2d_time}
+
+Now, the coherence time between the first and second pulses is also varied. The signal is therefore resolved as
+$E_{\mathrm{R/NR}}(t_{\mathrm{coh}},t_{\mathrm{wait}},t_{\mathrm{det}})$
+at fixed waiting time $t_{\mathrm{wait}}$.
+
+\begin{figure}[htbp]
+    \centering
+  \safeplaceholdergraphic[1.22\linewidth]{figures/rslts_monomer_2d_time_hom_inhom_t000}
+  \caption{Monomer 2D time-domain traces at $t_{\mathrm{wait}}=\SI{0}{\femto\second}$, with $t_{\mathrm{coh}},t_{\mathrm{det}}\in[0,\SI{600}{\femto\second}]$ and $\Delta t=\SI{2}{\femto\second}$. Shared Lindblad settings are listed in~\autoref{subsec:results_monomer_model}. Left column: homogeneous case, $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=1$. Right column: inhomogeneous case, $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$ and $N_{\mathrm{inhom}}=100$.}
+    \label{fig:rslts_monomer_2d_time_hom_inhom}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+  \safeplaceholdergraphic[1.22\linewidth]{figures/rslts_monomer_2d_time_hom_inhom_t020_040}
+  \caption{Monomer 2D time-domain traces at $t_{\mathrm{wait}}=\SI{20}{\femto\second}$ and $\SI{40}{\femto\second}$, with $t_{\mathrm{coh}},t_{\mathrm{det}}\in[0,\SI{600}{\femto\second}]$ and $\Delta t=\SI{2}{\femto\second}$. Shared Lindblad settings are listed in~\autoref{subsec:results_monomer_model}. Left column: homogeneous case, $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=1$. Right column: inhomogeneous case, $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$ and $N_{\mathrm{inhom}}=100$.}
+    \label{fig:rslts_monomer_2d_time_hom_inhom_t020_040}
+\end{figure}
+
+\autoref{fig:rslts_monomer_2d_time_hom_inhom} shows the full dependence on coherence time and detection time at three waiting times.
+In the homogeneous case, shown in the left column, both the rephasing and nonrephasing signals remain concentrated close to the origin and decay with increasing $t_{\mathrm{coh}}$ and $t_{\mathrm{det}}$.
+No delayed echo signal is visible.
+
+The inhomogeneous case, shown in the right column, changes specifically in the rephasing branch.
+There, the real part develops an elongated feature along $t_{\mathrm{det}}\approx t_{\mathrm{coh}}$.
+This is the delayed photon echo in the time domain.
+The nonrephasing branch does not show such refocusing.
+It stays localised near the origin and decays with increasing detection time.
+
+In the time domain, no clear waiting-time dependence is visible for the monomer, as the signals appear identical at different waiting times. 
+A short-time pulse-overlap contribution becomes apparent in the frequency domain, as discussed in the next subsection.
+
+
+\subsection{2D frequency-domain response}
+\label{subsec:results_monomer_2d_freq}
+
+\autoref{fig:rslts_monomer_2d_freq_hom_inhom_rephasing} shows the spectra obtained from the time-domain signals in~\autoref{fig:rslts_monomer_2d_time_hom_inhom}.
+The rephasing and nonrephasing spectra defined in~\autoref{eq:SR_def,eq:SNR_def}, as well as the absorptive combination, are shown.
+The left column contains the homogeneous case, and the right column the inhomogeneous case.
+The rows show the rephasing, nonrephasing, and absorptive spectra, respectively.
+
+\begin{figure}[htbp]
+    \centering
+  \safeplaceholdergraphic[1.22\linewidth]{figures/rslts_monomer_2d_freq_hom_inhom_rephasing}
+  \caption{Monomer 2D frequency-domain waiting-time series, rephasing component only.
+  Monomer 2D frequency-domain waiting-time series obtained at $t_{\mathrm{wait}}=\SI{0}{\femto\second}, \SI{20}{\femto\second}, \SI{40}{\femto\second}$, with $t_{\mathrm{coh}}, t_{\mathrm{det}} \in [0,\SI{600}{\femto\second}]$ and $\Delta t=\SI{2}{\femto\second}$. Shared Lindblad settings are listed in~\autoref{subsec:results_monomer_model}. Left column: homogeneous case with $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=1$. Right column: inhomogeneous case with $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$ and $N_{\mathrm{inhom}}=100$.}
+    \label{fig:rslts_monomer_2d_freq_hom_inhom_rephasing}
+
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+  \safeplaceholdergraphic[1.22\linewidth]{figures/rslts_monomer_2d_freq_hom_inhom_nonrephasing}
+  \caption{Monomer 2D frequency-domain waiting-time series, nonrephasing component only.}
+    \label{fig:rslts_monomer_2d_freq_hom_inhom_nonrephasing}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+  \safeplaceholdergraphic[0.65\linewidth]{figures/rslts_monomer_2d_freq_hom_inhom_absorptive}
+  \caption{Monomer 2D frequency-domain waiting-time series, absorptive component only.}
+    \label{fig:rslts_monomer_2d_freq_hom_inhom_absorptive}
+\end{figure}
+
+Compared with the contour plots shown in Paper~I, mainly the first row of each $t_{\mathrm{wait}}$ panel in the present figure is relevant. The comparison is not exact because the plotting style differs: in Paper~I the spectra are shown as contour plots, so signal levels below 5\% are not displayed, whereas in the colour plots used here weaker trends can still be recognised.
+
+For $t_{\mathrm{wait}}=\SI{0}{\femto\second}$, the rephasing spectra agree well in their overall structure. In both columns, the real part has a positive central region with its maximum at the resonance frequency. In the present spectra, both the real and imaginary parts appear symmetric along the diagonal, while in Paper~I the signal is stretched more strongly towards the $\omega_{\mathrm{det}}$ axis. When comparing the three waiting times, one further visual difference appears in the imaginary part of Paper~I: the axis separating positive and negative regions seems to become less tilted with increasing waiting time, whereas in the present figure the nodal line remains approximately diagonal.
+
+In the present data, the corresponding short-$t_{\mathrm{wait}}$ phase twist is most clearly visible only in the absorptive spectrum at $t_{\mathrm{wait}}=\SI{0}{\femto\second}$. The phase twist is a known pulse-overlap effect that arises when the first two pulses overlap in time. The system then has no time to evolve fully into a population state before the third pulse arrives. As the waiting time increases, the phase twist diminishes, leading to more symmetric spectra. In the homogeneous case, the frequency-domain branch ratios return to values close to unity once the pulse-overlap regime is passed.
+In the frequency domain, the only visible waiting-time dependence is this short-time pulse-overlap effect. For longer times, $t_{\mathrm{wait}} > 2\tau_{\mathrm{p}}$, it has been checked that the signal does not change in shape.
+
+In the inhomogeneous case, the central 2D signature is the diagonal elongation of the peak.
+As described in~\autoref{sec:spctr_spectroscopy_motivation}, the spectrum can be understood as a superposition of many homogeneous spectra shifted along the diagonal by the realisation-dependent transition frequency.
+The diagonal width therefore increases with disorder, whereas the anti-diagonal width continues to reflect the homogeneous contribution. 
+
+As in the homogeneous case, the visible waiting-time evolution is largely confined to the pulse-overlap regime.
+The short-time spectra at $t_{\mathrm{wait}}=\SI{0}{\femto\second}$ and \SI{20}{\femto\second} are still influenced by pulse overlap.
+At $t_{\mathrm{wait}}=\SI{40}{\femto\second}$, the final inhomogeneous line shape is reached.
+Beyond this regime, no important further shape change is expected in the static monomer model apart from the overall decay in signal magnitude.
+Unlike in the 2D time-domain maps, the frequency-domain peak ratios remain clearly above unity after pulse overlap, so the rephasing branch stays visibly dominant in the inhomogeneous spectra.
+This is consistent with the photon echo remaining the dominant contribution to the total signal.
+
+To complement the figure-based discussion, the relative peak amplitudes of the rephasing and nonrephasing branches are collected in~\autoref{tab:results_monomer_branch_ratios}.
+The table provides a compact numerical check of branch dominance in each representation.
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Peak-amplitude balance of the Lindblad monomer branches. The ratios are $\max|S_{\mathrm{R}}|/\max|S_{\mathrm{NR}}|$ extracted from the raw plot logs for the figures discussed in the main text.}
+    \label{tab:results_monomer_branch_ratios}
+    \begin{tabular}{@{}lccc@{}}
+        \toprule
+        Setting & $t_{\mathrm{wait}}$ / fs & $\mathrm{R}/\mathrm{NR}$ time & $\mathrm{R}/\mathrm{NR}$ freq \\
+        \midrule
+        1D homogeneous   & 1000 & 1.00 & 1.00 \\
+        1D inhomogeneous & 1000 & 1.45 & 2.52 \\
+        2D homogeneous   & 0  & 1.46 & 1.94 \\
+        2D homogeneous   & 20 & 1.01 & 1.01 \\
+        2D homogeneous   & 40 & 1.00 & 1.00 \\
+        2D inhomogeneous & 0  & 1.47 & 4.77 \\
+        2D inhomogeneous & 20 & 1.02 & 2.76 \\
+        2D inhomogeneous & 40 & 1.01 & 2.74 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\autoref{tab:results_monomer_branch_ratios} quantifies the branch balance for the figures discussed above.
+The 1D rows correspond to \autoref{fig:rslts_monomer_1d_time_hom_inhom} and \autoref{fig:rslts_monomer_1d_freq_hom_inhom}, while the 2D rows correspond to \autoref{fig:rslts_monomer_2d_time_hom_inhom} and \autoref{fig:rslts_monomer_2d_freq_hom_inhom_rephasing}.
+Two observations are most important.
+First, static disorder consistently enhances the rephasing branch relative to the nonrephasing branch in the monomer results.
+Second, the usefulness of peak-ratio diagnostics depends on the representation.
+In 1D traces, and especially in 2D frequency space, the ratios clearly distinguish the homogeneous and inhomogeneous cases.
+In 2D time space, by contrast, the main difference is the extended shape of the rephasing echo rather than a much larger peak amplitude.
+
+\subsection{Monomer summary}
+\label{subsec:results_monomer_summary}
+
+The monomer results are deliberately organised in the same order as the signal construction itself. The 1D time-domain traces show the basic photon-echo logic: no delayed echo in the homogeneous case, but a clear rephasing echo once static disorder is introduced. The 1D frequency-domain traces then show the corresponding line-shape contrast, while the 2D time-domain maps make the echo feature visible before Fourier transformation and the 2D frequency-domain spectra turn this into the compact homogeneous peak and the diagonally elongated inhomogeneous peak.
+
+The branch-ratio summary sharpens that picture. Static disorder makes the rephasing contribution systematically stronger than the nonrephasing one, but the clarity of that statement depends on the representation. Peak heights are already useful in 1D and become especially informative in 2D frequency space, where the inhomogeneous rephasing branch remains about $2.7$ times larger than the nonrephasing branch after pulse overlap. In 2D time space, by contrast, the decisive signature is the shape of the echo feature, not a much larger peak amplitude. Because the monomer has no cross peaks and no genuine waiting-time redistribution dynamics, it serves as the clean calibration case in which broadening physics can be separated from pulse-overlap effects before moving to more structured systems.
+
+\section{Dimer Benchmark}
+\label{sec:results_dimer}
+
+This second results block turns to the \(N_{\mathrm{sites}}=2\) realisation of the same model
+family. As the smallest coupled aggregate considered in this thesis, the dimer
+provides the transition from a single optical transition to a coupled
+multilevel system.
+
+\subsection{Setup for the Present Figures}
+\label{subsec:results_dimer_model_eom}
+
+The dimer panels use the coupled model defined in
+~\cref{sec:model_dimer,sec:model_dimer_esa,sec:model_dimer_transfer_model}. The
+implementation details are documented in~\autoref{app:numerical_implementation}.
+For later interpretation, the one-exciton block is diagonalised according to
+~\cref{eq:dimer_mixing_angle,eq:dimer_eigen_energies}, and the corresponding
+site-basis and exciton-basis notation is summarised in
+~\autoref{fig:rslts_dimer_basis_map}. This is the notation used later to
+interpret the waiting-time beat in~\autoref{subsec:results_dimer_waiting_time}.
+As in the monomer case, the disorder model is assumed from
+~\autoref{app:sec:inhomogeneous_broadening}; only the parameter values used in
+the figures are listed here.
+
+For all dimer figures, the mean site energy is fixed to
+\(\omega_{\mathrm{mean}}=(\omega_A+\omega_B)/2=\SI{16000}{\per\centi\metre}\),
+and the field is modelled by three Gaussian pulses with
+\(\tau_{\mathrm{p}}=\SI{5}{\femto\second}\) FWHM, amplitudes
+\((0.002,0.002,0.002)\), and carrier frequency
+\(\omega_{L}=\omega_{\mathrm{mean}}\), consistent with the conventions from
+~\autoref{app:sec:laser_field}.
+
+The coupled waiting-time sequence in~\autoref{subsec:results_dimer_waiting_time}
+uses \((\tilde{\nu}_A,\tilde{\nu}_B)=
+(\SI{16200}{\per\centi\metre},\SI{15800}{\per\centi\metre})\),
+\((\mu_A,\mu_B)=(1.0,-0.15)\), and \(J=\SI{500}{\per\centi\metre}\). The
+inhomogeneous sequence uses \(\Delta_{\mathrm{inh}}=
+\SI{200}{\per\centi\metre}\) and \(N_{\mathrm{inhom}}=1000\), while the
+homogeneous companion uses \(\Delta_{\mathrm{inh}}=0\) and
+\(N_{\mathrm{inhom}}=1\).
+
+Open-system effects are treated with the local, mutually uncorrelated bath
+assumption introduced at model level in~\autoref{sec:model_dimer_transfer_model}
+and within the Redfield framework of~\autoref{sec:oqs_Redfield_eq}. For the
+waiting-time sequence, the Ohmic bath parameters are \(s=1\),
+\(T=(77/23042)\,\omega_{\mathrm{mean}}\),
+\(\omega_c=(3/67)\,\omega_{\mathrm{mean}}\), and
+\(\alpha=(7/109)\,\omega_{\mathrm{mean}}\). The corresponding tensor
+construction and solver diagnostics are documented in
+~\autoref{app:numerical_implementation}.
+
+
+\subsection{Coupled Case at \texorpdfstring{$t_{\mathrm{wait}}=0$}{t_wait=0}}
+\label{subsec:results_dimer_coupled_case}
+
+The first comparison considers the inhomogeneous case at $t_{\mathrm{wait}}=0$, first in the time domain and then in the frequency domain.
+Unlike in the monomer, the main question here is how the two-transition pattern changes once coupling is switched on.
+
+\noindent\textbf{2D time-domain response.}
+
+\begin{figure}[htbp]
+    \centering
+  \safeplaceholdergraphic[1.22\linewidth]{figures/rslts_dimer_2d_time_un_coupled}
+    \caption{Dimer 2D time-domain inhomogeneous control signals at $t_{\mathrm{wait}}=0$. Both panels use $\Delta_{\mathrm{inh}}=\SI{200}{\per\centi\metre}$, $N_{\mathrm{inhom}}=10000$, $t_{\mathrm{coh}},t_{\mathrm{det}}\in[0,\SI{600}{\femto\second}]$ with $\Delta t=\SI{2}{\femto\second}$, Gaussian pulses of FWHM \SI{5}{\femto\second}, amplitudes $(0.002,0.002,0.002)$, and carrier frequency \SI{16000}{\per\centi\metre}. Left (uncoupled): $(\tilde{\nu}_A,\tilde{\nu}_B)=(\SI{16360}{\per\centi\metre},\SI{15640}{\per\centi\metre})$, $(\mu_A,\mu_B)=(1.0,1.0)$, $J=0$. Right (coupled): $(\tilde{\nu}_A,\tilde{\nu}_B)=(\SI{15800}{\per\centi\metre},\SI{16200}{\per\centi\metre})$, $(\mu_A,\mu_B)=(-0.23,1.0)$, $J=\SI{300}{\per\centi\metre}$.}
+    \label{fig:rslts_dimer_2d_time_un_coupled}
+\end{figure}
+
+\autoref{fig:rslts_dimer_2d_time_un_coupled} shows the complex 2D photon-echo signal in the time domain at fixed waiting time $t_{\mathrm{wait}}=0$, with the uncoupled dimer on the left and the coupled dimer on the right.
+In contrast to previous representations, only the inhomogeneously broadened signal is shown as it is more relevant for macroscopic systems than the omitted homogeneous case.
+The upper row shows the rephasing branch and the lower row the nonrephasing branch of each signal.
+For each branch, the first, second, and third columns display the real part, imaginary part, and absolute value, respectively.
+The echo is present as in the monomer, because in both cases inhomogeneous static disorder is included.
+
+Compared with the monomer, the uncoupled dimer signal is no longer dominated by a single envelope-like feature.
+Instead, the rephasing branch shows oscillations along the anti-diagonal.
+These patterns are visible because the uncoupled dimer contains two different transition frequencies.
+The time-domain signal is therefore a superposition of two contributions with different phase evolution, which produces a clear modulation pattern in the $(t_{\mathrm{coh}},t_{\mathrm{det}})$ plane.
+In the strict monomer case in~\autoref{fig:rslts_monomer_2d_time_hom_inhom}, by contrast, only one transition frequency is present, so in the rotating-wave approximation the signal is only a real envelope. As in the monomer plot, the real part remains dominant, but in the dimer the imaginary part is no longer zero and becomes visible.
+
+In the lower row, the nonrephasing branch shows the corresponding oscillatory pattern with the opposite diagonal tilt.
+
+In the coupled dimer case, the signal decays more rapidly and develops additional short-time structure.
+The response is therefore no longer described by the simple superposition pattern seen in the uncoupled case. A more complex spectral structure is therefore also expected in the frequency domain.
+Since the two panels also differ in site energies and dipoles, this comparison
+is used here as a qualitative contrast between uncoupled and coupled spectra,
+not as a strict one-parameter isolation of $J$.
+
+To determine which of these changes survive the Fourier transform, the same signal is now analysed in the frequency domain.
+
+\noindent\textbf{2D frequency-domain response.}
+\begin{figure}[htbp]
+    \centering
+  \safeplaceholdergraphic[1.22\linewidth]{figures/rslts_dimer_2d_freq_un_coupled}
+    \caption{Dimer 2D frequency-domain spectra of the same inhomogeneous $t_{\mathrm{wait}}=0$ controls as in~\autoref{fig:rslts_dimer_2d_time_un_coupled}, with identical site parameters and pulse settings.}
+    \label{fig:rslts_dimer_2d_freq_un_coupled}
+\end{figure}
+
+\autoref{fig:rslts_dimer_2d_freq_un_coupled} shows the frequency-domain spectra obtained from the time-domain signal in~\autoref{fig:rslts_dimer_2d_time_un_coupled}.
+At this stage, the role of the figure is to establish the static uncoupled-versus-coupled difference at $t_{\mathrm{wait}}=0$.
+
+Compared with the monomer, the dimer spectrum is no longer organised around a single resonance.
+Because the dimer contains two one-exciton transitions, it already introduces a richer peak structure in frequency space.
+The comparison below therefore asks which parts of this richer structure are already present without coupling and which appear only once the coupling is switched on.
+
+The uncoupled and coupled parameter sets are chosen such that both spectra have the same diagonal-peak separation.
+The corresponding linear-absorption doublets are therefore similar, so the comparison highlights what becomes newly visible only in the 2D spectra.
+
+In the uncoupled case ($J=0$), the spectra show two diagonal peaks.
+They correspond to two monomer-like resonances shifted along the diagonal.
+Excitation at $\omega_{10}$ leads to emission at $\omega_{10}$, and excitation at $\omega_{20}$ leads to emission at $\omega_{20}$, so the diagonal peaks lie at $(\omega_{10},\omega_{10})$ and $(\omega_{20},\omega_{20})$.
+The interpretation is similar to that in~\autoref{fig:rslts_monomer_2d_freq_hom_inhom_rephasing}.
+
+In the coupled case, the spectra show cross peaks in addition to the diagonal peaks, while the same positive and negative regions remain visible.
+Their positions show the presence of coupling between the one-exciton states.
+Peak $21$ means excitation near $\omega_{20}$ on the coherence axis and emission near $\omega_{10}$ on the detection axis.
+Equivalently, excitation at $\omega_{20}$ can, due to coupling, lead to emission at $\omega_{10}$.
+In the coupled spectrum, peak $11$ is the strongest peak.
+Peak $22$ is weaker, and the cross peaks are comparatively faint.
+These relative intensities should be read with care, because the cross-peak
+positions indicate the presence of coupling, whereas the cross-peak
+intensities depend on the coupling strength $J$ as well as on the magnitudes
+and relative orientations of the dipole vectors.
+The full waiting-time dependence is analysed in the following.
+
+\subsection{Waiting-time interpretation}
+\label{subsec:results_dimer_waiting_time}
+
+\begin{figure}[htbp]
+  \centering
+  \safeplaceholdergraphic[1.22\linewidth]{figures/rslts_dimer_fig4_paper_eqs_waiting_time_rephasing}
+  \caption{Waiting-time sequence for the coupled dimer (rephasing branch). From top-left to bottom-right, the waiting times are $t_{\mathrm{wait}}=\SI{0}{\femto\second},\SI{16}{\femto\second},\SI{30}{\femto\second},\SI{46}{\femto\second},\SI{62}{\femto\second},\SI{108}{\femto\second},\SI{140}{\femto\second},\SI{310}{\femto\second}$. The system parameters are $(\tilde{\nu}_A,\tilde{\nu}_B)=(\SI{16200}{\per\centi\metre},\SI{15800}{\per\centi\metre})$, $(\mu_A,\mu_B)=(1.0,-0.15)$, $J=\SI{500}{\per\centi\metre}$. Nonrephasing, absorptive, and time-domain companions are collected in~\autoref{app:supplementary_comparison_figures}.}
+  \label{fig:rslts_dimer_fig4_waiting_time_rephasing}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \safeplaceholdergraphic[1.22\linewidth]{figures/rslts_dimer_fig4_paper_eqs_waiting_time_nonrephasing}
+  \caption{Waiting-time sequence for the coupled dimer (nonrephasing branch).}
+  \label{fig:rslts_dimer_fig4_waiting_time_nonrephasing}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \safeplaceholdergraphic[0.7\linewidth]{figures/rslts_dimer_fig4_paper_eqs_waiting_time_absorptive}
+  \caption{Waiting-time sequence for the coupled dimer (absorptive component).}
+  \label{fig:rslts_dimer_fig4_waiting_time_absorptive}
+\end{figure}
+
+\autoref{fig:rslts_dimer_fig4_waiting_time_rephasing} shows the waiting-time sequence for the coupled dimer.
+The panels show the rephasing branch of the inhomogeneous spectra at different waiting times.
+The full waiting-time series for the nonrephasing and absorptive components, as well as time-domain data, is collected in~\autoref{app:supplementary_comparison_figures}.
+To make the oscillatory redistribution easier to see, two homogeneous companion examples at $t_{\mathrm{wait}}=\SI{46}{\femto\second}$ and $\SI{62}{\femto\second}$ are discussed explicitly later in~\autoref{subsec:results_dimer_homogeneous_peak_shape}.
+
+The panel at $t_{\mathrm{wait}}=\SI{0}{\femto\second}$ lies in the finite-pulse overlap regime.
+This initial spectrum does not follow the later-time modulation behaviour
+exactly; in particular, a strong cross peak 12 is present.
+At $t_{\mathrm{wait}}\approx 0$, all three finite-duration pulses overlap, and additional pulse orderings such as 2-3-1 contribute to the signal.
+These overlap contributions quickly disappear as $t_{\mathrm{wait}}$ increases.
+
+After this short-time region, the spectra do not simply decay.
+Instead, the peak intensities and peak shapes vary periodically.
+In the displayed sequence, two diagonal peaks and two resolved cross peaks are visible.
+At $t_{\mathrm{wait}}=\SI{16}{\femto\second}$ and $\SI{46}{\femto\second}$, the spectrum appears weaker than at $\SI{30}{\femto\second}$ and $\SI{62}{\femto\second}$.
+Thus, the sequence alternates between stronger and weaker spectra.
+
+The period discussed below therefore refers to this post-overlap modulation.
+
+The origin of this period can be stated explicitly in terms of the exciton splitting.
+For the coupled dimer, diagonalisation of the one-exciton block gives the exciton energies \autoref{eq:dimer_eigen_energies}
+so that the energetic splitting between the exciton states is
+\begin{equation*}
+\omega_{21}\equiv\omega_2-\omega_1
+=
+\sqrt{(\omega_{A}-\omega_{B})^2+4J^2}.
+\end{equation*}
+If the first two pulses create a coherence between $\ket{1}$ and $\ket{2}$, this coherence evolves during the waiting time as~\cite{mancal2022nonlinearopticalspectroscopy}
+\begin{equation*}
+\rho_{12}(t_{\mathrm{wait}})=\rho_{12}(0)e^{-i\omega_{21}t_{\mathrm{wait}}}e^{-\gamma_{12}t_{\mathrm{wait}}}.
+\end{equation*}
+A peak contribution containing this waiting-time coherence therefore acquires an oscillatory factor of the form
+\begin{equation*}
+S(t_{\mathrm{wait}})=S_0+S_{\mathrm{osc}}\cos(\omega_{21}t_{\mathrm{wait}}+\phi)e^{-\gamma_{12}t_{\mathrm{wait}}},
+\end{equation*}
+which means that the beat period is
+\begin{equation*}
+T_{\mathrm{beat}}=\frac{2\pi}{\omega_{21}}.
+\end{equation*}
+
+For the parameters used here, $(\tilde{\nu}_A,\tilde{\nu}_B)=(\SI{16200}{\per\centi\metre},\SI{15800}{\per\centi\metre})$ and $J=\SI{500}{\per\centi\metre}$, this gives $\Delta\tilde{\nu}_{21}\approx\SI{1077}{\per\centi\metre}$ and therefore $T_{\mathrm{beat}}\approx\SI{31}{\femto\second}$, consistent with the modulation period observed in the figures.
+
+At long waiting time, the oscillatory pattern is largely damped.
+In the panel at $t_{\mathrm{wait}}=\SI{310}{\femto\second}$, the main visible change is an intensity redistribution from peak 22 towards peak 21.
+The short-time periodic modulation is assigned to coherent electronic motion, whereas the late-time redistribution is assigned to population relaxation within the one-exciton manifold~\cite{pisliakovetal2006twodimensionalopticalthreepulse}.
+This long-time damping and redistribution are generated by the dissipative part of the microscopic Redfield dynamics.
+
+\subsection{Homogeneous peak-shape interpretation}
+\label{subsec:results_dimer_homogeneous_peak_shape}
+
+To separate genuine waiting-time line-shape changes from the additional diagonal broadening produced by static disorder, examples from the previous waiting-time sequence are compared with their homogeneous counterparts.
+
+\begin{figure}[htbp]
+  \centering
+  \safeplaceholdergraphic[0.74\linewidth]{figures/rslts_dimer_fig6_paper_eqs_homogeneous_freq_all_components}
+  \caption{Homogeneous counterpart to the waiting-time discussion. The top panel corresponds to $t_{\mathrm{wait}}=\SI{46}{\femto\second}$ and the bottom panel to \SI{62}{\femto\second} for the same coupled dimer parameters as in~\autoref{fig:rslts_dimer_fig4_waiting_time_rephasing}, but with $\Delta_{\mathrm{inh}}=0$ and $N_{\mathrm{inhom}}=1$. The upper row contains the rephasing spectra discussed in the text, while the lower rows show the nonrephasing and absorptive companions. The corresponding time-domain companion is collected in~\autoref{fig:app_dimer_fig6_time}.}
+  \label{fig:rslts_dimer_fig6_homogeneous_companion}
+\end{figure}
+
+\autoref{fig:rslts_dimer_fig6_homogeneous_companion} therefore focuses on the two waiting times, \SI{46}{\femto\second} and \SI{62}{\femto\second}, because they show two opposite phases of the same periodic beat.
+The complete homogeneous companion boards are collected in~\autoref{fig:app_dimer_fig6_time,fig:app_dimer_fig6_freq}.
+
+What can be seen directly in the frequency-domain comparison is the following.
+At $t_{\mathrm{wait}}=\SI{46}{\femto\second}$, shown in the top panel, the spectral weight is concentrated mainly in the left column.
+The strongest features are the 11 diagonal peak at lower frequency and the 12 cross peak above it.
+The peaks 21 and 22 on the right are present, but much weaker.
+In the real part, 11 appears mainly positive, while 12 appears mainly negative.
+The imaginary part shows the same left-right imbalance, with the left-column peaks clearly dominating.
+
+At $t_{\mathrm{wait}}=\SI{62}{\femto\second}$, shown in the bottom panel, the dominant weight has shifted mainly into the bottom row.
+Now the strongest features are 11 and the lower-right cross peak 21, while the upper-row peaks 12 and 22 are much weaker.
+In simple words, the pattern changes from left-column dominated at \SI{46}{\femto\second} to bottom-row dominated at \SI{62}{\femto\second}.
+In the real part, the dominant peaks 11 and 21 now both appear mainly positive.
+In the imaginary part, the same intensity swap is visible, but with a different sign pattern, so that the dominant lower-row peaks at \SI{62}{\femto\second} appear mainly negative.
+
+From these observations, two conclusions follow.
+First, removing static disorder does not change the underlying peak positions.
+The same four resonances, diagonal peaks 11 and 22 and cross peaks 12 and 21, remain visible, but they become much more compact.
+This shows that static disorder mainly broadens already existing dimer resonances instead of creating new ones.
+
+Second, the top and bottom panels look like two different phases of the same coherent beat.
+Between \SI{46}{\femto\second} and \SI{62}{\femto\second}, the strongest off-diagonal feature switches from 12 to 21, while the sign pattern changes at the same time.
+This is the kind of periodic redistribution expected for coherent electronic motion.
+The inhomogeneous spectra can therefore be read as broadened versions of these same underlying line-shape phases.
+
+\subsection{Amplitude balance in the regenerated dimer archive}
+\label{subsec:results_dimer_amplitudes}
+
+To complement the figure-based waiting-time discussion, \autoref{tab:results_dimer_branch_ratios} collects global branch-max ratios for the regenerated dimer archive.
+This table compares rephasing and nonrephasing branches directly and adds the maximum absorptive amplitude as a compact magnitude diagnostic.
+As in the monomer case, the ratio $\max|S_{\mathrm{R}}|/\max|S_{\mathrm{NR}}|$ should nevertheless be interpreted with care.
+It tells only which branch contains the largest absolute feature in a given panel.
+For the dimer this does not identify a unique microscopic pathway, because diagonal peaks, cross peaks, and excited-state-absorption-related structures can all compete for the global maximum.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Branch-max ratios for the regenerated dimer waiting-time data and homogeneous companion without apodization. The ratios are $\max|S_{\mathrm{R}}|/\max|S_{\mathrm{NR}}|$ from the raw plot logs.}
+    \label{tab:results_dimer_branch_ratios}
+    \begin{tabular}{@{}lcccc@{}}
+        \toprule
+        Case & $t_{\mathrm{wait}}$ / fs & $\mathrm{R}/\mathrm{NR}$ time & $\mathrm{R}/\mathrm{NR}$ freq & $\max|\tilde{S}_{\mathrm{abs}}|$ \\
+        \midrule
+        Inhom. & 0   & 1.058 & 6.459  & $1.06\times10^{-2}$ \\
+        Inhom. & 16  & 4.513 & 19.617 & $9.61\times10^{-3}$ \\
+        Inhom. & 30  & 1.067 & 5.850  & $1.09\times10^{-2}$ \\
+        Inhom. & 46  & 3.371 & 18.937 & $9.64\times10^{-3}$ \\
+        Inhom. & 62  & 1.024 & 6.518  & $1.07\times10^{-2}$ \\
+        Inhom. & 108 & 1.500 & 11.901 & $9.84\times10^{-3}$ \\
+        Inhom. & 140 & 1.178 & 10.556 & $1.00\times10^{-2}$ \\
+        Inhom. & 310 & 1.015 & 9.916  & $1.02\times10^{-2}$ \\
+        Hom.   & 46  & 2.348 & 2.202  & $5.25\times10^{-2}$ \\
+        Hom.   & 62  & 0.973 & 0.587  & $7.81\times10^{-2}$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Several conclusions are nevertheless robust.
+In the inhomogeneous waiting-time sequence, the frequency-domain rephasing branch is larger than the nonrephasing branch at every displayed waiting time, with ratios between $5.85$ and $19.62$.
+This extends the trend already seen in the monomer table \autoref{tab:results_monomer_branch_ratios}: once static disorder is present, the frequency-domain spectrum again becomes clearly rephasing-dominated.
+The effect is even more pronounced in the dimer archive than in the monomer case, although the numerical values should not be compared too literally because the dimer contains several competing peaks and additional interfering pathways.
+The physically robust statement is therefore not that one individual dimer peak is always stronger, but that disorder-driven echo refocusing still produces the sharpest spectral features predominantly in the rephasing branch even after coupling, cross peaks, and waiting-time beats are introduced.
+
+By contrast, the time-domain maxima are much less systematic.
+In the inhomogeneous waiting-time sequence the ratios stay close to unity at $t_{\mathrm{wait}}=\SI{0}{\femto\second},\SI{30}{\femto\second},\SI{62}{\femto\second}$, and \SI{310}{\femto\second}, but increase strongly at \SI{16}{\femto\second} and \SI{46}{\femto\second}.
+These exceptional waiting times are separated by about one beat period and lie roughly halfway between the near-unity points.
+This strongly suggests that time-domain branch maxima mainly track the instantaneous phase of the excitonic beat rather than a fixed preference for one branch.
+The methodological lesson is therefore the same as in the monomer: time-domain peak heights are a much weaker diagnostic than frequency-domain spectra.
+The dimer adds one important new ingredient, however, because interference between the two one-exciton states now produces visible oscillatory excursions of the time-domain ratio that have no analogue in the static monomer.
+
+The homogeneous pair in \autoref{fig:app_dimer_fig6_time,fig:app_dimer_fig6_freq} makes this contrast even sharper.
+Between $t_{\mathrm{wait}}=\SI{46}{\femto\second}$ and \SI{62}{\femto\second}, that is over roughly half a beat period, the frequency-domain branch ratio changes from $2.20$ to $0.59$, so the dominant branch switches from rephasing to nonrephasing.
+A weaker reversal is already visible in time space, where the ratio drops from $2.35$ to $0.97$.
+This behaviour has no counterpart in the homogeneous monomer after pulse overlap, where the corresponding ratios relax back to unity.
+The dimer therefore shows that branch imbalance can arise even without static disorder: in the homogeneous case it reflects coherent interference between several dimer pathways, whereas in the inhomogeneous case this interference is superimposed on a robust echo bias toward the rephasing branch.
+
+Finally, the absolute absorptive maxima show that a larger peak height should not be confused with a physically stronger dimer response.
+The homogeneous companion panels reach $\max|\tilde{S}_{\mathrm{abs}}|=5.25\times10^{-2}$ and $7.81\times10^{-2}$, whereas the inhomogeneous waiting-time sequence remains near $10^{-2}$.
+This is consistent with the monomer broadening discussion: removing static disorder concentrates the signal into narrower features and therefore increases the local maximum, while inhomogeneous broadening spreads comparable spectral weight over a broader diagonal region and lowers the peak height.
+For that reason, \autoref{tab:results_dimer_branch_ratios} is best read as a diagnostic of branch balance and line-shape concentration, not as a direct measure of total emitted intensity or of population-transfer efficiency.
+
+
+\subsection{Dimer summary}
+\label{subsec:results_dimer_summary}
+
+The dimer results extend the monomer benchmark from broadening physics to coupled excitonic dynamics. At zero waiting time, the coupled system shows cross peaks in addition to the diagonal peaks. Their presence identifies excitonic coupling between the one-exciton states, whereas the uncoupled control retains only the diagonal-peak structure.
+
+Beyond the pulse-overlap regime, the spectra do not remain static with waiting time. Instead, both peak amplitudes and peak shapes vary periodically. For the present parameter set, this modulation follows the exciton splitting \(\omega_{21}\) and is therefore assigned to an electronic coherence between the exciton states. In this sense, the waiting-time sequence resolves the characteristic coherent feature of the coupled dimer: a periodic redistribution of spectral weight across both diagonal and off-diagonal peaks.
+
+At longer waiting times, the oscillatory modulation becomes damped and the spectra show an additional intensity redistribution. This slower evolution is assigned to dissipative population transfer within the one-exciton manifold, as generated by the Redfield dynamics used in the present model. The homogeneous companion spectra show that removing static disorder does not change the underlying peak positions. The same diagonal and cross-peak pattern remains visible, but in a more compact form. Static disorder therefore broadens the existing dimer resonances rather than creating new spectral features.
+
+Taken together, the dimer results establish three central physical signatures that are absent in the monomer: cross peaks as a signature of excitonic coupling, waiting-time beats as a signature of electronic coherence, and late-time intensity redistribution as a signature of dissipative population dynamics. These observations reproduce the main physical interpretation of the dimer spectra discussed in Paper~II and provide the basis for the coupled-system analysis in the present workflow.
+
+\section{Selected Results for Larger \texorpdfstring{$N$}{N}-Site Models}
+\label{sec:results_nsite_extension}
+
+The numerical workflow developed in this chapter is not restricted to the
+monomer and dimer. The general \(N_{\mathrm{sites}}\)-site model is defined in
+~\autoref{sec:model_ensemble}, and the same implementation chain described in
+~\autoref{app:numerical_implementation} can be applied to it without changing
+the underlying spectroscopy workflow.
+
+As a first illustrative result set,
+~\autoref{fig:rslts_extension_ring_time_overview,fig:rslts_extension_ring_freq_overview}
+collect ring-aggregate panels from four newly generated runs: trimer single
+ring (\(N_{\mathrm{sites}}=3\)), trimer double ring (\(N_{\mathrm{sites}}=6\)), pentamer single ring (\(N_{\mathrm{sites}}=5\)), and
+tridecamer single ring (\(N_{\mathrm{sites}}=13\)). The same signal construction and
+post-processing steps are used as before, but now for the larger truncated
+multilevel systems defined in~\autoref{sec:model_ensemble}.
+
+\begin{figure}[htbp]
+  \centering
+  \safeplaceholdergraphic[1.15\linewidth]{figures/results_extension_ring_time_overview}
+  \caption{Selected time-domain results at $t_{\mathrm{wait}}=0$ for the ring-aggregate run set: trimer single ring (top-left), trimer double ring (top-right), pentamer single ring (bottom-left), and tridecamer single ring (bottom-right).}
+  \label{fig:rslts_extension_ring_time_overview}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \safeplaceholdergraphic[1.15\linewidth]{figures/results_extension_ring_freq_overview}
+  \caption{Selected frequency-domain results for the same ring-aggregate run set as in~\autoref{fig:rslts_extension_ring_time_overview}.}
+  \label{fig:rslts_extension_ring_freq_overview}
+\end{figure}
+
+These boards are intended as selected illustrative results rather than a full
+parameter study. They show that the fully defined model from
+~\autoref{sec:model_ensemble} can already be propagated and visualised for
+larger Hilbert spaces and different ring topologies. A broader parameter study
+and model-specific discussion remain natural follow-up tasks.
+
+\section{Chapter summary}
+\label{sec:results_summary}
+
+This chapter has shown how the spectroscopy workflow behaves across model
+systems of increasing complexity. For the monomer, the results separate
+homogeneous from inhomogeneous broadening and clarify how finite pulse overlap
+modifies the early-time response. For the dimer, coherent coupling generates
+cross peaks and waiting-time oscillations, while the homogeneous companion
+spectra help disentangle peak-shape changes from static disorder. The selected
+\(N_{\mathrm{sites}}\)-site results finally show that the same signal-processing scheme extends
+to larger excitonic systems, while the underlying Hilbert space and coupling
+network become substantially richer.
