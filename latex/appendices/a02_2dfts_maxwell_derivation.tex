@@ -14,7 +14,7 @@ This section makes explicit why the macroscopic polarisation is the source of th
 
 \subsection{Maxwell's Equations and Electromagnetic Potentials}
 \label{app:subsec:maxwell_eqs}
-In natural units ($\hbar = c = 1$) and Heaviside--Lorentz form, Maxwell's equations in the presence of charge and current densities $\varrho(\boldsymbol{r},t)$ and $\boldsymbol{j}(\boldsymbol{r},t)$ read \cite{guidry1991gaugefieldtheories}
+In natural units and Heaviside--Lorentz form, Maxwell's equations in the presence of charge and current densities $\varrho(\boldsymbol{r},t)$ and $\boldsymbol{j}(\boldsymbol{r},t)$ read \cite{guidry1991gaugefieldtheories}
 \begin{align}
 	\boldsymbol{\nabla} \times \boldsymbol{B}(\boldsymbol{r},t)
 	 & = \boldsymbol{j}(\boldsymbol{r},t) + \frac{\partial \boldsymbol{E}(\boldsymbol{r},t)}{\partial t},
@@ -181,30 +181,30 @@ The remaining task is to connect $\boldsymbol{P}^{(3)}$ to a measurable signal f
 \section{Slowly Varying Envelope Approximation and the Emitted Field}
 \label{app:sec:svea}
 
-The driven wave equation \autoref{eq:app_wave_eq_nonlinear} is solved to connect the nonlinear polarisation to the observed signal field. The slowly varying envelope approximation exploits the separation between the fast optical oscillation at carrier frequency $\omega_L$ and the slow evolution of envelopes. In this limit, the phase-matched signal field is proportional to the corresponding component of the nonlinear polarisation.
+The driven wave equation \autoref{eq:app_wave_eq_nonlinear} is solved to connect the nonlinear polarisation to the observed signal field. The slowly varying envelope approximation exploits the separation between the fast optical oscillation at carrier frequency $\omega_{\mathrm{L}}$ and the slow evolution of envelopes. In this limit, the phase-matched signal field is proportional to the corresponding component of the nonlinear polarisation.
 
 \subsection{Setup: Fourier Components and Ansatz}
 \label{app:subsec:fourier_ansatz}
 
 Consider a slab sample of thickness $L$ along $z$. The third-order polarisation contains Fourier components with different wavevector combinations $\boldsymbol{k}_\text{S}$. Phase matching selects which signal direction is observed, as discussed in~\autoref{subsec:spctr_phase_matching_condition}. A single component is written with a slowly varying envelope,
 \begin{equation}
-	\boldsymbol{P}_{\mathrm{NL}}(\boldsymbol{r},t) \supset \boldsymbol{P}_{\mathrm{S}}^{(3)}(t)\,e^{\mathrm{i}(\boldsymbol{k}_\text{S}\cdot\boldsymbol{r}-\omega_{L} t)} + \text{c.c.}
+	\boldsymbol{P}_{\mathrm{NL}}(\boldsymbol{r},t) \supset \boldsymbol{P}_{\mathrm{S}}^{(3)}(t)\,e^{\mathrm{i}(\boldsymbol{k}_\text{S}\cdot\boldsymbol{r}-\omega_{\mathrm{L}} t)} + \text{c.c.}
 	\label{eq:app_pol_component}
 \end{equation}
 where $\boldsymbol{P}_{\mathrm{S}}^{(3)}(t)$ varies slowly in time. 
 A corresponding forward-propagating field solution is sought with matching carrier phase,
 \begin{equation}
-	\boldsymbol{E}_{\mathrm{S}}(\boldsymbol{r},t) = \tfrac{1}{2}\,\boldsymbol{E}_{\mathrm{S}}(z,t)\,e^{\mathrm{i}(k'_{\mathrm{S}} z-\omega_{L} t)} + \text{c.c.},
+	\boldsymbol{E}_{\mathrm{S}}(\boldsymbol{r},t) = \tfrac{1}{2}\,\boldsymbol{E}_{\mathrm{S}}(z,t)\,e^{\mathrm{i}(k'_{\mathrm{S}} z-\omega_{\mathrm{L}} t)} + \text{c.c.},
 	\label{eq:app_field_ansatz}
 \end{equation}
-with dispersion relation $k'_{\mathrm{S}}=n(\omega_{L})\omega_{L}$.
+with dispersion relation $k'_{\mathrm{S}}=n(\omega_{\mathrm{L}})\omega_{\mathrm{L}}$.
 
 \subsection{SVEA Conditions}
 \label{app:subsec:svea_conditions}
 
 The SVEA assumes that the envelopes $\boldsymbol{E}_{\mathrm{S}}(z,t)$ and $\boldsymbol{P}_{\mathrm{S}}^{(3)}(t)$ vary slowly compared to the optical oscillation,
 \begin{equation}
-	\left|\partial_t \boldsymbol{E}_{\mathrm{S}}\right| \ll \omega_{L}\,\left|\boldsymbol{E}_{\mathrm{S}}\right|,
+	\left|\partial_t \boldsymbol{E}_{\mathrm{S}}\right| \ll \omega_{\mathrm{L}}\,\left|\boldsymbol{E}_{\mathrm{S}}\right|,
 	\qquad
 	\left|\partial_z^2 \boldsymbol{E}_{\mathrm{S}}\right| \ll k'_{\mathrm{S}}\,\left|\partial_z \boldsymbol{E}_{\mathrm{S}}\right|.
 	\label{eq:app_svea_conditions}
@@ -231,23 +231,23 @@ where the last step uses \autoref{eq:app_svea_conditions} to neglect $\partial_z
 
 For the time dependence, the analogous approximation is
 \begin{equation}
-	\partial_t^2\!\left[\boldsymbol{E}_{\mathrm{S}}(z,t)e^{-\mathrm{i}\omega_{L} t}\right] \approx -\omega_{L}^2\,\boldsymbol{E}_{\mathrm{S}}(z,t)e^{-\mathrm{i}\omega_{L} t},
+	\partial_t^2\!\left[\boldsymbol{E}_{\mathrm{S}}(z,t)e^{-\mathrm{i}\omega_{\mathrm{L}} t}\right] \approx -\omega_{\mathrm{L}}^2\,\boldsymbol{E}_{\mathrm{S}}(z,t)e^{-\mathrm{i}\omega_{\mathrm{L}} t},
 	\qquad
-	\partial_t^2\!\left[\boldsymbol{P}_{\mathrm{S}}^{(3)}(t)e^{-\mathrm{i}\omega_{L} t}\right] \approx -\omega_{L}^2\,\boldsymbol{P}_{\mathrm{S}}^{(3)}(t)e^{-\mathrm{i}\omega_{L} t}.
+	\partial_t^2\!\left[\boldsymbol{P}_{\mathrm{S}}^{(3)}(t)e^{-\mathrm{i}\omega_{\mathrm{L}} t}\right] \approx -\omega_{\mathrm{L}}^2\,\boldsymbol{P}_{\mathrm{S}}^{(3)}(t)e^{-\mathrm{i}\omega_{\mathrm{L}} t}.
 	\label{eq:app_time_derivatives_svea}
 \end{equation}
-The carrier oscillation at $\omega_L$ dominates, so second derivatives of the envelopes can be dropped.
+The carrier oscillation at $\omega_{\mathrm{L}}$ dominates, so second derivatives of the envelopes can be dropped.
 
 \subsection{Envelope Propagation Equation}
 \label{app:subsec:envelope_propagation}
 
-Insert \autoref{eq:app_pol_component} and \autoref{eq:app_field_ansatz} into \autoref{eq:app_wave_eq_nonlinear}. Using the SVEA derivative forms from \autoref{eq:app_second_derivative_svea} and \autoref{eq:app_time_derivatives_svea}, and imposing the dispersion relation $k_{\mathrm{S}}'^2=n^2(\omega_{L})\omega_{L}^2$, the leading carrier terms cancel. The result is a first-order propagation equation for the envelope,
+Insert \autoref{eq:app_pol_component} and \autoref{eq:app_field_ansatz} into \autoref{eq:app_wave_eq_nonlinear}. Using the SVEA derivative forms from \autoref{eq:app_second_derivative_svea} and \autoref{eq:app_time_derivatives_svea}, and imposing the dispersion relation $k_{\mathrm{S}}'^2=n^2(\omega_{\mathrm{L}})\omega_{\mathrm{L}}^2$, the leading carrier terms cancel. The result is a first-order propagation equation for the envelope,
 \begin{equation}
 	\mathrm{i} k'_{\mathrm{S}}\,\frac{\partial \boldsymbol{E}_{\mathrm{S}}(z,t)}{\partial z}
-	= -\omega_{L}^2\,\boldsymbol{P}_{\mathrm{S}}^{(3)}(t)\,e^{\mathrm{i}\Delta k\,z},
+	= -\omega_{\mathrm{L}}^2\,\boldsymbol{P}_{\mathrm{S}}^{(3)}(t)\,e^{\mathrm{i}\Delta k\,z},
 	\label{eq:app_envelope_propagation}
 \end{equation}
-where $\Delta k = k_{\mathrm{S}} - k'_{\mathrm{S}}$ is the phase mismatch between the polarisation wavevector and the propagation constant $k'_{\mathrm{S}} = n(\omega_{L})\omega_{L}$. This equation shows how the field builds up through the sample, driven locally by the induced polarisation.
+where $\Delta k = k_{\mathrm{S}} - k'_{\mathrm{S}}$ is the phase mismatch between the polarisation wavevector and the propagation constant $k'_{\mathrm{S}} = n(\omega_{\mathrm{L}})\omega_{\mathrm{L}}$. This equation shows how the field builds up through the sample, driven locally by the induced polarisation.
 
 \subsection{Integration and Sinc Factor}
 \label{app:subsec:integration_sinc}
@@ -255,7 +255,7 @@ where $\Delta k = k_{\mathrm{S}} - k'_{\mathrm{S}}$ is the phase mismatch betwee
 \autoref{eq:app_envelope_propagation} is integrated across the sample. With no signal at the entrance, $\boldsymbol{E}_{\mathrm{S}}(0,t)=0$, integration from $z=0$ to $z=L$ gives the exiting signal field,
 \begin{equation}
 	\boldsymbol{E}_{\mathrm{S}}(L,t)
-	= \mathrm{i}\,\frac{\omega_{L}}{n(\omega_{L})}\,\boldsymbol{P}_{\mathrm{S}}^{(3)}(t)\,L\,e^{\mathrm{i}\Delta k L/2}\,\mathrm{sinc}\!\left(\frac{\Delta k L}{2}\right).
+	= \mathrm{i}\,\frac{\omega_{\mathrm{L}}}{n(\omega_{\mathrm{L}})}\,\boldsymbol{P}_{\mathrm{S}}^{(3)}(t)\,L\,e^{\mathrm{i}\Delta k L/2}\,\mathrm{sinc}\!\left(\frac{\Delta k L}{2}\right).
 	\label{eq:app_sinc}
 \end{equation}
 This result shows that the emitted signal field is directly proportional to the corresponding component of $\boldsymbol{P}_{\mathrm{S}}^{(3)}$, and the $\mathrm{sinc}$ term captures phase-mismatch suppression. The response is maximal near $\Delta k \approx 0$.
@@ -263,7 +263,7 @@ This result shows that the emitted signal field is directly proportional to the 
 When the experiment is phase matched, $\Delta k\approx 0$, so $\mathrm{sinc}(\Delta k L/2)\to 1$ and $e^{\mathrm{i}\Delta k L/2}\to 1$. \autoref{eq:app_sinc} then reduces to
 \begin{equation*}
 	\boldsymbol{E}_{\mathrm{S}}(t)\equiv \boldsymbol{E}_{\mathrm{S}}(L,t)
-	\propto \mathrm{i}\,\frac{\omega_{L}}{n(\omega_{L})}\,\boldsymbol{P}_{\mathrm{S}}^{(3)}(t)\,L.
+	\propto \mathrm{i}\,\frac{\omega_{\mathrm{L}}}{n(\omega_{\mathrm{L}})}\,\boldsymbol{P}_{\mathrm{S}}^{(3)}(t)\,L.
 \end{equation*}
 
 In the frequency domain, this relation takes the analogue form

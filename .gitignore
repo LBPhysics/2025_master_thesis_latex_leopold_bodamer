@@ -53,6 +53,8 @@ _minted*
 *.listing
 
 # Figure scratch files
+*.svg
+*.svg.*
 figures/**/.DS_Store
 figures/**/*~
 figures/**/.idea/

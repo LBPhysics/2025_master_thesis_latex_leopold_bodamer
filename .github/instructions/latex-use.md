@@ -79,6 +79,17 @@ Ask when any of the following is unclear:
 - Do not use italic descriptive subscripts.
 - If the meaning/choice is ambiguous, ask.
 
+### Fixed labels vs variables (GLOBAL)
+- If a symbol denotes a fixed, named object, set the label upright with `\mathrm{...}`.
+- Keep true variables, indices, and dummy summation labels italic.
+- This rule applies both in subscripts and inside state notation.
+- Examples:
+  - fixed labeEls: `\omega_{\mathrm{A}}`, `\omega_{\mathrm{eg}}`, `\omega_{\mathrm{L}}`, `\mu_{\mathrm{ge}}`, `\ket{\mathrm{g}}`, `\bra{\mathrm{e}}`, `\ket{\mathrm{AB}}`
+  - variables/indices: `\omega_n`, `J_{mn}`, `\ket{n}`, `\ket{ij}`, `\rho_{ab}`
+  - mixed cases: `\mu_{\mathrm{g}n}`, `\mu_{n\mathrm{g}}`
+- For the dimer, do not use `f` for the one concrete doubly excited state. Write `\ket{\mathrm{AB}}`, `\bra{\mathrm{AB}}`, `\mu_{n\mathrm{AB}}`, etc.
+- Reserve italic `f` only for a genuinely generic final-state label, e.g. a family such as `\{\ket{f}\}`.
+
 ### Repo-specific dimer note
 - For dimer work (`n_atoms > 1`, especially `n_atoms = 2`), ignore `deph_rate_fs`, `down_rate_fs`, and `up_rate_fs` in YAML/config files.
 - These fields are a monomer-only artefact that currently appears in shared configs for all `n_atoms`.
@@ -142,6 +153,23 @@ Use for bulky items required for full reproducibility but unsuitable for the the
 - Do not keep repeating throughout the chapter that figures are based on, adapted from, or oriented towards the reference papers.
 - Mention the reference papers again in the running text only when the present setup, figure, numerical choice, or interpretation differs from the published version, or when a concrete paper-vs-present comparison is the point of the paragraph.
 
+---
+
+## 11) Supervisor-note learnings from chapter revisions
+
+- If an annotated correction flags a local style, notation, or exposition problem, check the whole thesis for the same pattern and fix analogous cases consistently.
+- Introduce notation before first use. In particular, define thermal quantities such as `\beta` immediately when they appear, and keep one notation style throughout a chapter.
+- Keep trace notation consistent. Prefer one form globally within a chapter, e.g. `\mathrm{Tr}[...]`, instead of mixing bracket styles.
+- Do not use vague filler sentences such as forward references without content (`will be shown later`, `will be concretised later`, etc.). Every sentence must add concrete information or be removed.
+- When explaining decoherence or reduced states, prefer physically precise wording over broad phrases such as `statistical mixture` unless that statement is exactly justified.
+- Do not reintroduce notation conventions that are already defined globally elsewhere in the thesis unless the local context genuinely requires a reminder.
+- Avoid standalone `Units.` digressions inside derivations. Either integrate unit information into the surrounding explanation or place it in a more natural setup/implementation context.
+- Keep software and package names out of formal derivations and core scientific narrative unless the software itself is the topic. Put concrete implementation details in the implementation appendix or equivalent dedicated sections.
+- When working from handwritten supervisor annotations, treat the annotated PDF as the authority if the source has drifted, and record any genuinely unreadable note explicitly instead of guessing.
+
 
 
 Safely compile my LaTeX thesis project. Before building, check for and stop any running `latexmk`, `lualatex`, `biber`, or `perl` processes in this repo so there are no overlapping builds. Never run clean and compile in parallel. If stale or corrupted generated files block the build, delete only generated artifacts (`latex/main.*`, chapter/appendix `.aux`, `.bcf`, `.bbl`, `.blg`, `.toc`, `.out`, `.synctex*`, `.fls`, `.fdb_latexmk`, `.run.xml`) and never touch source `.tex` files or figure assets. Then compile from `latex/` with `latexmk -g -lualatex -interaction=nonstopmode -file-line-error -halt-on-error main.tex`, wait for it to finish, and report the real remaining errors or warnings briefly.
+
+
+The goal is to have the largest improvement in: - logical flow, - reader orientation, - clarity, - unambiguous scientific wording, - grammar and syntax. Rules: - Use simple, clear, scientifically appropriate language. - Avoid ambiguity completely. - Prefer positive formulations wherever possible.. - Only restructure if the benefit is significant. - Apply the Pareto principle: focus first on the few changes with the greatest impact a superivsor cares about (clarity, then scientific value). - Do not add physical interpretation, scientific content, or new claims unless explicitly requested. - Do not change the meaning. Source reliability rule: - All physical statements must agree with the underlying sources of this project. - In particular, check consistency with: 1. Paper I by Mančal et al., 2. Paper II by Pisliakov et al., 3. the lecture notes by Tomáš Mančal. - If a physical statement in my text is unsupported, unclear, too strong, or in tension with these sources, point this out explicitly. - Do not invent physics explanations, interpretations, or justifications. - When in doubt, prefer caution and mark the passage as needing verification. Output now: 1. Short diagnosis 2. Top changes by impact For the top changes: - separate structural/logical issues from minor language/syntax issues, - order them by expected benefit, - keep the comments brief and concrete. Do not provide the revised text yet. Only after my start signal: 3. Provide one final revised version in a single LaTeX code block. Text:
