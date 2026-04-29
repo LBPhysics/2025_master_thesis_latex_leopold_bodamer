@@ -52,18 +52,14 @@ Homogeneous broadening reflects the intrinsic linewidth of a single chromophore,
 Inhomogeneous broadening, by contrast, arises from static disorder in the molecular environment (e.g.\ different binding sites or solvent configurations), which distributes transition frequencies across the ensemble.
 This separation allows the homogeneous linewidth to be extracted even in strongly inhomogeneously broadened systems~\cite{bangertetal2022highresolutiontwodimensionalelectronic, freschetal2023twodimensionalelectronicspectroscopy}.
 In addition, two-dimensional spectra track spectral diffusion---time-dependent fluctuations of transition frequencies caused by a slowly evolving local environment---through the loss of frequency--frequency correlation with waiting time~\cite{cho2009twodimensionalopticalspectroscopy,mukamel1995principlesnonlinearoptical}.
-Cross peaks further visualise couplings between transitions and energy-transfer pathways, which are central to the analyses in this thesis. \todoimp{"maybe include a plot"}
 
-This thesis uses the response-function formalism to connect these experimental capabilities to the theoretical framework developed in~\autoref{chapter:oqs_open_quantum_systems}.
-The approach presented here follows~\cite{mancal2022nonlinearopticalspectroscopy}. \todoimp{Rel.}
-The response-function formalism links a given pulse sequence to the measured signal via the induced polarisation.
-By separating matter and field contributions, this formalism makes the perturbative order explicit.
+To describe these spectra theoretically, this chapter follows the treatment of nonlinear optical response by Mančal and uses the response-function formalism~\cite{mancal2022nonlinearopticalspectroscopy}. In this framework, the pulse sequence drives the system and generates an induced polarisation, whose third-order component radiates the detected nonlinear signal. The microscopic time evolution entering this polarisation is supplied by the open-system dynamics developed in~\autoref{chapter:oqs_open_quantum_systems}. Separating matter and field contributions makes the perturbative order explicit.
 The matter-side derivation---how incident fields generate $\boldsymbol{P}^{(n)}$---is given in~\autoref{app:response_functions} and shows how open-system master equations, such as the Redfield equation (microscopically derived in~\autoref{sec:oqs_Redfield_eq}), enter spectroscopy.
 The field-side derivation---how $\boldsymbol{P}^{(3)}$ radiates the signal---is given in~\autoref{app:2dfts_maxwell}.
 
 The remainder of this chapter is organized as follows.
 \autoref{sec:spctr_light_matter} introduces the semiclassical light--matter Hamiltonian in the dipole approximation, which establishes the fundamental microscopic interaction governing how laser pulses perturb molecular systems and provides the starting point for all spectroscopic calculations in this thesis.
-\autoref{sec:spctr_pol_and_macr_response} provides a unified summary of the two technical appendices by combining the matter-side response expansion with the Maxwell-side radiation step into one signal chain.
+\autoref{spctr:sec:macroscopic_polarisation} provides a unified summary of the two technical appendices by combining the matter-side response expansion with the Maxwell-side radiation step into one signal chain.
 \autoref{sec:spctr_response_formalism} then states the core response-function expressions and pathway structure used in the spectroscopy workflow.
 Finally, \autoref{sec:spctr_three_pulse_geometry}--\autoref{sec:spctr_2D_construction_formal} applies these ingredients to three-pulse experiments, phase matching, phase cycling, and 2D spectrum construction.
 
@@ -696,8 +692,8 @@ and for the nonrephasing component,
 	E_{\mathrm{NR}}(t_{\mathrm{coh}},t_{\mathrm{wait}},t_{\mathrm{det}}).
 	\label{eq:SNR_def}
 \end{equation}
-The waiting time is left in the time domain because it tracks the slower evolution of populations and longer-lived coherences between preparation and readout.
-At short waiting times $t_{\mathrm{wait}}$, diagonal features typically dominate, while at longer $t_{\mathrm{wait}}$ off-diagonal cross peaks reveal population transfer and coupling-induced redistribution between excited states.
+The waiting time is left in the time domain because it tracks the slower evolution between preparation and readout.
+At fixed \(t_{\mathrm{wait}}\), the resulting two-dimensional map correlates excitation and detection frequencies; diagonal peaks and off-diagonal cross peaks can then be tracked as functions of waiting time.
 
 The absorptive 2D spectrum is obtained from the real part of the sum
 \begin{equation}
