@@ -80,3 +80,5 @@ tmp/plot_datas_refresh/**/*.log
 tmp/plot_datas_refresh/**/*.stdout.txt
 tmp/plot_datas_refresh/**/*.stderr.txt
 tmp/dimer_config_audit/
+
+tmp/
