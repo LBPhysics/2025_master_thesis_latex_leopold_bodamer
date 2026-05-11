@@ -1,0 +1,318 @@
+% !TEX root = ../main.tex
+\providecommand{\dimerSecFullTimePath}{\detokenize{figures/svgs/extension_secular_comparison/15_212148_dimer_fig4_T000_redfield_rwa_thermal/figures/time_all_signals_real_imag_abs_dimer_fig4_T000_redfield_rwa_thermal}}
+\providecommand{\dimerSecFullFreqPath}{\detokenize{figures/svgs/extension_secular_comparison/15_212148_dimer_fig4_T000_redfield_rwa_thermal/figures/freq_all_signals_real_imag_abs_dimer_fig4_T000_redfield_rwa_thermal}}
+\providecommand{\dimerNonSecTimePath}{\detokenize{figures/svgs/extension_secular_comparison/16_205651_dimer_fig4_T000_redfield_rwa_thermal/figures/time_all_signals_real_imag_abs_dimer_fig4_T000_redfield_rwa_thermal}}
+\providecommand{\dimerNonSecFreqPath}{\detokenize{figures/svgs/extension_secular_comparison/16_205651_dimer_fig4_T000_redfield_rwa_thermal/figures/freq_all_signals_real_imag_abs_dimer_fig4_T000_redfield_rwa_thermal}}
+\providecommand{\pentamerSecTimePath}{\detokenize{figures/svgs/extension_secular_comparison/17_230632_pentamer_ring_single/figures/time_all_signals_real_imag_abs_pentamer_ring_single}}
+\providecommand{\pentamerSecFreqPath}{\detokenize{figures/svgs/extension_secular_comparison/17_230632_pentamer_ring_single/figures/freq_all_signals_real_imag_abs_pentamer_ring_single}}
+\providecommand{\pentamerNonSecTimePath}{\detokenize{figures/svgs/extension_secular_comparison/17_231222_pentamer_ring_single/figures/time_all_signals_real_imag_abs_pentamer_ring_single}}
+\providecommand{\pentamerNonSecFreqPath}{\detokenize{figures/svgs/extension_secular_comparison/17_231222_pentamer_ring_single/figures/freq_all_signals_real_imag_abs_pentamer_ring_single}}
+\providecommand{\trimerSecTimePath}{\detokenize{figures/svgs/extension_secular_comparison/17_224610_trimer_ring_double/figures/time_all_signals_real_imag_abs_trimer_ring_double}}
+\providecommand{\trimerSecFreqPath}{\detokenize{figures/svgs/extension_secular_comparison/17_224610_trimer_ring_double/figures/freq_all_signals_real_imag_abs_trimer_ring_double}}
+\providecommand{\trimerNonSecTimePath}{\detokenize{figures/svgs/extension_secular_comparison/17_231158_trimer_ring_double/figures/time_all_signals_real_imag_abs_trimer_ring_double}}
+\providecommand{\trimerNonSecFreqPath}{\detokenize{figures/svgs/extension_secular_comparison/17_231158_trimer_ring_double/figures/freq_all_signals_real_imag_abs_trimer_ring_double}}
+\providecommand{\heptamerSingleSecTimePath}{\detokenize{figures/svgs/extension_secular_comparison/30_155009_heptamer_ring_single_secular_1e5/figures/time_all_signals_real_imag_heptamer_ring_single_secular_1e5}}
+\providecommand{\heptamerSingleSecFreqPath}{\detokenize{figures/svgs/extension_secular_comparison/30_155009_heptamer_ring_single_secular_1e5/figures/freq_all_signals_real_imag_heptamer_ring_single_secular_1e5}}
+\providecommand{\heptamerSingleNonSecTimePath}{\detokenize{figures/svgs/extension_secular_comparison/30_155005_heptamer_ring_single/figures/time_all_signals_real_imag_heptamer_ring_single}}
+\providecommand{\heptamerSingleNonSecFreqPath}{\detokenize{figures/svgs/extension_secular_comparison/30_155005_heptamer_ring_single/figures/freq_all_signals_real_imag_heptamer_ring_single}}
+\providecommand{\heptamerDoubleSecTimePath}{\detokenize{figures/svgs/extension_secular_comparison/29_223415_heptamer_ring_double_secular_1e5/figures/time_all_signals_real_imag_heptamer_ring_double_secular_1e5}}
+\providecommand{\heptamerDoubleSecFreqPath}{\detokenize{figures/svgs/extension_secular_comparison/29_223415_heptamer_ring_double_secular_1e5/figures/freq_all_signals_real_imag_heptamer_ring_double_secular_1e5}}
+\providecommand{\heptamerDoubleNonSecTimePath}{\detokenize{figures/svgs/extension_secular_comparison/29_223409_heptamer_ring_double/figures/time_all_signals_real_imag_heptamer_ring_double}}
+\providecommand{\heptamerDoubleNonSecFreqPath}{\detokenize{figures/svgs/extension_secular_comparison/29_223409_heptamer_ring_double/figures/freq_all_signals_real_imag_heptamer_ring_double}}
+\providecommand{\tridecamerSingleTimePath}{\detokenize{figures/svgs/extension_secular_comparison/19_225943_tridecamer_ring_single/figures/time_all_signals_real_imag_abs_tridecamer_ring_single}}
+\providecommand{\tridecamerSingleFreqPath}{\detokenize{figures/svgs/extension_secular_comparison/19_225943_tridecamer_ring_single/figures/freq_all_signals_real_imag_abs_tridecamer_ring_single}}
+
+\chapter{Secular and Non-Secular Comparison Panels}
+\label{app:extension_secular_comparison}
+
+This appendix records control comparisons between secular and non-secular
+Redfield calculations for the already-generated dimer and ring-aggregate
+examples. The purpose is conservative: before promoting any claim into the main
+text, the same plot layouts are inspected side by side to check whether the
+visual differences are negligible, modest, or clearly large enough to merit a
+stronger discussion.
+
+For the ring-extension examples, two secular reference choices appear. The
+pentamer single-excitation and trimer double-excitation comparisons use
+\(c_{\mathrm{sec}}=10^{-4}\), whereas the heptamer single- and
+double-excitation comparisons use the stricter choice \(c_{\mathrm{sec}}=10^{-5}\),
+matching the dimer benchmark more closely. In all cases, the corresponding
+non-secular comparison runs use \(c_{\mathrm{sec}}=-1\). In the implementation,
+this same dimensionless secular-cutoff parameter is passed to \texttt{QuTiP}
+under the keyword \texttt{sec\_cutoff}.
+
+The locally re-rendered comparison panels lead to the same qualitative
+conclusion as before. For the present examples, secular and non-secular
+propagation do not reorganize the spectra qualitatively. The dimer control
+still shows the clearest visible deviations. The pentamer, trimer, and both
+heptamer comparisons remain structurally very close, with differences limited
+mainly to modest local intensity redistributions. The appendix placement is
+therefore still the right level for the current stage of the analysis.
+
+\section{Dimer Control Pair}
+\label{app:sec:extension_secular_dimer}
+
+The dimer pair acts as a reference because it compares the same
+\(t_{\mathrm{wait}}=\SI{0}{\femto\second}\) setup already discussed in the
+benchmark part of the thesis. The secular and non-secular panels agree on the
+main diagonal and cross-peak structure. Only modest differences are visible in
+the branch-resolved intensity balance, especially in the nonrephasing and
+absorptive frequency-domain panels.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\dimerSecFullTimePath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\dimerNonSecTimePath}
+    \end{minipage}
+    \caption{Dimer control pair in the time domain at
+    \(t_{\mathrm{wait}}=\SI{0}{\femto\second}\). Left: secular benchmark
+    companion, \(c_{\mathrm{sec}}=10^{-5}\). Right: full non-secular
+    Bloch--Redfield propagation, \(c_{\mathrm{sec}}=-1\). The visible
+    differences are modest rather than structural.}
+    \label{fig:app_extension_secular_dimer_time}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\dimerSecFullFreqPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\dimerNonSecFreqPath}
+    \end{minipage}
+    \caption{Dimer control pair in the frequency domain for the same runs as
+    in~\autoref{fig:app_extension_secular_dimer_time}. The peak locations and
+    overall panel structure are unchanged, while branch intensities vary
+    slightly.}
+    \label{fig:app_extension_secular_dimer_freq}
+\end{figure}
+
+\section{Ring-Aggregate Comparisons}
+\label{app:sec:extension_secular_rings}
+
+The ring examples are more exploratory than the dimer control. They ask whether
+the already-generated larger-\(N\) extension panels change enough under
+secularisation to justify a dedicated main-text discussion. For the pentamer
+single-excitation, heptamer single-excitation, trimer double-excitation, and
+heptamer double-excitation pairs, the answer remains largely negative: the
+secular and non-secular spectra are visually almost the same, with only small
+local intensity changes. The heptamer controls are nevertheless useful because
+they extend the appendix to an intermediate system size in both the
+single- and double-manifold settings while remaining computationally tractable.
+
+\subsection{Pentamer Single-Excitation Pair}
+
+The pentamer \(1\mathrm{ex}\) pair is the cleanest larger-\(N\) control because
+both jobs use the same \(t_{\mathrm{wait}}=\SI{50}{\femto\second}\) snapshot.
+The secular and non-secular panels are visually nearly indistinguishable in
+both the time and frequency domains.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\pentamerSecTimePath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\pentamerNonSecTimePath}
+    \end{minipage}
+    \caption{Pentamer ring, single-excitation manifold, time-domain control
+    pair at \(t_{\mathrm{wait}}=\SI{50}{\femto\second}\). Left:
+    \(c_{\mathrm{sec}}=10^{-4}\). Right: \(c_{\mathrm{sec}}=-1\).}
+    \label{fig:app_extension_secular_pentamer_time}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\pentamerSecFreqPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\pentamerNonSecFreqPath}
+    \end{minipage}
+    \caption{Pentamer ring, single-excitation manifold, frequency-domain
+    control pair for the same runs as
+    in~\autoref{fig:app_extension_secular_pentamer_time}. The visible
+    differences are negligible on the scale of the full panel.}
+    \label{fig:app_extension_secular_pentamer_freq}
+\end{figure}
+
+\subsection{Heptamer Single-Excitation Pair}
+
+The heptamer \(1\mathrm{ex}\) pair extends the same comparison to a larger
+single-manifold ring while using the stricter secular reference
+\(c_{\mathrm{sec}}=10^{-5}\). In the locally re-rendered panels, the secular
+and non-secular spectra are almost indistinguishable. The dominant peak near
+\(\omega_{\mathrm{coh}} \approx \omega_{\mathrm{det}} \approx
+\SI{1.65e4}{\per\centi\meter}\) and the weaker off-diagonal satellite pattern
+appear in the same places in both calculations.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\heptamerSingleSecTimePath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\heptamerSingleNonSecTimePath}
+    \end{minipage}
+    \caption{Heptamer ring, single-excitation manifold, time-domain control
+    pair at \(t_{\mathrm{wait}}=\SI{50}{\femto\second}\). Left:
+    \(c_{\mathrm{sec}}=10^{-5}\). Right: \(c_{\mathrm{sec}}=-1\). In the local
+    rerender, both panels show the same oscillatory structure to very good
+    visual accuracy.}
+    \label{fig:app_extension_secular_heptamer_single_time}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\heptamerSingleSecFreqPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\heptamerSingleNonSecFreqPath}
+    \end{minipage}
+    \caption{Heptamer ring, single-excitation manifold, frequency-domain
+    control pair for the same runs as
+    in~\autoref{fig:app_extension_secular_heptamer_single_time}. The dominant
+    feature and the weaker satellite structure remain effectively unchanged
+    under secularisation.}
+    \label{fig:app_extension_secular_heptamer_single_freq}
+\end{figure}
+
+\subsection{Trimer Double-Excitation Pair}
+
+The trimer \(2\mathrm{ex}\) pair gives the same message after the
+double-excitation manifold is included. The denser nonrephasing structure is
+already present in both calculations, and secularisation produces only small
+local intensity changes.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\trimerSecTimePath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\trimerNonSecTimePath}
+    \end{minipage}
+    \caption{Trimer ring, double-excitation manifold, time-domain control pair
+    at \(t_{\mathrm{wait}}=\SI{50}{\femto\second}\). Left:
+    \(c_{\mathrm{sec}}=10^{-4}\). Right: \(c_{\mathrm{sec}}=-1\).}
+    \label{fig:app_extension_secular_trimer_time}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\trimerSecFreqPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\trimerNonSecFreqPath}
+    \end{minipage}
+    \caption{Trimer ring, double-excitation manifold, frequency-domain control
+    pair for the same runs as
+    in~\autoref{fig:app_extension_secular_trimer_time}. The visible differences
+    are small compared with the overall spectral structure.}
+    \label{fig:app_extension_secular_trimer_freq}
+\end{figure}
+
+\subsection{Heptamer Double-Excitation Pair}
+
+The heptamer \(2\mathrm{ex}\) pair provides an intermediate system size between
+the small trimer test case and the still more demanding tridecamer limit. As
+for the single-manifold heptamer control, the
+comparison uses \(c_{\mathrm{sec}}=10^{-5}\) against
+\(c_{\mathrm{sec}}=-1\).
+
+In the local rerender, the double-manifold panels are again very close. The
+frequency-domain peak positions and the main branch pattern remain intact, and
+the time-domain oscillatory texture is preserved as well. The visible effect of
+secularisation is therefore limited to modest local redistributions rather than
+to a qualitative spectral change.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\heptamerDoubleSecTimePath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\heptamerDoubleNonSecTimePath}
+    \end{minipage}
+    \caption{Heptamer ring, double-excitation manifold, time-domain control
+    pair at \(t_{\mathrm{wait}}=\SI{50}{\femto\second}\). Left: stricter
+    secular comparison, \(c_{\mathrm{sec}}=10^{-5}\). Right:
+    \(c_{\mathrm{sec}}=-1\). The locally re-rendered panels retain the same
+    overall oscillatory texture, with only small visual differences.}
+    \label{fig:app_extension_secular_heptamer_time}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\heptamerDoubleSecFreqPath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\heptamerDoubleNonSecFreqPath}
+    \end{minipage}
+    \caption{Heptamer ring, double-excitation manifold, frequency-domain
+    control pair for the same runs as
+    in~\autoref{fig:app_extension_secular_heptamer_time}. The dominant peak
+    positions and the overall branch layout remain stable, even though the
+    branch intensities shift somewhat between the secular and non-secular
+    calculations.}
+    \label{fig:app_extension_secular_heptamer_freq}
+\end{figure}
+
+\subsection{Tridecamer Single-Excitation Context Panel}
+
+At present, only the non-secular tridecamer \(1\mathrm{ex}\) snapshot is
+available. It is therefore included here only as contextual background for the
+planned double-manifold follow-up runs, not as an A/B claim.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\tridecamerSingleTimePath}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \safeplaceholdergraphic[1.18\linewidth]{\tridecamerSingleFreqPath}
+    \end{minipage}
+    \caption{Tridecamer ring, single-excitation manifold, non-secular
+    reference snapshot. Left: time domain. Right: frequency domain. This panel
+    serves as context until the corresponding secular and double-manifold runs
+    are added.}
+    \label{fig:app_extension_secular_tridecamer_context}
+\end{figure}
+
+\section{Follow-Up Runs}
+\label{app:sec:extension_secular_followup}
+
+Taken together, the heptamer single- and double-excitation comparisons extend
+the appendix from the dimer benchmark to intermediate-size ring aggregates in
+both the single- and double-excitation settings, while keeping the main-text
+discussion unchanged. A natural further step would be a computationally
+manageable larger-\(N\) double-manifold companion approaching the tridecamer
+regime.

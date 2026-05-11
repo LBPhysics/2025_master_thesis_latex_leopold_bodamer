@@ -1,4 +1,4 @@
-% !TEX root = ../main.tex
+	% !TEX root = ../main.tex
 \chapter{Open Quantum Systems} % Main chapter title
 \label{chapter:oqs_open_quantum_systems} % Label for referencing this chapter
 
@@ -15,7 +15,7 @@ an open system generally exhibits effective non-unitary dynamics once the enviro
 
 Concrete examples include atoms subject to vacuum electromagnetic field fluctuations~\cite{breuerpetruccione2007theoryopenquantum}, quantum dots in solid-state settings coupled to phonons~\cite{kimetal2022analogquantumsimulation}, molecular systems interacting with surrounding solvent degrees of freedom~\cite{mukamel1995principlesnonlinearoptical}, and quantum computers whose coherence can be rapidly degraded by environmental noise~\cite{laddetal2010quantumcomputers}.
 
-For molecular chemistry and biological complexes, the relevant quantum degrees of freedom are embedded in warm, wet, and structurally complex environments, so strong decoherence and fast relaxation are expected. Yet these systems must still obey quantum laws, so the task is to explain classical-looking behaviour within a fully quantum description.~\cite{schlosshauer2007decoherencequantumtoclassicaltransition}.
+For molecular chemistry and biological complexes, the relevant quantum degrees of freedom are embedded in warm, wet, and structurally complex environments, so strong decoherence and fast relaxation are expected. Yet these systems must still obey quantum laws, so the task is to explain classical-looking behaviour within a fully quantum description~\cite{schlosshauer2007decoherencequantumtoclassicaltransition}.
 
 
 This chapter provides the theoretical foundation for including environmental effects in the quantum-dynamical models used throughout the thesis. A practical weak-coupling description is introduced that connects microscopic Hamiltonians to relaxation/dephasing rates and to bath models used later in applications and simulations.
@@ -60,22 +60,24 @@ Because the probabilities $p_i$ are real and nonnegative, $\hat{\rho}$ is Hermit
 	\bra{\psi} \hat{\rho} \ket{\psi} & \geq 0 \quad \forall \ket{\psi}, \notag\\
 	\mathrm{Tr}[\hat{\rho}]          & = 1. \notag
 \end{align*}
-
 In an arbitrary basis $\{\ket{i}\}$, the diagonal elements $\rho_{ii}$ represent populations and the off-diagonal elements $\rho_{ij}$ represent coherences between states.
 Coherences are phase relations, which are crucial for interference.
-For example for a two level system a clear phase relation and a pure quantum state would have off diagonal elements of $ \rho_{ij} = 1/2$.
-This state is often referred to as a fully coherent superposition of the two states.
+For example, in a two-level system, the pure state \((\ket{0}+\ket{1})/\sqrt{2}\) has off-diagonal elements \(\rho_{01}=\rho_{10}=1/2\) in the \(\{\ket{0},\ket{1}\}\) basis. More generally, the magnitude and phase of the off-diagonal elements encode the coherence between basis states.This state is often referred to as a fully coherent superposition of the two states.
 
 When a system is coupled to an environment, the system--environment interaction can suppress the off-diagonal elements of the reduced density matrix in the basis selected by this interaction. The reduced state is then approximately described by populations with suppressed coherences, even though the total system--environment state may still evolve unitarily.
 
-The mean value or expectation value of an operator $\hat{A}$ is obtained by averaging the pure-state expectation values with the probabilities $p_i$:
+The expectation value of an operator \(\hat{A}\) in the state \(\hat{\rho}\) is given by
+\begin{equation*}
+	\langle \hat{A} \rangle = \mathrm{Tr}[\hat{\rho}\,\hat{A}].
+\end{equation*}
+If the density matrix is written in the ensemble form of~\autoref{eq:oqs_DensityMatrix},
 \begin{align*}
-	\langle \hat{A} \rangle & = \sum_i p_i \bra{\psi_i} \hat{A} \ket{\psi_i}                                  \notag\\
-	                        & = \sum_n \sum_i p_i \bra{\psi_i} \hat{A} \ket{\phi_n} \bra{\phi_n} \ket{\psi_i} \notag\\
-	                        & = \sum_n \bra{\phi_n} \big(\sum_i \ket{\psi_i} p_i \bra{\psi_i} \hat{A} \big) \ket{\phi_n} \notag\\
-	                        & = \mathrm{Tr}[\hat{\rho}\, \hat{A}]. \notag
+	\langle \hat{A} \rangle
+	&= \mathrm{Tr}\!\left[\sum_i p_i \ket{\psi_i}\bra{\psi_i}\,\hat{A}\right] \notag\\
+	&= \sum_i p_i\,\mathrm{Tr}\!\left[\ket{\psi_i}\bra{\psi_i}\,\hat{A}\right] \notag\\
+	&= \sum_i p_i\,\bra{\psi_i}\hat{A}\ket{\psi_i}. \notag
 \end{align*}
-Here, an arbitrary basis $\{\ket{\phi_n}\}$ and a corresponding completeness relation $\sum_n \ket{\phi_n}\bra{\phi_n} = \mathds{1}$ was used.
+Thus, the trace formula reproduces the weighted average of pure-state expectation values. It depends only on \(\hat{\rho}\), not on the particular ensemble representation \(\{p_i,\ket{\psi_i}\}\).
 
 
 \subsubsection{Partial Trace}
@@ -88,7 +90,16 @@ Equivalently, in an orthonormal basis \(\{\ket{b_i}\}\) of \(\mathcal{H}_{\mathr
 \begin{equation} \label{eq:oqs_ho_partial_trace_definition}
 	\mathrm{Tr}_{\mathrm{B}} [\hat{X}] = \sum_i (\mathds{1}_{\mathrm{A}} \otimes \bra{b_i}) \, \hat{X} \, (\mathds{1}_{\mathrm{A}} \otimes \ket{b_i}).
 \end{equation}
-For a thermal state \(\hat{\rho}_{\beta} = Z^{-1} e^{-\beta \hat{H}}\) with inverse temperature \(\beta \equiv (k_{\mathrm{B}} T)^{-1}\), the expectation value in the energy eigenbasis of \(\hat{H}\) is
+For a Hamiltonian \(\hat{H}\), the associated thermal (Gibbs) state at inverse temperature \(\beta\) is
+\begin{equation}
+	\hat{\rho}_{\beta} = \frac{e^{-\beta \hat{H}}}{Z},
+	\qquad
+	Z = \mathrm{Tr}[e^{-\beta \hat{H}}],
+	\qquad
+	\beta \equiv (k_{\mathrm{B}} T)^{-1}.
+\label{eq:oqs_gibbs_state_definition}
+\end{equation}
+In units of \(k_{\mathrm{B}}=1\), this simplifies to \(\beta = T^{-1}\). The expectation value in the energy eigenbasis of \(\hat{H}\) is then
 \begin{equation}
 	\langle \hat{A} \rangle_{\beta}
 	=
@@ -232,70 +243,160 @@ The first-order term has the form of an additional system Hamiltonian and is abs
 	                                & = - \alpha^2 \int_0^t\!\mathrm{d}s\, \mathrm{Tr}_{\mathrm{E}} \big[\,\hat{H}_{\mathrm{int},\mathrm{I}}(t), [\hat{H}_{\mathrm{int},\mathrm{I}}(s), \hat{\rho}_{\mathrm{T},\mathrm{I}}(t)] \,\big].
 	\label{eq:oqs_Partial_Trace_Derivation}
 \end{align}
-To make the time-translation structure explicit, set $s' = t-s$ (equivalently, $\mathrm{d}s' = -\mathrm{d}s$). When $s$ runs from $0$ to $t$, $s'$ runs from $t$ to $0$. Reversing the limits removes the minus sign, so the integration range remains $[0,t]$. Using this change and expanding the double commutator,
+To make the time-translation structure explicit, introduce the delay variable
+\(\tau = t-s\). Then \(s=t-\tau\) and \(\mathrm{d}s=-\mathrm{d}\tau\). When \(s\) runs from \(0\) to \(t\), \(\tau\) runs from \(t\) to \(0\). Reversing the limits removes the minus sign, so
+\begin{equation*}
+	\int_0^t\!\mathrm{d}s\,F(s)
+	=
+	\int_0^t\!\mathrm{d}\tau\,F(t-\tau).
+\end{equation*}
+Thus the earlier interaction time \(s\) is replaced by \(t-\tau\), where \(\tau\) is the delay measured backwards from the current time \(t\). Using this change and expanding the double commutator,
 \begin{equation*}
 	\big[ A, [B, X] \big] = A B X - A X B - B X A + X B A,
 \end{equation*}
 \autoref{eq:oqs_Partial_Trace_Derivation} can be rewritten in the form
 \begin{align*}
-	\frac{\mathrm{d}}{\mathrm{d}t}\hat{\rho}_{\mathrm{S},\mathrm{I}}(t) & = \alpha^2 \int_0^t\!\mathrm{d}s \, \mathrm{Tr}_{\mathrm{E}} \bigg\{
-	\hat{H}_{\mathrm{int},\mathrm{I}}(t) \big[ \hat{H}_{\mathrm{int},\mathrm{I}}(t-s) \hat{\rho}_{\mathrm{T},\mathrm{I}}(t) - \hat{\rho}_{\mathrm{T},\mathrm{I}}(t) \, \hat{H}_{\mathrm{int},\mathrm{I}}(t-s) \big]                                                   \\
-	                                & \qquad\qquad\qquad\; - \big[ \hat{H}_{\mathrm{int},\mathrm{I}}(t-s) \hat{\rho}_{\mathrm{T},\mathrm{I}}(t) - \hat{\rho}_{\mathrm{T},\mathrm{I}}(t) \, \hat{H}_{\mathrm{int},\mathrm{I}}(t-s) \big] \hat{H}_{\mathrm{int},\mathrm{I}}(t)
-	\bigg\}.
+	\frac{\mathrm{d}}{\mathrm{d}t}\hat{\rho}_{\mathrm{S},\mathrm{I}}(t) 
+	&= -\alpha^2 \int_0^t\!\mathrm{d}\tau \, \mathrm{Tr}_{\mathrm{E}} \bigg[
+	\hat{H}_{\mathrm{int},\mathrm{I}}(t) 
+	\big[
+	\hat{H}_{\mathrm{int},\mathrm{I}}(t-\tau) \hat{\rho}_{\mathrm{T},\mathrm{I}}(t)
+	- \hat{\rho}_{\mathrm{T},\mathrm{I}}(t) \hat{H}_{\mathrm{int},\mathrm{I}}(t-\tau)
+	\big] \\
+	&\qquad\qquad\qquad
+	- \big[
+	\hat{H}_{\mathrm{int},\mathrm{I}}(t-\tau) \hat{\rho}_{\mathrm{T},\mathrm{I}}(t)
+	- \hat{\rho}_{\mathrm{T},\mathrm{I}}(t) \hat{H}_{\mathrm{int},\mathrm{I}}(t-\tau)
+	\big]\hat{H}_{\mathrm{int},\mathrm{I}}(t)
+	\bigg].
 \end{align*}
 Next, the assumption of~\autoref{eq:oqs_Initial_Product_State} is strengthened by requiring that throughout the evolution the total state remains close to a factorized form $\hat{\rho}_{\mathrm{T},\mathrm{I}}(t) \approx \hat{\rho}_{\mathrm{S},\mathrm{I}}(t) \otimes \hat{\rho}_{\mathrm{E},\mathrm{I}}(t)$. This can again be stated as the \textbf{Born approximation} of weak coupling.
-Collecting all system operators and all environment operators, and inserting the interaction Hamiltonian~\autoref{eq:oqs_Interaction_Hamiltonian} explicitly, the following expression is obtained. Operators at time $t - s$ are tracked with index $i'$ and at time $t$ with $i$
+Collecting all system operators and all environment operators, and inserting the interaction Hamiltonian~\autoref{eq:oqs_Interaction_Hamiltonian} explicitly, the following expression is obtained. Operators at the current time \(t\) are labelled by \(i\), while operators at the earlier time \(t-\tau\) are labelled by \(i'\):
 \begin{align*}
-	\frac{\mathrm{d}}{\mathrm{d}t}\hat{\rho}_{\mathrm{S},\mathrm{I}}(t) & = \alpha^2  \sum_{i, i'} \int_0^t\!\mathrm{d}s
+	\frac{\mathrm{d}}{\mathrm{d}t}\hat{\rho}_{\mathrm{S},\mathrm{I}}(t)
+	&= -\alpha^2  \sum_{i, i'} \int_0^t\!\mathrm{d}\tau
 	\bigg\{
-	\mathrm{Tr}_{\mathrm{E}} \big[ \hat{S}_{i,\mathrm{I}}(t) \hat{S}_{i',\mathrm{I}}(t-s) \hat{\rho}_{\mathrm{S},\mathrm{I}}(t)      \otimes   \hat{E}_{i,\mathrm{I}}(t) \hat{E}_{i',\mathrm{I}}(t-s) \hat{\rho}_{\mathrm{E},\mathrm{I}}(t)  \big] -                                     \\
-	                                & \mathrm{Tr}_{\mathrm{E}} \big[ \hat{S}_{i,\mathrm{I}}(t) \hat{\rho}_{\mathrm{S},\mathrm{I}}(t) \hat{S}_{i',\mathrm{I}}(t-s)      \otimes   \hat{E}_{i,\mathrm{I}}(t) \hat{\rho}_{\mathrm{E},\mathrm{I}}(t) \hat{E}_{i',\mathrm{I}}(t-s)  \big] -   \\
-	                                & \mathrm{Tr}_{\mathrm{E}} \big[ \hat{S}_{i',\mathrm{I}}(t-s) \hat{\rho}_{\mathrm{S},\mathrm{I}}(t) \hat{S}_{i,\mathrm{I}}(t)      \otimes   \hat{E}_{i',\mathrm{I}}(t-s) \hat{\rho}_{\mathrm{E},\mathrm{I}}(t) \hat{E}_{i,\mathrm{I}}(t)  \big] +   \\
-	                                & \mathrm{Tr}_{\mathrm{E}} \big[ \hat{\rho}_{\mathrm{S},\mathrm{I}}(t) \hat{S}_{i',\mathrm{I}}(t-s) \hat{S}_{i,\mathrm{I}}(t)      \otimes   \hat{\rho}_{\mathrm{E},\mathrm{I}}(t) \hat{E}_{i',\mathrm{I}}(t-s) \hat{E}_{i,\mathrm{I}}(t)  \big]
+	\mathrm{Tr}_{\mathrm{E}} \big[
+	\hat{S}_{i,\mathrm{I}}(t)
+	\hat{S}_{i',\mathrm{I}}(t-\tau)
+	\hat{\rho}_{\mathrm{S},\mathrm{I}}(t)
+	\otimes
+	\hat{E}_{i,\mathrm{I}}(t)
+	\hat{E}_{i',\mathrm{I}}(t-\tau)
+	\hat{\rho}_{\mathrm{E},\mathrm{I}}(t)
+	\big] \\
+	&\qquad
+	-
+	\mathrm{Tr}_{\mathrm{E}} \big[
+	\hat{S}_{i,\mathrm{I}}(t)
+	\hat{\rho}_{\mathrm{S},\mathrm{I}}(t)
+	\hat{S}_{i',\mathrm{I}}(t-\tau)
+	\otimes
+	\hat{E}_{i,\mathrm{I}}(t)
+	\hat{\rho}_{\mathrm{E},\mathrm{I}}(t)
+	\hat{E}_{i',\mathrm{I}}(t-\tau)
+	\big] \\
+	&\qquad
+	-
+	\mathrm{Tr}_{\mathrm{E}} \big[
+	\hat{S}_{i',\mathrm{I}}(t-\tau)
+	\hat{\rho}_{\mathrm{S},\mathrm{I}}(t)
+	\hat{S}_{i,\mathrm{I}}(t)
+	\otimes
+	\hat{E}_{i',\mathrm{I}}(t-\tau)
+	\hat{\rho}_{\mathrm{E},\mathrm{I}}(t)
+	\hat{E}_{i,\mathrm{I}}(t)
+	\big] \\
+	&\qquad
+	+
+	\mathrm{Tr}_{\mathrm{E}} \big[
+	\hat{\rho}_{\mathrm{S},\mathrm{I}}(t)
+	\hat{S}_{i',\mathrm{I}}(t-\tau)
+	\hat{S}_{i,\mathrm{I}}(t)
+	\otimes
+	\hat{\rho}_{\mathrm{E},\mathrm{I}}(t)
+	\hat{E}_{i',\mathrm{I}}(t-\tau)
+	\hat{E}_{i,\mathrm{I}}(t)
+	\big]
 	\bigg\}.
 \end{align*}
-Since the trace only acts on the environment, the system operators can be taken out of the trace, and the two-point correlation functions are defined using~\autoref{eq:oqs_ho_expectation_value}
+Since the trace only acts on the environment, the system operators can be taken out of the trace. The two-point bath correlation functions are defined as
 \begin{equation}
-	C_{ii'}(t, s) \equiv \langle \hat{E}_{i,\mathrm{I}}(t) \hat{E}_{i',\mathrm{I}}(t-s) \rangle = \mathrm{Tr}_{\mathrm{E}} \big[\hat{E}_{i,\mathrm{I}}(t) \hat{E}_{i',\mathrm{I}}(t-s) \, \hat{\rho}_{\mathrm{E},\mathrm{I}}(t)\big].
+	C_{ii'}(t,\tau)
+	\equiv
+	\left\langle
+	\hat{E}_{i,\mathrm{I}}(t)
+	\hat{E}_{i',\mathrm{I}}(t-\tau)
+	\right\rangle
+	=
+	\mathrm{Tr}_{\mathrm{E}}\!\left[
+	\hat{\rho}_{\mathrm{E},\mathrm{I}}(t)
+	\hat{E}_{i,\mathrm{I}}(t)
+	\hat{E}_{i',\mathrm{I}}(t-\tau)
+	\right].
 	\label{eq:oqs_Environment_Correlation_Function}
 \end{equation}
-The term ``two-point'' means that the bath operators $\hat{E}_{i}$ and $\hat{E}_{i'}$ are evaluated at two different times.
-Up to this point, the derivation has been general and no assumption of stationarity was required. The correlator can depend on both times through $\hat{\rho}_{\mathrm{E},\mathrm{I}}(t)$. Now the bath is taken to be stationary, i.e. $[\hat{H}_{\mathrm{E}},\hat{\rho}_{\mathrm{E}}(0)]=0$. This implies $\hat{\rho}_{\mathrm{E},\mathrm{I}}(t)=\hat{\rho}_{\mathrm{E}}(0)$ and therefore
-\begin{equation*}
-	C_{ii'}(t,s)=C_{ii'}(t-s).
-\end{equation*}
-To make this dependence explicit we introduce the time difference
-\begin{equation*}
-	\tau \equiv t-s,
-\end{equation*}
-and subsequently write $C_{ii'}(\tau)$ in place of $C_{ii'}(t,s)$.
+Here \(\tau\) is the time delay between the two bath operators. In the expression above it is the same delay variable that appears in the operator \(\hat{H}_{\mathrm{int},\mathrm{I}}(t-\tau)\).
 
-If the bath operators are Hermitian, i.e. $\hat{E}_i^\dagger = \hat{E}_i$, and the bath state is stationary (i.e., $[\hat{H}_{\mathrm{E}}, \hat{\rho}_{\mathrm{E}}(0)]=0$), the cyclic property of the trace gives the conjugation relation
+Up to this point, no stationarity assumption has been made. The correlator may therefore depend on the absolute time \(t\) and on the delay \(\tau\). For a stationary bath,
 \begin{equation*}
-	C^{*}_{ii'}(\tau) = \tilde{C}_{ii'}(\tau) \equiv \langle \hat{E}_{i',\mathrm{I}}(t-\tau) \hat{E}_{i,\mathrm{I}}(t) \rangle,
+	[\hat{H}_{\mathrm{E}},\hat{\rho}_{\mathrm{E}}(0)]=0,
 \end{equation*}
-In the interaction picture, stationarity implies $\hat{\rho}_{\mathrm{E},\mathrm{I}}(t)=\hat{\rho}_{\mathrm{E},\mathrm{I}}(0)=\hat{\rho}_{\mathrm{E}}(0)$ and the correlators depend only on the time difference $\tau=t-s$. With $\hat{E}_{i,\mathrm{I}}(t) = e^{\mathrm{i} \hat{H}_{\mathrm{E}} t} \hat{E}_i e^{-\mathrm{i} \hat{H}_{\mathrm{E}} t}$ this implies the further symmetry condition
+the interaction-picture bath state is time independent,
 \begin{equation*}
-	C^{*}_{ii'}(-\tau) = C_{ii'}(\tau).
+	\hat{\rho}_{\mathrm{E},\mathrm{I}}(t)
+	=
+	\hat{\rho}_{\mathrm{E}}(0).
 \end{equation*}
-and thus finally obtain the desired form of the Redfield equation
+The correlator is then invariant under a common shift of both time arguments and depends only on the time difference. It is therefore written as
+\begin{equation*}
+	C_{ii'}(\tau)
+	\equiv
+	C_{ii'}(t,t-\tau)
+	=
+	\left\langle
+	\hat{E}_{i,\mathrm{I}}(\tau)
+	\hat{E}_{i',\mathrm{I}}(0)
+	\right\rangle .
+\end{equation*}
+
+If the bath operators are Hermitian, i.e. \(\hat{E}_i^\dagger=\hat{E}_i\), the complex conjugate of the stationary correlator satisfies
+\begin{equation*}
+	C_{ii'}^{*}(\tau)
+	=
+	C_{i'i}(-\tau).
+\end{equation*}
+This relation follows from stationarity and the cyclic property of the trace. Changing the integration variable from \(s\) to \(\tau=t-s\), the Redfield equation takes the form
 \begin{align}
-	\frac{\mathrm{d}}{\mathrm{d}t}\hat{\rho}_{\mathrm{S},\mathrm{I}}(t) = \alpha^2  \sum_{i, i'} \int_0^t\!\mathrm{d}s
+	\frac{\mathrm{d}}{\mathrm{d}t}\hat{\rho}_{\mathrm{S},\mathrm{I}}(t)
+	&=
+	-\alpha^2
+	\sum_{i,i'}
+	\int_0^t\!\mathrm{d}\tau\,
 	\bigg\{
-	C_{ii'}(t-s) \big[ \hat{S}_{i,\mathrm{I}}(t),  \hat{S}_{i',\mathrm{I}}(t-s) \hat{\rho}_{\mathrm{S},\mathrm{I}}(t) \big] + \text{H.c.}
+	C_{ii'}(\tau)
+	\big[
+	\hat{S}_{i,\mathrm{I}}(t),
+	\hat{S}_{i',\mathrm{I}}(t-\tau)
+	\hat{\rho}_{\mathrm{S},\mathrm{I}}(t)
+	\big]
+	+
+	\mathrm{H.c.}
 	\bigg\}.
-	\label{eq:oqs_Redfield_Equation_Non_Markovian}
+	\label{eq:oqs_Redfield_Equation_PreMarkov}
 \end{align}
 This form shows explicitly that the system evolution depends only on bath correlation functions evaluated along the free bath dynamics.
-
 
 \subsection{Markov Approximation}
 \label{subsec:oqs_markov_approximation}
 
-However \autoref{eq:oqs_Redfield_Equation_Non_Markovian} is still not Markovian, since it carries an explicit integration over time $t$.
+However \autoref{eq:oqs_Redfield_Equation_PreMarkov} is still not Markovian, since it carries an explicit integration over time $t$.
 An additional approximation is therefore introduced. Besides weak coupling, assume that the bath correlation functions decay on a characteristic time scale $\tau_E$ that is much shorter than the relevant system evolution time $\tau_S$, i.e.\ $\tau_E \ll \tau_S$. In particular, $C_{ii'}(\tau)$ becomes negligible for $\tau \gtrsim \tau_E$, so the integrand has support only on a short memory window. If the reduced state varies slowly on this window, one may approximate it as constant over the integration range and extend the upper limit to infinity, which yields a Markovian generator for $t \gg \tau_E$.
 \begin{equation*}
-	\int_0^t\!\mathrm{d}s\, C_{ii'}(t-s) f(s) \; \longrightarrow \; \int_0^{\infty}\!\mathrm{d}\tau\, C_{ii'}(\tau) f(t), \qquad (t \gg \tau_E),
+	\int_0^t\!\mathrm{d}\tau\, C_{ii'}(\tau) f(t-\tau)
+	\; \longrightarrow \;
+	\int_0^{\infty}\!\mathrm{d}\tau\, C_{ii'}(\tau) f(t),
+	\qquad (t \gg \tau_E).
 \end{equation*}
 where the slow variation of $\hat{\rho}_{\mathrm{S},\mathrm{I}}(t)$ and of the system operators on the time scale $\tau_E$ has been used.
 Applying this rule to \autoref{eq:oqs_Partial_Trace_Derivation} yields a \emph{time-local} Markovian Redfield generator. In the interaction picture the operators still carry explicit $t$-dependence, but the kernel is time-translation invariant and depends only on $\tau$, so the generator has no explicit dependence on absolute time beyond the system operators themselves
@@ -316,26 +417,69 @@ Equation~\autoref{eq:oqs_Redfield_Markov_TimeLocal} is the Redfield master equat
 
 In what follows, the origin and key properties of bath correlation functions (defined by \autoref{eq:oqs_Environment_Correlation_Function}) are outlined, their spectral Fourier representation is introduced, and the simultaneous encoding of emission and absorption processes is discussed.
 In particular, the decay of $C_{ii'}(\tau)$ on the bath correlation time $\tau_E$ quantifies how rapidly the environment “forgets”, and the Markov approximation used above is justified when $\tau_E$ is much shorter than the relevant system evolution time scales.
-The connection between $C_{ii'}(\tau)$ and the spectral density is direct and experimentally accessible. Modern noise spectroscopy techniques enable direct measurement of bath spectral properties from coherence-decay observations without requiring pulse sequences or prior knowledge of the system-bath coupling constants---providing parameter-free experimental access to the bath structure that drives decoherence in the e.g. molecular systems~\cite{vezvaeeetal2024fouriertransformnoise}.
+The connection between $C_{ii'}(\tau)$ and the spectral density is direct and experimentally accessible. Modern noise spectroscopy techniques enable direct measurement of bath spectral properties from coherence-decay observations without requiring pulse sequences or prior knowledge of the system-bath coupling constants---providing parameter-free experimental access to the bath structure that drives decoherence e.g. in molecular systems~\cite{vezvaeeetal2024fouriertransformnoise}.
 
 
 \subsection{Fourier Representation and Secular Approximation}
 \label{subsec:oqs_Fourier_and_secular}
 
-For a stationary thermal bath in equilibrium, where its state is given by the Gibbs state (see \autoref{subsec:oqs_bosonic_environment_gibbs}), the Kubo--Martin--Schwinger (KMS) condition relates correlations at positive and negative times via a shift into the complex time plane,
+For a stationary thermal bath in equilibrium at inverse temperature \(\beta\), the bath Gibbs state \(\hat{\rho}_{\mathrm{E},\beta}\) is obtained from~\autoref{eq:oqs_gibbs_state_definition} by setting \(\hat{H}=\hat{H}_{\mathrm{E}}\). The Kubo--Martin--Schwinger (KMS) condition then relates a thermal correlation function to one in which the operator order is exchanged and one operator is shifted into the complex time plane,
 \begin{equation}
-	C_{ii'}(\tau) \equiv \langle \hat{E}_{i,\mathrm{I}}(\tau) \hat{E}_{i',\mathrm{I}}(0) \rangle  =  \langle \hat{E}_{i,\mathrm{I}}(0) \hat{E}_{i',\mathrm{I}}(\tau + \mathrm{i} \beta) \rangle  \equiv C_{i'i}(\tau + \mathrm{i} \beta).
+	C_{ii'}(\tau)
+	\equiv
+	\left\langle
+	\hat{E}_{i,\mathrm{I}}(\tau)\hat{E}_{i',\mathrm{I}}(0)
+	\right\rangle
+	=
+	\left\langle
+	\hat{E}_{i',\mathrm{I}}(0)\hat{E}_{i,\mathrm{I}}(\tau+\mathrm{i}\beta)
+	\right\rangle
+	\equiv
+	C_{i'i}(-\tau-\mathrm{i}\beta).
 	\label{eq:oqs_kms_time_relation}
 \end{equation}
-A short proof of this relation in the eigenbasis of the bath Hamiltonian is as follows
+A short proof of this relation in the eigenbasis of the bath Hamiltonian, \(\hat{H}_{\mathrm{E}}\ket{n}=E_n\ket{n}\), is
 \begin{align*}
-	C_{ii'}(\tau + \mathrm{i} \beta) & = \mathrm{Tr}(\hat{\rho}_\beta \, \hat{E}_i \, \hat{E}_{i',\mathrm{I}}(\tau + \mathrm{i} \beta))                                       \\
-	                        & = \frac{1}{Z} \sum_{m,n} e^{-\beta E_n} \bra{n} \hat{E}_i \ket{m} \, \bra{m} \hat{E}_{i',\mathrm{I}}(\tau + \mathrm{i} \beta) \ket{n}  \\
-	                        & = \frac{1}{Z} \sum_{m,n} e^{-\beta E_n} e^{\mathrm{i}(E_m - E_n)(\tau + \mathrm{i} \beta)} (\hat{E}_i)_{nm} (\hat{E}_{i'})_{mn}        \\
-	                        & = \frac{1}{Z} \sum_{m,n} e^{-\beta E_m} e^{\mathrm{i}(E_n - E_m)\tau} (\hat{E}_{i'})_{nm} (\hat{E}_i)_{mn}                    \\
-	                        & = C_{i'i}(\tau).
+	\left\langle
+	\hat{E}_{i',\mathrm{I}}(0)\hat{E}_{i,\mathrm{I}}(\tau+\mathrm{i}\beta)
+	\right\rangle
+	&=
+	\mathrm{Tr}_{\mathrm{E}}\!\left[
+	\hat{\rho}_{\mathrm{E},\beta}
+	\hat{E}_{i',\mathrm{I}}(0)
+	\hat{E}_{i,\mathrm{I}}(\tau+\mathrm{i}\beta)
+	\right] \\
+	&=
+	\frac{1}{Z_{\mathrm{E}}}
+	\sum_{m,n}
+	e^{-\beta E_n}
+	\bra{n}\hat{E}_{i'}\ket{m}
+	\bra{m}\hat{E}_{i,\mathrm{I}}(\tau+\mathrm{i}\beta)\ket{n} \\
+	&=
+	\frac{1}{Z_{\mathrm{E}}}
+	\sum_{m,n}
+	e^{-\beta E_n}
+	e^{\mathrm{i}(E_m-E_n)(\tau+\mathrm{i}\beta)}
+	(\hat{E}_{i'})_{nm}
+	(\hat{E}_{i})_{mn} \\
+	&=
+	\frac{1}{Z_{\mathrm{E}}}
+	\sum_{m,n}
+	e^{-\beta E_m}
+	e^{\mathrm{i}(E_m-E_n)\tau}
+	(\hat{E}_{i'})_{nm}
+	(\hat{E}_{i})_{mn} \\
+	&=
+	\frac{1}{Z_{\mathrm{E}}}
+	\sum_{m,n}
+	e^{-\beta E_n}
+	e^{\mathrm{i}(E_n-E_m)\tau}
+	(\hat{E}_{i})_{nm}
+	(\hat{E}_{i'})_{mn} \\
+	&=
+	C_{ii'}(\tau).
 \end{align*}
-
+In the fourth line, \(e^{-\beta E_n}e^{-\beta(E_m-E_n)}=e^{-\beta E_m}\) was used. In the fifth line, the dummy indices \(m\) and \(n\) were interchanged.
 
 
 \subsubsection{Eigenoperator Decomposition}
@@ -351,18 +495,21 @@ In the interaction picture these acquire simple oscillatory phases
 \end{equation}
 Note that a time-independent system Hamiltonian $\hat{H}_{\mathrm{S}}$ is assumed here. The derivation can in principle be extended to time-dependent $\hat{H}_{\mathrm{S}}(t)$, for example in spectroscopy where external driving fields lead to an explicitly time-dependent system Hamiltonian \cite{mukamel1995principlesnonlinearoptical} (see \autoref{app:response_functions}). Generalizations of Markovian master-equation derivations to driven systems are discussed in~\cite{dabbruzzoetal2023timedependentregularizationredfield}.
 
-Inserting~\autoref{eq:oqs_Interaction_Picture_Eigenoperators} into~\autoref{eq:oqs_Redfield_Markov_TimeLocal} produces sums over oscillatory factors $e^{-\mathrm{i}(\omega - \omega') t}$ multiplying integrals of $C_{ii'}(\tau) e^{\mathrm{i} \omega' \tau}$. The inner commutator in~\autoref{eq:oqs_Redfield_Markov_TimeLocal} becomes
+For Hermitian system coupling operators, \(\hat{S}_i^\dagger(\omega)=\hat{S}_i(-\omega)\). It is then convenient to write one of the interaction-picture operators as
 \begin{equation*}
-	[\hat{S}_{i,\mathrm{I}}(t),\, \hat{S}_{i',\mathrm{I}}(t-\tau)\,\hat{\rho}_{\mathrm{S},\mathrm{I}}(t)]
-	= \sum_{\omega,\omega'} e^{-\mathrm{i}(\omega - \omega')t} e^{+\mathrm{i} \omega' \tau}
-	\big[ \hat{S}_i(\omega),\, \hat{S}_{i'}(\omega') \hat{\rho}_{\mathrm{S},\mathrm{I}}(t) \big],
+	\hat{S}_{i,\mathrm{I}}(t)
+	=
+	\sum_{\omega} e^{-\mathrm{i}\omega t}\hat{S}_i(\omega)
+	=
+	\sum_{\omega} e^{+\mathrm{i}\omega t}\hat{S}_i^\dagger(\omega).
 \end{equation*}
-and the total Redfield equation reads
+With this convention the frequency-resolved Redfield terms contain phase factors
+\(e^{-\mathrm{i}(\omega-\omega')t}\). These factors couple density-matrix elements associated with different Bohr frequencies in the non-secular Redfield equation, which can be written as
 \begin{equation}
 	\frac{\mathrm{d}}{\mathrm{d}t}\hat{\rho}_{\mathrm{S},\mathrm{I}}(t) = -\alpha^2 \sum_{i,i'} \sum_{\omega,\omega'} e^{-\mathrm{i}(\omega - \omega')t}
 	\left( \int_0^{\infty}\!\mathrm{d}\tau\, C_{ii'}(\tau)\, e^{+\mathrm{i} \omega' \tau} \right)
 	\big[ \hat{S}_i(\omega),\, \hat{S}_{i'}(\omega') \hat{\rho}_{\mathrm{S},\mathrm{I}}(t) \big]
-	+ \text{H.c.}.
+	+ \text{H.c.}
 	\label{eq:oqs_Redfield_Frequency_Decomposed}
 \end{equation}
 The correlator is now expressed in the frequency domain and the noise-power spectrum of the environment is defined \cite{lambertetal2026qutip5quantum}. To avoid confusion with the system coupling operators $\hat{S}_i$, we denote the bath spectrum by $\mathcal{S}(\omega)$
@@ -378,10 +525,14 @@ $\mathcal{S}(\omega)\ge 0$ \cite{clerketal2010introductionquantumnoise}.
 
 The KMS condition \autoref{eq:oqs_kms_time_relation} can now be translated to frequency domain, where it imposes the detailed-balance symmetry
 \begin{equation}
-	\mathcal{S}(-\omega) = e^{-\omega \beta} \mathcal{S}(\omega),
+	\mathcal{S}_{ii'}(-\omega)
+	=
+	e^{-\beta\omega}\mathcal{S}_{i'i}(\omega).
 	\label{eq:oqs_kms_spectral_relation}
 \end{equation}
-which ensures that upward and downward transition rates obey Boltzmann ratios.
+For a single bath operator, or for diagonal uncorrelated bath spectra, this reduces to
+\(\mathcal{S}(-\omega)=e^{-\beta\omega}\mathcal{S}(\omega)\).
+This ensures that upward and downward transition rates obey Boltzmann ratios.
 
 
 \vspace{1em}
@@ -400,7 +551,7 @@ which reduce \autoref{eq:oqs_Redfield_Frequency_Decomposed} to the compact form
 	= -\alpha^2 \sum_{i,i'} \sum_{\omega,\omega'} e^{-\mathrm{i}(\omega - \omega')t}
 	\, \chi_{ii'}(\omega') \,
 	\big[ \hat{S}_i(\omega),\, \hat{S}_{i'}(\omega') \hat{\rho}_{\mathrm{S},\mathrm{I}}(t) \big]
-	+ \text{H.c.}.
+	+ \text{H.c.}
 \end{equation*}
 Going back to the Schrödinger picture, this yields
 \begin{equation*}
@@ -419,7 +570,7 @@ which will be absorbed into a renormalized system Hamiltonian and disregarded in
 	\Big(
 	\hat{S}_{i'}(\omega')\,\hat{\rho}\, \hat{S}_i^\dagger(\omega)
 	- \hat{S}_i^\dagger(\omega)\hat{S}_{i'}(\omega')\,\hat{\rho}
-	\Big) + \text{H.c.}.
+	\Big) + \text{H.c.}
 	\label{eq:oqs_Redfield_Dissipator}
 \end{equation}
 
@@ -460,21 +611,19 @@ where $\gamma_{ii'}(\omega) = 2 \mathrm{Re}\,\chi_{ii'}(\omega)$. This form is g
 
 For a thermal bath in equilibrium, the bath correlation functions satisfy the KMS condition.
 In the weak-coupling limit with a full secular approximation, the resulting
-Lindblad generator has the Gibbs
-state as a stationary state (see \autoref{eq:oqs_ho_gibbs_state})~\cite{lendialicki2007quantumdynamicalsemigroups,davies1974markovianmasterequations}
+Lindblad generator has the system Gibbs state \(\hat{\rho}_{\mathrm{S},\beta} \propto e^{-\beta \hat{H}_{\mathrm{S}}}\) as a stationary state~\cite{lendialicki2007quantumdynamicalsemigroups,davies1974markovianmasterequations}
 \begin{equation*}
-  \mathcal{L}_{\mathrm{sec}}\!\left[\hat{\rho}_{\mathrm{Gibbs}}\right] = 0 .
+  \mathcal{L}_{\mathrm{sec}}\!\left[\hat{\rho}_{\mathrm{S},\beta}\right] = 0 .
 \end{equation*}
-
 By contrast, the non-secular (Bloch-)Redfield generator retains terms with $\omega\neq\omega'$,
 which couple populations and coherences in the energy basis. Without full secularization,
 quantum detailed balance and Gibbs stationarity are not guaranteed, even for a single thermal bath
 satisfying KMS~\cite{trushechkinetal2022openquantumsystem,breuerpetruccione2007theoryopenquantum}.
-In weak coupling, the stationary state typically differs from $\hat{\rho}_{\mathrm{Gibbs}}$ by corrections of
+In weak coupling, the stationary state typically differs from $\hat{\rho}_{\mathrm{S},\beta}$ by corrections of
 second order in the system--bath coupling (and may exhibit bath-induced population shifts and
 coherences).
 
-An important exception is pure dephasing, where the coupling operator commutes with the system Hamiltonian, $[\hat{A},\hat{H}_{\mathrm{S}}]=0$. In that case there is no energy exchange and $\hat{\rho}_\beta$ remains stationary also without secularization~\cite{breuerpetruccione2007theoryopenquantum}.
+An important exception is pure dephasing, where the coupling operator commutes with the system Hamiltonian, $[\hat{A},\hat{H}_{\mathrm{S}}]=0$. In that case there is no energy exchange and $\hat{\rho}_{\mathrm{S},\beta}$ remains stationary also without secularization~\cite{breuerpetruccione2007theoryopenquantum}.
 
 
 \subsubsection{Uncorrelated Hermitian Couplings}
@@ -533,59 +682,128 @@ The formal correlation functions introduced above are now specialized to the par
 \subsection{Bosonic Environment and Gibbs State}
 \label{subsec:oqs_bosonic_environment_gibbs}
 
-A bosonic bath is modelled as a (large) collection of independent harmonic oscillators in thermal equilibrium:
-
-The thermal state of the bosonic bath is given by the Gibbs density matrix
-\begin{equation}
-\hat{\rho}_{\mathrm{Gibbs}} = \frac{e^{-\beta \hat{H}_{\mathrm{E}}}}{\mathrm{Tr}[e^{-\beta \hat{H}_{\mathrm{E}}}]},
-\label{eq:oqs_ho_gibbs_state}
-\end{equation}
-so that for any bath operator $\hat{A}$,
+A bosonic bath is modelled as a large collection of independent harmonic oscillators in thermal equilibrium. Its Hilbert space factorises as
 \begin{equation*}
-\langle \hat{A} \rangle = \mathrm{Tr}(\hat{\rho}_{\mathrm{Gibbs}}\, \hat{A}) = \frac{1}{Z} \sum_n e^{-\beta E_n} A_{nn},
+	\mathcal{H}_{\mathrm{E}} = \bigotimes_k \mathcal{H}_k,
 \end{equation*}
-in the energy eigenbasis of $\hat{H}_{\mathrm{E}}$, where $Z = \mathrm{Tr}[e^{-\beta \hat{H}_{\mathrm{E}}}]$ and $\beta = T^{-1}$ is the inverse temperature of the environment. The bath Hamiltonian consists of independent harmonic oscillators
+where \(\mathcal{H}_k\) is the Fock space of mode \(k\). The bath Hamiltonian is
 \begin{equation}
-	\hat{H}_{\mathrm{E}} = \sum_k \omega_k \Big(\hat{b}_k^{\dagger} \hat{b}_k + \tfrac{1}{2}\Big),
+	\hat{H}_{\mathrm{E}} = \sum_k \hat{H}_{\mathrm{E},k},
+	\qquad
+	\hat{H}_{\mathrm{E},k} \equiv \omega_k \left(\hat{n}_k + \tfrac{1}{2}\right),
+	\qquad
+	\hat{n}_k = \hat{b}_k^{\dagger}\hat{b}_k.
 	\label{eq:oqs_ho_bath_hamiltonian}
 \end{equation}
-and the average energy of mode $k$ is
+Here \(\hat{H}_{\mathrm{E},k}\) acts only on \(\mathcal{H}_k\), with identity operators on all other modes. Applying the generic Gibbs-state definition~\autoref{eq:oqs_gibbs_state_definition} to the bath Hamiltonian and using the commutativity of the mode Hamiltonians, the bath Gibbs state factorises into single-mode Gibbs states:
+\begin{equation}
+	\hat{\rho}_{\mathrm{E},\beta}
+	=
+	\frac{e^{-\beta \hat{H}_{\mathrm{E}}}}{Z_{\mathrm{E}}}
+	=
+	\bigotimes_k \hat{\rho}_{k,\beta},
+	\qquad
+	\hat{\rho}_{k,\beta}
+	=
+	\frac{e^{-\beta \hat{H}_{\mathrm{E},k}}}{Z_k}.
+	\label{eq:oqs_ho_bath_state_factorization}
+\end{equation}
+The corresponding partition functions are
 \begin{equation*}
-	E_k = \omega_k (n_k + \tfrac{1}{2}),
+	Z_{\mathrm{E}}
+	=
+	\mathrm{Tr}_{\mathrm{E}}\!\left[e^{-\beta \hat{H}_{\mathrm{E}}}\right],
+	\qquad
+	Z_k
+	=
+	\mathrm{Tr}_k\!\left[e^{-\beta \hat{H}_{\mathrm{E},k}}\right],
 \end{equation*}
-with $n_k = \langle \hat{b}_k^{\dagger} \hat{b}_k \rangle$ the Bose--Einstein occupation number.
+where \(\mathrm{Tr}_k\) denotes the trace over the Fock space \(\mathcal{H}_k\) of mode \(k\).
+Thermal expectation values with respect to \(\hat{\rho}_{\mathrm{E},\beta}\) are denoted by \(\langle \cdot \rangle_\beta\), in accordance with~\autoref{eq:oqs_ho_expectation_value}.
 
-
-The zero-point contribution $E_{\mathrm{vac}} = \tfrac{1}{2} \sum_k \omega_k$ adds only a mode-independent constant to the bath energy. Constant energy offsets commute with all observables, so they neither modify thermal populations nor enter the correlation functions that drive the system dynamics. This term is therefore dropped in the dynamical equations (standard for normal ordering, where raising operators are placed to the left of lowering operators). For completeness, the $\tfrac{1}{2}$ is retained in the partition function $Z_k$ for normalization, but it cancels out of all correlation functions and rates. In other words, only energy \emph{differences} influence the evolution.
-
-
-
-\subsubsection{Single Mode Partition Function and Occupation}
+\subsubsection{Single-Mode Partition Function and Occupation}
 \label{subsubsec:oqs_single_mode}
 
-For a single mode $k$, the thermal state reads
+For a single mode \(k\), let \(\{\ket{m_k}\}_{m=0}^{\infty}\) be the number-state basis with
 \begin{equation*}
-	\hat{\rho} = \frac{e^{-\beta \omega_k \hat{b}^{\dagger}_k \hat{b}_k}}{Z_k},
+	\hat{n}_k\ket{m_k} = m\ket{m_k}.
 \end{equation*}
-with partition function
+The single-mode partition function is
 \begin{align*}
-	Z_k & \equiv \mathrm{Tr}\left[e^{-\beta \hat{H}_{\mathrm{E}}}\right] = \sum_{m=0}^{\infty} \bra{m} e^{-\beta \omega_k (\hat{b}^{\dagger}_k \hat{b}_k + \frac{1}{2})} \ket{m} \\
-	    & = \frac{e^{-\beta \omega_k / 2}}{1 - e^{-\beta \omega_k}}.
+	Z_k
+	&=
+	\sum_{m=0}^{\infty}
+	\bra{m_k}e^{-\beta \hat{H}_{\mathrm{E},k}}\ket{m_k} \\
+	&=
+	\sum_{m=0}^{\infty}
+	\bra{m_k}e^{-\beta \omega_k(\hat{n}_k+1/2)}\ket{m_k} \\
+	&=
+	\sum_{m=0}^{\infty}
+	e^{-\beta \omega_k(m+1/2)} \\
+	&=
+	\frac{e^{-\beta\omega_k/2}}{1-e^{-\beta\omega_k}}.
 \end{align*}
-The Bose--Einstein average occupation number follows using \autoref{eq:oqs_ho_derivation_geometric_sum} and is given by
-\begin{align} \label{eq:oqs_ho_expectation_number_operator}
-	n_k & = \langle \hat{b}_k^{\dagger} \hat{b}_k \rangle_{\mathrm{th}} = \mathrm{Tr} \left[ \hat{b}_k^{\dagger} \hat{b}_k \frac{e^{-\beta \hat{H}_{\mathrm{E}}}}{Z_k} \right]                               \\
-	    & = \frac{\mathrm{Tr} \left[ \hat{b}_k^{\dagger} \hat{b}_k e^{-\beta \omega_k \hat{b}_k^{\dagger} \hat{b}_k} \right]}{Z_k}                                                              \notag\\
-	    & = \frac{\sum_{m=0}^{\infty} \bra{m} \hat{b}_k^{\dagger} \hat{b}_k e^{-\beta \omega_k \hat{b}_k^{\dagger} \hat{b}_k} \ket{m}}{\frac{e^{-\beta \omega_k / 2}}{1 - e^{-\beta \omega_k}}} \notag\\%    &= \frac{e^{-\beta \omega_k}}{1 - e^{-\beta \omega_k}} \\
-	    & = \frac{e^{-\beta \omega_k}}{1 - e^{-\beta \omega_k}}                                                                                                                                 \notag\\
-	    & = \frac{1}{e^{\beta \omega_k} - 1}. \notag
-\end{align}
-\vspace{1em}
-Since the bath is composed of many independent modes, this calculation can be done for every mode, and the total partition function factorizes to
+The zero-point contribution \(E_{\mathrm{vac}}=\frac{1}{2}\sum_k\omega_k\) adds only a constant offset to the bath Hamiltonian. Constant energy offsets commute with all observables, so they neither modify thermal populations nor enter the correlation functions that drive the system dynamics. This term is therefore dropped in the dynamical equations, as is standard under normal ordering, where raising operators are placed to the left of lowering operators. For completeness, the \(\tfrac{1}{2}\) contribution is retained in the partition functions for normalisation, but it cancels out of all normalised correlation functions and rates. In other words, only energy differences influence the evolution.
+
+The zero-point factor \(e^{-\beta\omega_k/2}\) cancels between numerator and denominator of the single-mode Gibbs state. The same state can therefore be written as
 \begin{equation*}
-	Z_{\mathrm{bath}} = \prod_k Z_k = \prod_k \frac{e^{-\beta \omega_k /2}}{1 - e^{-\beta \omega_k}}.
+	\hat{\rho}_{k,\beta}
+	=
+	\frac{e^{-\beta \omega_k(\hat{n}_k+1/2)}}{\mathrm{Tr}_k\!\left[e^{-\beta \omega_k(\hat{n}_k+1/2)}\right]}
+	=
+	\frac{e^{-\beta \omega_k\hat{n}_k}}{\mathrm{Tr}_k\!\left[e^{-\beta \omega_k\hat{n}_k}\right]}
+	=
+	\left(1-e^{-\beta\omega_k}\right)
+	e^{-\beta\omega_k \hat{n}_k}.
 \end{equation*}
-With the thermal properties of the bath established, attention can be turned to its coupling to a small system of interest. The bath correlation functions from~\autoref{eq:oqs_Environment_Correlation_Function} are therefore calculated for the simple case of a single coupling operator $\hat{E}$. The derivation follows and slightly expands the one in \cite{thingna2013steadystatetransportproperties}.
+The Bose--Einstein mean occupation of mode \(k\) is
+\begin{align}
+	\bar{n}_k
+	&=
+	\langle \hat{n}_k \rangle_\beta
+	=
+	\mathrm{Tr}_k\!\left[\hat{\rho}_{k,\beta}\hat{n}_k\right] \notag\\
+	&=
+	\frac{\mathrm{Tr}_k\!\left[\hat{n}_k e^{-\beta\omega_k\hat{n}_k}\right]}
+	{\mathrm{Tr}_k\!\left[e^{-\beta\omega_k\hat{n}_k}\right]} \notag\\
+	&=
+	\frac{
+	\sum_{m=0}^{\infty}
+	\bra{m_k}\hat{n}_k e^{-\beta\omega_k\hat{n}_k}\ket{m_k}
+	}{
+	\sum_{m=0}^{\infty}
+	\bra{m_k}e^{-\beta\omega_k\hat{n}_k}\ket{m_k}
+	} \notag\\
+	&=
+	\frac{\sum_{m=0}^{\infty} m e^{-\beta\omega_k m}}
+	{\sum_{m=0}^{\infty} e^{-\beta\omega_k m}} \notag\\
+	&=
+	\left(1-e^{-\beta\omega_k}\right)
+	\sum_{m=0}^{\infty} m e^{-\beta\omega_k m} \notag\\
+	&=
+	\frac{e^{-\beta\omega_k}}{1-e^{-\beta\omega_k}}
+	=
+	\frac{1}{e^{\beta\omega_k}-1}.
+	\label{eq:oqs_ho_expectation_number_operator}
+\end{align}
+The corresponding mean energy of mode \(k\) is
+\begin{equation*}
+	\langle \hat{H}_{\mathrm{E},k} \rangle_\beta
+	=
+	\omega_k\left(\bar{n}_k+\tfrac{1}{2}\right).
+\end{equation*}
+For a finite set of independent modes, the total bath partition function factorises as
+\begin{equation*}
+	Z_{\mathrm{E}}
+	=
+	\prod_k Z_k
+	=
+	\prod_k
+	\frac{e^{-\beta\omega_k/2}}{1-e^{-\beta\omega_k}}.
+\end{equation*}
+For an infinite bath, normalised expectation values and correlation functions remain well defined after the constant zero-point factors cancel.
+
+With the thermal properties of the bath established, attention can now be turned to its coupling to a small system of interest. The bath correlation functions from~\autoref{eq:oqs_Environment_Correlation_Function} are therefore evaluated for the simple case of a single coupling operator \(\hat{E}\). The derivation follows and slightly expands the one in~\cite{thingna2013steadystatetransportproperties}.
 
 
 
@@ -612,14 +830,14 @@ Inserting~\cref{eq:oqs_ho_bath_operator_t0,eq:oqs_ho_bath_operator_tau} yields a
 	C(\tau) & = \sum_{n,m} \frac{c_n c_m}{\sqrt{4 m_n m_m \omega_n \omega_m}} \Big\langle \big(\hat{b}_n e^{-\mathrm{i} \omega_n \tau} + \hat{b}_n^{\dagger} e^{\mathrm{i} \omega_n \tau}\big) (\hat{b}_m + \hat{b}_m^{\dagger}) \Big\rangle,       \\[0.3em]
 	        & = \sum_{n,m} \frac{c_n c_m}{\sqrt{4 m_n m_m \omega_n \omega_m}} \Big( e^{-\mathrm{i} \omega_n \tau} \langle \hat{b}_n \hat{b}_m^{\dagger} \rangle + e^{\mathrm{i} \omega_n \tau} \langle \hat{b}_n^{\dagger} \hat{b}_m \rangle \Big),
 \end{align*}
-where mixed terms such as $\langle \hat{b}_n \hat{b}_m \rangle$ vanish for a thermal state of uncoupled oscillators.
+where mixed terms such as $\langle \hat{b}_n \hat{b}_m \rangle$ vanish for a thermal state of uncoupled oscillators, since the bath Gibbs state factorizes over modes as in~\autoref{eq:oqs_ho_bath_state_factorization}.
 Doing similar calculations to~\autoref{eq:oqs_ho_expectation_number_operator} gives
 \begin{equation*}
-	\langle \hat{b}_n \hat{b}_m^{\dagger} \rangle = \delta_{nm}(n_n+1) \quad \text{and} \quad \langle \hat{b}_n^{\dagger} \hat{b}_m \rangle = \delta_{nm} n_n,
+	\langle \hat{b}_n \hat{b}_m^{\dagger} \rangle = \delta_{nm}(\bar{n}_n+1) \quad \text{and} \quad \langle \hat{b}_n^{\dagger} \hat{b}_m \rangle = \delta_{nm}\bar{n}_n,
 \end{equation*}
-with $n_n = \langle \hat{b}_n^{\dagger} \hat{b}_n \rangle = 1/(e^{\beta \omega_n}-1)$ given by~\autoref{eq:oqs_ho_expectation_number_operator}. Using these results, the discrete form of the bath correlation function is obtained as
+with \(\bar{n}_n = \langle \hat{b}_n^{\dagger} \hat{b}_n \rangle = 1/(e^{\beta \omega_n}-1)\) given by~\autoref{eq:oqs_ho_expectation_number_operator}. Using these results, the discrete form of the bath correlation function is obtained as
 \begin{equation*}
-	C(\tau) = \sum_{n} \frac{c_n^2}{2 m_n \omega_n} \Big[(n_n+1) e^{-\mathrm{i} \omega_n \tau} + n_n e^{\mathrm{i} \omega_n \tau}\Big].
+	C(\tau) = \sum_{n} \frac{c_n^2}{2 m_n \omega_n} \Big[(\bar{n}_n+1) e^{-\mathrm{i} \omega_n \tau} + \bar{n}_n e^{\mathrm{i} \omega_n \tau}\Big].
 \end{equation*}
 
 
@@ -629,12 +847,11 @@ with $n_n = \langle \hat{b}_n^{\dagger} \hat{b}_n \rangle = 1/(e^{\beta \omega_n
 To connect this discrete expression with the continuum form, note that the correlator can be expanded by writing $e^{\pm \mathrm{i} \omega_n \tau} = \cos(\omega_n \tau) \pm \mathrm{i} \sin(\omega_n \tau)$. This yields
 \begin{equation*}
 	\begin{aligned}
-		C(\tau) & = \sum_{n} \frac{c_n^2}{2 m_n \omega_n} \Big[ (n_n+1)(\cos(\omega_n \tau) - \mathrm{i} \sin(\omega_n \tau)) + n_n(\cos(\omega_n \tau) + \mathrm{i} \sin(\omega_n \tau)) \Big] \\
-		& = \sum_{n} \frac{c_n^2}{2 m_n \omega_n} \Big[(2 n_n + 1) \cos(\omega_n \tau) - \mathrm{i} \sin(\omega_n \tau)\Big].
+		C(\tau) & = \sum_{n} \frac{c_n^2}{2 m_n \omega_n} \Big[ (\bar{n}_n+1)(\cos(\omega_n \tau) - \mathrm{i} \sin(\omega_n \tau)) + \bar{n}_n(\cos(\omega_n \tau) + \mathrm{i} \sin(\omega_n \tau)) \Big] \\
+		& = \sum_{n} \frac{c_n^2}{2 m_n \omega_n} \Big[(2 \bar{n}_n + 1) \cos(\omega_n \tau) - \mathrm{i} \sin(\omega_n \tau)\Big].
 	\end{aligned}
 \end{equation*}
-
-Since $2 n_n + 1 = 2/(e^{\beta \omega_n}-1) + 1 = \coth(\beta \omega_n / 2)$ (recall $\coth(x/2) = (e^{x}+1)/(e^{x}-1)$), this can be rewritten as
+Since \(2\bar{n}_n + 1 = 2/(e^{\beta \omega_n}-1) + 1 = \coth(\beta \omega_n / 2)\), this can be rewritten as
 \begin{equation*}
 	C(\tau) = \sum_{n} \frac{c_n^2}{2 m_n \omega_n} \Big[ \coth\Big(\frac{\beta \omega_n}{2}\Big) \cos(\omega_n \tau) - \mathrm{i} \sin(\omega_n \tau) \Big].
 \end{equation*}

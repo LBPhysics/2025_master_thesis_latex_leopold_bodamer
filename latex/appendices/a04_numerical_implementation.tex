@@ -62,7 +62,7 @@ bath-coupling parameter. The reference scale is
 \begin{equation}
 \bar{\omega}_0
 =
-\frac{1}{N_{\mathrm{sites}}}\sum_{i=1}^{N_{\mathrm{sites}}}\omega_i,
+\frac{1}{N}\sum_{i=1}^{N}\omega_i,
 \label{eq:app_characteristic_optical_scale}
 \end{equation}
 that is, the mean site transition frequency. Temperatures given in
@@ -88,7 +88,7 @@ T_{\mathrm{cm}^{-1}}
 \omega_{\mathrm{c}} = \left(\frac{\omega_{\mathrm{c}}}{\bar{\omega}_0}\right)\bar{\omega}_0,
 \end{equation*}
 before constructing the \texttt{QuTiP} environment.
-Equivalently, \SI{16000}{\per\centi\metre}\approx\SI{23022}{\kelvin}.
+Equivalently, \(\SI{16000}{\per\centi\metre}\approx\SI{23022}{\kelvin}\).
 
 \subsection{Time Grids and Pulse Timing}
 
@@ -138,9 +138,9 @@ and~\autoref{subsec:results_dimer_waiting_time}.
 \subsection{Basis Indexing}
 
 The basis states defined in~\autoref{sec:model_ensemble} are stored on an
-explicit ordered index set. For a model with \(N_{\mathrm{sites}}\) sites, the
+explicit ordered index set. For a model with \(N\) sites, the
 ordered basis begins with the ground state, continues with the
-\(N_{\mathrm{sites}}\) single-excitation states, and, when included, appends
+\(N\) single-excitation states, and, when included, appends
 the double-excitation states \(\ket{ij}\) with \(i<j\). Thus the numerical
 basis has the same three-band structure as in the model chapter:
 \(\ket{\mathrm{g}}\), \(\{\ket{i}\}\), and \(\{\ket{ij}\}\). Because each site is a
@@ -248,15 +248,16 @@ the explicit equations of motion.
 
 The default initial state is the ground-state density matrix. For
 finite-temperature Redfield calculations, the code can instead initialise the
-Gibbs state of~\autoref{eq:oqs_ho_gibbs_state} in the system eigenbasis,
+system Gibbs state in the system eigenbasis,
 \begin{equation*}
-\rho_{\mathrm{th}}
+\hat{\rho}_{\mathrm{S},\beta}
 =
-\frac{1}{Z}\sum_{a} e^{-E_a/T}\ket{a}\!\bra{a},
+\frac{1}{Z_{\mathrm{S}}}\sum_{a} e^{-\beta E_a}\ket{a}\!\bra{a},
 \qquad
-Z=\sum_a e^{-E_a/T}.
+Z_{\mathrm{S}}=\sum_a e^{-\beta E_a}.
 \end{equation*}
-Here \(E_a\) and \(\ket{a}\) are the system eigenenergies and eigenstates.
+This specialises the generic Gibbs-state form in~\autoref{eq:oqs_gibbs_state_definition}
+to the system eigenbasis. Here \(E_a\) and \(\ket{a}\) are the system eigenenergies and eigenstates.
 
 
 \subsection{Explicit Equations of Motion}
@@ -471,8 +472,9 @@ It was verified that, for the dimer considered here, the
 Bloch--Redfield implementation used by \texttt{brmesolve} yields the same
 field-free generator as \(L_0\) when both are represented in the same
 Liouville-space ordering and the secular approximation is enabled with
-\(c_{\mathrm{sec}} = 10^{-5}\). Here \(c_{\mathrm{sec}}\) is the dimensionless
-secular-cutoff parameter; in \texttt{QuTiP}, this parameter is denoted by
+\(c_{\mathrm{sec}} = 10^{-5}\). Here \(c_{\mathrm{sec}}\) denotes the
+dimensionless secular-cutoff parameter used throughout this appendix; in
+\texttt{QuTiP}, the same parameter is denoted by
 \texttt{sec\_cutoff}. Positive values of \(c_{\mathrm{sec}}\) are interpreted
 through the effective cutoff
 \begin{equation*}
@@ -511,7 +513,7 @@ non-secular superoperator couplings.
 
 Because the Redfield equation can lead to unphysical density matrices, the code first runs a short diagnostic. It uses the maximal configured coherence time \(t_{\mathrm{coh,max}}\) and fixes the pulse phases to \((\phi_1,\phi_2,\phi_3)=(0,0,0)\). One full trajectory is propagated. At every stored time point, the code checks Hermiticity, trace preservation, and positivity. The positivity test uses the threshold
 \begin{equation*}
-\lambda_{\min}(\rho(t)) \ge -10^{-6},
+\lambda_{\min}(\hat{\rho}(t)) \ge -10^{-6},
 \end{equation*}
 where \(\lambda_{\min}\) denotes the smallest eigenvalue of the propagated density matrix. The first time at which one of these checks fails defines a numerical cutoff time \(t_{\mathrm{cut}}\). The emitted field is then multiplied by a mask that sets the signal to zero for \(t_{\mathrm{det}} > t_{\mathrm{cut}}\). This does not guarantee that every possible trajectory remains physical, but it is a useful safeguard.
 Once a configuration has passed at \(t_{\mathrm{coh,max}}\), the resulting \(t_{\mathrm{cut}}\) is stored and reused during the full signal construction. For all generated results, the tests were successful, giving \(t_{\mathrm{cut}}=\infty\).
@@ -520,23 +522,35 @@ The same diagnostic quantifies the effect of secularisation
 (see~\autoref{subsec:oqs_Fourier_and_secular}) in an otherwise fixed Redfield
 simulation.
 
-For two arbitrary density operators \(\rho\) and \(\sigma\), the trace distance is defined as
+For two arbitrary density operators \(\hat{\rho}\) and \(\hat{\sigma}\), the
+trace distance is defined as
 \begin{equation*}
-D_{\mathrm{tr}}(\rho,\sigma)
+D_{\mathrm{tr}}(\hat{\rho},\hat{\sigma})
 =
-\frac{1}{2}\left\|\rho-\sigma\right\|_1,
+\frac{1}{2}\left\|\hat{\rho}-\hat{\sigma}\right\|_1,
 \end{equation*}
 with trace norm
 \begin{equation*}
-\|A\|_1 = \mathrm{Tr}\sqrt{A^{\dagger}A}.
+\|A\|_1 = \mathrm{Tr}\!\left[\sqrt{A^{\dagger}A}\right].
 \end{equation*}
-In \autoref{fig:app_dimer_redfield_sec_cutoff_diagnostic}, the physical parameters match the coupled dimer in~\autoref{subsec:results_dimer_coupled_case}. Only the dissipative treatment is changed: full Bloch--Redfield is compared with secular Bloch--Redfield. The stored output spacing is \(\Delta t=\SI{1}{\femto\second}\). The two trajectories are denoted by \(\rho_{\mathrm{full}}(t)\) and \(\rho_{\mathrm{sec}}(t)\). The pointwise comparison is \(D_{\mathrm{tr}}(\rho_{\mathrm{full}}(t),\rho_{\mathrm{sec}}(t))\), and the trajectory is summarised by
+In \autoref{fig:app_dimer_redfield_sec_cutoff_diagnostic}, the physical
+parameters match the coupled dimer
+in~\autoref{subsec:results_dimer_coupled_case}. Only the dissipative treatment
+is changed: the full Bloch--Redfield case \(c_{\mathrm{sec}}=-1\) is compared
+with the secular case \(c_{\mathrm{sec}}=10^{-5}\). The stored output spacing
+is \(\Delta t=\SI{1}{\femto\second}\). The two trajectories are denoted by
+\(\hat{\rho}_{\mathrm{full}}(t)\) and \(\hat{\rho}_{\mathrm{sec}}(t)\). The
+pointwise comparison is
+\(D_{\mathrm{tr}}(\hat{\rho}_{\mathrm{full}}(t),\hat{\rho}_{\mathrm{sec}}(t))\),
+and the trajectory is summarised by
 \begin{equation*}
-D_{\max} = \max_t D_{\mathrm{tr}}(\rho_{\mathrm{full}}(t),\rho_{\mathrm{sec}}(t)),
+D_{\max}
+=
+\max_t D_{\mathrm{tr}}(\hat{\rho}_{\mathrm{full}}(t),\hat{\rho}_{\mathrm{sec}}(t)),
 \qquad
 D_{\mathrm{mean}} =
 \frac{1}{t_{\mathrm{f}}-t_{\mathrm{i}}}\int_{t_{\mathrm{i}}}^{t_{\mathrm{f}}}
-D_{\mathrm{tr}}(\rho_{\mathrm{full}}(t),\rho_{\mathrm{sec}}(t))\,dt.
+D_{\mathrm{tr}}(\hat{\rho}_{\mathrm{full}}(t),\hat{\rho}_{\mathrm{sec}}(t))\,dt.
 \end{equation*}
 Here \(t_{\mathrm{i}}\) and \(t_{\mathrm{f}}\) are the first and last stored
 solver-local times in the diagnostic trajectory.
@@ -665,7 +679,7 @@ the Hamiltonian and the derived operators are rebuilt.
 Each disorder realisation \(n\) is therefore a full sampled vector,
 \begin{equation*}
 \boldsymbol{\omega}^{(n)}=
-\bigl(\omega_1^{(n)},\omega_2^{(n)},\ldots,\omega_{N_{\mathrm{sites}}}^{(n)}\bigr).
+\bigl(\omega_1^{(n)},\omega_2^{(n)},\ldots,\omega_{N}^{(n)}\bigr).
 \end{equation*}
 The propagation for realisation \(n\) uses only this vector.
 For a dimer, \(\omega_{\mathrm{A}}^{(n)}\) is therefore paired only with

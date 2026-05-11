@@ -17,7 +17,7 @@ upper-manifold population rho_33, i.e.
     [mu_+, rho]_(3,1) = mu_31 (rho_11 - rho_33) + mu_32 rho_21
     [mu_+, rho]_(3,2) = mu_32 (rho_22 - rho_33) + mu_31 rho_12
 
-which are the structures used in a01_numerical_implementation.tex.
+which are the structures used in a04_numerical_implementation.tex.
 """
 
 from __future__ import annotations

@@ -133,7 +133,7 @@ For a single molecule or chromophore, the microscopic induced dipole is given by
 \bigr].
 \label{eq:spctr_P_def_spectroscopy}
 \end{equation}
-Here $\hat{\rho}_{\mathrm{S}}(t)=\mathrm{Tr}_{\mathrm{E}}[\hat{\rho}_{\mathrm{T}}(t)]$ is the reduced density matrix obtained by tracing out the environment from the total state, and it follows the reduced open-system dynamics introduced in~\autoref{chapter:oqs_open_quantum_systems}.
+Here $\hat{\rho}_{\mathrm{S}}(t)$ is the reduced density matrix of the system, as introduced in~\autoref{sec:oqs_setup_system_environment}.
 In practice, dissipative effects like population relaxation and dephasing enter through this reduced evolution, which provides the dynamical input to the matter-side response derivation in~\autoref{app:response_functions}.
 Physically, $\langle\hat{\boldsymbol{\mu}}\rangle(t)$ quantifies the laser-driven redistribution of charge within the molecule.
 The field induces charge displacements, and these microscopic motions are the origin of the polarisation that ultimately acts as a source for the emitted electromagnetic signal.
@@ -211,7 +211,7 @@ P^{(1)}(t)
 with
 \begin{equation}
 R^{(1)}(\tau_1)
-= \mathrm{i}\,\mathrm{Tr}\bigl\{\hat{\mu}\,\mathcal{U}_0(\tau_1)\,\mathcal{V}[\hat{\rho}_{\mathrm{eq}}]\bigr\},
+= \mathrm{i}\,\mathrm{Tr}\bigl[\hat{\mu}\,\mathcal{U}_0(\tau_1)\,\mathcal{V}[\hat{\rho}_{\mathrm{eq}}]\bigr],
 \label{eq:spctr_S1_def_superop_thesis}
 \end{equation}
 where $\mathcal{U}_0(t)$ denotes the field-free Liouville-space propagator and $\mathcal{V}[A] = [\hat{\mu},A]$.
@@ -219,7 +219,7 @@ where $\mathcal{U}_0(t)$ denotes the field-free Liouville-space propagator and $
 Even at first order, \autoref{eq:spctr_S1_def_superop_thesis} contains two Liouville-space pathways.
 Expanding the commutator gives a difference of two time-ordered dipole correlation functions, which motivates defining
 \begin{equation}
-	J_{1}(\tau) \equiv \mathrm{Tr}\bigl\{\hat{\mu}_{\mathrm{I}}(\tau)\,\hat{\mu}_{\mathrm{I}}(0)\,\hat{\rho}_{\mathrm{eq}}\bigr\},
+	J_{1}(\tau) \equiv \mathrm{Tr}\bigl[\hat{\mu}_{\mathrm{I}}(\tau)\,\hat{\mu}_{\mathrm{I}}(0)\,\hat{\rho}_{\mathrm{eq}}\bigr],
 	\label{eq:spctr_J1_definitions}
 \end{equation}
 so that the causal response can be written as
@@ -341,7 +341,7 @@ The central $\chi^{(3)}$ process for this thesis is four-wave mixing (FWM), in w
 The resulting photon-echo and free-induction-decay contributions form the basis of 2D spectroscopy.
 
 \subsubsection{Third-Order Response Function \texorpdfstring{$R^{(3)}$}{R(3)}}
-Inserting $n=3$ into~\autoref{eq:app_Pn_convolution_scalar} and~\autoref{eq:app_Sn_def_scalar} gives
+Starting from the general response expansion derived in~\autoref{app:response_functions}, specifically~\cref{eq:app_Pn_convolution_scalar,eq:app_Sn_def_scalar}, the third-order contribution is
 \begin{equation}
 \label{eq:spctr_P3_convolution_thesis}
 P^{(3)}(t)
@@ -353,7 +353,7 @@ with response function
 \begin{equation}
 \label{eq:spctr_S3_def_thesis}
 R^{(3)}(\tau_3,\tau_2,\tau_1)
-= (\mathrm{i})^3\,\mathrm{Tr}\Bigl\{\hat{\mu}\,\mathcal{U}_0(\tau_3)\,\mathcal{V}\,\mathcal{U}_0(\tau_2)\,\mathcal{V}\,\mathcal{U}_0(\tau_1)\,\mathcal{V}[\hat{\rho}_{\mathrm{eq}}]\Bigr\}.
+= (\mathrm{i})^3\,\mathrm{Tr}\Bigl[\hat{\mu}\,\mathcal{U}_0(\tau_3)\,\mathcal{V}\,\mathcal{U}_0(\tau_2)\,\mathcal{V}\,\mathcal{U}_0(\tau_1)\,\mathcal{V}[\hat{\rho}_{\mathrm{eq}}]\Bigr].
 \end{equation}
 This third-order response contains the multi-time correlations central to the present thesis.
 Reading the operator product in~\autoref{eq:spctr_S3_def_thesis} from right to left corresponds to the causal sequence: start from $\hat{\rho}_{\mathrm{eq}}$, apply a dipole interaction, evolve freely, apply another interaction, and so on, followed by the dipole readout at time $t$.
@@ -376,33 +376,33 @@ Writing the nested commutator~\autoref{eq:spctr_S3_def_thesis} explicitly,
 \begin{equation*}
 	R^{(3)}(\tau_3,\tau_2,\tau_1)
 	=(-i)\,
-	\mathrm{Tr}\Big\{\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,[\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}),[\hat{\mu}_{\mathrm{I}}(\tau_1),[\hat{\mu}_{\mathrm{I}}(0),\hat{\rho}_{\mathrm{eq}}]]]\Big\},
+	\mathrm{Tr}\Big[\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,[\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}),[\hat{\mu}_{\mathrm{I}}(\tau_1),[\hat{\mu}_{\mathrm{I}}(0),\hat{\rho}_{\mathrm{eq}}]]]\Big],
 \end{equation*}
 the nested commutator inside the trace expands into the $2^3=8$ operator products
 \begin{align}
 	\label{eq:spctr_R3_commutator_expansion_R1R4_S4}
-	R^{(3)}(\tau_3,\tau_2,\tau_1) & = (-i)\Big[\mathrm{Tr}\big\{\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2})\,\hat{\mu}_{\mathrm{I}}(\tau_1)\,\hat{\mu}_{\mathrm{I}}(0)\,\hat{\rho}_{\mathrm{eq}}\big\}
+	R^{(3)}(\tau_3,\tau_2,\tau_1) & = (-i)\Big[\mathrm{Tr}\big[\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2})\,\hat{\mu}_{\mathrm{I}}(\tau_1)\,\hat{\mu}_{\mathrm{I}}(0)\,\hat{\rho}_{\mathrm{eq}}\big]
 	\quad\Rightarrow\quad R_4
 	\\
-	                              & -\,\mathrm{Tr}\big\{\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2})\,\hat{\mu}_{\mathrm{I}}(\tau_1)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_{\mathrm{I}}(0)\big\}
+	                              & -\,\mathrm{Tr}\big[\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2})\,\hat{\mu}_{\mathrm{I}}(\tau_1)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_{\mathrm{I}}(0)\big]
 	\quad\Rightarrow\quad R_1^{*}
 	\notag\\
-	                              & -\,\mathrm{Tr}\big\{\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2})\,\hat{\mu}_{\mathrm{I}}(0)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_{\mathrm{I}}(\tau_1)\big\}
+	                              & -\,\mathrm{Tr}\big[\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2})\,\hat{\mu}_{\mathrm{I}}(0)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_{\mathrm{I}}(\tau_1)\big]
 	\quad\Rightarrow\quad R_2^{*}
 	\notag\\
-	                              & +\,\mathrm{Tr}\big\{\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2})\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_{\mathrm{I}}(0)\,\hat{\mu}_{\mathrm{I}}(\tau_1)\big\}
+	                              & +\,\mathrm{Tr}\big[\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2})\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_{\mathrm{I}}(0)\,\hat{\mu}_{\mathrm{I}}(\tau_1)\big]
 	\quad\Rightarrow\quad R_3
 	\notag\\
-	                              & -\,\mathrm{Tr}\big\{\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,\hat{\mu}_{\mathrm{I}}(\tau_1)\,\hat{\mu}_{\mathrm{I}}(0)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2})\big\}
+	                              & -\,\mathrm{Tr}\big[\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,\hat{\mu}_{\mathrm{I}}(\tau_1)\,\hat{\mu}_{\mathrm{I}}(0)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2})\big]
 	\quad\Rightarrow\quad R_3^{*}
 	\notag\\
-	                              & +\,\mathrm{Tr}\big\{\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,\hat{\mu}_{\mathrm{I}}(\tau_1)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_{\mathrm{I}}(0)\,\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2})\big\}
+	                              & +\,\mathrm{Tr}\big[\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,\hat{\mu}_{\mathrm{I}}(\tau_1)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_{\mathrm{I}}(0)\,\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2})\big]
 	\quad\Rightarrow\quad R_2
 	\notag\\
-	                              & +\,\mathrm{Tr}\big\{\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,\hat{\mu}_{\mathrm{I}}(0)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_{\mathrm{I}}(\tau_1)\,\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2})\big\}
+	                              & +\,\mathrm{Tr}\big[\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,\hat{\mu}_{\mathrm{I}}(0)\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_{\mathrm{I}}(\tau_1)\,\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2})\big]
 	\quad\Rightarrow\quad R_1
 	\notag\\
-	                              & -\,\mathrm{Tr}\big\{\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_{\mathrm{I}}(0)\,\hat{\mu}_{\mathrm{I}}(\tau_1)\,\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2})\big\}
+	                              & -\,\mathrm{Tr}\big[\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2}+\tau_{3})\,\hat{\rho}_{\mathrm{eq}}\,\hat{\mu}_{\mathrm{I}}(0)\,\hat{\mu}_{\mathrm{I}}(\tau_1)\,\hat{\mu}_{\mathrm{I}}(\tau_{1}+\tau_{2})\big]
 	\quad\Rightarrow\quad R_4^{*}\Big].
 	\label{eq:spctr_R3_commutator_expansion_R1R4_S4star}
 \end{align}
@@ -425,6 +425,7 @@ The four pathway classes from~\autoref{eq:spctr_S3_commutator_expansion_R1R4_S1_
 	The complex-conjugate pathways $R_\alpha^{*}$ are obtained by exchanging ket and bra actions as in~\autoref{fig:spctr_linear_response_diagrams}.}
 	\label{fig:spctr_dsfd_R1_R4}
 \end{figure}
+
 For interpretation, the eight third-order pathways may be grouped into physical classes according to the density-matrix state during the waiting time $\tau_2$. %\cite{mukamel1995principlesnonlinearoptical, cho2009twodimensionalopticalspectroscopy}
 If the system remains in the ground-state population $\ket{\mathrm{g}}\!\bra{\mathrm{g}}$ throughout $\tau_2$, the contribution is termed \textbf{ground-state bleach (GSB)}: depletion of $\ket{\mathrm{g}}$ reduces the probability for subsequent ground-state absorption, and the third interaction therefore probes a diminished linear response.
 If, instead, the system occupies the excited-state population $\ket{\mathrm{e}}\!\bra{\mathrm{e}}$ during $\tau_2$, the contribution is \textbf{stimulated emission (SE)}: the third interaction induces emission back to $\ket{\mathrm{g}}$ and the resulting polarisation radiates coherently into the signal direction.
@@ -440,9 +441,7 @@ Reading off the coherence Green function (cf.~\autoref{sec:spctr_two_level_third
 \end{align}
 Populations during the second period $\tau_2$ carry no rapid oscillation.
 
-For the two-level system, the third-order response $R^{(3)}$ thus contains contributions from GSB and SE only.
-
-The extension from this pedagogical two-level limit to the multilevel manifold picture used in simulations (\,$\ket{\mathrm{g}}$, $\{\ket{n}\}$, $\{\ket{f}\}$\,) is introduced in the model chapter (see~\autoref{chapter:model_systems}). There, an additional excited state absorption channel is defined.
+For the two-level system, the third-order response $R^{(3)}$ thus contains contributions from GSB and SE only. The extension from this pedagogical two-level limit to the multilevel manifold picture used in simulations (\,$\ket{\mathrm{g}}$, $\{\ket{n}\}$, $\{\ket{f}\}$\,) is introduced in the model chapter (see~\autoref{chapter:model_systems}). There, an additional excited state absorption channel is defined.
 
 In practice, $R^{(3)}$ is computed by summing the available pathways---contributions automatically generated by the Liouvillian propagator.
 Having established the third-order response function $R^{(3)}(\tau_3,\tau_2,\tau_1)$ in~\autoref{sec:spctr_third_order_response} as the material kernel encoding the microscopic dynamics, the experimental realisation is now specified: a sequence of three controllable laser pulses.
@@ -515,9 +514,7 @@ This is the \emph{phase-matching condition}.
 The signs track whether the interaction involves $\boldsymbol{E}^{(+)}$ or $\boldsymbol{E}^{(-)}$ (see~\autoref{eq:spctr_E_plusminus}).
 Equivalently, in Liouville space they track whether the interaction acts on the ket or bra branch of the density matrix: absorption-like interactions contribute $+\boldsymbol{k}_j$, while emission-like/complex-conjugate interactions contribute $-\boldsymbol{k}_j$.
 
-Different sign choices correspond to different phase-matched signal directions and hence to different subsets of Liouville-space pathways. In a noncollinear geometry, these directions can be spatially separated.
-
-Here, three pulses impinge on the sample from three corners of a square and meet at a point inside the sample. When viewed from above (so the four corners lie in the plane of the page and the three incoming $\boldsymbol{k}_j$ point into the sample perpendicular to the page), the projections of the wavevectors form a square. 
+Different sign choices correspond to different phase-matched signal directions and hence to different subsets of Liouville-space pathways. In a noncollinear geometry, these directions can be spatially separated. Here, three pulses impinge on the sample from three corners of a square and meet at a point inside the sample. When viewed from above (so the four corners lie in the plane of the page and the three incoming $\boldsymbol{k}_j$ point into the sample perpendicular to the page), the projections of the wavevectors form a square. 
 
 Drawing the three wavevectors as pointing outward from the interaction point, the fourth (bottom-right) vertex defines the phase-matched signal direction $\boldsymbol{k}_{\mathrm{S}}$. The experimental geometry is shown in~\autoref{fig:spctr_fwm_box_car_setup}.
 
@@ -558,7 +555,7 @@ For perfectly ordered interactions, pulses 1 and 3 determine whether the coheren
 Opposite signs produce the rephasing contribution, whereas equal signs produce the nonrephasing contribution.
 
 For the rephasing signal, the sign reversal acts like a photon echo and refocuses static disorder in an inhomogeneously broadened ensemble~\cite{jonas2003twodimensionalfemtosecondspectroscopy, cho2009twodimensionalopticalspectroscopy, freschetal2023twodimensionalelectronicspectroscopy}.
-The nonrephasing signal does not refocus static disorder. However it gives a free-induction--decay response and is therefore directly sensitive to homogeneous linewidths~\cite{jonas2003twodimensionalfemtosecondspectroscopy}.
+The nonrephasing signal does not refocus static disorder. However, it gives a free-induction--decay response and is therefore directly sensitive to homogeneous linewidths~\cite{jonas2003twodimensionalfemtosecondspectroscopy}.
 
 In the two-level example, one finds from~\autoref{eq:spctr_pathway_phase_functions} that $R_2$ and $R_3$ carry $\exp[-\mathrm{i}\omega_{\mathrm{eg}}(\tau_3-\tau_1)]$ (rephasing), whereas $R_1$ and $R_4$ carry $\exp[-\mathrm{i}\omega_{\mathrm{eg}}(\tau_3+\tau_1)]$ (nonrephasing).
 

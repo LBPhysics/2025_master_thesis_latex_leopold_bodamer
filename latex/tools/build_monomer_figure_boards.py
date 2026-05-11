@@ -58,7 +58,7 @@ class FigureSpec:
 
 FIGURE_SPECS: tuple[FigureSpec, ...] = (
     FigureSpec(
-        basename="results_monomer_1d_time_hom_inhom",
+        basename="rslts_monomer_1d_time_hom_inhom",
         panels=(
             (
                 "monomer_essential_results/08_114400_monomer_fig2_homogeneous_lindblad/time_all_signals_real_imag_abs_monomer_fig2_homogeneous_lindblad.svg",
@@ -67,7 +67,7 @@ FIGURE_SPECS: tuple[FigureSpec, ...] = (
         ),
     ),
     FigureSpec(
-        basename="results_monomer_1d_freq_hom_inhom",
+        basename="rslts_monomer_1d_freq_hom_inhom",
         panels=(
             (
                 "monomer_essential_results/08_114400_monomer_fig2_homogeneous_lindblad/freq_all_signals_real_imag_abs_monomer_fig2_homogeneous_lindblad.svg",
@@ -76,7 +76,7 @@ FIGURE_SPECS: tuple[FigureSpec, ...] = (
         ),
     ),
     FigureSpec(
-        basename="results_monomer_2d_time_hom_inhom",
+        basename="rslts_monomer_2d_time_hom_inhom",
         panels=(
             (
                 "monomer_essential_results/07_172218_monomer_fig3_T000_lindblad/time_all_signals_real_imag_abs_monomer_fig3_T000_lindblad.svg",
@@ -98,7 +98,7 @@ FIGURE_SPECS: tuple[FigureSpec, ...] = (
         row_headers=("T = 0 fs", "T = 20 fs", "T = 40 fs"),
     ),
     FigureSpec(
-        basename="results_monomer_2d_freq_hom_inhom",
+        basename="rslts_monomer_2d_freq_hom_inhom",
         panels=(
             (
                 "monomer_essential_results/07_172218_monomer_fig3_T000_lindblad/freq_all_signals_real_imag_abs_monomer_fig3_T000_lindblad_02.svg",
@@ -121,7 +121,7 @@ FIGURE_SPECS: tuple[FigureSpec, ...] = (
         extra_side_padding=50.0,
     ),
     FigureSpec(
-        basename="results_monomer_redfield_examples",
+        basename="rslts_monomer_redfield_examples",
         panels=(
             (
                 "monomer_essential_results/08_114410_monomer_fig2_homogeneous_redfield_no_rwa_thermal/time_all_signals_real_imag_abs_monomer_fig2_homogeneous_redfield_no_rwa_thermal.svg",
@@ -191,8 +191,8 @@ FIGURE_SPECS: tuple[FigureSpec, ...] = (
         basename="app_monomer_legacy_fig4_t0_freq",
         panels=(
             (
-                "monomer_essential_results/01_181835_monomer_fig4_T000_lindblad/freq_all_signals_real_imag_abs_monomer_fig4_T000_lindblad_02.svg",
-                "monomer_essential_results/01_184018_monomer_fig4_T000_lindblad/freq_all_signals_real_imag_abs_monomer_fig4_T000_lindblad_02.svg",
+                "monomer_essential_results/01_181835_monomer_fig4_T000_lindblad/freq_all_signals_real_imag_monomer_fig4_T000_lindblad.svg",
+                "monomer_essential_results/01_184018_monomer_fig4_T000_lindblad/freq_all_signals_real_imag_monomer_fig4_T000_lindblad.svg",
             ),
         ),
         top_lines=(
@@ -227,13 +227,13 @@ FIGURE_SPECS: tuple[FigureSpec, ...] = (
         basename="app_monomer_legacy_redfield",
         panels=(
             (
-                "monomer_essential_results/03_175155_monomer_fig4_T000_redfield_no_rwa_thermal/time_all_signals_real_imag_abs_monomer_fig4_T000_redfield_no_rwa_thermal.svg",
+                "monomer_essential_results/03_175155_monomer_fig4_T000_redfield_no_rwa_thermal/time_all_signals_real_imag_abs_monomer_fig4_T000_redfield_no_rwa_thermal_01.svg",
                 "monomer_essential_results/03_175155_monomer_fig4_T000_redfield_no_rwa_thermal/freq_all_signals_real_imag_abs_monomer_fig4_T000_redfield_no_rwa_thermal_02.svg",
             ),
         ),
     ),
     FigureSpec(
-        basename="results_dimer_2d_time_un_coupled",
+        basename="rslts_dimer_2d_time_un_coupled",
         panels=(
             (
                 "dimer_essential_results/19_222916_dimer_fig3a_uncoupled_paper_eqs/figures/time_all_signals_real_imag_abs_dimer_fig3a_uncoupled_paper_eqs.svg",
@@ -253,7 +253,7 @@ FIGURE_SPECS: tuple[FigureSpec, ...] = (
         ),
     ),
     FigureSpec(
-        basename="results_dimer_2d_freq_un_coupled",
+        basename="rslts_dimer_2d_freq_un_coupled",
         panels=(
             (
                 "dimer_essential_results/19_222916_dimer_fig3a_uncoupled_paper_eqs/figures/freq_all_signals_real_imag_abs_dimer_fig3a_uncoupled_paper_eqs.svg",
@@ -273,7 +273,7 @@ FIGURE_SPECS: tuple[FigureSpec, ...] = (
         ),
     ),
     FigureSpec(
-        basename="results_extension_ring_time_overview",
+        basename="rslts_extension_ring_time_overview",
         panels=(
             (
                 "extension_results/17_224701_trimer_ring_single/figures/time_all_signals_real_imag_abs_trimer_ring_single.svg",
@@ -297,7 +297,7 @@ FIGURE_SPECS: tuple[FigureSpec, ...] = (
         ),
     ),
     FigureSpec(
-        basename="results_extension_ring_freq_overview",
+        basename="rslts_extension_ring_freq_overview",
         panels=(
             (
                 "extension_results/17_224701_trimer_ring_single/figures/freq_all_signals_real_imag_abs_trimer_ring_single.svg",

@@ -82,3 +82,12 @@ tmp/plot_datas_refresh/**/*.stderr.txt
 tmp/dimer_config_audit/
 
 tmp/
+tmp_figcheck/
+tmp_figcheck_pdfverify/
+tmp_figcheck_svg/
+tmp_pdf_review/
+latex/tools/__pycache__/
+latex/figures/svgs/extension_secular_comparison/
+latex/figures/svgs/monomer_essential_results/**/freq_all_signals_real_imag_monomer_fig4_T000_lindblad.png
+latex/figures/svgs/monomer_essential_results/**/freq_all_signals_real_imag_abs_monomer_fig4_T000_redfield_no_rwa_thermal_0*.png
+latex/figures/svgs/monomer_essential_results/**/time_all_signals_real_imag_abs_monomer_fig4_T000_redfield_no_rwa_thermal_0*.png

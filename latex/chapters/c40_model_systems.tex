@@ -12,25 +12,25 @@ For the monomer and dimer, the parameter sets introduced below are chosen to
 match benchmark cases studied
 in~\cite{mancaletal2006twodimensionalopticalthreepulse,pisliakovetal2006twodimensionalopticalthreepulse}.
 
-The chapter first introduces a general \(N_{\mathrm{sites}}\)-site model. The
-monomer and dimer are then obtained as the \(N_{\mathrm{sites}}=1\) and
-\(N_{\mathrm{sites}}=2\) limits.
+The chapter first introduces a general model with \(N\) sites. The
+monomer and dimer are then obtained as the \(N=1\) and
+\(N=2\) limits.
 
 \section{General N-Site Model}
 \label{sec:model_ensemble}
 
-In the general case, we consider a system of \(N_{\mathrm{sites}}\) coupled sites. Each site is
+In the general case, we consider a system of \(N\) coupled sites. Each site is
 locally truncated to a two-level system, so every site can be either in its
 ground state or singly excited.
 
 \subsection{Hilbert Space}
 
-For \(N_{\mathrm{sites}}>1\), the Hilbert space is further truncated at the double-excitation
+For \(N>1\), the Hilbert space is further truncated at the double-excitation
 manifold. The resulting basis therefore has three bands:
 \begin{itemize}
 \item the ground state \(\ket{\mathrm{g}}\),
-\item the single-excitation states \(\ket{n}\) with \(n\in\{1,\dots,N_{\mathrm{sites}}\}\),
-\item the double-excitation states \(\ket{mn}\) with \(1\le m<n\le N_{\mathrm{sites}}\).
+\item the single-excitation states \(\ket{n}\) with \(n\in\{1,\dots,N\}\),
+\item the double-excitation states \(\ket{mn}\) with \(1\le m<n\le N\).
 \end{itemize}
 Here \(\ket{n}\) means that only site \(n\) is excited, while \(\ket{mn}\)
 means that sites \(m\) and \(n\) are excited. Since each site is itself only a
@@ -40,16 +40,16 @@ different sites.
 
 If only the one-excitation manifold is modelled, the basis is
 \begin{equation*}
-\mathcal{B}_{1\mathrm{ex}} = \left\{ \ket{\mathrm{g}}, \ket{1}, \ldots, \ket{N_{\mathrm{sites}}} \right\},
+\mathcal{B}_{1\mathrm{ex}} = \left\{ \ket{\mathrm{g}}, \ket{1}, \ldots, \ket{N} \right\},
 \end{equation*}
-so that the Hilbert-space dimension is \(1+N_{\mathrm{sites}}\). If the two-excitation manifold
+so that the Hilbert-space dimension is \(1+N\). If the two-excitation manifold
 is used as well, the basis is enlarged to
 \begin{equation*}
-\mathcal{B}_{2\mathrm{ex}} = \left\{ \ket{\mathrm{g}}, \ket{1}, \ldots, \ket{N_{\mathrm{sites}}}, \ket{12}, \ket{13}, \ldots, \ket{N_{\mathrm{sites}}-1~N_{\mathrm{sites}}} \right\},
+\mathcal{B}_{2\mathrm{ex}} = \left\{ \ket{\mathrm{g}}, \ket{1}, \ldots, \ket{N}, \ket{12}, \ket{13}, \ldots, \ket{N-1~N} \right\},
 \end{equation*}
 and the Hilbert-space dimension becomes
 \begin{equation*}
-\dim \mathcal{H} = 1 + N_{\mathrm{sites}} + \binom{N_{\mathrm{sites}}}{2}.
+\dim \mathcal{H} = 1 + N + \binom{N}{2}.
 \end{equation*}
 
 
@@ -57,13 +57,13 @@ and the Hilbert-space dimension becomes
 
 In this truncated basis, a generic Frenkel-exciton Hamiltonian reads
 \begin{equation*}
-\hat{H}_{0}^{(N_{\mathrm{sites}})}
+\hat{H}_{0}^{(N)}
 =
-\sum_{n=1}^{N_{\mathrm{sites}}}\omega_{n}\,\ket{n}\!\bra{n}
+\sum_{n=1}^{N}\omega_{n}\,\ket{n}\!\bra{n}
 +
-\sum_{m<n}^{N_{\mathrm{sites}}}J_{mn}\,\bigl(\ket{m}\!\bra{n}+\ket{n}\!\bra{m}\bigr)
+\sum_{m<n}^{N}J_{mn}\,\bigl(\ket{m}\!\bra{n}+\ket{n}\!\bra{m}\bigr)
 +
-\sum_{m<n}^{N_{\mathrm{sites}}}(\omega_{m}+\omega_{n})\,\ket{mn}\!\bra{mn}.
+\sum_{m<n}^{N}(\omega_{m}+\omega_{n})\,\ket{mn}\!\bra{mn}.
 \end{equation*}
 Thus, the diagonal terms contain the site energies and double-excitation
 energies, while the off-diagonal terms describe coherent couplings within the
@@ -91,16 +91,16 @@ with site positions \(\boldsymbol{r}_{n}\) and displacements
 
 The dipole operator connects only adjacent manifolds,
 \begin{equation*}
-\hat{\mu}^{(N_{\mathrm{sites}})}
+\hat{\mu}^{(N)}
 =
-\sum_{n=1}^{N_{\mathrm{sites}}}
+\sum_{n=1}^{N}
 \Bigl(
 \mu_{\mathrm{g}n}\,\ket{\mathrm{g}}\!\bra{n}
 +
 \mu_{n\mathrm{g}}\,\ket{n}\!\bra{\mathrm{g}}
 \Bigr)
 +
-\sum_{m<n}^{N_{\mathrm{sites}}}\sum_{\ell\in\{m,n\}}
+\sum_{m<n}^{N}\sum_{\ell\in\{m,n\}}
 \Bigl(
 \mu_{\ell,mn}\,\ket{\ell}\!\bra{mn}
 +
@@ -122,7 +122,7 @@ act locally on the site \(i\) as
 \ket{i}\!\bra{i}
 +
 \sum_{\substack{m<n\\ i\in\{m,n\}}}\ket{mn}\!\bra{mn},
-\qquad i\in\{1,\dots,N_{\mathrm{sites}}\}\,,
+\qquad i\in\{1,\dots,N\}\,,
 \end{equation*}
 where the second term is only present when the double-excitation manifold is
 retained. Thus the bath associated with site \(i\) acts not only on the
@@ -132,12 +132,12 @@ that contains site \(i\).
 \subsection{Static Disorder}
 
 Whenever inhomogeneous broadening is included, the relevant electronic energies
-are sampled over a static-disorder ensemble before the signal is averaged. In the general \(N_{\mathrm{sites}}\)-site model these fluctuating quantities are the site energies \(\omega_n\). A macroscopic motivation for this construction was given in~\autoref{spctr:sec:macroscopic_polarisation}.
+are sampled over a static-disorder ensemble before the signal is averaged. In the general model with \(N\) sites, these fluctuating quantities are the site energies \(\omega_n\). A macroscopic motivation for this construction was given in~\autoref{spctr:sec:macroscopic_polarisation}.
 The site environments are modelled to be completely uncorrelated, and their
 numerical implementation is documented
 in~\autoref{app:sec:inhomogeneous_broadening}.
 
-\section{Monomer as the \texorpdfstring{$N_{\mathrm{sites}}=1$}{Nsites=1} Limit}
+\section{Monomer as the \texorpdfstring{$N=1$}{N=1} Limit}
 \label{sec:model_tls}
 
 The monomer serves as the minimal benchmark system. It contains only one
@@ -147,7 +147,7 @@ pathways are introduced.
 
 \subsection{Hamiltonian and Dipole Operator}
 
-For \(N_{\mathrm{sites}}=1\), the field-free Hamiltonian and optical dipole operator reduce to
+For \(N=1\), the field-free Hamiltonian and optical dipole operator reduce to
 the two-level expressions already introduced
 in~\cref{eq:spctr_tls_hamiltonian,eq:spctr_tls_dipole}. For completeness, they
 are repeated here:
@@ -163,8 +163,9 @@ and
 \end{equation*}
 
 \subsection{Phenomenological Lindblad Bath}
+\label{subsec:model_tls_lindblad}
 
-For the monomer calibration benchmark, the open-system treatment is kept
+For the monomer benchmark, the open-system treatment is kept
 phenomenological. In the notation of the general model,
 the local excitation projector reduces to
 \begin{equation*}
@@ -186,7 +187,7 @@ zero-temperature limit \(\gamma_{\uparrow}=0\) is chosen. The corresponding
 monomer equations of motion are given in~\autoref{app:sec:paper_eqs_explicit_eoms}, see in particular
 ~\cref{eq:app_monomer_eom_sigma_eg,eq:app_monomer_eom_rho_gg}.
 
-\section{Dimer as the \texorpdfstring{$N_{\mathrm{sites}}=2$}{Nsites=2} Realisation}
+\section{Dimer as the \texorpdfstring{$N=2$}{N=2} Realisation}
 \label{sec:model_dimer}
 
 The dimer has two optically active sites and is the smallest coupled system
@@ -259,7 +260,7 @@ absorption into the doubly excited state becomes possible.
 \subsection{Microscopic Bath Coupling}
 \label{sec:model_dimer_transfer_model}
 
-For \(N_{\mathrm{sites}}=2\), the site-local coupling operators reduce to
+For \(N=2\), the site-local coupling operators reduce to
 \begin{equation*}
 \hat{S}_{\mathrm{A}} = \ket{\mathrm{A}}\!\bra{\mathrm{A}} + \ket{\mathrm{AB}}\!\bra{\mathrm{AB}},
 \qquad

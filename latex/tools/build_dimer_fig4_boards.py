@@ -490,7 +490,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--prefix",
-        default="results_dimer_fig4_paper_eqs_waiting_time",
+        default="rslts_dimer_fig4_paper_eqs_waiting_time",
         help="Output filename prefix",
     )
     parser.add_argument(

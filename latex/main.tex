@@ -85,7 +85,7 @@ toctotoc, 		      % add table of contents to the table of contents
 %	THESIS INFORMATION
 %-------------------------------------------------------------------------------
 
-\thesistitle{2D Electron Spectroscopy in Hot Environments: A Redfield Master Equation Approach}
+\thesistitle{2D Electronic Spectroscopy in Hot Environments: A Redfield Master Equation Approach}
 \supervisor{\href{https://ic1.ugr.es/members/dmanzano/home/}{Prof. Dr. Daniel \textsc{Manzano Diosdado}}}
 \examiner{\href{https://sites.google.com/site/beatrizolmosphysics/}{Prof. Dr. Beatriz \textsc{Olmos Sanchez}}}
 \degree{Master of Science}
@@ -111,7 +111,7 @@ toctotoc, 		      % add table of contents to the table of contents
 
 % Local draft helper for LaTeX Workshop:
 % Uncomment exactly one \includeonly line while drafting, then comment it out again for full-thesis builds.
-%\includeonly{chapters/c50_results, appendices/a06_supplementary_comparison_figures}
+%\includeonly{chapters/c50_results, appendices/a05_supplementary_comparison_figures}
 
 \begin{document}
 
@@ -126,10 +126,8 @@ toctotoc, 		      % add table of contents to the table of contents
 %	ABSTRACT PAGE
 %-------------------------------------------------------------------------------
 \begin{abstract}
-	\addchaptertocentry{\abstractname}
-  \iffalse
-	This thesis investigates the application of two-dimensional photon-echo spectroscopy to model quantum systems, with a focus on open quantum system dynamics. A comprehensive theoretical framework is developed that combines the response-function formalism of nonlinear spectroscopy in a non-perturbative setting with master-equation approaches for open quantum systems. Starting from minimal reference models, including a single monomer and dimer system formed by two coupled monomers, the methods are validated and the approach is applied to a composite system of $N_\mathrm{sites}$ sites on arbitrary geometry. The results demonstrate the capability of two-dimensional spectroscopy to probe coherence and energy-transfer dynamics in these systems, providing insights into their quantum behavior and interactions with the environment. This work lays the groundwork for future experimental and theoretical studies in the field of quantum biology and quantum information science.
-  \fi
+\addchaptertocentry{\abstractname}
+This thesis develops a computational workflow for simulating two-dimensional electronic spectra of open quantum systems in the time and frequency domains. In the main calculations, the reduced dynamics is propagated with a Redfield master equation in the weak-coupling regime within the secular approximation, while the monomer benchmark uses a phenomenological Lindblad model. The formulation is more general and also allows non-secular Redfield dynamics. The nonlinear signal is obtained from explicit three-pulse propagation, phase cycling, and Fourier transformation into rephasing, nonrephasing, and absorptive spectra. In the Redfield simulations, the environment is modelled as an Ohmic bath with an exponential cutoff, and the chosen parameters generate dephasing and relaxation timescales of order \(\SIrange{100}{300}{\femto\second}\). The workflow is applied to a monomer, a dimer with a single doubly excited state, and selected ring aggregates with up to \(13\) localised sites. More generally, it is formulated for multilevel excitonic systems with ground-, single-, and double-excitation manifolds, and it can propagate the optical response either with the explicit time-dependent field or, where appropriate, within the rotating-wave approximation. For the monomer benchmark, the simulated spectra reproduce the standard contrast between homogeneous broadening and static inhomogeneity: the photon echo appears only in the rephasing branch, and the corresponding two-dimensional peak is elongated along the diagonal. For the dimer, the spectra show coupling-induced cross peaks, damped waiting-time beats on femtosecond timescales, and slower late-time intensity redistribution consistent with dissipative population transfer.
 \end{abstract}
 %-------------------------------------------------------------------------------
 %	CONTENTS
@@ -157,11 +155,12 @@ toctotoc, 		      % add table of contents to the table of contents
 \appendix
 
 %\include{appendices/_template_appendix} % corrected appendix path
-\include{appendices/a01_numerical_implementation}
-\include{appendices/a03_response_function_derivation}
+\include{appendices/a01_response_function_derivation}
 \include{appendices/a02_2dfts_maxwell_derivation}
-\include{appendices/a05_phase_kick_intuition}
-\include{appendices/a06_supplementary_comparison_figures}
+\include{appendices/a03_phase_kick_intuition}
+\include{appendices/a04_numerical_implementation}
+\include{appendices/a05_supplementary_comparison_figures}
+%\include{appendices/a07_extension_secular_comparison}
 
 %-------------------------------------------------------------------------------
 %	BIBLIOGRAPHY

@@ -279,7 +279,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--prefix",
-        default="results_dimer_fig6_paper_eqs_homogeneous",
+        default="rslts_dimer_fig6_paper_eqs_homogeneous",
         help="Output filename prefix",
     )
     return parser.parse_args()
